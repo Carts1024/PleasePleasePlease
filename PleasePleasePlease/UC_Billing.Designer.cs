@@ -36,7 +36,6 @@
             panelAddaGuest = new Panel();
             labelTableGuestInvoice = new Label();
             panelBaseTable = new Panel();
-            userBindingSource1 = new BindingSource(components);
             panelFilters = new Panel();
             comboBoxFilterPaymentStatus = new ComboBox();
             panelSearch = new Panel();
@@ -51,14 +50,15 @@
             ColumnDueDate = new DataGridViewTextBoxColumn();
             ColumnPaymentStatus = new DataGridViewComboBoxColumn();
             ColumnPaymentMethod = new DataGridViewComboBoxColumn();
+            userBindingSource1 = new BindingSource(components);
             userBindingSource = new BindingSource(components);
             panel3.SuspendLayout();
             panelAddaGuest.SuspendLayout();
             panelBaseTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)userBindingSource1).BeginInit();
             panelFilters.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInvoice).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -71,8 +71,9 @@
             panel3.Controls.Add(panelBaseTable);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 0);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1076, 749);
+            panel3.Size = new Size(1230, 999);
             panel3.TabIndex = 20;
             // 
             // buttonGenerateInvoice
@@ -82,9 +83,10 @@
             buttonGenerateInvoice.FlatStyle = FlatStyle.Flat;
             buttonGenerateInvoice.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonGenerateInvoice.ForeColor = Color.White;
-            buttonGenerateInvoice.Location = new Point(794, 18);
+            buttonGenerateInvoice.Location = new Point(890, 57);
+            buttonGenerateInvoice.Margin = new Padding(3, 4, 3, 4);
             buttonGenerateInvoice.Name = "buttonGenerateInvoice";
-            buttonGenerateInvoice.Size = new Size(186, 49);
+            buttonGenerateInvoice.Size = new Size(230, 65);
             buttonGenerateInvoice.TabIndex = 18;
             buttonGenerateInvoice.Text = "Generate Invoice";
             buttonGenerateInvoice.UseVisualStyleBackColor = false;
@@ -95,9 +97,9 @@
             labelGuestInvoice.AutoSize = true;
             labelGuestInvoice.BackColor = Color.Transparent;
             labelGuestInvoice.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelGuestInvoice.Location = new Point(51, 15);
+            labelGuestInvoice.Location = new Point(58, 20);
             labelGuestInvoice.Name = "labelGuestInvoice";
-            labelGuestInvoice.Size = new Size(242, 39);
+            labelGuestInvoice.Size = new Size(301, 52);
             labelGuestInvoice.TabIndex = 16;
             labelGuestInvoice.Text = "Guest Invoice";
             // 
@@ -105,18 +107,19 @@
             // 
             panelAddaGuest.BackColor = Color.FromArgb(76, 149, 108);
             panelAddaGuest.Controls.Add(labelTableGuestInvoice);
-            panelAddaGuest.Location = new Point(53, 74);
+            panelAddaGuest.Location = new Point(61, 99);
+            panelAddaGuest.Margin = new Padding(3, 4, 3, 4);
             panelAddaGuest.Name = "panelAddaGuest";
-            panelAddaGuest.Size = new Size(153, 32);
+            panelAddaGuest.Size = new Size(175, 43);
             panelAddaGuest.TabIndex = 17;
             // 
             // labelTableGuestInvoice
             // 
             labelTableGuestInvoice.AutoSize = true;
             labelTableGuestInvoice.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelTableGuestInvoice.Location = new Point(12, 5);
+            labelTableGuestInvoice.Location = new Point(14, 7);
             labelTableGuestInvoice.Name = "labelTableGuestInvoice";
-            labelTableGuestInvoice.Size = new Size(137, 24);
+            labelTableGuestInvoice.Size = new Size(171, 29);
             labelTableGuestInvoice.TabIndex = 9;
             labelTableGuestInvoice.Text = "Guest Invoice";
             // 
@@ -127,21 +130,19 @@
             panelBaseTable.Controls.Add(panelFilters);
             panelBaseTable.Controls.Add(panelSearch);
             panelBaseTable.Controls.Add(dataGridViewInvoice);
-            panelBaseTable.Location = new Point(53, 105);
+            panelBaseTable.Location = new Point(61, 140);
+            panelBaseTable.Margin = new Padding(3, 4, 3, 4);
             panelBaseTable.Name = "panelBaseTable";
-            panelBaseTable.Size = new Size(927, 577);
+            panelBaseTable.Size = new Size(1059, 769);
             panelBaseTable.TabIndex = 14;
-            // 
-            // userBindingSource1
-            // 
-            userBindingSource1.DataSource = typeof(Mirai_Paradise_Hotel.User);
             // 
             // panelFilters
             // 
             panelFilters.Controls.Add(comboBoxFilterPaymentStatus);
-            panelFilters.Location = new Point(111, 78);
+            panelFilters.Location = new Point(127, 104);
+            panelFilters.Margin = new Padding(3, 4, 3, 4);
             panelFilters.Name = "panelFilters";
-            panelFilters.Size = new Size(742, 50);
+            panelFilters.Size = new Size(848, 67);
             panelFilters.TabIndex = 20;
             panelFilters.Visible = false;
             // 
@@ -149,9 +150,10 @@
             // 
             comboBoxFilterPaymentStatus.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxFilterPaymentStatus.FormattingEnabled = true;
-            comboBoxFilterPaymentStatus.Location = new Point(13, 10);
+            comboBoxFilterPaymentStatus.Location = new Point(15, 13);
+            comboBoxFilterPaymentStatus.Margin = new Padding(3, 4, 3, 4);
             comboBoxFilterPaymentStatus.Name = "comboBoxFilterPaymentStatus";
-            comboBoxFilterPaymentStatus.Size = new Size(132, 28);
+            comboBoxFilterPaymentStatus.Size = new Size(150, 33);
             comboBoxFilterPaymentStatus.TabIndex = 9;
             comboBoxFilterPaymentStatus.Text = "Payment Status";
             // 
@@ -160,9 +162,10 @@
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonSearchIcon);
             panelSearch.Controls.Add(textBoxAddressSearch);
-            panelSearch.Location = new Point(191, 19);
+            panelSearch.Location = new Point(218, 25);
+            panelSearch.Margin = new Padding(3, 4, 3, 4);
             panelSearch.Name = "panelSearch";
-            panelSearch.Size = new Size(624, 53);
+            panelSearch.Size = new Size(713, 71);
             panelSearch.TabIndex = 19;
             // 
             // buttonMore
@@ -170,9 +173,10 @@
             buttonMore.BackgroundImage = (Image)resources.GetObject("buttonMore.BackgroundImage");
             buttonMore.BackgroundImageLayout = ImageLayout.Zoom;
             buttonMore.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonMore.Location = new Point(569, 12);
+            buttonMore.Location = new Point(650, 16);
+            buttonMore.Margin = new Padding(3, 4, 3, 4);
             buttonMore.Name = "buttonMore";
-            buttonMore.Size = new Size(28, 27);
+            buttonMore.Size = new Size(32, 36);
             buttonMore.TabIndex = 4;
             buttonMore.UseVisualStyleBackColor = true;
             buttonMore.Click += buttonMore_Click;
@@ -182,9 +186,10 @@
             buttonSearchIcon.BackgroundImage = (Image)resources.GetObject("buttonSearchIcon.BackgroundImage");
             buttonSearchIcon.BackgroundImageLayout = ImageLayout.Zoom;
             buttonSearchIcon.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSearchIcon.Location = new Point(535, 12);
+            buttonSearchIcon.Location = new Point(611, 16);
+            buttonSearchIcon.Margin = new Padding(3, 4, 3, 4);
             buttonSearchIcon.Name = "buttonSearchIcon";
-            buttonSearchIcon.Size = new Size(28, 27);
+            buttonSearchIcon.Size = new Size(32, 36);
             buttonSearchIcon.TabIndex = 3;
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
@@ -194,9 +199,10 @@
             textBoxAddressSearch.Enabled = false;
             textBoxAddressSearch.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(1, 12);
+            textBoxAddressSearch.Location = new Point(1, 16);
+            textBoxAddressSearch.Margin = new Padding(3, 4, 3, 4);
             textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.Size = new Size(508, 26);
+            textBoxAddressSearch.Size = new Size(580, 30);
             textBoxAddressSearch.TabIndex = 2;
             textBoxAddressSearch.Text = "Search";
             textBoxAddressSearch.WordWrap = false;
@@ -205,14 +211,17 @@
             // 
             dataGridViewInvoice.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewInvoice.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestID, ColumnBookingID, ColumnInvoiceNumber, ColumnIssueDate, ColumnDueDate, ColumnPaymentStatus, ColumnPaymentMethod });
-            dataGridViewInvoice.Location = new Point(69, 134);
+            dataGridViewInvoice.Location = new Point(79, 179);
+            dataGridViewInvoice.Margin = new Padding(3, 4, 3, 4);
             dataGridViewInvoice.Name = "dataGridViewInvoice";
-            dataGridViewInvoice.Size = new Size(823, 260);
+            dataGridViewInvoice.RowHeadersWidth = 51;
+            dataGridViewInvoice.Size = new Size(941, 347);
             dataGridViewInvoice.TabIndex = 18;
             // 
             // ColumnGuestID
             // 
             ColumnGuestID.HeaderText = "Guest ID";
+            ColumnGuestID.MinimumWidth = 6;
             ColumnGuestID.Name = "ColumnGuestID";
             ColumnGuestID.Resizable = DataGridViewTriState.True;
             ColumnGuestID.Width = 120;
@@ -220,18 +229,21 @@
             // ColumnBookingID
             // 
             ColumnBookingID.HeaderText = "Booking ID";
+            ColumnBookingID.MinimumWidth = 6;
             ColumnBookingID.Name = "ColumnBookingID";
             ColumnBookingID.Width = 120;
             // 
             // ColumnInvoiceNumber
             // 
             ColumnInvoiceNumber.HeaderText = "Invoice Number";
+            ColumnInvoiceNumber.MinimumWidth = 6;
             ColumnInvoiceNumber.Name = "ColumnInvoiceNumber";
             ColumnInvoiceNumber.Width = 120;
             // 
             // ColumnIssueDate
             // 
             ColumnIssueDate.HeaderText = "Issue Date";
+            ColumnIssueDate.MinimumWidth = 6;
             ColumnIssueDate.Name = "ColumnIssueDate";
             ColumnIssueDate.Resizable = DataGridViewTriState.True;
             ColumnIssueDate.Width = 120;
@@ -239,6 +251,7 @@
             // ColumnDueDate
             // 
             ColumnDueDate.HeaderText = "Due Date";
+            ColumnDueDate.MinimumWidth = 6;
             ColumnDueDate.Name = "ColumnDueDate";
             ColumnDueDate.Resizable = DataGridViewTriState.True;
             ColumnDueDate.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -247,6 +260,7 @@
             // ColumnPaymentStatus
             // 
             ColumnPaymentStatus.HeaderText = "Payment Status";
+            ColumnPaymentStatus.MinimumWidth = 6;
             ColumnPaymentStatus.Name = "ColumnPaymentStatus";
             ColumnPaymentStatus.Resizable = DataGridViewTriState.True;
             ColumnPaymentStatus.SortMode = DataGridViewColumnSortMode.Automatic;
@@ -255,10 +269,15 @@
             // ColumnPaymentMethod
             // 
             ColumnPaymentMethod.HeaderText = "Payment Method";
+            ColumnPaymentMethod.MinimumWidth = 6;
             ColumnPaymentMethod.Name = "ColumnPaymentMethod";
             ColumnPaymentMethod.Resizable = DataGridViewTriState.True;
             ColumnPaymentMethod.SortMode = DataGridViewColumnSortMode.Automatic;
             ColumnPaymentMethod.Width = 130;
+            // 
+            // userBindingSource1
+            // 
+            userBindingSource1.DataSource = typeof(Mirai_Paradise_Hotel.User);
             // 
             // userBindingSource
             // 
@@ -266,21 +285,22 @@
             // 
             // UC_Billing
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel3);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UC_Billing";
-            Size = new Size(1076, 749);
+            Size = new Size(1230, 999);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panelAddaGuest.ResumeLayout(false);
             panelAddaGuest.PerformLayout();
             panelBaseTable.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)userBindingSource1).EndInit();
             panelFilters.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInvoice).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ResumeLayout(false);
         }

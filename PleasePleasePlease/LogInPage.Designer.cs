@@ -32,7 +32,6 @@
             panelBase = new Panel();
             HotelLogo = new Panel();
             panel1 = new Panel();
-            linkLabelCreateAccount = new LinkLabel();
             lblErrorCredentials = new Label();
             btnLogin = new Button();
             lblForgotPass = new LinkLabel();
@@ -51,23 +50,24 @@
             panelBase.Controls.Add(HotelLogo);
             panelBase.Dock = DockStyle.Left;
             panelBase.Location = new Point(0, 0);
+            panelBase.Margin = new Padding(3, 4, 3, 4);
             panelBase.Name = "panelBase";
-            panelBase.Size = new Size(453, 466);
+            panelBase.Size = new Size(518, 621);
             panelBase.TabIndex = 0;
             // 
             // HotelLogo
             // 
             HotelLogo.BackgroundImage = (Image)resources.GetObject("HotelLogo.BackgroundImage");
             HotelLogo.BackgroundImageLayout = ImageLayout.Zoom;
-            HotelLogo.Location = new Point(3, 40);
+            HotelLogo.Location = new Point(3, 53);
+            HotelLogo.Margin = new Padding(3, 4, 3, 4);
             HotelLogo.Name = "HotelLogo";
-            HotelLogo.Size = new Size(447, 387);
+            HotelLogo.Size = new Size(511, 516);
             HotelLogo.TabIndex = 1;
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(45, 106, 79);
-            panel1.Controls.Add(linkLabelCreateAccount);
             panel1.Controls.Add(lblErrorCredentials);
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(lblForgotPass);
@@ -76,31 +76,20 @@
             panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(lblAccLogin);
-            panel1.Location = new Point(507, 100);
+            panel1.Location = new Point(579, 133);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(430, 276);
+            panel1.Size = new Size(491, 368);
             panel1.TabIndex = 1;
-            // 
-            // linkLabelCreateAccount
-            // 
-            linkLabelCreateAccount.AutoSize = true;
-            linkLabelCreateAccount.LinkColor = Color.MediumSeaGreen;
-            linkLabelCreateAccount.Location = new Point(177, 240);
-            linkLabelCreateAccount.Name = "linkLabelCreateAccount";
-            linkLabelCreateAccount.Size = new Size(89, 15);
-            linkLabelCreateAccount.TabIndex = 10;
-            linkLabelCreateAccount.TabStop = true;
-            linkLabelCreateAccount.Text = "Create Account";
-            linkLabelCreateAccount.LinkClicked += linkLabelCreateAccount_LinkClicked;
             // 
             // lblErrorCredentials
             // 
             lblErrorCredentials.AutoSize = true;
             lblErrorCredentials.Font = new Font("Microsoft Sans Serif", 10F);
             lblErrorCredentials.ForeColor = Color.Red;
-            lblErrorCredentials.Location = new Point(71, 180);
+            lblErrorCredentials.Location = new Point(81, 240);
             lblErrorCredentials.Name = "lblErrorCredentials";
-            lblErrorCredentials.Size = new Size(317, 17);
+            lblErrorCredentials.Size = new Size(370, 20);
             lblErrorCredentials.TabIndex = 9;
             lblErrorCredentials.Text = "You have entered invalid username or password.";
             lblErrorCredentials.Visible = false;
@@ -110,9 +99,10 @@
             btnLogin.BackColor = Color.FromArgb(45, 106, 79);
             btnLogin.Font = new Font("Microsoft Sans Serif", 11F);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(174, 204);
+            btnLogin.Location = new Point(199, 272);
+            btnLogin.Margin = new Padding(3, 4, 3, 4);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(93, 33);
+            btnLogin.Size = new Size(106, 44);
             btnLogin.TabIndex = 8;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
@@ -122,9 +112,9 @@
             // 
             lblForgotPass.AutoSize = true;
             lblForgotPass.LinkColor = Color.MediumSeaGreen;
-            lblForgotPass.Location = new Point(283, 155);
+            lblForgotPass.Location = new Point(323, 207);
             lblForgotPass.Name = "lblForgotPass";
-            lblForgotPass.Size = new Size(95, 15);
+            lblForgotPass.Size = new Size(118, 20);
             lblForgotPass.TabIndex = 7;
             lblForgotPass.TabStop = true;
             lblForgotPass.Text = "Forgot Password";
@@ -135,9 +125,9 @@
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Microsoft Sans Serif", 14F);
             lblPassword.ForeColor = Color.White;
-            lblPassword.Location = new Point(44, 129);
+            lblPassword.Location = new Point(50, 172);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(96, 24);
+            lblPassword.Size = new Size(124, 29);
             lblPassword.TabIndex = 4;
             lblPassword.Text = "password:";
             // 
@@ -146,24 +136,26 @@
             lblUsername.AutoSize = true;
             lblUsername.Font = new Font("Microsoft Sans Serif", 14F);
             lblUsername.ForeColor = Color.White;
-            lblUsername.Location = new Point(43, 84);
+            lblUsername.Location = new Point(49, 112);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(100, 24);
+            lblUsername.Size = new Size(126, 29);
             lblUsername.TabIndex = 3;
             lblUsername.Text = "username:";
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(154, 129);
+            txtPassword.Location = new Point(176, 172);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(224, 23);
+            txtPassword.Size = new Size(255, 27);
             txtPassword.TabIndex = 2;
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(154, 84);
+            txtUsername.Location = new Point(176, 112);
+            txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(224, 23);
+            txtUsername.Size = new Size(255, 27);
             txtUsername.TabIndex = 1;
             // 
             // lblAccLogin
@@ -171,24 +163,24 @@
             lblAccLogin.AutoSize = true;
             lblAccLogin.Font = new Font("Microsoft Sans Serif", 22F, FontStyle.Bold);
             lblAccLogin.ForeColor = Color.White;
-            lblAccLogin.Location = new Point(125, 9);
+            lblAccLogin.Location = new Point(143, 12);
             lblAccLogin.Name = "lblAccLogin";
-            lblAccLogin.Size = new Size(221, 36);
+            lblAccLogin.Size = new Size(269, 42);
             lblAccLogin.TabIndex = 0;
             lblAccLogin.Text = "Account Login";
             // 
             // LoginPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(984, 466);
+            ClientSize = new Size(1125, 621);
             Controls.Add(panel1);
             Controls.Add(panelBase);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mirai Paradise Hotel";
-            WindowState = FormWindowState.Minimized;
             panelBase.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -208,6 +200,5 @@
         private Button btnLogin;
         private LinkLabel lblForgotPass;
         private Label lblErrorCredentials;
-        private LinkLabel linkLabelCreateAccount;
     }
 }

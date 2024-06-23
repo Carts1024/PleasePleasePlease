@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirai_Paradise_Hotel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +42,9 @@ namespace PleasePleasePlease
             textBoxRoomRate.Clear();
             textBoxFloorNo.Clear();
             textBoxMaxCapacity.Clear();
+
+            Dialogue_RoomAdded roomAdded = new Dialogue_RoomAdded();
+            roomAdded.Show();
         }
 
         private void buttonSearchIcon_Click(object sender, EventArgs e)

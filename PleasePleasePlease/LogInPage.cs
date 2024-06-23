@@ -58,12 +58,5 @@ namespace Mirai_Paradise_Hotel
             }
         }
         }
-        private void linkLabelCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            CreateAccount createAcc = new CreateAccount();
-            this.Hide();
-            createAcc.Show();
-            createAcc.FormClosed += (s, args) => this.Show(); // Show the login page again when the create account form is closed
-        }
     }
 }

@@ -41,18 +41,15 @@ namespace Mirai_Paradise_Hotel
             else 
             { 
                 // Add Account to Database code starts here
-
-                LoginPage login = new LoginPage();
-                this.Hide();
-                login.Show();
             }*/
+
+            Dialogue_AccountAdded accAdded = new Dialogue_AccountAdded();
+            accAdded.Show();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            LoginPage login = new LoginPage();
             this.Hide();
-            login.Show();
         }
     }
 }

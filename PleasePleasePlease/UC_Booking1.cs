@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirai_Paradise_Hotel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,6 +43,9 @@ namespace PleasePleasePlease
             dateTimePickerCheckout.ResetText();
             textBoxCheckInTime.Clear();
             textBoxCheckOutTime.Clear();
+
+            Dialogue_BookingAdded bookAdded = new Dialogue_BookingAdded();
+            bookAdded.Show();
         }
 
 

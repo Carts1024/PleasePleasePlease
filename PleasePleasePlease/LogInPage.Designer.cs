@@ -188,7 +188,6 @@
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mirai Paradise Hotel";
-            WindowState = FormWindowState.Minimized;
             panelBase.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

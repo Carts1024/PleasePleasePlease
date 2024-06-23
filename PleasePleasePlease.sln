@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mirai Paradise Hotel", "PleasePleasePlease\Mirai Paradise Hotel.csproj", "{30BD51D8-B521-42D1-AB9A-82A42ED90845}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30BD51D8-B521-42D1-AB9A-82A42ED90845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30BD51D8-B521-42D1-AB9A-82A42ED90845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30BD51D8-B521-42D1-AB9A-82A42ED90845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30BD51D8-B521-42D1-AB9A-82A42ED90845}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {242EF83F-8180-4F6C-8C26-BCB1B0635C85}
+	EndGlobalSection
+EndGlobal

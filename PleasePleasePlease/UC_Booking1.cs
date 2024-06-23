@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirai_Paradise_Hotel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,8 +43,17 @@ namespace PleasePleasePlease
             dateTimePickerCheckout.ResetText();
             textBoxCheckInTime.Clear();
             textBoxCheckOutTime.Clear();
+
+            Dialogue_BookAdded bookAdded = new Dialogue_BookAdded();
+            bookAdded.Show();
         }
 
+        private void buttonBookingImport_Click(object sender, EventArgs e)
+        {
+            // Import Booking Records code starts here
 
+            Dialogue_BookImported impBook = new Dialogue_BookImported();
+            impBook.Show();
+        }
     }
 }

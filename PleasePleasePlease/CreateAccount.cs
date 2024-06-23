@@ -46,6 +46,9 @@ namespace Mirai_Paradise_Hotel
                 this.Hide();
                 login.Show();
             }*/
+            Dialogue_AccAdded addAccConfirm = new Dialogue_AccAdded();
+            this.Hide();
+            addAccConfirm.Show();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)

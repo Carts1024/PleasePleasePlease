@@ -77,7 +77,7 @@ namespace Mirai_Paradise_Hotel
             buttonBooking.Click += buttonBooking_Click;
             buttonBilling.Click += buttonBilling_Click;
             buttonAnalytics.Click += buttonAnalytics_Click;
-            buttonAccounts.Click += buttonSettings_Click;
+            buttonAccounts.Click += buttonAccounts_Click;
 
             // Load the default page
             LoadUserControl(new UC_Dashboard());
@@ -129,7 +129,7 @@ namespace Mirai_Paradise_Hotel
             ActivateButton(sender);
         }
 
-        private void buttonSettings_Click(object sender, EventArgs e)
+        private void buttonAccounts_Click(object sender, EventArgs e)
         {
             LoadUserControl(new UC_Accounts());
             ActivateButton(sender);

@@ -124,7 +124,7 @@
             buttonAccounts.TextAlign = ContentAlignment.MiddleLeft;
             buttonAccounts.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAccounts.UseVisualStyleBackColor = true;
-            buttonAccounts.Click += buttonSettings_Click;
+            buttonAccounts.Click += buttonAccounts_Click;
             // 
             // buttonAnalytics
             // 

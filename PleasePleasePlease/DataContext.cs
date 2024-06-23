@@ -14,7 +14,7 @@ namespace Mirai_Paradise_Hotel
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Configuring the DbContext to use SQLite with a specific database file
-            optionsBuilder.UseSqlite("Data Source = UserData.db");
+            optionsBuilder.UseSqlite("Data Source = Hotel Management.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

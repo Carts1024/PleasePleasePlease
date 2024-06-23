@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelBase = new Panel();
             HotelLogo = new Panel();
             panel1 = new Panel();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             linkLabelCreateAccount = new LinkLabel();
             lblErrorCredentials = new Label();
             btnLogin = new Button();
@@ -41,6 +47,8 @@
             txtPassword = new MaskedTextBox();
             txtUsername = new TextBox();
             lblAccLogin = new Label();
+            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             panelBase.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -67,6 +75,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(45, 106, 79);
+            panel1.Controls.Add(guna2Button1);
             panel1.Controls.Add(linkLabelCreateAccount);
             panel1.Controls.Add(lblErrorCredentials);
             panel1.Controls.Add(btnLogin);
@@ -80,6 +89,25 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(430, 276);
             panel1.TabIndex = 1;
+            // 
+            // guna2Button1
+            // 
+            guna2Button1.AutoRoundedCorners = true;
+            guna2Button1.BorderRadius = 19;
+            guna2Button1.CustomizableEdges = customizableEdges1;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.Font = new Font("Segoe UI", 9F);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(20, 200);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button1.Size = new Size(123, 41);
+            guna2Button1.TabIndex = 11;
+            guna2Button1.Text = "Login";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // linkLabelCreateAccount
             // 
@@ -177,13 +205,38 @@
             lblAccLogin.TabIndex = 0;
             lblAccLogin.Text = "Account Login";
             // 
+            // guna2Button2
+            // 
+            guna2Button2.CustomizableEdges = customizableEdges3;
+            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button2.FillColor = Color.Red;
+            guna2Button2.Font = new Font("Segoe UI", 9F);
+            guna2Button2.ForeColor = Color.Black;
+            guna2Button2.Location = new Point(923, 0);
+            guna2Button2.Name = "guna2Button2";
+            guna2Button2.PressedColor = Color.IndianRed;
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Button2.Size = new Size(61, 41);
+            guna2Button2.TabIndex = 2;
+            guna2Button2.Text = "X";
+            guna2Button2.Click += guna2Button2_Click;
+            // 
+            // guna2AnimateWindow1
+            // 
+            guna2AnimateWindow1.TargetForm = this;
+            // 
             // LoginPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(984, 466);
+            Controls.Add(guna2Button2);
             Controls.Add(panel1);
             Controls.Add(panelBase);
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
@@ -208,5 +261,8 @@
         private LinkLabel lblForgotPass;
         private Label lblErrorCredentials;
         private LinkLabel linkLabelCreateAccount;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
     }
 }

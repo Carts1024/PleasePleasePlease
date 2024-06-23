@@ -67,5 +67,34 @@ namespace Mirai_Paradise_Hotel
             createAcc.Show();
             createAcc.FormClosed += (s, args) => this.Show(); // Show the login page again when the create account form is closed
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            var Username = txtUsername.Text;
+            var Password = txtPassword.Text;
+
+            using (DataContext context = new DataContext())
+            {
+                bool userfound = context.Users.Any(user => user.UserName == Username && user.Password == Password);
+                if (userfound)
+                {
+                    lblErrorCredentials.Visible = false;
+                    Dashboard ds = new Dashboard();
+                    this.Hide();
+                    ds.Show();
+                    ds.FormClosed += (s, args) => this.Show(); // Show the login page again when the dashboard form is closed
+                }
+                else
+                {
+                    lblErrorCredentials.Visible = true;
+                    txtPassword.Clear();
+                }
+            }
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

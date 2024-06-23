@@ -14,7 +14,15 @@ namespace Mirai_Paradise_Hotel
         [Name("UserName")]
         public string UserName { get; set; }
 
+        [Name("Phone Number")]
+        public int PhoneNumber { get; set; }
+
+        [Name("isManager?")]
+        public bool isManager { get; set; }
+
         [Name("Password")]
-        public string Password{ get; set; }
+        public string Password { get; set; }
+
+
     }
 }

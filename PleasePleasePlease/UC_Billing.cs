@@ -19,7 +19,20 @@ namespace PleasePleasePlease
         {
             InitializeComponent();
             comboBoxFilterPaymentStatus.Items.AddRange(new object[] { "Pending", "Paid" });
+
+            using (DataContext context = new DataContext())
+            {
+                // Retrieve users from the database and store in DataBaseUsers list
+                DataBaseUsers = context.Users.OrderBy(u => u.Index).ToList();
+            }
+
+            // Assign DataBaseUsers list to DataGridView DataSource
+            guna2DataGridView1.DataSource = DataBaseUsers;
+
+            // Optionally, refresh the DataGridView to display the data
+            guna2DataGridView1.Refresh();
         }
+
 
         private void buttonGenerateInvoice_Click(object sender, EventArgs e)
         {

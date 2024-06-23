@@ -96,21 +96,21 @@
             // 
             // comboBoxAccountType
             // 
-            comboBoxAccountType.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBoxAccountType.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxAccountType.FormattingEnabled = true;
             comboBoxAccountType.Location = new Point(55, 213);
             comboBoxAccountType.Name = "comboBoxAccountType";
-            comboBoxAccountType.Size = new Size(191, 27);
+            comboBoxAccountType.Size = new Size(191, 28);
             comboBoxAccountType.TabIndex = 23;
             // 
             // labelErrorAccountExist
             // 
             labelErrorAccountExist.AutoSize = true;
-            labelErrorAccountExist.Font = new Font("SF Pro Display", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelErrorAccountExist.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelErrorAccountExist.ForeColor = Color.Red;
             labelErrorAccountExist.Location = new Point(176, 258);
             labelErrorAccountExist.Name = "labelErrorAccountExist";
-            labelErrorAccountExist.Size = new Size(206, 16);
+            labelErrorAccountExist.Size = new Size(217, 16);
             labelErrorAccountExist.TabIndex = 22;
             labelErrorAccountExist.Text = "Account already exist in the system.";
             labelErrorAccountExist.Visible = false;
@@ -118,11 +118,11 @@
             // labelErrorPassword
             // 
             labelErrorPassword.AutoSize = true;
-            labelErrorPassword.Font = new Font("SF Pro Display", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelErrorPassword.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelErrorPassword.ForeColor = Color.Red;
             labelErrorPassword.Location = new Point(192, 258);
             labelErrorPassword.Name = "labelErrorPassword";
-            labelErrorPassword.Size = new Size(176, 16);
+            labelErrorPassword.Size = new Size(190, 16);
             labelErrorPassword.TabIndex = 21;
             labelErrorPassword.Text = "Please confirm your password.";
             labelErrorPassword.Visible = false;
@@ -130,91 +130,91 @@
             // labelErrorUsername
             // 
             labelErrorUsername.AutoSize = true;
-            labelErrorUsername.Font = new Font("SF Pro Display", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelErrorUsername.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelErrorUsername.ForeColor = Color.Red;
             labelErrorUsername.Location = new Point(209, 258);
             labelErrorUsername.Name = "labelErrorUsername";
-            labelErrorUsername.Size = new Size(141, 16);
+            labelErrorUsername.Size = new Size(153, 16);
             labelErrorUsername.TabIndex = 20;
             labelErrorUsername.Text = "Username not available.";
             labelErrorUsername.Visible = false;
             // 
             // textBoxConfirmPassword
             // 
-            textBoxConfirmPassword.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxConfirmPassword.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxConfirmPassword.Location = new Point(329, 213);
             textBoxConfirmPassword.Name = "textBoxConfirmPassword";
-            textBoxConfirmPassword.Size = new Size(191, 27);
+            textBoxConfirmPassword.Size = new Size(191, 26);
             textBoxConfirmPassword.TabIndex = 19;
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxPassword.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxPassword.Location = new Point(329, 139);
             textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.Size = new Size(191, 27);
+            textBoxPassword.Size = new Size(191, 26);
             textBoxPassword.TabIndex = 18;
             // 
             // textBoxUsername
             // 
-            textBoxUsername.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxUsername.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxUsername.Location = new Point(55, 139);
             textBoxUsername.Name = "textBoxUsername";
-            textBoxUsername.Size = new Size(191, 27);
+            textBoxUsername.Size = new Size(191, 26);
             textBoxUsername.TabIndex = 16;
             // 
             // textBoxUserID
             // 
-            textBoxUserID.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxUserID.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxUserID.Location = new Point(113, 67);
             textBoxUserID.Name = "textBoxUserID";
-            textBoxUserID.Size = new Size(133, 27);
+            textBoxUserID.Size = new Size(133, 26);
             textBoxUserID.TabIndex = 15;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("SF Pro Display", 10F);
+            label6.Font = new Font("Microsoft Sans Serif", 10F);
             label6.Location = new Point(52, 193);
             label6.Name = "label6";
-            label6.Size = new Size(91, 17);
+            label6.Size = new Size(99, 17);
             label6.TabIndex = 14;
             label6.Text = "Account Type:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("SF Pro Display", 10F);
+            label5.Font = new Font("Microsoft Sans Serif", 10F);
             label5.Location = new Point(329, 193);
             label5.Name = "label5";
-            label5.Size = new Size(118, 17);
+            label5.Size = new Size(125, 17);
             label5.TabIndex = 13;
             label5.Text = "Confirm Password:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("SF Pro Display", 10F);
+            label4.Font = new Font("Microsoft Sans Serif", 10F);
             label4.Location = new Point(329, 119);
             label4.Name = "label4";
-            label4.Size = new Size(69, 17);
+            label4.Size = new Size(73, 17);
             label4.TabIndex = 12;
             label4.Text = "Password:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("SF Pro Display", 10F);
+            label3.Font = new Font("Microsoft Sans Serif", 10F);
             label3.Location = new Point(52, 119);
             label3.Name = "label3";
-            label3.Size = new Size(72, 17);
+            label3.Size = new Size(77, 17);
             label3.TabIndex = 11;
             label3.Text = "Username:";
             // 
             // btnCreateAccount
             // 
             btnCreateAccount.BackColor = Color.FromArgb(45, 106, 79);
-            btnCreateAccount.Font = new Font("SF Pro Display", 11F);
+            btnCreateAccount.Font = new Font("Microsoft Sans Serif", 11F);
             btnCreateAccount.ForeColor = Color.White;
             btnCreateAccount.Location = new Point(219, 277);
             btnCreateAccount.Name = "btnCreateAccount";
@@ -227,21 +227,21 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("SF Pro Display", 10F);
+            label2.Font = new Font("Microsoft Sans Serif", 10F);
             label2.Location = new Point(52, 72);
             label2.Name = "label2";
-            label2.Size = new Size(55, 17);
+            label2.Size = new Size(59, 17);
             label2.TabIndex = 1;
             label2.Text = "User ID:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("SF Pro Display", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(45, 106, 79);
             label1.Location = new Point(160, 10);
             label1.Name = "label1";
-            label1.Size = new Size(262, 35);
+            label1.Size = new Size(272, 33);
             label1.TabIndex = 0;
             label1.Text = "Create an Account";
             // 
@@ -253,8 +253,8 @@
             Controls.Add(panel1);
             MaximizeBox = false;
             Name = "CreateAccount";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Mirai Paradise Hotel";
-            WindowState = FormWindowState.Minimized;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

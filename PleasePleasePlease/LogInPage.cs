@@ -44,19 +44,19 @@ namespace Mirai_Paradise_Hotel
             {
                 bool userfound = context.Users.Any(user => user.UserName == Username && user.Password == Password);
                 if (userfound)
-                {
-                    lblErrorCredentials.Visible = false;
-                    Dashboard ds = new Dashboard();
-                    this.Hide();
-                    ds.Show();
-                    ds.FormClosed += (s, args) => this.Show(); // Show the login page again when the dashboard form is closed
-                }
-                else
-                {
-                    lblErrorCredentials.Visible = true;
-                    txtPassword.Clear();
-                }
+            {
+                lblErrorCredentials.Visible = false;
+                Dashboard ds = new Dashboard();
+                this.Hide();
+                ds.Show();
+                ds.FormClosed += (s, args) => this.Show(); // Show the login page again when the dashboard form is closed
             }
+            else
+            {
+                lblErrorCredentials.Visible = true;
+                txtPassword.Clear();
+            }
+        }
         }
         private void linkLabelCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirai_Paradise_Hotel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace PleasePleasePlease
         public UC_Accounts()
         {
             InitializeComponent();
+        }
+
+        private void buttonAddAcc_Click(object sender, EventArgs e)
+        {
+            CreateAccount createAcc = new CreateAccount();
+            createAcc.Show();
         }
     }
 }

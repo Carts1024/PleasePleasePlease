@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirai_Paradise_Hotel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,6 +44,9 @@ namespace PleasePleasePlease
             textBoxAddress.Clear();
             textBoxEmail.Clear();
             textBoxContactNo.Clear();
+
+            Dialogue_GuestAdded guestAdded = new Dialogue_GuestAdded();
+            guestAdded.Show();
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)

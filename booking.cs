@@ -40,27 +40,17 @@ namespace PleasePleasePlease
             // Add Booking to Database Code starts here
 
             textBoxGuestID.Clear();
-            //textBoxRoomNo.Clear();
+            textBoxRoomNo.Clear();
             dateTimePickerCheckIn.ResetText();
             dateTimePickerCheckout.ResetText();
-            //textBoxCheckInTime.Clear();
-            //textBoxCheckOutTime.Clear();
+            textBoxCheckInTime.Clear();
+            textBoxCheckOutTime.Clear();
 
             Dialogue_BookingAdded bookAdded = new Dialogue_BookingAdded();
             bookAdded.Show();
         }
 
-        private void buttonEditBookings_Click(object sender, EventArgs e)
-        {
-            buttonSaveEditBookings.Visible = true;
-            buttonExitEditBookings.Visible = true;
-            ColumnCheckInDate.ReadOnly = false;
-            ColumnCheckInTime.ReadOnly = false;
-            ColumnCheckOutDate.ReadOnly = false;
-            ColumnCheckOutTime.ReadOnly = false;
-        }
-
-        private void buttonExitEditBookings_Click(object sender, EventArgs e)
+        private void buttonExitEditGuest_Click(object sender, EventArgs e)
         {
             buttonSaveEditBookings.Visible = false;
             buttonExitEditBookings.Visible = false;
@@ -82,6 +72,16 @@ namespace PleasePleasePlease
             ColumnCheckOutTime.ReadOnly = true;
             Dialogue_BookingUpdated bookingUpdated = new Dialogue_BookingUpdated();
             bookingUpdated.Show();
+        }
+
+        private void buttonEditBookings_Click(object sender, EventArgs e)
+        {
+            buttonSaveEditBookings.Visible = true;
+            buttonExitEditBookings.Visible = true;
+            ColumnCheckInDate.ReadOnly = false;
+            ColumnCheckInTime.ReadOnly = false;
+            ColumnCheckOutDate.ReadOnly = false;
+            ColumnCheckOutTime.ReadOnly = false;
         }
 
         private void label1_Click(object sender, EventArgs e)

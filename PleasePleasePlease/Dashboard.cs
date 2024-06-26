@@ -143,9 +143,8 @@ namespace Mirai_Paradise_Hotel
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            LoginPage login = new LoginPage();
-            this.Hide();
-            login.Show();
+            // ignore this
+            // refer to GradButtonLogOut instead
         }
 
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
@@ -156,7 +155,12 @@ namespace Mirai_Paradise_Hotel
             Application.Exit();
         }
 
-
+        private void GradButtonLogOut_Click(object sender, EventArgs e)
+        {
+            LoginPage login = new LoginPage();
+            this.Hide();
+            login.Show();
+        }
 
         protected override CreateParams CreateParams
         {

@@ -31,6 +31,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelBase = new Panel();
             panelLogOut = new Panel();
             buttonLogout = new Button();
@@ -43,6 +45,7 @@
             buttonGuests = new Button();
             buttonDashboard = new Button();
             panelContainer = new Panel();
+            GradButtonLogOut = new Guna.UI2.WinForms.Guna2GradientButton();
             panelBase.SuspendLayout();
             panelLogOut.SuspendLayout();
             SuspendLayout();
@@ -63,36 +66,39 @@
             panelBase.Location = new Point(0, 0);
             panelBase.Margin = new Padding(3, 2, 3, 2);
             panelBase.Name = "panelBase";
-            panelBase.Size = new Size(258, 1041);
+            panelBase.Size = new Size(258, 749);
             panelBase.TabIndex = 0;
             // 
             // panelLogOut
             // 
+            panelLogOut.Controls.Add(GradButtonLogOut);
             panelLogOut.Controls.Add(buttonLogout);
-            panelLogOut.Location = new Point(80, 665);
+            panelLogOut.Location = new Point(85, 673);
             panelLogOut.Name = "panelLogOut";
-            panelLogOut.Size = new Size(177, 72);
+            panelLogOut.Size = new Size(177, 54);
             panelLogOut.TabIndex = 9;
             // 
             // buttonLogout
             // 
             buttonLogout.BackColor = Color.White;
+            buttonLogout.Enabled = false;
             buttonLogout.FlatAppearance.BorderSize = 0;
             buttonLogout.FlatStyle = FlatStyle.Flat;
-            buttonLogout.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLogout.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLogout.ForeColor = Color.Black;
             buttonLogout.Image = (Image)resources.GetObject("buttonLogout.Image");
             buttonLogout.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonLogout.Location = new Point(22, 17);
+            buttonLogout.Location = new Point(25, 28);
             buttonLogout.Margin = new Padding(3, 2, 3, 2);
             buttonLogout.Name = "buttonLogout";
             buttonLogout.Padding = new Padding(13, 0, 0, 0);
-            buttonLogout.Size = new Size(143, 40);
+            buttonLogout.Size = new Size(132, 17);
             buttonLogout.TabIndex = 8;
             buttonLogout.Text = "    Log Out";
             buttonLogout.TextAlign = ContentAlignment.MiddleLeft;
             buttonLogout.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonLogout.UseVisualStyleBackColor = false;
+            buttonLogout.Visible = false;
             buttonLogout.Click += buttonLogout_Click;
             // 
             // panel1
@@ -110,7 +116,7 @@
             // 
             buttonAccounts.FlatAppearance.BorderSize = 0;
             buttonAccounts.FlatStyle = FlatStyle.Flat;
-            buttonAccounts.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonAccounts.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAccounts.ForeColor = Color.Transparent;
             buttonAccounts.Image = (Image)resources.GetObject("buttonAccounts.Image");
             buttonAccounts.ImageAlign = ContentAlignment.MiddleLeft;
@@ -130,7 +136,7 @@
             // 
             buttonAnalytics.FlatAppearance.BorderSize = 0;
             buttonAnalytics.FlatStyle = FlatStyle.Flat;
-            buttonAnalytics.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonAnalytics.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAnalytics.ForeColor = Color.Transparent;
             buttonAnalytics.Image = (Image)resources.GetObject("buttonAnalytics.Image");
             buttonAnalytics.ImageAlign = ContentAlignment.MiddleLeft;
@@ -150,7 +156,7 @@
             // 
             buttonBilling.FlatAppearance.BorderSize = 0;
             buttonBilling.FlatStyle = FlatStyle.Flat;
-            buttonBilling.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonBilling.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBilling.ForeColor = Color.Transparent;
             buttonBilling.Image = (Image)resources.GetObject("buttonBilling.Image");
             buttonBilling.ImageAlign = ContentAlignment.MiddleLeft;
@@ -170,7 +176,7 @@
             // 
             buttonBooking.FlatAppearance.BorderSize = 0;
             buttonBooking.FlatStyle = FlatStyle.Flat;
-            buttonBooking.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonBooking.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBooking.ForeColor = Color.Transparent;
             buttonBooking.Image = (Image)resources.GetObject("buttonBooking.Image");
             buttonBooking.ImageAlign = ContentAlignment.MiddleLeft;
@@ -190,7 +196,7 @@
             // 
             buttonRooms.FlatAppearance.BorderSize = 0;
             buttonRooms.FlatStyle = FlatStyle.Flat;
-            buttonRooms.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonRooms.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonRooms.ForeColor = Color.Transparent;
             buttonRooms.Image = (Image)resources.GetObject("buttonRooms.Image");
             buttonRooms.ImageAlign = ContentAlignment.MiddleLeft;
@@ -210,7 +216,7 @@
             // 
             buttonGuests.FlatAppearance.BorderSize = 0;
             buttonGuests.FlatStyle = FlatStyle.Flat;
-            buttonGuests.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonGuests.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonGuests.ForeColor = Color.Transparent;
             buttonGuests.Image = (Image)resources.GetObject("buttonGuests.Image");
             buttonGuests.ImageAlign = ContentAlignment.MiddleLeft;
@@ -229,7 +235,7 @@
             // 
             buttonDashboard.FlatAppearance.BorderSize = 0;
             buttonDashboard.FlatStyle = FlatStyle.Flat;
-            buttonDashboard.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonDashboard.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonDashboard.ForeColor = Color.Transparent;
             buttonDashboard.Image = (Image)resources.GetObject("buttonDashboard.Image");
             buttonDashboard.ImageAlign = ContentAlignment.MiddleLeft;
@@ -249,7 +255,7 @@
             panelContainer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panelContainer.BackColor = Color.Transparent;
-            panelContainer.Location = new Point(258, 0);
+            panelContainer.Location = new Point(258, -2);
             panelContainer.Margin = new Padding(3, 2, 3, 2);
             panelContainer.MaximumSize = new Size(1920, 1080);
             panelContainer.MinimumSize = new Size(1112, 749);
@@ -257,11 +263,35 @@
             panelContainer.Size = new Size(1920, 1080);
             panelContainer.TabIndex = 1;
             // 
+            // GradButtonLogOut
+            // 
+            GradButtonLogOut.Animated = true;
+            GradButtonLogOut.AutoRoundedCorners = true;
+            GradButtonLogOut.BackColor = Color.Transparent;
+            GradButtonLogOut.BorderRadius = 16;
+            GradButtonLogOut.CustomizableEdges = customizableEdges1;
+            GradButtonLogOut.DisabledState.BorderColor = Color.DarkGray;
+            GradButtonLogOut.DisabledState.CustomBorderColor = Color.DarkGray;
+            GradButtonLogOut.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            GradButtonLogOut.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            GradButtonLogOut.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            GradButtonLogOut.FillColor = Color.FromArgb(32, 191, 85);
+            GradButtonLogOut.FillColor2 = Color.SteelBlue;
+            GradButtonLogOut.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            GradButtonLogOut.ForeColor = Color.White;
+            GradButtonLogOut.Location = new Point(25, 10);
+            GradButtonLogOut.Name = "GradButtonLogOut";
+            GradButtonLogOut.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            GradButtonLogOut.Size = new Size(137, 35);
+            GradButtonLogOut.TabIndex = 28;
+            GradButtonLogOut.Text = "Log Out";
+            GradButtonLogOut.Click += GradButtonLogOut_Click;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new Size(1370, 749);
             Controls.Add(panelContainer);
             Controls.Add(panelBase);
             Margin = new Padding(3, 2, 3, 2);
@@ -287,5 +317,6 @@
         private Panel panel1;
         private Button buttonLogout;
         private Panel panelLogOut;
+        private Guna.UI2.WinForms.Guna2GradientButton GradButtonLogOut;
     }
 }

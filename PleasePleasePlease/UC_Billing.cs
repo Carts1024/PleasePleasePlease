@@ -23,7 +23,7 @@ namespace PleasePleasePlease
 
         private void buttonGenerateInvoice_Click(object sender, EventArgs e)
         {
-            // Code for Generating Invoice starts here
+            // ignore this
         }
 
         private void buttonSearchIcon_Click(object sender, EventArgs e)
@@ -36,6 +36,37 @@ namespace PleasePleasePlease
             panelFilters.Visible = true;
         }
 
+        private void buttonEditBillings_Click(object sender, EventArgs e)
+        {
+            buttonSaveEditBillings.Visible = true;
+            buttonExitEditBillings.Visible = true;
+            ColumnDueDate.ReadOnly = false;
+            ColumnPaymentStatus.ReadOnly = false;
+        }
 
+        private void buttonExitEditBookings_Click(object sender, EventArgs e)
+        {
+            buttonSaveEditBillings.Visible = false;
+            buttonExitEditBillings.Visible = false;
+            ColumnDueDate.ReadOnly = true;
+            ColumnPaymentStatus.ReadOnly = true;
+        }
+
+        private void buttonSaveEditBillings_Click(object sender, EventArgs e)
+        {
+            // Alter Information in Database and Save code starts here
+
+            buttonSaveEditBillings.Visible = false;
+            buttonExitEditBillings.Visible = false;
+            ColumnDueDate.ReadOnly = true;
+            ColumnPaymentStatus.ReadOnly = true;
+            Dialogue_BillingUpdated billUpdated = new Dialogue_BillingUpdated();
+            billUpdated.Show();
+        }
+
+        private void ButtonGenerateInvo_Click(object sender, EventArgs e)
+        {
+            // Code for Generating Invoice starts here
+        }
     }
 }

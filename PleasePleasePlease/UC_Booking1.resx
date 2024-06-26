@@ -17445,6 +17445,48 @@
   <metadata name="ColumnCheckOutTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="buttonSaveEditBookings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAahJREFUSEvdlM1OwkAQx4lGn04jKurRTx7Bg2/g11V9AI0mXDR6EKNg4sGdJSRe
+        SEQRA4lbzkbv60yZstuy/cAj/+Qf2t2Z35aZdnLjrUajMS2+aivCk+fCg6ZQ8OubrnHtuSeXKYbDR5Pw
+        xCLC2uBJnWgFH8KrLXBaukq6NIlJh05YgoWSB1rrCcbE6z/wwFi2Pca4RWVxJY5kBXnGhUXNono6kxJc
+        7T7qo5eTwT2W6tPZeHpb7MQsJvjGXVHPXObxkOPBuuzJJcYa4cZFEJDFNny1vKkfOlVrH84Ya4Qb7yYg
+        2clwajY0GWsESv7YQWSqLcHsNRu+Xi4O7ftGFmONogdQTaOQTHA0NvqbsUb4t97sIBtGZbhu34Tu7zuV
+        EDRseGWsEc2WaKB9yOzVvP+7Vt7SlW645kNWcMpYIxpcruDQP7lNe/LAUGCsUV3Xp3CzNRzcP2T7aSf9
+        ydE0IGMnLE1FV9JIVjDHOLdoKjoTMxl2GRMvGrl4yL4bEG+apJnGdSCaipjo7EnErdSyxIkaT4OLZgu9
+        2/7H6H+QeN1fK1AMh4+lcrk/StFkPCntMK8AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="buttonExitEditBookings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAgBJREFUSEutVUtOwzAQDayAE/A5CwUugmjhHl3wEUKKHakVooUj0bJhQdmBkl2r
+        bpqkUkHmPddUiePQEhjpRcl45o0zMx57q0js+3uJlLXU909TKRt8p84sVxPV6WzFQlyDsJ8KESVCTPGu
+        CL5PpQwRqI/vS+X7m8ZtNZkIcQaSV+Djm7QMCDIDBvi7unEvF9VsrmNnHTgObaKlEGKMQPfkMHRFwY67
+        ME4KzisCARJw3Bm6vDAtMBrZThUwmtjpYpGYc4dxNQjxwiYx9GhDdIuroNOHB/Xx/KzSViun14COa7Sx
+        18A1i9Fdhl7n/sk2IkhA+Xx/zwfBO3UUvYGMTwY9TR63Wrvsc4fBnOjtTRN9hqFK2223zuUrZYS67njo
+        3yP8QeowmCNLGEWLnS8hV0h7mvj+AQPw+DuNFsikhMJAP5EvEAR1jw/nYhZVA0h54uFxiAPy7ynShw5D
+        cV5kFMQ20HAV1KVz+QZBOLm52dadBEWvYAD8qU2FeNTkFHxc4XdmtlHlg0auIDg39HqKbkA5sA3/gEFu
+        VFCgbAD/MeyG2Oyxoc0LFjpA5XENxDi0t4auKPrCwTyH4a8vHBCPgS7qvmboyoXzHMa8MguFt6ELipyX
+        pqVMeEdgnlzAuceeRrDFYeScoY5rMbrl15e+LTyM2GENhA1e7gi2ryflUvG8L92cZhdj20lHAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="buttonEditBookings.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAflJREFUSEvtlV1IU3EYh48hGKQFyqaEEUSKGt0qJClCJc0PKBBECTINuvBGpEi6
+        mEpEUCmmqIOI1M0pfhSEpVs6VzDFsaFgi0miUPhBwZBMGO7s5/uO/27C0LPO7nrggXPO/3eeiw026T9R
+        B/rKVOj1seJWPcYdi4myvmI4eK8Zcn2VD3VZieLo3/kws3jTPvs54LY44H/wGLKuEvL1iz40nNWISeSM
+        fZxPt895Al+W1/B7x48p03vsXC7HZs5VfCvJXhezyPk1WfFw1unGbkCGw7UE89sZmFtfYSG3CMsFF7bF
+        LDJgzb8PW1Fw216Dd5apULy7bwwt3YPoaW4J/ryReUlMlQNrwV2Ow6YDRpLhG0jDy97+UJztMBhdYqqc
+        P+MwSdjolOBsPY2OLkOg3WDyPOkc0Yq5Mv4W9z4Nub7yXMoQU+XQZ07xYhHXqhw3StUYOCrj9Slg8Fgo
+        vtmlZtwkyRwNq2b8NhmMTtymiYdF449KnIFFWwN3JjB9kuIx6n2hYVbbSz9tTZ/H9/E0fDWnwPssRr04
+        M3Hr0daLa03wDGVgafQMVo1JK6rFGVdjWZ219s6Cty234cebpATxOOrEkcfJEyT/qbB8zc/4TDFHyCwy
+        j9SRxQfIG97yO/zuoUgmz5E5ZD55hSwkw1G+5md8xhve7vNjJ0l7kvdkm2uBiaUAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="buttonSearchIcon.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

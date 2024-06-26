@@ -29,9 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Booking1));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
-            buttonImportBooking = new Button();
-            panel11 = new Panel();
+            ButtonImportRecords = new Guna.UI2.WinForms.Guna2GradientButton();
             panelListofBooking = new Panel();
             dataGridViewBooking = new DataGridView();
             ColumnGuestID = new DataGridViewTextBoxColumn();
@@ -41,17 +50,27 @@
             ColumnCheckOutDate = new DataGridViewTextBoxColumn();
             ColumnCheckOutTime = new DataGridViewTextBoxColumn();
             panelSearch = new Panel();
+            buttonSaveEditBookings = new Button();
+            buttonExitEditBookings = new Button();
+            buttonEditBookings = new Button();
             buttonSearchIcon = new Button();
             textBoxAddressSearch = new TextBox();
+            panel1 = new Panel();
+            label1 = new Label();
+            panel2 = new Panel();
+            label2 = new Label();
+            buttonImportBooking = new Button();
+            panel11 = new Panel();
+            GradButtonAddBooking = new Guna.UI2.WinForms.Guna2GradientButton();
             buttonAddBooking = new Button();
             panelCheckOutTime = new Panel();
-            textBoxCheckOutTime = new TextBox();
+            textBoxCheckOutTime = new Guna.UI2.WinForms.Guna2TextBox();
             labelCheckOutTime = new Label();
             panelCheckInTime = new Panel();
-            textBoxCheckInTime = new TextBox();
+            textBoxCheckInTime = new Guna.UI2.WinForms.Guna2TextBox();
             label4 = new Label();
             panelRoomNo = new Panel();
-            textBoxRoomNo = new TextBox();
+            textBoxRoomNo = new Guna.UI2.WinForms.Guna2TextBox();
             labelRoomNo = new Label();
             panelCheckOutDate = new Panel();
             dateTimePickerCheckout = new DateTimePicker();
@@ -68,10 +87,12 @@
             panel10 = new Panel();
             labelListofBooking = new Label();
             panel9.SuspendLayout();
-            panel11.SuspendLayout();
             panelListofBooking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooking).BeginInit();
             panelSearch.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel11.SuspendLayout();
             panelCheckOutTime.SuspendLayout();
             panelCheckInTime.SuspendLayout();
             panelRoomNo.SuspendLayout();
@@ -85,6 +106,10 @@
             // panel9
             // 
             panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
+            panel9.Controls.Add(ButtonImportRecords);
+            panel9.Controls.Add(panelListofBooking);
+            panel9.Controls.Add(panel1);
+            panel9.Controls.Add(panel2);
             panel9.Controls.Add(buttonImportBooking);
             panel9.Controls.Add(panel11);
             panel9.Controls.Add(label7);
@@ -92,43 +117,33 @@
             panel9.Controls.Add(panel10);
             panel9.Dock = DockStyle.Fill;
             panel9.Location = new Point(0, 0);
-            panel9.Margin = new Padding(3, 4, 3, 4);
             panel9.Name = "panel9";
-            panel9.Size = new Size(1230, 999);
+            panel9.Size = new Size(1076, 749);
             panel9.TabIndex = 22;
             // 
-            // buttonImportBooking
+            // ButtonImportRecords
             // 
-            buttonImportBooking.BackColor = Color.FromArgb(27, 67, 50);
-            buttonImportBooking.FlatAppearance.BorderColor = Color.FromArgb(27, 67, 50);
-            buttonImportBooking.FlatStyle = FlatStyle.Flat;
-            buttonImportBooking.Font = new Font("SF Pro Display", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonImportBooking.ForeColor = Color.White;
-            buttonImportBooking.Location = new Point(942, 80);
-            buttonImportBooking.Margin = new Padding(3, 4, 3, 4);
-            buttonImportBooking.Name = "buttonImportBooking";
-            buttonImportBooking.Size = new Size(230, 65);
-            buttonImportBooking.TabIndex = 23;
-            buttonImportBooking.Text = "Import Records";
-            buttonImportBooking.UseVisualStyleBackColor = false;
-            // 
-            // panel11
-            // 
-            panel11.BackColor = Color.FromArgb(76, 149, 108);
-            panel11.BackgroundImageLayout = ImageLayout.Zoom;
-            panel11.Controls.Add(panelListofBooking);
-            panel11.Controls.Add(buttonAddBooking);
-            panel11.Controls.Add(panelCheckOutTime);
-            panel11.Controls.Add(panelCheckInTime);
-            panel11.Controls.Add(panelRoomNo);
-            panel11.Controls.Add(panelCheckOutDate);
-            panel11.Controls.Add(panelCheckInDate);
-            panel11.Controls.Add(panelGuestID);
-            panel11.Location = new Point(62, 164);
-            panel11.Margin = new Padding(3, 4, 3, 4);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(1110, 791);
-            panel11.TabIndex = 19;
+            ButtonImportRecords.Animated = true;
+            ButtonImportRecords.AutoRoundedCorners = true;
+            ButtonImportRecords.BackColor = Color.Transparent;
+            ButtonImportRecords.BorderRadius = 29;
+            ButtonImportRecords.CustomizableEdges = customizableEdges1;
+            ButtonImportRecords.DisabledState.BorderColor = Color.DarkGray;
+            ButtonImportRecords.DisabledState.CustomBorderColor = Color.DarkGray;
+            ButtonImportRecords.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            ButtonImportRecords.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            ButtonImportRecords.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            ButtonImportRecords.FillColor = Color.FromArgb(32, 191, 85);
+            ButtonImportRecords.FillColor2 = Color.SteelBlue;
+            ButtonImportRecords.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonImportRecords.ForeColor = Color.White;
+            ButtonImportRecords.Location = new Point(825, 47);
+            ButtonImportRecords.Name = "ButtonImportRecords";
+            ButtonImportRecords.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            ButtonImportRecords.Size = new Size(201, 61);
+            ButtonImportRecords.TabIndex = 26;
+            ButtonImportRecords.Text = "Import Records";
+            ButtonImportRecords.Click += ButtonImportRecords_Click;
             // 
             // panelListofBooking
             // 
@@ -136,10 +151,9 @@
             panelListofBooking.BackgroundImageLayout = ImageLayout.Zoom;
             panelListofBooking.Controls.Add(dataGridViewBooking);
             panelListofBooking.Controls.Add(panelSearch);
-            panelListofBooking.Location = new Point(0, 0);
-            panelListofBooking.Margin = new Padding(3, 4, 3, 4);
+            panelListofBooking.Location = new Point(54, 123);
             panelListofBooking.Name = "panelListofBooking";
-            panelListofBooking.Size = new Size(1110, 791);
+            panelListofBooking.Size = new Size(971, 593);
             panelListofBooking.TabIndex = 20;
             panelListofBooking.Visible = false;
             // 
@@ -147,11 +161,10 @@
             // 
             dataGridViewBooking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewBooking.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestID, ColumnRoomNo, ColumnCheckInDate, ColumnCheckInTime, ColumnCheckOutDate, ColumnCheckOutTime });
-            dataGridViewBooking.Location = new Point(79, 179);
-            dataGridViewBooking.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewBooking.Location = new Point(69, 134);
             dataGridViewBooking.Name = "dataGridViewBooking";
             dataGridViewBooking.RowHeadersWidth = 51;
-            dataGridViewBooking.Size = new Size(941, 347);
+            dataGridViewBooking.Size = new Size(823, 260);
             dataGridViewBooking.TabIndex = 17;
             // 
             // ColumnGuestID
@@ -206,23 +219,62 @@
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(buttonSaveEditBookings);
+            panelSearch.Controls.Add(buttonExitEditBookings);
+            panelSearch.Controls.Add(buttonEditBookings);
             panelSearch.Controls.Add(buttonSearchIcon);
             panelSearch.Controls.Add(textBoxAddressSearch);
-            panelSearch.Location = new Point(218, 25);
-            panelSearch.Margin = new Padding(3, 4, 3, 4);
+            panelSearch.Location = new Point(191, 19);
             panelSearch.Name = "panelSearch";
-            panelSearch.Size = new Size(713, 71);
+            panelSearch.Size = new Size(701, 53);
             panelSearch.TabIndex = 16;
+            // 
+            // buttonSaveEditBookings
+            // 
+            buttonSaveEditBookings.BackgroundImage = (Image)resources.GetObject("buttonSaveEditBookings.BackgroundImage");
+            buttonSaveEditBookings.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonSaveEditBookings.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonSaveEditBookings.Location = new Point(669, 12);
+            buttonSaveEditBookings.Name = "buttonSaveEditBookings";
+            buttonSaveEditBookings.Size = new Size(28, 27);
+            buttonSaveEditBookings.TabIndex = 10;
+            buttonSaveEditBookings.UseVisualStyleBackColor = true;
+            buttonSaveEditBookings.Visible = false;
+            buttonSaveEditBookings.Click += buttonSaveEditBookings_Click;
+            // 
+            // buttonExitEditBookings
+            // 
+            buttonExitEditBookings.BackgroundImage = (Image)resources.GetObject("buttonExitEditBookings.BackgroundImage");
+            buttonExitEditBookings.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonExitEditBookings.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonExitEditBookings.Location = new Point(635, 12);
+            buttonExitEditBookings.Name = "buttonExitEditBookings";
+            buttonExitEditBookings.Size = new Size(28, 27);
+            buttonExitEditBookings.TabIndex = 9;
+            buttonExitEditBookings.UseVisualStyleBackColor = true;
+            buttonExitEditBookings.Visible = false;
+            buttonExitEditBookings.Click += buttonExitEditGuest_Click;
+            // 
+            // buttonEditBookings
+            // 
+            buttonEditBookings.BackgroundImage = (Image)resources.GetObject("buttonEditBookings.BackgroundImage");
+            buttonEditBookings.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonEditBookings.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonEditBookings.Location = new Point(669, 12);
+            buttonEditBookings.Name = "buttonEditBookings";
+            buttonEditBookings.Size = new Size(28, 27);
+            buttonEditBookings.TabIndex = 8;
+            buttonEditBookings.UseVisualStyleBackColor = true;
+            buttonEditBookings.Click += buttonEditBookings_Click;
             // 
             // buttonSearchIcon
             // 
             buttonSearchIcon.BackgroundImage = (Image)resources.GetObject("buttonSearchIcon.BackgroundImage");
             buttonSearchIcon.BackgroundImageLayout = ImageLayout.Zoom;
             buttonSearchIcon.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSearchIcon.Location = new Point(611, 16);
-            buttonSearchIcon.Margin = new Padding(3, 4, 3, 4);
+            buttonSearchIcon.Location = new Point(535, 12);
             buttonSearchIcon.Name = "buttonSearchIcon";
-            buttonSearchIcon.Size = new Size(32, 36);
+            buttonSearchIcon.Size = new Size(28, 27);
             buttonSearchIcon.TabIndex = 3;
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
@@ -232,56 +284,166 @@
             textBoxAddressSearch.Enabled = false;
             textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(1, 16);
-            textBoxAddressSearch.Margin = new Padding(3, 4, 3, 4);
+            textBoxAddressSearch.Location = new Point(1, 12);
             textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.Size = new Size(580, 31);
+            textBoxAddressSearch.PlaceholderText = "Search";
+            textBoxAddressSearch.Size = new Size(508, 27);
             textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.Text = "Search";
             textBoxAddressSearch.WordWrap = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.MediumSeaGreen;
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(55, 92);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(153, 32);
+            panel1.TabIndex = 24;
+            panel1.Visible = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(9, 5);
+            label1.Name = "label1";
+            label1.Size = new Size(134, 23);
+            label1.TabIndex = 8;
+            label1.Text = "Add a Booking";
+            label1.Click += label1_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(76, 149, 108);
+            panel2.Controls.Add(label2);
+            panel2.Location = new Point(206, 92);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(170, 32);
+            panel2.TabIndex = 25;
+            panel2.Visible = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.Location = new Point(11, 5);
+            label2.Name = "label2";
+            label2.Size = new Size(149, 23);
+            label2.TabIndex = 9;
+            label2.Text = "List of Bookings";
+            // 
+            // buttonImportBooking
+            // 
+            buttonImportBooking.BackColor = Color.FromArgb(27, 67, 50);
+            buttonImportBooking.Enabled = false;
+            buttonImportBooking.FlatAppearance.BorderColor = Color.FromArgb(27, 67, 50);
+            buttonImportBooking.FlatStyle = FlatStyle.Flat;
+            buttonImportBooking.Font = new Font("SF Pro Display", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonImportBooking.ForeColor = Color.White;
+            buttonImportBooking.Location = new Point(915, 78);
+            buttonImportBooking.Name = "buttonImportBooking";
+            buttonImportBooking.Size = new Size(84, 25);
+            buttonImportBooking.TabIndex = 23;
+            buttonImportBooking.Text = "Import Records";
+            buttonImportBooking.UseVisualStyleBackColor = false;
+            // 
+            // panel11
+            // 
+            panel11.BackColor = Color.FromArgb(76, 149, 108);
+            panel11.BackgroundImageLayout = ImageLayout.Zoom;
+            panel11.Controls.Add(GradButtonAddBooking);
+            panel11.Controls.Add(buttonAddBooking);
+            panel11.Controls.Add(panelCheckOutTime);
+            panel11.Controls.Add(panelCheckInTime);
+            panel11.Controls.Add(panelRoomNo);
+            panel11.Controls.Add(panelCheckOutDate);
+            panel11.Controls.Add(panelCheckInDate);
+            panel11.Controls.Add(panelGuestID);
+            panel11.Location = new Point(54, 123);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(971, 593);
+            panel11.TabIndex = 19;
+            // 
+            // GradButtonAddBooking
+            // 
+            GradButtonAddBooking.Animated = true;
+            GradButtonAddBooking.AutoRoundedCorners = true;
+            GradButtonAddBooking.BorderRadius = 29;
+            GradButtonAddBooking.CustomizableEdges = customizableEdges3;
+            GradButtonAddBooking.DisabledState.BorderColor = Color.DarkGray;
+            GradButtonAddBooking.DisabledState.CustomBorderColor = Color.DarkGray;
+            GradButtonAddBooking.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            GradButtonAddBooking.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            GradButtonAddBooking.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            GradButtonAddBooking.FillColor = Color.FromArgb(32, 191, 85);
+            GradButtonAddBooking.FillColor2 = Color.SteelBlue;
+            GradButtonAddBooking.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            GradButtonAddBooking.ForeColor = Color.White;
+            GradButtonAddBooking.Location = new Point(747, 492);
+            GradButtonAddBooking.Name = "GradButtonAddBooking";
+            GradButtonAddBooking.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            GradButtonAddBooking.Size = new Size(186, 61);
+            GradButtonAddBooking.TabIndex = 11;
+            GradButtonAddBooking.Text = "Add Booking";
+            GradButtonAddBooking.Click += guna2GradientButton1_Click;
             // 
             // buttonAddBooking
             // 
             buttonAddBooking.BackColor = Color.FromArgb(27, 67, 50);
+            buttonAddBooking.Enabled = false;
             buttonAddBooking.FlatAppearance.BorderColor = Color.FromArgb(27, 67, 50);
             buttonAddBooking.FlatStyle = FlatStyle.Flat;
             buttonAddBooking.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAddBooking.ForeColor = Color.White;
-            buttonAddBooking.Location = new Point(854, 672);
-            buttonAddBooking.Margin = new Padding(3, 4, 3, 4);
+            buttonAddBooking.Location = new Point(747, 504);
             buttonAddBooking.Name = "buttonAddBooking";
-            buttonAddBooking.Size = new Size(213, 65);
+            buttonAddBooking.Size = new Size(186, 49);
             buttonAddBooking.TabIndex = 10;
             buttonAddBooking.Text = "Add Booking";
             buttonAddBooking.UseVisualStyleBackColor = false;
+            buttonAddBooking.Visible = false;
             buttonAddBooking.Click += buttonAddBooking_Click;
             // 
             // panelCheckOutTime
             // 
             panelCheckOutTime.Controls.Add(textBoxCheckOutTime);
             panelCheckOutTime.Controls.Add(labelCheckOutTime);
-            panelCheckOutTime.Location = new Point(673, 449);
-            panelCheckOutTime.Margin = new Padding(3, 4, 3, 4);
+            panelCheckOutTime.Location = new Point(526, 297);
             panelCheckOutTime.Name = "panelCheckOutTime";
-            panelCheckOutTime.Size = new Size(258, 89);
+            panelCheckOutTime.Size = new Size(241, 81);
             panelCheckOutTime.TabIndex = 7;
             // 
             // textBoxCheckOutTime
             // 
+            textBoxCheckOutTime.AutoRoundedCorners = true;
+            textBoxCheckOutTime.BorderRadius = 16;
+            textBoxCheckOutTime.CustomizableEdges = customizableEdges5;
+            textBoxCheckOutTime.DefaultText = "";
+            textBoxCheckOutTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            textBoxCheckOutTime.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            textBoxCheckOutTime.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            textBoxCheckOutTime.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            textBoxCheckOutTime.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxCheckOutTime.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxCheckOutTime.Location = new Point(10, 45);
-            textBoxCheckOutTime.Margin = new Padding(3, 4, 3, 4);
+            textBoxCheckOutTime.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxCheckOutTime.Location = new Point(9, 34);
+            textBoxCheckOutTime.Margin = new Padding(4);
             textBoxCheckOutTime.Name = "textBoxCheckOutTime";
-            textBoxCheckOutTime.Size = new Size(227, 31);
-            textBoxCheckOutTime.TabIndex = 1;
+            textBoxCheckOutTime.PasswordChar = '\0';
+            textBoxCheckOutTime.PlaceholderText = "";
+            textBoxCheckOutTime.SelectedText = "";
+            textBoxCheckOutTime.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            textBoxCheckOutTime.Size = new Size(217, 34);
+            textBoxCheckOutTime.TabIndex = 14;
             // 
             // labelCheckOutTime
             // 
             labelCheckOutTime.AutoSize = true;
             labelCheckOutTime.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCheckOutTime.Location = new Point(10, 8);
+            labelCheckOutTime.Location = new Point(9, 6);
             labelCheckOutTime.Name = "labelCheckOutTime";
-            labelCheckOutTime.Size = new Size(185, 29);
+            labelCheckOutTime.Size = new Size(152, 23);
             labelCheckOutTime.TabIndex = 0;
             labelCheckOutTime.Text = "Check-Out Time";
             // 
@@ -289,28 +451,41 @@
             // 
             panelCheckInTime.Controls.Add(textBoxCheckInTime);
             panelCheckInTime.Controls.Add(label4);
-            panelCheckInTime.Location = new Point(673, 319);
-            panelCheckInTime.Margin = new Padding(3, 4, 3, 4);
+            panelCheckInTime.Location = new Point(526, 199);
             panelCheckInTime.Name = "panelCheckInTime";
-            panelCheckInTime.Size = new Size(258, 89);
+            panelCheckInTime.Size = new Size(241, 80);
             panelCheckInTime.TabIndex = 7;
             // 
             // textBoxCheckInTime
             // 
+            textBoxCheckInTime.AutoRoundedCorners = true;
+            textBoxCheckInTime.BorderRadius = 16;
+            textBoxCheckInTime.CustomizableEdges = customizableEdges7;
+            textBoxCheckInTime.DefaultText = "";
+            textBoxCheckInTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            textBoxCheckInTime.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            textBoxCheckInTime.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            textBoxCheckInTime.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            textBoxCheckInTime.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxCheckInTime.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxCheckInTime.Location = new Point(10, 45);
-            textBoxCheckInTime.Margin = new Padding(3, 4, 3, 4);
+            textBoxCheckInTime.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxCheckInTime.Location = new Point(9, 34);
+            textBoxCheckInTime.Margin = new Padding(4);
             textBoxCheckInTime.Name = "textBoxCheckInTime";
-            textBoxCheckInTime.Size = new Size(227, 31);
-            textBoxCheckInTime.TabIndex = 1;
+            textBoxCheckInTime.PasswordChar = '\0';
+            textBoxCheckInTime.PlaceholderText = "";
+            textBoxCheckInTime.SelectedText = "";
+            textBoxCheckInTime.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            textBoxCheckInTime.Size = new Size(217, 34);
+            textBoxCheckInTime.TabIndex = 13;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(10, 8);
+            label4.Location = new Point(9, 6);
             label4.Name = "label4";
-            label4.Size = new Size(165, 29);
+            label4.Size = new Size(136, 23);
             label4.TabIndex = 0;
             label4.Text = "Check-In Time";
             // 
@@ -318,28 +493,41 @@
             // 
             panelRoomNo.Controls.Add(textBoxRoomNo);
             panelRoomNo.Controls.Add(labelRoomNo);
-            panelRoomNo.Location = new Point(673, 187);
-            panelRoomNo.Margin = new Padding(3, 4, 3, 4);
+            panelRoomNo.Location = new Point(348, 85);
             panelRoomNo.Name = "panelRoomNo";
-            panelRoomNo.Size = new Size(258, 89);
+            panelRoomNo.Size = new Size(226, 83);
             panelRoomNo.TabIndex = 7;
             // 
             // textBoxRoomNo
             // 
+            textBoxRoomNo.AutoRoundedCorners = true;
+            textBoxRoomNo.BorderRadius = 16;
+            textBoxRoomNo.CustomizableEdges = customizableEdges9;
+            textBoxRoomNo.DefaultText = "";
+            textBoxRoomNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            textBoxRoomNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            textBoxRoomNo.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            textBoxRoomNo.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            textBoxRoomNo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxRoomNo.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxRoomNo.Location = new Point(10, 45);
-            textBoxRoomNo.Margin = new Padding(3, 4, 3, 4);
+            textBoxRoomNo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxRoomNo.Location = new Point(5, 33);
+            textBoxRoomNo.Margin = new Padding(4);
             textBoxRoomNo.Name = "textBoxRoomNo";
-            textBoxRoomNo.Size = new Size(227, 31);
-            textBoxRoomNo.TabIndex = 1;
+            textBoxRoomNo.PasswordChar = '\0';
+            textBoxRoomNo.PlaceholderText = "";
+            textBoxRoomNo.SelectedText = "";
+            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            textBoxRoomNo.Size = new Size(217, 34);
+            textBoxRoomNo.TabIndex = 12;
             // 
             // labelRoomNo
             // 
             labelRoomNo.AutoSize = true;
             labelRoomNo.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelRoomNo.Location = new Point(10, 8);
+            labelRoomNo.Location = new Point(9, 6);
             labelRoomNo.Name = "labelRoomNo";
-            labelRoomNo.Size = new Size(114, 29);
+            labelRoomNo.Size = new Size(94, 23);
             labelRoomNo.TabIndex = 0;
             labelRoomNo.Text = "Room No.";
             // 
@@ -347,28 +535,26 @@
             // 
             panelCheckOutDate.Controls.Add(dateTimePickerCheckout);
             panelCheckOutDate.Controls.Add(labelCheckOutDate);
-            panelCheckOutDate.Location = new Point(274, 449);
-            panelCheckOutDate.Margin = new Padding(3, 4, 3, 4);
+            panelCheckOutDate.Location = new Point(177, 297);
             panelCheckOutDate.Name = "panelCheckOutDate";
-            panelCheckOutDate.Size = new Size(258, 89);
+            panelCheckOutDate.Size = new Size(226, 67);
             panelCheckOutDate.TabIndex = 8;
             // 
             // dateTimePickerCheckout
             // 
             dateTimePickerCheckout.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerCheckout.Location = new Point(10, 45);
-            dateTimePickerCheckout.Margin = new Padding(3, 4, 3, 4);
+            dateTimePickerCheckout.Location = new Point(9, 34);
             dateTimePickerCheckout.Name = "dateTimePickerCheckout";
-            dateTimePickerCheckout.Size = new Size(228, 31);
+            dateTimePickerCheckout.Size = new Size(200, 27);
             dateTimePickerCheckout.TabIndex = 8;
             // 
             // labelCheckOutDate
             // 
             labelCheckOutDate.AutoSize = true;
             labelCheckOutDate.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCheckOutDate.Location = new Point(10, 8);
+            labelCheckOutDate.Location = new Point(9, 6);
             labelCheckOutDate.Name = "labelCheckOutDate";
-            labelCheckOutDate.Size = new Size(184, 29);
+            labelCheckOutDate.Size = new Size(150, 23);
             labelCheckOutDate.TabIndex = 0;
             labelCheckOutDate.Text = "Check-Out Date";
             // 
@@ -376,28 +562,26 @@
             // 
             panelCheckInDate.Controls.Add(dateTimePickerCheckIn);
             panelCheckInDate.Controls.Add(labelCheckInDate);
-            panelCheckInDate.Location = new Point(274, 319);
-            panelCheckInDate.Margin = new Padding(3, 4, 3, 4);
+            panelCheckInDate.Location = new Point(177, 199);
             panelCheckInDate.Name = "panelCheckInDate";
-            panelCheckInDate.Size = new Size(258, 89);
+            panelCheckInDate.Size = new Size(226, 67);
             panelCheckInDate.TabIndex = 7;
             // 
             // dateTimePickerCheckIn
             // 
             dateTimePickerCheckIn.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerCheckIn.Location = new Point(10, 45);
-            dateTimePickerCheckIn.Margin = new Padding(3, 4, 3, 4);
+            dateTimePickerCheckIn.Location = new Point(9, 34);
             dateTimePickerCheckIn.Name = "dateTimePickerCheckIn";
-            dateTimePickerCheckIn.Size = new Size(228, 31);
+            dateTimePickerCheckIn.Size = new Size(200, 27);
             dateTimePickerCheckIn.TabIndex = 7;
             // 
             // labelCheckInDate
             // 
             labelCheckInDate.AutoSize = true;
             labelCheckInDate.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCheckInDate.Location = new Point(10, 8);
+            labelCheckInDate.Location = new Point(9, 6);
             labelCheckInDate.Name = "labelCheckInDate";
-            labelCheckInDate.Size = new Size(164, 29);
+            labelCheckInDate.Size = new Size(134, 23);
             labelCheckInDate.TabIndex = 0;
             labelCheckInDate.Text = "Check-In Date";
             // 
@@ -405,28 +589,28 @@
             // 
             panelGuestID.Controls.Add(textBoxGuestID);
             panelGuestID.Controls.Add(labelGuestID);
-            panelGuestID.Location = new Point(274, 187);
-            panelGuestID.Margin = new Padding(3, 4, 3, 4);
+            panelGuestID.Enabled = false;
+            panelGuestID.Location = new Point(454, 486);
             panelGuestID.Name = "panelGuestID";
-            panelGuestID.Size = new Size(258, 89);
+            panelGuestID.Size = new Size(226, 67);
             panelGuestID.TabIndex = 6;
+            panelGuestID.Visible = false;
             // 
             // textBoxGuestID
             // 
             textBoxGuestID.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxGuestID.Location = new Point(10, 45);
-            textBoxGuestID.Margin = new Padding(3, 4, 3, 4);
+            textBoxGuestID.Location = new Point(9, 34);
             textBoxGuestID.Name = "textBoxGuestID";
-            textBoxGuestID.Size = new Size(227, 31);
+            textBoxGuestID.Size = new Size(199, 27);
             textBoxGuestID.TabIndex = 1;
             // 
             // labelGuestID
             // 
             labelGuestID.AutoSize = true;
             labelGuestID.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelGuestID.Location = new Point(10, 8);
+            labelGuestID.Location = new Point(9, 6);
             labelGuestID.Name = "labelGuestID";
-            labelGuestID.Size = new Size(103, 29);
+            labelGuestID.Size = new Size(85, 23);
             labelGuestID.TabIndex = 0;
             labelGuestID.Text = "Guest ID";
             // 
@@ -435,9 +619,9 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(59, 44);
+            label7.Location = new Point(52, 33);
             label7.Name = "label7";
-            label7.Size = new Size(440, 53);
+            label7.Size = new Size(364, 42);
             label7.TabIndex = 20;
             label7.Text = "Booking Management";
             // 
@@ -445,19 +629,18 @@
             // 
             panelAddaGuest.BackColor = Color.FromArgb(76, 149, 108);
             panelAddaGuest.Controls.Add(labelAddBook);
-            panelAddaGuest.Location = new Point(62, 123);
-            panelAddaGuest.Margin = new Padding(3, 4, 3, 4);
+            panelAddaGuest.Location = new Point(54, 92);
             panelAddaGuest.Name = "panelAddaGuest";
-            panelAddaGuest.Size = new Size(175, 43);
+            panelAddaGuest.Size = new Size(153, 32);
             panelAddaGuest.TabIndex = 21;
             // 
             // labelAddBook
             // 
             labelAddBook.AutoSize = true;
             labelAddBook.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelAddBook.Location = new Point(10, 7);
+            labelAddBook.Location = new Point(9, 5);
             labelAddBook.Name = "labelAddBook";
-            labelAddBook.Size = new Size(163, 29);
+            labelAddBook.Size = new Size(134, 23);
             labelAddBook.TabIndex = 8;
             labelAddBook.Text = "Add a Booking";
             labelAddBook.Click += labelAddBook_Click;
@@ -466,10 +649,9 @@
             // 
             panel10.BackColor = Color.MediumSeaGreen;
             panel10.Controls.Add(labelListofBooking);
-            panel10.Location = new Point(234, 123);
-            panel10.Margin = new Padding(3, 4, 3, 4);
+            panel10.Location = new Point(205, 92);
             panel10.Name = "panel10";
-            panel10.Size = new Size(194, 43);
+            panel10.Size = new Size(170, 32);
             panel10.TabIndex = 22;
             // 
             // labelListofBooking
@@ -477,28 +659,31 @@
             labelListofBooking.AutoSize = true;
             labelListofBooking.BackColor = Color.Transparent;
             labelListofBooking.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelListofBooking.Location = new Point(13, 7);
+            labelListofBooking.Location = new Point(11, 5);
             labelListofBooking.Name = "labelListofBooking";
-            labelListofBooking.Size = new Size(177, 29);
+            labelListofBooking.Size = new Size(149, 23);
             labelListofBooking.TabIndex = 9;
             labelListofBooking.Text = "List of Bookings";
             labelListofBooking.Click += labelListofBooking_Click;
             // 
             // UC_Booking1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel9);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "UC_Booking1";
-            Size = new Size(1230, 999);
+            Size = new Size(1076, 749);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
-            panel11.ResumeLayout(false);
             panelListofBooking.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooking).EndInit();
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel11.ResumeLayout(false);
             panelCheckOutTime.ResumeLayout(false);
             panelCheckOutTime.PerformLayout();
             panelCheckInTime.ResumeLayout(false);
@@ -524,13 +709,10 @@
         private Panel panel11;
         private Button buttonAddBooking;
         private Panel panelCheckOutTime;
-        private TextBox textBoxCheckOutTime;
         private Label labelCheckOutTime;
         private Panel panelCheckInTime;
-        private TextBox textBoxCheckInTime;
         private Label label4;
         private Panel panelRoomNo;
-        private TextBox textBoxRoomNo;
         private Label labelRoomNo;
         private Panel panelCheckOutDate;
         private Label labelCheckOutDate;
@@ -558,5 +740,17 @@
         private DateTimePicker dateTimePickerCheckout;
         private DateTimePicker dateTimePickerCheckIn;
         private Button buttonImportBooking;
+        private Button buttonSaveEditBookings;
+        private Button buttonExitEditBookings;
+        private Button buttonEditBookings;
+        private Panel panel1;
+        private Label label1;
+        private Panel panel2;
+        private Label label2;
+        private Guna.UI2.WinForms.Guna2GradientButton GradButtonAddBooking;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxCheckInTime;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxRoomNo;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxCheckOutTime;
+        private Guna.UI2.WinForms.Guna2GradientButton ButtonImportRecords;
     }
 }

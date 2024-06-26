@@ -11,7 +11,7 @@ namespace Mirai_Paradise_Hotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginPage()); // Ensure your main form is correctly specified here
+            Application.Run(new Welcome()) ; // Ensure your main form is correctly specified here
         }
     }
 }

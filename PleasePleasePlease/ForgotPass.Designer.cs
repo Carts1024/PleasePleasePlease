@@ -157,7 +157,7 @@
             Controls.Add(panel2);
             MaximizeBox = false;
             Name = "ForgotPass";
-            Text = "s";
+            Text = "Forgot Password";
             WindowState = FormWindowState.Minimized;
             panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);

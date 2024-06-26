@@ -15,6 +15,16 @@ namespace Mirai_Paradise_Hotel
         public Dialogue_GuestAdded()
         {
             InitializeComponent();
+            timer1.Interval = 3000;
+            timer1.Tick += Timer1_Tick;
+            timer1.Start();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            this.Close();
         }
     }
+    
 }

@@ -28,20 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialogue_GuestAdded));
+            panel1 = new Panel();
+            label1 = new Label();
+            labelRConfirmation = new Label();
+            pictureBox1 = new PictureBox();
+            timer1 = new System.Windows.Forms.Timer(components);
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImageLayout = ImageLayout.Zoom;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(labelRConfirmation);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(357, 358);
+            panel1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("SF Pro Display", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(62, 291);
+            label1.Name = "label1";
+            label1.RightToLeft = RightToLeft.No;
+            label1.Size = new Size(242, 16);
+            label1.TabIndex = 2;
+            label1.Text = "A new guest has been successfully added.";
+            label1.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // labelRConfirmation
+            // 
+            labelRConfirmation.AutoSize = true;
+            labelRConfirmation.BackColor = Color.Transparent;
+            labelRConfirmation.Font = new Font("SF Pro Display", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelRConfirmation.ForeColor = Color.Black;
+            labelRConfirmation.Location = new Point(90, 247);
+            labelRConfirmation.Name = "labelRConfirmation";
+            labelRConfirmation.RightToLeft = RightToLeft.No;
+            labelRConfirmation.Size = new Size(184, 32);
+            labelRConfirmation.TabIndex = 1;
+            labelRConfirmation.Text = "Guest Added!";
+            labelRConfirmation.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(34, 32);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(290, 234);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // Dialogue_GuestAdded
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(357, 358);
+            Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "Dialogue_GuestAdded";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Dialogue_GuestAdded";
+            Text = "Guest";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
+        private Label label1;
+        private Label labelRConfirmation;
+        private PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

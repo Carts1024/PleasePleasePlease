@@ -15,6 +15,17 @@ namespace Mirai_Paradise_Hotel
         public Welcome()
         {
             InitializeComponent();
+            timer1.Interval = 5000;
+            timer1.Tick += Timer1_Tick;
+            timer1.Start();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            LoginPage login = new LoginPage();
+            this.Hide();
+            login.Show();
         }
     }
 }

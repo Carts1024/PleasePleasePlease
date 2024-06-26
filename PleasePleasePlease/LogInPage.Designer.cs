@@ -50,19 +50,17 @@
             panelBase.Controls.Add(HotelLogo);
             panelBase.Dock = DockStyle.Left;
             panelBase.Location = new Point(0, 0);
-            panelBase.Margin = new Padding(3, 4, 3, 4);
             panelBase.Name = "panelBase";
-            panelBase.Size = new Size(518, 621);
+            panelBase.Size = new Size(453, 466);
             panelBase.TabIndex = 0;
             // 
             // HotelLogo
             // 
             HotelLogo.BackgroundImage = (Image)resources.GetObject("HotelLogo.BackgroundImage");
             HotelLogo.BackgroundImageLayout = ImageLayout.Zoom;
-            HotelLogo.Location = new Point(3, 53);
-            HotelLogo.Margin = new Padding(3, 4, 3, 4);
+            HotelLogo.Location = new Point(3, 40);
             HotelLogo.Name = "HotelLogo";
-            HotelLogo.Size = new Size(511, 516);
+            HotelLogo.Size = new Size(447, 387);
             HotelLogo.TabIndex = 1;
             // 
             // panel1
@@ -76,20 +74,19 @@
             panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(lblAccLogin);
-            panel1.Location = new Point(579, 133);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(507, 100);
             panel1.Name = "panel1";
-            panel1.Size = new Size(491, 368);
+            panel1.Size = new Size(430, 276);
             panel1.TabIndex = 1;
             // 
             // lblErrorCredentials
             // 
             lblErrorCredentials.AutoSize = true;
-            lblErrorCredentials.Font = new Font("Microsoft Sans Serif", 10F);
+            lblErrorCredentials.Font = new Font("SF Pro Display", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblErrorCredentials.ForeColor = Color.Red;
-            lblErrorCredentials.Location = new Point(81, 240);
+            lblErrorCredentials.Location = new Point(71, 180);
             lblErrorCredentials.Name = "lblErrorCredentials";
-            lblErrorCredentials.Size = new Size(370, 20);
+            lblErrorCredentials.Size = new Size(274, 16);
             lblErrorCredentials.TabIndex = 9;
             lblErrorCredentials.Text = "You have entered invalid username or password.";
             lblErrorCredentials.Visible = false;
@@ -97,12 +94,11 @@
             // btnLogin
             // 
             btnLogin.BackColor = Color.FromArgb(45, 106, 79);
-            btnLogin.Font = new Font("Microsoft Sans Serif", 11F);
+            btnLogin.Font = new Font("SF Pro Display", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(199, 272);
-            btnLogin.Margin = new Padding(3, 4, 3, 4);
+            btnLogin.Location = new Point(174, 204);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(106, 44);
+            btnLogin.Size = new Size(93, 33);
             btnLogin.TabIndex = 8;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
@@ -111,10 +107,11 @@
             // lblForgotPass
             // 
             lblForgotPass.AutoSize = true;
+            lblForgotPass.Font = new Font("SF Pro Display", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblForgotPass.LinkColor = Color.MediumSeaGreen;
-            lblForgotPass.Location = new Point(323, 207);
+            lblForgotPass.Location = new Point(283, 155);
             lblForgotPass.Name = "lblForgotPass";
-            lblForgotPass.Size = new Size(118, 20);
+            lblForgotPass.Size = new Size(92, 14);
             lblForgotPass.TabIndex = 7;
             lblForgotPass.TabStop = true;
             lblForgotPass.Text = "Forgot Password";
@@ -123,60 +120,58 @@
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Font = new Font("Microsoft Sans Serif", 14F);
+            lblPassword.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPassword.ForeColor = Color.White;
-            lblPassword.Location = new Point(50, 172);
+            lblPassword.Location = new Point(44, 129);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(124, 29);
+            lblPassword.Size = new Size(94, 23);
             lblPassword.TabIndex = 4;
             lblPassword.Text = "password:";
             // 
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Font = new Font("Microsoft Sans Serif", 14F);
+            lblUsername.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblUsername.ForeColor = Color.White;
-            lblUsername.Location = new Point(49, 112);
+            lblUsername.Location = new Point(43, 84);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(126, 29);
+            lblUsername.Size = new Size(95, 23);
             lblUsername.TabIndex = 3;
             lblUsername.Text = "username:";
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(176, 172);
-            txtPassword.Margin = new Padding(3, 4, 3, 4);
+            txtPassword.Location = new Point(154, 129);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(255, 27);
+            txtPassword.Size = new Size(224, 23);
             txtPassword.TabIndex = 2;
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(176, 112);
-            txtUsername.Margin = new Padding(3, 4, 3, 4);
+            txtUsername.Location = new Point(154, 84);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(255, 27);
+            txtUsername.Size = new Size(224, 23);
             txtUsername.TabIndex = 1;
             // 
             // lblAccLogin
             // 
             lblAccLogin.AutoSize = true;
-            lblAccLogin.Font = new Font("Microsoft Sans Serif", 22F, FontStyle.Bold);
+            lblAccLogin.Font = new Font("SF Pro Display", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAccLogin.ForeColor = Color.White;
-            lblAccLogin.Location = new Point(143, 12);
+            lblAccLogin.Location = new Point(125, 23);
             lblAccLogin.Name = "lblAccLogin";
-            lblAccLogin.Size = new Size(269, 42);
+            lblAccLogin.Size = new Size(207, 35);
             lblAccLogin.TabIndex = 0;
             lblAccLogin.Text = "Account Login";
             // 
             // LoginPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1125, 621);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(984, 466);
             Controls.Add(panel1);
             Controls.Add(panelBase);
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;

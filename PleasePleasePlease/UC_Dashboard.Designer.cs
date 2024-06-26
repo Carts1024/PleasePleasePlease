@@ -29,8 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Dashboard));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
+            guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            ButtonBookingHistory = new Guna.UI2.WinForms.Guna2GradientButton();
             label30 = new Label();
+<<<<<<< Updated upstream
             label25 = new Label();
             panel18 = new Panel();
             dataGridView1 = new DataGridView();
@@ -45,6 +52,8 @@
             buttonMore = new Button();
             buttonSearchIcon = new Button();
             textBoxAddressSearch = new TextBox();
+=======
+>>>>>>> Stashed changes
             panel17 = new Panel();
             label29 = new Label();
             label23 = new Label();
@@ -98,9 +107,6 @@
             label1 = new Label();
             label2 = new Label();
             panel1.SuspendLayout();
-            panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panelSearch.SuspendLayout();
             panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel16.SuspendLayout();
@@ -125,9 +131,9 @@
             panel1.AutoSize = true;
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.Controls.Add(guna2GradientButton1);
+            panel1.Controls.Add(ButtonBookingHistory);
             panel1.Controls.Add(label30);
-            panel1.Controls.Add(label25);
-            panel1.Controls.Add(panel18);
             panel1.Controls.Add(panel17);
             panel1.Controls.Add(panel16);
             panel1.Controls.Add(panel15);
@@ -145,8 +151,60 @@
             panel1.MaximumSize = new Size(2194, 1440);
             panel1.MinimumSize = new Size(1230, 999);
             panel1.Name = "panel1";
+<<<<<<< Updated upstream
             panel1.Size = new Size(2194, 1440);
+=======
+            panel1.Size = new Size(1093, 749);
+>>>>>>> Stashed changes
             panel1.TabIndex = 19;
+            // 
+            // guna2GradientButton1
+            // 
+            guna2GradientButton1.Animated = true;
+            guna2GradientButton1.AutoRoundedCorners = true;
+            guna2GradientButton1.BackColor = Color.Transparent;
+            guna2GradientButton1.BorderRadius = 25;
+            guna2GradientButton1.CustomizableEdges = customizableEdges1;
+            guna2GradientButton1.DisabledState.BorderColor = Color.DarkGray;
+            guna2GradientButton1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2GradientButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2GradientButton1.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            guna2GradientButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2GradientButton1.FillColor = Color.FromArgb(32, 191, 85);
+            guna2GradientButton1.FillColor2 = Color.SteelBlue;
+            guna2GradientButton1.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2GradientButton1.ForeColor = Color.White;
+            guna2GradientButton1.Location = new Point(879, 622);
+            guna2GradientButton1.Name = "guna2GradientButton1";
+            guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2GradientButton1.Size = new Size(177, 52);
+            guna2GradientButton1.TabIndex = 30;
+            guna2GradientButton1.Text = "See More";
+            guna2GradientButton1.Click += guna2GradientButton1_Click;
+            // 
+            // ButtonBookingHistory
+            // 
+            ButtonBookingHistory.Animated = true;
+            ButtonBookingHistory.AutoRoundedCorners = true;
+            ButtonBookingHistory.BackColor = Color.Transparent;
+            ButtonBookingHistory.BorderRadius = 25;
+            ButtonBookingHistory.CustomizableEdges = customizableEdges3;
+            ButtonBookingHistory.DisabledState.BorderColor = Color.DarkGray;
+            ButtonBookingHistory.DisabledState.CustomBorderColor = Color.DarkGray;
+            ButtonBookingHistory.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            ButtonBookingHistory.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            ButtonBookingHistory.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            ButtonBookingHistory.FillColor = Color.FromArgb(32, 191, 85);
+            ButtonBookingHistory.FillColor2 = Color.SteelBlue;
+            ButtonBookingHistory.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonBookingHistory.ForeColor = Color.White;
+            ButtonBookingHistory.Location = new Point(362, 622);
+            ButtonBookingHistory.Name = "ButtonBookingHistory";
+            ButtonBookingHistory.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            ButtonBookingHistory.Size = new Size(278, 52);
+            ButtonBookingHistory.TabIndex = 29;
+            ButtonBookingHistory.Text = "View Booking History";
+            ButtonBookingHistory.Click += ButtonBookingHistory_Click;
             // 
             // label30
             // 
@@ -160,6 +218,7 @@
             label30.TabIndex = 22;
             label30.Text = "Day, Month, Year";
             // 
+<<<<<<< Updated upstream
             // label25
             // 
             label25.AutoSize = true;
@@ -304,6 +363,8 @@
             textBoxAddressSearch.Text = "Search";
             textBoxAddressSearch.WordWrap = false;
             // 
+=======
+>>>>>>> Stashed changes
             // panel17
             // 
             panel17.BackColor = Color.FromArgb(64, 145, 108);
@@ -894,7 +955,11 @@
             label2.BackColor = Color.Transparent;
             label2.Dock = DockStyle.Right;
             label2.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+<<<<<<< Updated upstream
             label2.Location = new Point(1881, 0);
+=======
+            label2.Location = new Point(845, 0);
+>>>>>>> Stashed changes
             label2.Name = "label2";
             label2.Padding = new Padding(0, 40, 0, 0);
             label2.Size = new Size(313, 82);
@@ -908,13 +973,13 @@
             Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "UC_Dashboard";
+<<<<<<< Updated upstream
             Size = new Size(1367, 999);
+=======
+            Size = new Size(1042, 749);
+>>>>>>> Stashed changes
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             panel17.ResumeLayout(false);
             panel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -998,6 +1063,7 @@
         private Label label20;
         private Button button2;
         private PictureBox pictureBox2;
+<<<<<<< Updated upstream
         private Label label25;
         private Panel panel18;
         private DataGridView dataGridView1;
@@ -1012,10 +1078,18 @@
         private Button buttonSearchIcon;
         private TextBox textBoxAddressSearch;
         private ComboBox comboBox1;
+=======
+>>>>>>> Stashed changes
         private Label label29;
         private Label label28;
         private Label label27;
         private Label label26;
         private Label label30;
+<<<<<<< Updated upstream
+=======
+        private Panel panel13;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton ButtonBookingHistory;
+>>>>>>> Stashed changes
     }
 }

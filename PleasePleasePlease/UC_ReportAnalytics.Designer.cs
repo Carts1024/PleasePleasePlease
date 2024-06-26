@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_ReportAnalytics));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel3 = new Panel();
+<<<<<<< Updated upstream
             label53 = new Label();
             panel21 = new Panel();
             panel30 = new Panel();
@@ -90,6 +93,19 @@
             label1 = new Label();
             label10 = new Label();
             label9 = new Label();
+=======
+            panel32 = new Panel();
+            label61 = new Label();
+            panel33 = new Panel();
+            ButtonGuestDemo = new Guna.UI2.WinForms.Guna2GradientButton();
+            label100 = new Label();
+            label101 = new Label();
+            label102 = new Label();
+            panel29 = new Panel();
+            label83 = new Label();
+            panel34 = new Panel();
+            label94 = new Label();
+>>>>>>> Stashed changes
             panel18 = new Panel();
             panel15 = new Panel();
             label49 = new Label();
@@ -105,6 +121,7 @@
             label44 = new Label();
             label43 = new Label();
             label26 = new Label();
+<<<<<<< Updated upstream
             panelStandardRoomOR = new Panel();
             panel22 = new Panel();
             panel23 = new Panel();
@@ -113,6 +130,8 @@
             label62 = new Label();
             label64 = new Label();
             label19 = new Label();
+=======
+>>>>>>> Stashed changes
             panel7 = new Panel();
             label18 = new Label();
             panel9 = new Panel();
@@ -142,39 +161,67 @@
             Bookings = new Label();
             label3 = new Label();
             labelGuestInvoice = new Label();
+<<<<<<< Updated upstream
+=======
+            gunaPieDataset1 = new Guna.Charts.WinForms.GunaPieDataset();
+            label9 = new Label();
+            label10 = new Label();
+            label1 = new Label();
+            panel5 = new Panel();
+            panel16 = new Panel();
+            label4 = new Label();
+            label21 = new Label();
+            label22 = new Label();
+            label23 = new Label();
+            panel17 = new Panel();
+            label28 = new Label();
+            label27 = new Label();
+            label25 = new Label();
+            label24 = new Label();
+            label32 = new Label();
+            label31 = new Label();
+            label30 = new Label();
+            label29 = new Label();
+            label36 = new Label();
+            label35 = new Label();
+            label34 = new Label();
+            label33 = new Label();
+            panel12 = new Panel();
+>>>>>>> Stashed changes
             panel3.SuspendLayout();
-            panel21.SuspendLayout();
-            panel30.SuspendLayout();
-            panel31.SuspendLayout();
-            panel20.SuspendLayout();
-            panel26.SuspendLayout();
-            panel27.SuspendLayout();
-            panel19.SuspendLayout();
-            panel24.SuspendLayout();
-            panel25.SuspendLayout();
-            panel12.SuspendLayout();
-            panel5.SuspendLayout();
-            panel17.SuspendLayout();
-            panel16.SuspendLayout();
+            panel32.SuspendLayout();
+            panel29.SuspendLayout();
             panel18.SuspendLayout();
             panel15.SuspendLayout();
             panel14.SuspendLayout();
             panel13.SuspendLayout();
-            panelStandardRoomOR.SuspendLayout();
-            panel22.SuspendLayout();
-            panel23.SuspendLayout();
             panel7.SuspendLayout();
             panelDailyDetails.SuspendLayout();
+<<<<<<< Updated upstream
+=======
+            panel5.SuspendLayout();
+            panel16.SuspendLayout();
+            panel17.SuspendLayout();
+            panel12.SuspendLayout();
+>>>>>>> Stashed changes
             SuspendLayout();
             // 
             // panel3
             // 
+<<<<<<< Updated upstream
             panel3.AutoSize = true;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.Controls.Add(label53);
             panel3.Controls.Add(panel21);
             panel3.Controls.Add(panel20);
             panel3.Controls.Add(panel19);
+=======
+            panel3.AutoScroll = true;
+            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.Controls.Add(ButtonGuestDemo);
+            panel3.Controls.Add(panel32);
+            panel3.Controls.Add(panel29);
+>>>>>>> Stashed changes
             panel3.Controls.Add(panel12);
             panel3.Controls.Add(panel18);
             panel3.Controls.Add(panelStandardRoomOR);
@@ -188,6 +235,7 @@
             panel3.Size = new Size(1230, 999);
             panel3.TabIndex = 20;
             // 
+<<<<<<< Updated upstream
             // label53
             // 
             label53.AutoSize = true;
@@ -841,6 +889,137 @@
             label9.Size = new Size(151, 24);
             label9.TabIndex = 15;
             label9.Text = "Occupancy Rate";
+=======
+            // panel32
+            // 
+            panel32.BackColor = Color.FromArgb(45, 106, 79);
+            panel32.Controls.Add(label61);
+            panel32.Controls.Add(panel33);
+            panel32.Controls.Add(label100);
+            panel32.Controls.Add(label101);
+            panel32.Controls.Add(label102);
+            panel32.Location = new Point(627, 567);
+            panel32.Name = "panel32";
+            panel32.Size = new Size(410, 226);
+            panel32.TabIndex = 27;
+            // 
+            // label61
+            // 
+            label61.AutoSize = true;
+            label61.Location = new Point(163, 35);
+            label61.Name = "label61";
+            label61.Size = new Size(120, 15);
+            label61.TabIndex = 21;
+            label61.Text = "[DOUGHNUT CHART]";
+            // 
+            // panel33
+            // 
+            panel33.BackColor = Color.FromArgb(82, 183, 136);
+            panel33.Location = new Point(27, 65);
+            panel33.Name = "panel33";
+            panel33.Size = new Size(358, 134);
+            panel33.TabIndex = 17;
+            // 
+            // ButtonGuestDemo
+            // 
+            ButtonGuestDemo.Animated = true;
+            ButtonGuestDemo.AutoRoundedCorners = true;
+            ButtonGuestDemo.BackColor = Color.Transparent;
+            ButtonGuestDemo.BorderRadius = 29;
+            ButtonGuestDemo.CustomizableEdges = customizableEdges1;
+            ButtonGuestDemo.DisabledState.BorderColor = Color.DarkGray;
+            ButtonGuestDemo.DisabledState.CustomBorderColor = Color.DarkGray;
+            ButtonGuestDemo.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            ButtonGuestDemo.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            ButtonGuestDemo.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            ButtonGuestDemo.FillColor = Color.FromArgb(32, 191, 85);
+            ButtonGuestDemo.FillColor2 = Color.SteelBlue;
+            ButtonGuestDemo.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonGuestDemo.ForeColor = Color.White;
+            ButtonGuestDemo.Location = new Point(430, 842);
+            ButtonGuestDemo.Name = "ButtonGuestDemo";
+            ButtonGuestDemo.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            ButtonGuestDemo.Size = new Size(307, 61);
+            ButtonGuestDemo.TabIndex = 28;
+            ButtonGuestDemo.Text = "View Guest Demographics";
+            ButtonGuestDemo.Click += ButtonGuestDemo_Click;
+            // 
+            // label100
+            // 
+            label100.AutoSize = true;
+            label100.BackColor = Color.Transparent;
+            label100.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label100.ForeColor = Color.Black;
+            label100.Location = new Point(304, 8);
+            label100.Name = "label100";
+            label100.Size = new Size(84, 42);
+            label100.TabIndex = 20;
+            label100.Text = "71%";
+            // 
+            // label101
+            // 
+            label101.AutoSize = true;
+            label101.BackColor = Color.Transparent;
+            label101.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label101.ForeColor = Color.White;
+            label101.Location = new Point(17, 34);
+            label101.Name = "label101";
+            label101.Size = new Size(93, 16);
+            label101.TabIndex = 18;
+            label101.Text = "Current Month";
+            // 
+            // label102
+            // 
+            label102.AutoSize = true;
+            label102.BackColor = Color.Transparent;
+            label102.Font = new Font("SF Pro Display", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label102.ForeColor = Color.White;
+            label102.Location = new Point(17, 13);
+            label102.Name = "label102";
+            label102.Size = new Size(130, 19);
+            label102.TabIndex = 15;
+            label102.Text = "Occupancy Rate";
+            // 
+            // panel29
+            // 
+            panel29.BackColor = Color.FromArgb(45, 106, 79);
+            panel29.Controls.Add(label83);
+            panel29.Controls.Add(panel34);
+            panel29.Controls.Add(label94);
+            panel29.Location = new Point(51, 297);
+            panel29.Name = "panel29";
+            panel29.Size = new Size(553, 266);
+            panel29.TabIndex = 23;
+            // 
+            // label83
+            // 
+            label83.AutoSize = true;
+            label83.Location = new Point(196, 17);
+            label83.Name = "label83";
+            label83.Size = new Size(124, 15);
+            label83.TabIndex = 20;
+            label83.Text = "[SPLINE AREA CHART]";
+            // 
+            // panel34
+            // 
+            panel34.BackColor = Color.FromArgb(82, 183, 136);
+            panel34.Location = new Point(27, 47);
+            panel34.Name = "panel34";
+            panel34.Size = new Size(501, 191);
+            panel34.TabIndex = 16;
+            // 
+            // label94
+            // 
+            label94.AutoSize = true;
+            label94.BackColor = Color.Transparent;
+            label94.Font = new Font("SF Pro Display", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label94.ForeColor = Color.White;
+            label94.Location = new Point(17, 13);
+            label94.Name = "label94";
+            label94.Size = new Size(174, 19);
+            label94.TabIndex = 15;
+            label94.Text = "Monthly Total Revenue";
+>>>>>>> Stashed changes
             // 
             // panel18
             // 
@@ -849,10 +1028,16 @@
             panel18.Controls.Add(panel14);
             panel18.Controls.Add(panel13);
             panel18.Controls.Add(label26);
+<<<<<<< Updated upstream
             panel18.Location = new Point(58, 396);
             panel18.Margin = new Padding(3, 4, 3, 4);
             panel18.Name = "panel18";
             panel18.Size = new Size(633, 333);
+=======
+            panel18.Location = new Point(51, 589);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(554, 204);
+>>>>>>> Stashed changes
             panel18.TabIndex = 22;
             // 
             // panel15
@@ -860,21 +1045,31 @@
             panel15.BackColor = Color.FromArgb(82, 183, 136);
             panel15.Controls.Add(label49);
             panel15.Controls.Add(label47);
+<<<<<<< Updated upstream
             panel15.Location = new Point(337, 189);
             panel15.Margin = new Padding(3, 4, 3, 4);
             panel15.Name = "panel15";
             panel15.Size = new Size(267, 111);
+=======
+            panel15.Location = new Point(295, 124);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(234, 64);
+>>>>>>> Stashed changes
             panel15.TabIndex = 18;
             // 
             // label49
             // 
             label49.AutoSize = true;
             label49.BackColor = Color.Transparent;
-            label49.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label49.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label49.ForeColor = Color.Black;
             label49.Location = new Point(15, 15);
             label49.Name = "label49";
+<<<<<<< Updated upstream
             label49.Size = new Size(221, 53);
+=======
+            label49.Size = new Size(112, 25);
+>>>>>>> Stashed changes
             label49.TabIndex = 22;
             label49.Text = "₱123, 456";
             // 
@@ -884,11 +1079,16 @@
             label47.BackColor = Color.Transparent;
             label47.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold);
             label47.ForeColor = Color.White;
+<<<<<<< Updated upstream
             label47.Location = new Point(15, 71);
+=======
+            label47.Location = new Point(13, 37);
+>>>>>>> Stashed changes
             label47.Name = "label47";
             label47.Size = new Size(90, 20);
             label47.TabIndex = 21;
             label47.Text = "Last Month";
+            label47.Click += label47_Click;
             // 
             // panel14
             // 
@@ -898,18 +1098,26 @@
             panel14.Location = new Point(337, 61);
             panel14.Margin = new Padding(3, 4, 3, 4);
             panel14.Name = "panel14";
+<<<<<<< Updated upstream
             panel14.Size = new Size(267, 111);
+=======
+            panel14.Size = new Size(234, 70);
+>>>>>>> Stashed changes
             panel14.TabIndex = 17;
             // 
             // label48
             // 
             label48.AutoSize = true;
             label48.BackColor = Color.Transparent;
-            label48.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label48.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label48.ForeColor = Color.Black;
             label48.Location = new Point(15, 16);
             label48.Name = "label48";
+<<<<<<< Updated upstream
             label48.Size = new Size(221, 53);
+=======
+            label48.Size = new Size(112, 25);
+>>>>>>> Stashed changes
             label48.TabIndex = 20;
             label48.Text = "₱123, 456";
             // 
@@ -919,7 +1127,11 @@
             label46.BackColor = Color.Transparent;
             label46.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold);
             label46.ForeColor = Color.White;
+<<<<<<< Updated upstream
             label46.Location = new Point(15, 72);
+=======
+            label46.Location = new Point(13, 38);
+>>>>>>> Stashed changes
             label46.Name = "label46";
             label46.Size = new Size(113, 20);
             label46.TabIndex = 20;
@@ -937,7 +1149,11 @@
             panel13.Location = new Point(31, 63);
             panel13.Margin = new Padding(3, 4, 3, 4);
             panel13.Name = "panel13";
+<<<<<<< Updated upstream
             panel13.Size = new Size(290, 237);
+=======
+            panel13.Size = new Size(254, 141);
+>>>>>>> Stashed changes
             panel13.TabIndex = 16;
             // 
             // label52
@@ -946,7 +1162,11 @@
             label52.BackColor = Color.Transparent;
             label52.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold);
             label52.ForeColor = Color.White;
+<<<<<<< Updated upstream
             label52.Location = new Point(107, 109);
+=======
+            label52.Location = new Point(92, 53);
+>>>>>>> Stashed changes
             label52.Name = "label52";
             label52.Size = new Size(72, 20);
             label52.TabIndex = 23;
@@ -958,7 +1178,11 @@
             label51.BackColor = Color.Transparent;
             label51.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label51.ForeColor = Color.Black;
+<<<<<<< Updated upstream
             label51.Location = new Point(151, 161);
+=======
+            label51.Location = new Point(132, 77);
+>>>>>>> Stashed changes
             label51.Name = "label51";
             label51.Size = new Size(122, 29);
             label51.TabIndex = 22;
@@ -970,7 +1194,11 @@
             label50.BackColor = Color.Transparent;
             label50.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label50.ForeColor = Color.Black;
+<<<<<<< Updated upstream
             label50.Location = new Point(18, 161);
+=======
+            label50.Location = new Point(16, 77);
+>>>>>>> Stashed changes
             label50.Name = "label50";
             label50.Size = new Size(122, 29);
             label50.TabIndex = 21;
@@ -982,7 +1210,11 @@
             label45.BackColor = Color.Transparent;
             label45.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold);
             label45.ForeColor = Color.White;
+<<<<<<< Updated upstream
             label45.Location = new Point(170, 192);
+=======
+            label45.Location = new Point(148, 106);
+>>>>>>> Stashed changes
             label45.Name = "label45";
             label45.Size = new Size(76, 20);
             label45.TabIndex = 19;
@@ -994,7 +1226,11 @@
             label44.BackColor = Color.Transparent;
             label44.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold);
             label44.ForeColor = Color.White;
+<<<<<<< Updated upstream
             label44.Location = new Point(29, 192);
+=======
+            label44.Location = new Point(28, 106);
+>>>>>>> Stashed changes
             label44.Name = "label44";
             label44.Size = new Size(99, 20);
             label44.TabIndex = 18;
@@ -1004,11 +1240,17 @@
             // 
             label43.AutoSize = true;
             label43.BackColor = Color.Transparent;
-            label43.Font = new Font("SF Pro Display", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label43.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label43.ForeColor = Color.Black;
+<<<<<<< Updated upstream
             label43.Location = new Point(78, 33);
             label43.Name = "label43";
             label43.Size = new Size(136, 72);
+=======
+            label43.Location = new Point(80, 9);
+            label43.Name = "label43";
+            label43.Size = new Size(84, 42);
+>>>>>>> Stashed changes
             label43.TabIndex = 14;
             label43.Text = "71%";
             // 
@@ -1024,6 +1266,7 @@
             label26.TabIndex = 15;
             label26.Text = "Total Revenue";
             // 
+<<<<<<< Updated upstream
             // panelStandardRoomOR
             // 
             panelStandardRoomOR.BackColor = Color.FromArgb(45, 106, 79);
@@ -1109,6 +1352,8 @@
             label19.TabIndex = 16;
             label19.Text = "Gender";
             // 
+=======
+>>>>>>> Stashed changes
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(45, 106, 79);
@@ -1461,6 +1706,264 @@
             labelGuestInvoice.TabIndex = 16;
             labelGuestInvoice.Text = "Reports Analytics";
             // 
+<<<<<<< Updated upstream
+=======
+            // gunaPieDataset1
+            // 
+            gunaPieDataset1.BorderWidth = 10;
+            gunaPieDataset1.Label = "Pie1";
+            gunaPieDataset1.LegendBoxBorderColor = Color.FromArgb(255, 224, 192);
+            gunaPieDataset1.LegendBoxFillColor = Color.Red;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("SF Pro Display", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(17, 13);
+            label9.Name = "label9";
+            label9.Size = new Size(130, 19);
+            label9.TabIndex = 15;
+            label9.Text = "Occupancy Rate";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(17, 34);
+            label10.Name = "label10";
+            label10.Size = new Size(93, 16);
+            label10.TabIndex = 18;
+            label10.Text = "Current Month";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(304, 8);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 42);
+            label1.TabIndex = 20;
+            label1.Text = "71%";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(82, 183, 136);
+            panel5.Controls.Add(panel17);
+            panel5.Controls.Add(panel16);
+            panel5.Location = new Point(27, 65);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(358, 160);
+            panel5.TabIndex = 17;
+            // 
+            // panel16
+            // 
+            panel16.Controls.Add(label23);
+            panel16.Controls.Add(label22);
+            panel16.Controls.Add(label21);
+            panel16.Controls.Add(label4);
+            panel16.Location = new Point(9, 11);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(345, 31);
+            panel16.TabIndex = 4;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(9, 8);
+            label4.Name = "label4";
+            label4.Size = new Size(68, 14);
+            label4.TabIndex = 0;
+            label4.Text = "Room Type";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.Location = new Point(93, 8);
+            label21.Name = "label21";
+            label21.Size = new Size(57, 14);
+            label21.TabIndex = 1;
+            label21.Text = "Available";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label22.Location = new Point(166, 8);
+            label22.Name = "label22";
+            label22.Size = new Size(61, 14);
+            label22.TabIndex = 2;
+            label22.Text = "Occupied";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.Location = new Point(243, 8);
+            label23.Name = "label23";
+            label23.Size = new Size(100, 14);
+            label23.TabIndex = 3;
+            label23.Text = "Occupancy Rate";
+            // 
+            // panel17
+            // 
+            panel17.Controls.Add(label33);
+            panel17.Controls.Add(label34);
+            panel17.Controls.Add(label35);
+            panel17.Controls.Add(label36);
+            panel17.Controls.Add(label29);
+            panel17.Controls.Add(label30);
+            panel17.Controls.Add(label31);
+            panel17.Controls.Add(label32);
+            panel17.Controls.Add(label24);
+            panel17.Controls.Add(label25);
+            panel17.Controls.Add(label27);
+            panel17.Controls.Add(label28);
+            panel17.Location = new Point(10, 58);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(345, 84);
+            panel17.TabIndex = 5;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label28.Location = new Point(9, 8);
+            label28.Name = "label28";
+            label28.Size = new Size(58, 14);
+            label28.TabIndex = 0;
+            label28.Text = "Standard";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label27.Location = new Point(110, 8);
+            label27.Name = "label27";
+            label27.Size = new Size(15, 14);
+            label27.TabIndex = 1;
+            label27.Text = "5";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label25.Location = new Point(185, 8);
+            label25.Name = "label25";
+            label25.Size = new Size(15, 14);
+            label25.TabIndex = 2;
+            label25.Text = "8";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label24.Location = new Point(281, 8);
+            label24.Name = "label24";
+            label24.Size = new Size(32, 14);
+            label24.TabIndex = 3;
+            label24.Text = "67%";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label32.Location = new Point(9, 38);
+            label32.Name = "label32";
+            label32.Size = new Size(55, 14);
+            label32.TabIndex = 4;
+            label32.Text = "Premium";
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label31.Location = new Point(110, 38);
+            label31.Name = "label31";
+            label31.Size = new Size(15, 14);
+            label31.TabIndex = 5;
+            label31.Text = "9";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label30.Location = new Point(185, 38);
+            label30.Name = "label30";
+            label30.Size = new Size(15, 14);
+            label30.TabIndex = 6;
+            label30.Text = "4";
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label29.Location = new Point(281, 38);
+            label29.Name = "label29";
+            label29.Size = new Size(33, 14);
+            label29.TabIndex = 7;
+            label29.Text = "59%";
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label36.Location = new Point(10, 67);
+            label36.Name = "label36";
+            label36.Size = new Size(36, 14);
+            label36.TabIndex = 8;
+            label36.Text = "Suite";
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label35.Location = new Point(111, 67);
+            label35.Name = "label35";
+            label35.Size = new Size(15, 14);
+            label35.TabIndex = 9;
+            label35.Text = "3";
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label34.Location = new Point(186, 67);
+            label34.Name = "label34";
+            label34.Size = new Size(15, 14);
+            label34.TabIndex = 10;
+            label34.Text = "8";
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Font = new Font("SF Pro Display", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label33.Location = new Point(282, 67);
+            label33.Name = "label33";
+            label33.Size = new Size(33, 14);
+            label33.TabIndex = 11;
+            label33.Text = "54%";
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.FromArgb(45, 106, 79);
+            panel12.Controls.Add(panel5);
+            panel12.Controls.Add(label1);
+            panel12.Controls.Add(label10);
+            panel12.Controls.Add(label9);
+            panel12.Location = new Point(627, 297);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(410, 250);
+            panel12.TabIndex = 23;
+            // 
+>>>>>>> Stashed changes
             // UC_ReportAnalytics
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1471,28 +1974,10 @@
             Size = new Size(1230, 999);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel21.ResumeLayout(false);
-            panel21.PerformLayout();
-            panel30.ResumeLayout(false);
-            panel31.ResumeLayout(false);
-            panel31.PerformLayout();
-            panel20.ResumeLayout(false);
-            panel20.PerformLayout();
-            panel26.ResumeLayout(false);
-            panel27.ResumeLayout(false);
-            panel27.PerformLayout();
-            panel19.ResumeLayout(false);
-            panel19.PerformLayout();
-            panel24.ResumeLayout(false);
-            panel25.ResumeLayout(false);
-            panel25.PerformLayout();
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel17.ResumeLayout(false);
-            panel17.PerformLayout();
-            panel16.ResumeLayout(false);
-            panel16.PerformLayout();
+            panel32.ResumeLayout(false);
+            panel32.PerformLayout();
+            panel29.ResumeLayout(false);
+            panel29.PerformLayout();
             panel18.ResumeLayout(false);
             panel18.PerformLayout();
             panel15.ResumeLayout(false);
@@ -1501,15 +1986,20 @@
             panel14.PerformLayout();
             panel13.ResumeLayout(false);
             panel13.PerformLayout();
-            panelStandardRoomOR.ResumeLayout(false);
-            panelStandardRoomOR.PerformLayout();
-            panel22.ResumeLayout(false);
-            panel23.ResumeLayout(false);
-            panel23.PerformLayout();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             panelDailyDetails.ResumeLayout(false);
             panelDailyDetails.PerformLayout();
+<<<<<<< Updated upstream
+=======
+            panel5.ResumeLayout(false);
+            panel16.ResumeLayout(false);
+            panel16.PerformLayout();
+            panel17.ResumeLayout(false);
+            panel17.PerformLayout();
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
+>>>>>>> Stashed changes
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1531,7 +2021,6 @@
         private Label label6;
         private Label labelCheckIn;
         private Label label2;
-        private Panel panelStandardRoomOR;
         private Panel panel7;
         private Panel panel9;
         private Label label11;
@@ -1544,19 +2033,37 @@
         private Label label16;
         private Label label18;
         private Label label17;
-        private Label label19;
         private Panel panel18;
         private Label label26;
         private Panel panel8;
         private Label label5;
         private Label label7;
-        private Panel panel12;
-        private Label label10;
-        private Label label9;
         private Panel panel15;
         private Panel panel14;
         private Panel panel13;
-        private Label label1;
+        private Label label45;
+        private Label label44;
+        private Label label43;
+        private Label label49;
+        private Label label47;
+        private Label label48;
+        private Label label46;
+        private Label label52;
+        private Label label51;
+        private Label label50;
+        private Guna.Charts.WinForms.GunaPieDataset gunaPieDataset1;
+        private Panel panel32;
+        private Panel panel33;
+        private Label label61;
+        private Label label100;
+        private Label label101;
+        private Label label102;
+        private Panel panel29;
+        private Label label83;
+        private Panel panel34;
+        private Label label94;
+        private Guna.UI2.WinForms.Guna2GradientButton ButtonGuestDemo;
+        private Panel panel12;
         private Panel panel5;
         private Panel panel17;
         private Label label33;
@@ -1576,6 +2083,7 @@
         private Label label22;
         private Label label21;
         private Label label4;
+<<<<<<< Updated upstream
         private Panel panel21;
         private Panel panel20;
         private Panel panel19;
@@ -1629,5 +2137,10 @@
         private Label label79;
         private Label label80;
         private Label label81;
+=======
+        private Label label1;
+        private Label label10;
+        private Label label9;
+>>>>>>> Stashed changes
     }
 }

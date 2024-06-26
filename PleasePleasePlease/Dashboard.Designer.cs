@@ -30,9 +30,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< Updated upstream
+=======
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+>>>>>>> Stashed changes
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panelBase = new Panel();
             panelLogOut = new Panel();
+            GradButtonLogOut = new Guna.UI2.WinForms.Guna2GradientButton();
             buttonLogout = new Button();
             panel1 = new Panel();
             buttonAccounts = new Button();
@@ -73,6 +79,30 @@
             panelLogOut.Name = "panelLogOut";
             panelLogOut.Size = new Size(177, 72);
             panelLogOut.TabIndex = 9;
+            // 
+            // GradButtonLogOut
+            // 
+            GradButtonLogOut.Animated = true;
+            GradButtonLogOut.AutoRoundedCorners = true;
+            GradButtonLogOut.BackColor = Color.Transparent;
+            GradButtonLogOut.BorderRadius = 16;
+            GradButtonLogOut.CustomizableEdges = customizableEdges1;
+            GradButtonLogOut.DisabledState.BorderColor = Color.DarkGray;
+            GradButtonLogOut.DisabledState.CustomBorderColor = Color.DarkGray;
+            GradButtonLogOut.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            GradButtonLogOut.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            GradButtonLogOut.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            GradButtonLogOut.FillColor = Color.FromArgb(32, 191, 85);
+            GradButtonLogOut.FillColor2 = Color.SteelBlue;
+            GradButtonLogOut.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            GradButtonLogOut.ForeColor = Color.White;
+            GradButtonLogOut.Location = new Point(25, 10);
+            GradButtonLogOut.Name = "GradButtonLogOut";
+            GradButtonLogOut.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            GradButtonLogOut.Size = new Size(137, 35);
+            GradButtonLogOut.TabIndex = 28;
+            GradButtonLogOut.Text = "Log Out";
+            GradButtonLogOut.Click += GradButtonLogOut_Click;
             // 
             // buttonLogout
             // 
@@ -247,6 +277,7 @@
             // panelContainer
             // 
             panelContainer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelContainer.AutoScroll = true;
             panelContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panelContainer.BackColor = Color.Transparent;
             panelContainer.Location = new Point(258, 0);

@@ -31,19 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Booking1));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
             ButtonImportRecords = new Guna.UI2.WinForms.Guna2GradientButton();
             panelListofBooking = new Panel();
-            dataGridViewBooking = new DataGridView();
-            ColumnGuestID = new DataGridViewTextBoxColumn();
+            dataGridViewBooking = new Guna.UI2.WinForms.Guna2DataGridView();
+            ColumnGuestName = new DataGridViewTextBoxColumn();
             ColumnRoomNo = new DataGridViewTextBoxColumn();
             ColumnCheckInDate = new DataGridViewTextBoxColumn();
             ColumnCheckInTime = new DataGridViewTextBoxColumn();
@@ -54,7 +59,6 @@
             buttonExitEditBookings = new Button();
             buttonEditBookings = new Button();
             buttonSearchIcon = new Button();
-            textBoxAddressSearch = new TextBox();
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
@@ -86,6 +90,7 @@
             labelAddBook = new Label();
             panel10 = new Panel();
             labelListofBooking = new Label();
+            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             panel9.SuspendLayout();
             panelListofBooking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooking).BeginInit();
@@ -159,71 +164,98 @@
             // 
             // dataGridViewBooking
             // 
-            dataGridViewBooking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewBooking.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestID, ColumnRoomNo, ColumnCheckInDate, ColumnCheckInTime, ColumnCheckOutDate, ColumnCheckOutTime });
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewBooking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewBooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewBooking.ColumnHeadersHeight = 17;
+            dataGridViewBooking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewBooking.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestName, ColumnRoomNo, ColumnCheckInDate, ColumnCheckInTime, ColumnCheckOutDate, ColumnCheckOutTime });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewBooking.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewBooking.GridColor = Color.FromArgb(231, 229, 255);
             dataGridViewBooking.Location = new Point(69, 134);
             dataGridViewBooking.Name = "dataGridViewBooking";
-            dataGridViewBooking.RowHeadersWidth = 51;
+            dataGridViewBooking.RowHeadersVisible = false;
             dataGridViewBooking.Size = new Size(823, 260);
-            dataGridViewBooking.TabIndex = 17;
+            dataGridViewBooking.TabIndex = 18;
+            dataGridViewBooking.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dataGridViewBooking.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dataGridViewBooking.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dataGridViewBooking.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dataGridViewBooking.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dataGridViewBooking.ThemeStyle.BackColor = Color.White;
+            dataGridViewBooking.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewBooking.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewBooking.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewBooking.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dataGridViewBooking.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dataGridViewBooking.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewBooking.ThemeStyle.HeaderStyle.Height = 17;
+            dataGridViewBooking.ThemeStyle.ReadOnly = false;
+            dataGridViewBooking.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dataGridViewBooking.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewBooking.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dataGridViewBooking.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewBooking.ThemeStyle.RowsStyle.Height = 25;
+            dataGridViewBooking.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewBooking.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // ColumnGuestID
+            // ColumnGuestName
             // 
-            ColumnGuestID.HeaderText = "Guest ID";
-            ColumnGuestID.MinimumWidth = 6;
-            ColumnGuestID.Name = "ColumnGuestID";
-            ColumnGuestID.ReadOnly = true;
-            ColumnGuestID.Resizable = DataGridViewTriState.True;
-            ColumnGuestID.Width = 130;
+            ColumnGuestName.HeaderText = "Guest Name";
+            ColumnGuestName.Name = "ColumnGuestName";
+            ColumnGuestName.ReadOnly = true;
             // 
             // ColumnRoomNo
             // 
-            ColumnRoomNo.HeaderText = "Room No.";
-            ColumnRoomNo.MinimumWidth = 6;
+            ColumnRoomNo.HeaderText = "Room No";
             ColumnRoomNo.Name = "ColumnRoomNo";
             ColumnRoomNo.ReadOnly = true;
-            ColumnRoomNo.Resizable = DataGridViewTriState.True;
-            ColumnRoomNo.Width = 130;
             // 
             // ColumnCheckInDate
             // 
-            ColumnCheckInDate.HeaderText = "Check-In Date";
-            ColumnCheckInDate.MinimumWidth = 6;
+            ColumnCheckInDate.HeaderText = "Check In Date";
             ColumnCheckInDate.Name = "ColumnCheckInDate";
             ColumnCheckInDate.ReadOnly = true;
-            ColumnCheckInDate.Width = 130;
             // 
             // ColumnCheckInTime
             // 
-            ColumnCheckInTime.HeaderText = "Check-In Time";
-            ColumnCheckInTime.MinimumWidth = 6;
+            ColumnCheckInTime.HeaderText = "Check In Time";
             ColumnCheckInTime.Name = "ColumnCheckInTime";
             ColumnCheckInTime.ReadOnly = true;
-            ColumnCheckInTime.Width = 130;
             // 
             // ColumnCheckOutDate
             // 
-            ColumnCheckOutDate.HeaderText = "Check-Out Date";
-            ColumnCheckOutDate.MinimumWidth = 6;
+            ColumnCheckOutDate.HeaderText = "Check Out Date";
             ColumnCheckOutDate.Name = "ColumnCheckOutDate";
-            ColumnCheckOutDate.Width = 130;
+            ColumnCheckOutDate.ReadOnly = true;
             // 
             // ColumnCheckOutTime
             // 
-            ColumnCheckOutTime.HeaderText = "Check-Out Time";
-            ColumnCheckOutTime.MinimumWidth = 6;
+            ColumnCheckOutTime.HeaderText = "Check Out Time";
             ColumnCheckOutTime.Name = "ColumnCheckOutTime";
-            ColumnCheckOutTime.Resizable = DataGridViewTriState.True;
-            ColumnCheckOutTime.SortMode = DataGridViewColumnSortMode.NotSortable;
-            ColumnCheckOutTime.Width = 130;
+            ColumnCheckOutTime.ReadOnly = true;
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(textBoxSearch);
             panelSearch.Controls.Add(buttonSaveEditBookings);
             panelSearch.Controls.Add(buttonExitEditBookings);
             panelSearch.Controls.Add(buttonEditBookings);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Controls.Add(textBoxAddressSearch);
             panelSearch.Location = new Point(191, 19);
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(701, 53);
@@ -279,23 +311,11 @@
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
             // 
-            // textBoxAddressSearch
-            // 
-            textBoxAddressSearch.Enabled = false;
-            textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(1, 12);
-            textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.PlaceholderText = "Search";
-            textBoxAddressSearch.Size = new Size(508, 27);
-            textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.WordWrap = false;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.MediumSeaGreen;
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(55, 92);
+            panel1.Location = new Point(54, 92);
             panel1.Name = "panel1";
             panel1.Size = new Size(153, 32);
             panel1.TabIndex = 24;
@@ -316,7 +336,7 @@
             // 
             panel2.BackColor = Color.FromArgb(76, 149, 108);
             panel2.Controls.Add(label2);
-            panel2.Location = new Point(206, 92);
+            panel2.Location = new Point(205, 92);
             panel2.Name = "panel2";
             panel2.Size = new Size(170, 32);
             panel2.TabIndex = 25;
@@ -370,7 +390,7 @@
             GradButtonAddBooking.Animated = true;
             GradButtonAddBooking.AutoRoundedCorners = true;
             GradButtonAddBooking.BorderRadius = 29;
-            GradButtonAddBooking.CustomizableEdges = customizableEdges3;
+            GradButtonAddBooking.CustomizableEdges = customizableEdges5;
             GradButtonAddBooking.DisabledState.BorderColor = Color.DarkGray;
             GradButtonAddBooking.DisabledState.CustomBorderColor = Color.DarkGray;
             GradButtonAddBooking.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -382,7 +402,7 @@
             GradButtonAddBooking.ForeColor = Color.White;
             GradButtonAddBooking.Location = new Point(747, 492);
             GradButtonAddBooking.Name = "GradButtonAddBooking";
-            GradButtonAddBooking.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            GradButtonAddBooking.ShadowDecoration.CustomizableEdges = customizableEdges6;
             GradButtonAddBooking.Size = new Size(186, 61);
             GradButtonAddBooking.TabIndex = 11;
             GradButtonAddBooking.Text = "Add Booking";
@@ -418,7 +438,7 @@
             // 
             textBoxCheckOutTime.AutoRoundedCorners = true;
             textBoxCheckOutTime.BorderRadius = 16;
-            textBoxCheckOutTime.CustomizableEdges = customizableEdges5;
+            textBoxCheckOutTime.CustomizableEdges = customizableEdges7;
             textBoxCheckOutTime.DefaultText = "";
             textBoxCheckOutTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxCheckOutTime.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -433,7 +453,7 @@
             textBoxCheckOutTime.PasswordChar = '\0';
             textBoxCheckOutTime.PlaceholderText = "";
             textBoxCheckOutTime.SelectedText = "";
-            textBoxCheckOutTime.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            textBoxCheckOutTime.ShadowDecoration.CustomizableEdges = customizableEdges8;
             textBoxCheckOutTime.Size = new Size(217, 34);
             textBoxCheckOutTime.TabIndex = 14;
             // 
@@ -460,7 +480,7 @@
             // 
             textBoxCheckInTime.AutoRoundedCorners = true;
             textBoxCheckInTime.BorderRadius = 16;
-            textBoxCheckInTime.CustomizableEdges = customizableEdges7;
+            textBoxCheckInTime.CustomizableEdges = customizableEdges9;
             textBoxCheckInTime.DefaultText = "";
             textBoxCheckInTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxCheckInTime.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -475,7 +495,7 @@
             textBoxCheckInTime.PasswordChar = '\0';
             textBoxCheckInTime.PlaceholderText = "";
             textBoxCheckInTime.SelectedText = "";
-            textBoxCheckInTime.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            textBoxCheckInTime.ShadowDecoration.CustomizableEdges = customizableEdges10;
             textBoxCheckInTime.Size = new Size(217, 34);
             textBoxCheckInTime.TabIndex = 13;
             // 
@@ -502,7 +522,7 @@
             // 
             textBoxRoomNo.AutoRoundedCorners = true;
             textBoxRoomNo.BorderRadius = 16;
-            textBoxRoomNo.CustomizableEdges = customizableEdges9;
+            textBoxRoomNo.CustomizableEdges = customizableEdges11;
             textBoxRoomNo.DefaultText = "";
             textBoxRoomNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxRoomNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -517,7 +537,7 @@
             textBoxRoomNo.PasswordChar = '\0';
             textBoxRoomNo.PlaceholderText = "";
             textBoxRoomNo.SelectedText = "";
-            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges12;
             textBoxRoomNo.Size = new Size(217, 34);
             textBoxRoomNo.TabIndex = 12;
             // 
@@ -666,6 +686,30 @@
             labelListofBooking.Text = "List of Bookings";
             labelListofBooking.Click += labelListofBooking_Click;
             // 
+            // textBoxSearch
+            // 
+            textBoxSearch.AutoRoundedCorners = true;
+            textBoxSearch.BackColor = Color.Transparent;
+            textBoxSearch.BorderRadius = 17;
+            textBoxSearch.CustomizableEdges = customizableEdges3;
+            textBoxSearch.DefaultText = "";
+            textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            textBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Location = new Point(4, 8);
+            textBoxSearch.Margin = new Padding(4);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.PasswordChar = '\0';
+            textBoxSearch.PlaceholderText = "Search";
+            textBoxSearch.SelectedText = "";
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            textBoxSearch.Size = new Size(524, 36);
+            textBoxSearch.TabIndex = 20;
+            // 
             // UC_Booking1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -678,7 +722,6 @@
             panelListofBooking.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooking).EndInit();
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -727,16 +770,8 @@
         private Panel panel10;
         private Label labelListofBooking;
         private Panel panelListofBooking;
-        private DataGridView dataGridViewBooking;
-        private DataGridViewTextBoxColumn ColumnGuestID;
-        private DataGridViewTextBoxColumn ColumnRoomNo;
-        private DataGridViewTextBoxColumn ColumnCheckInDate;
-        private DataGridViewTextBoxColumn ColumnCheckInTime;
-        private DataGridViewTextBoxColumn ColumnCheckOutDate;
-        private DataGridViewTextBoxColumn ColumnCheckOutTime;
         private Panel panelSearch;
         private Button buttonSearchIcon;
-        private TextBox textBoxAddressSearch;
         private DateTimePicker dateTimePickerCheckout;
         private DateTimePicker dateTimePickerCheckIn;
         private Button buttonImportBooking;
@@ -752,5 +787,13 @@
         private Guna.UI2.WinForms.Guna2TextBox textBoxRoomNo;
         private Guna.UI2.WinForms.Guna2TextBox textBoxCheckOutTime;
         private Guna.UI2.WinForms.Guna2GradientButton ButtonImportRecords;
+        private Guna.UI2.WinForms.Guna2DataGridView dataGridViewBooking;
+        private DataGridViewTextBoxColumn ColumnGuestName;
+        private DataGridViewTextBoxColumn ColumnRoomNo;
+        private DataGridViewTextBoxColumn ColumnCheckInDate;
+        private DataGridViewTextBoxColumn ColumnCheckInTime;
+        private DataGridViewTextBoxColumn ColumnCheckOutDate;
+        private DataGridViewTextBoxColumn ColumnCheckOutTime;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
     }
 }

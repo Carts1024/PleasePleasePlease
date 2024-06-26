@@ -100,6 +100,8 @@
             Controls.Add(panel3);
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "Dialogue_BookingImported";
             ShowIcon = false;
             ShowInTaskbar = false;

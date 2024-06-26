@@ -79,5 +79,17 @@ namespace PleasePleasePlease
         {
             // Search code starts here
         }
+
+        private void ButtonBookingHistory_Click(object sender, EventArgs e)
+        {
+            Details_BookingHistory bookingHistory = new Details_BookingHistory();
+            bookingHistory.Show();
+        }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            Details_AvailRooms detailsAvailRooms = new Details_AvailRooms();
+            detailsAvailRooms.Show();
+        }
     }
 }

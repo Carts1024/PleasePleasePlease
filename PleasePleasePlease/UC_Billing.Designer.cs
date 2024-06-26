@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Billing));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel3 = new Panel();
             ButtonGenerateInvo = new Guna.UI2.WinForms.Guna2GradientButton();
             buttonGenerateInvoice = new Button();
@@ -47,7 +49,6 @@
             buttonExitEditBillings = new Button();
             buttonMore = new Button();
             buttonSearchIcon = new Button();
-            textBoxAddressSearch = new TextBox();
             dataGridViewInvoice = new DataGridView();
             ColumnGuestID = new DataGridViewTextBoxColumn();
             ColumnBookingID = new DataGridViewTextBoxColumn();
@@ -57,6 +58,7 @@
             ColumnPaymentStatus = new DataGridViewComboBoxColumn();
             userBindingSource1 = new BindingSource(components);
             userBindingSource = new BindingSource(components);
+            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             panel3.SuspendLayout();
             panelAddaGuest.SuspendLayout();
             panelBaseTable.SuspendLayout();
@@ -184,12 +186,12 @@
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(textBoxSearch);
             panelSearch.Controls.Add(buttonSaveEditBillings);
             panelSearch.Controls.Add(buttonEditBillings);
             panelSearch.Controls.Add(buttonExitEditBillings);
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Controls.Add(textBoxAddressSearch);
             panelSearch.Location = new Point(191, 19);
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(701, 53);
@@ -256,18 +258,6 @@
             buttonSearchIcon.TabIndex = 3;
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
-            // 
-            // textBoxAddressSearch
-            // 
-            textBoxAddressSearch.Enabled = false;
-            textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(1, 12);
-            textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.PlaceholderText = "Search";
-            textBoxAddressSearch.Size = new Size(508, 27);
-            textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.WordWrap = false;
             // 
             // dataGridViewInvoice
             // 
@@ -341,6 +331,30 @@
             // 
             userBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.User);
             // 
+            // textBoxSearch
+            // 
+            textBoxSearch.AutoRoundedCorners = true;
+            textBoxSearch.BackColor = Color.Transparent;
+            textBoxSearch.BorderRadius = 17;
+            textBoxSearch.CustomizableEdges = customizableEdges3;
+            textBoxSearch.DefaultText = "";
+            textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            textBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Location = new Point(5, 9);
+            textBoxSearch.Margin = new Padding(4);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.PasswordChar = '\0';
+            textBoxSearch.PlaceholderText = "Search";
+            textBoxSearch.SelectedText = "";
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            textBoxSearch.Size = new Size(524, 36);
+            textBoxSearch.TabIndex = 20;
+            // 
             // UC_Billing
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -355,7 +369,6 @@
             panelBaseTable.ResumeLayout(false);
             panelFilters.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInvoice).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
@@ -374,7 +387,6 @@
         private Panel panelSearch;
         private Button buttonMore;
         private Button buttonSearchIcon;
-        private TextBox textBoxAddressSearch;
         private Button buttonGenerateInvoice;
         private DataGridView dataGridViewInvoice;
         private BindingSource userBindingSource;
@@ -389,5 +401,6 @@
         private DataGridViewTextBoxColumn ColumnDueDate;
         private DataGridViewComboBoxColumn ColumnPaymentStatus;
         private Guna.UI2.WinForms.Guna2GradientButton ButtonGenerateInvo;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
     }
 }

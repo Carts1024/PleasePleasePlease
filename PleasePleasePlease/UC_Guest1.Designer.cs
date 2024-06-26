@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Guest1));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -51,6 +52,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
             panelAddGuest2 = new Panel();
             panel4 = new Panel();
@@ -58,28 +63,27 @@
             panelListOfGuests2 = new Panel();
             label6 = new Label();
             panelListofGuest = new Panel();
+            dataGridViewGuest = new Guna.UI2.WinForms.Guna2DataGridView();
+            ColumnGuestID = new DataGridViewTextBoxColumn();
+            ColumnLastName = new DataGridViewTextBoxColumn();
+            ColumnFirstName = new DataGridViewTextBoxColumn();
+            ColumnMI = new DataGridViewTextBoxColumn();
+            ColumnGender = new DataGridViewComboBoxColumn();
+            ColumnBirthDate = new DataGridViewTextBoxColumn();
+            ColumnAge = new DataGridViewTextBoxColumn();
+            ColumnNationality = new DataGridViewTextBoxColumn();
+            ColumnAddress = new DataGridViewTextBoxColumn();
             panelFilters = new Panel();
             comboBoxState = new ComboBox();
             comboBoxCity = new ComboBox();
             comboBoxNationality = new ComboBox();
             comboBoxFilterGender = new ComboBox();
-            dataGridViewGuest = new DataGridView();
-            ColumnGuestID = new DataGridViewTextBoxColumn();
-            ColumnLastName = new DataGridViewTextBoxColumn();
-            ColumnFirstName = new DataGridViewTextBoxColumn();
-            ColumnMI = new DataGridViewTextBoxColumn();
-            ColumnGender = new DataGridViewTextBoxColumn();
-            ColumnBirthDate = new DataGridViewTextBoxColumn();
-            ColumnAge = new DataGridViewTextBoxColumn();
-            ColumnNationality = new DataGridViewTextBoxColumn();
-            ColumnAddress = new DataGridViewTextBoxColumn();
             panel16 = new Panel();
             buttonSaveEditGuest = new Button();
             buttonExitEditGuest = new Button();
             buttonEditGuest = new Button();
             buttonMore = new Button();
             buttonSearch = new Button();
-            textBox1 = new TextBox();
             panelAddGuest = new Panel();
             gradButtonAddGuest = new Guna.UI2.WinForms.Guna2GradientButton();
             buttonAddGuest = new Button();
@@ -118,12 +122,13 @@
             labelAddGuest = new Label();
             panel10 = new Panel();
             labelListofGuest = new Label();
+            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             panel9.SuspendLayout();
             panelAddGuest2.SuspendLayout();
             panelListOfGuests2.SuspendLayout();
             panelListofGuest.SuspendLayout();
-            panelFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewGuest).BeginInit();
+            panelFilters.SuspendLayout();
             panel16.SuspendLayout();
             panelAddGuest.SuspendLayout();
             panel6.SuspendLayout();
@@ -211,14 +216,121 @@
             // 
             panelListofGuest.BackColor = Color.FromArgb(76, 149, 108);
             panelListofGuest.BackgroundImageLayout = ImageLayout.Zoom;
-            panelListofGuest.Controls.Add(panelFilters);
             panelListofGuest.Controls.Add(dataGridViewGuest);
+            panelListofGuest.Controls.Add(panelFilters);
             panelListofGuest.Controls.Add(panel16);
             panelListofGuest.Location = new Point(55, 123);
             panelListofGuest.Name = "panelListofGuest";
             panelListofGuest.Size = new Size(964, 593);
             panelListofGuest.TabIndex = 20;
             panelListofGuest.Visible = false;
+            // 
+            // dataGridViewGuest
+            // 
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewGuest.ColumnHeadersHeight = 17;
+            dataGridViewGuest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewGuest.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestID, ColumnLastName, ColumnFirstName, ColumnMI, ColumnGender, ColumnBirthDate, ColumnAge, ColumnNationality, ColumnAddress });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewGuest.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewGuest.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewGuest.Location = new Point(69, 134);
+            dataGridViewGuest.Name = "dataGridViewGuest";
+            dataGridViewGuest.RowHeadersVisible = false;
+            dataGridViewGuest.Size = new Size(823, 415);
+            dataGridViewGuest.TabIndex = 16;
+            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dataGridViewGuest.ThemeStyle.BackColor = Color.White;
+            dataGridViewGuest.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewGuest.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewGuest.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewGuest.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dataGridViewGuest.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dataGridViewGuest.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewGuest.ThemeStyle.HeaderStyle.Height = 17;
+            dataGridViewGuest.ThemeStyle.ReadOnly = false;
+            dataGridViewGuest.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dataGridViewGuest.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewGuest.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dataGridViewGuest.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewGuest.ThemeStyle.RowsStyle.Height = 25;
+            dataGridViewGuest.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewGuest.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            // 
+            // ColumnGuestID
+            // 
+            ColumnGuestID.HeaderText = "Guest ID";
+            ColumnGuestID.Name = "ColumnGuestID";
+            ColumnGuestID.ReadOnly = true;
+            // 
+            // ColumnLastName
+            // 
+            ColumnLastName.HeaderText = "Last Name";
+            ColumnLastName.Name = "ColumnLastName";
+            ColumnLastName.ReadOnly = true;
+            // 
+            // ColumnFirstName
+            // 
+            ColumnFirstName.HeaderText = "First Name";
+            ColumnFirstName.Name = "ColumnFirstName";
+            ColumnFirstName.ReadOnly = true;
+            // 
+            // ColumnMI
+            // 
+            ColumnMI.HeaderText = "M.I";
+            ColumnMI.Name = "ColumnMI";
+            ColumnMI.ReadOnly = true;
+            // 
+            // ColumnGender
+            // 
+            ColumnGender.HeaderText = "Gender";
+            ColumnGender.Name = "ColumnGender";
+            ColumnGender.ReadOnly = true;
+            ColumnGender.Resizable = DataGridViewTriState.True;
+            ColumnGender.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // ColumnBirthDate
+            // 
+            ColumnBirthDate.HeaderText = "Birth Date";
+            ColumnBirthDate.Name = "ColumnBirthDate";
+            ColumnBirthDate.ReadOnly = true;
+            // 
+            // ColumnAge
+            // 
+            ColumnAge.HeaderText = "Age";
+            ColumnAge.Name = "ColumnAge";
+            ColumnAge.ReadOnly = true;
+            // 
+            // ColumnNationality
+            // 
+            ColumnNationality.HeaderText = "Nationality";
+            ColumnNationality.Name = "ColumnNationality";
+            ColumnNationality.ReadOnly = true;
+            // 
+            // ColumnAddress
+            // 
+            ColumnAddress.HeaderText = "Address";
+            ColumnAddress.Name = "ColumnAddress";
+            ColumnAddress.ReadOnly = true;
             // 
             // panelFilters
             // 
@@ -272,100 +384,14 @@
             comboBoxFilterGender.TabIndex = 9;
             comboBoxFilterGender.Text = "Gender";
             // 
-            // dataGridViewGuest
-            // 
-            dataGridViewGuest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewGuest.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestID, ColumnLastName, ColumnFirstName, ColumnMI, ColumnGender, ColumnBirthDate, ColumnAge, ColumnNationality, ColumnAddress });
-            dataGridViewGuest.Location = new Point(69, 134);
-            dataGridViewGuest.Name = "dataGridViewGuest";
-            dataGridViewGuest.RowHeadersWidth = 51;
-            dataGridViewGuest.Size = new Size(823, 415);
-            dataGridViewGuest.TabIndex = 14;
-            // 
-            // ColumnGuestID
-            // 
-            ColumnGuestID.HeaderText = "Guest ID";
-            ColumnGuestID.MinimumWidth = 6;
-            ColumnGuestID.Name = "ColumnGuestID";
-            ColumnGuestID.ReadOnly = true;
-            ColumnGuestID.Resizable = DataGridViewTriState.True;
-            ColumnGuestID.Width = 110;
-            // 
-            // ColumnLastName
-            // 
-            ColumnLastName.HeaderText = "Last Name";
-            ColumnLastName.MinimumWidth = 6;
-            ColumnLastName.Name = "ColumnLastName";
-            ColumnLastName.ReadOnly = true;
-            ColumnLastName.Resizable = DataGridViewTriState.True;
-            ColumnLastName.Width = 130;
-            // 
-            // ColumnFirstName
-            // 
-            ColumnFirstName.HeaderText = "First Name";
-            ColumnFirstName.MinimumWidth = 6;
-            ColumnFirstName.Name = "ColumnFirstName";
-            ColumnFirstName.ReadOnly = true;
-            ColumnFirstName.Width = 130;
-            // 
-            // ColumnMI
-            // 
-            ColumnMI.HeaderText = "M.I.";
-            ColumnMI.MinimumWidth = 6;
-            ColumnMI.Name = "ColumnMI";
-            ColumnMI.ReadOnly = true;
-            ColumnMI.Width = 40;
-            // 
-            // ColumnGender
-            // 
-            ColumnGender.HeaderText = "Gender";
-            ColumnGender.MinimumWidth = 6;
-            ColumnGender.Name = "ColumnGender";
-            ColumnGender.ReadOnly = true;
-            ColumnGender.Width = 90;
-            // 
-            // ColumnBirthDate
-            // 
-            ColumnBirthDate.HeaderText = "Birth Date";
-            ColumnBirthDate.MinimumWidth = 6;
-            ColumnBirthDate.Name = "ColumnBirthDate";
-            ColumnBirthDate.ReadOnly = true;
-            ColumnBirthDate.Resizable = DataGridViewTriState.True;
-            ColumnBirthDate.SortMode = DataGridViewColumnSortMode.NotSortable;
-            ColumnBirthDate.Width = 90;
-            // 
-            // ColumnAge
-            // 
-            ColumnAge.HeaderText = "Age";
-            ColumnAge.MinimumWidth = 6;
-            ColumnAge.Name = "ColumnAge";
-            ColumnAge.ReadOnly = true;
-            ColumnAge.Width = 40;
-            // 
-            // ColumnNationality
-            // 
-            ColumnNationality.HeaderText = "Nationality";
-            ColumnNationality.MinimumWidth = 6;
-            ColumnNationality.Name = "ColumnNationality";
-            ColumnNationality.ReadOnly = true;
-            ColumnNationality.Width = 110;
-            // 
-            // ColumnAddress
-            // 
-            ColumnAddress.HeaderText = "Address";
-            ColumnAddress.MinimumWidth = 6;
-            ColumnAddress.Name = "ColumnAddress";
-            ColumnAddress.ReadOnly = true;
-            ColumnAddress.Width = 190;
-            // 
             // panel16
             // 
+            panel16.Controls.Add(textBoxSearch);
             panel16.Controls.Add(buttonSaveEditGuest);
             panel16.Controls.Add(buttonExitEditGuest);
             panel16.Controls.Add(buttonEditGuest);
             panel16.Controls.Add(buttonMore);
             panel16.Controls.Add(buttonSearch);
-            panel16.Controls.Add(textBox1);
             panel16.Location = new Point(191, 19);
             panel16.Name = "panel16";
             panel16.Size = new Size(701, 53);
@@ -433,17 +459,6 @@
             buttonSearch.UseVisualStyleBackColor = true;
             buttonSearch.Click += buttonSearch_Click;
             // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = SystemColors.WindowFrame;
-            textBox1.Location = new Point(9, 12);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Search";
-            textBox1.Size = new Size(508, 27);
-            textBox1.TabIndex = 2;
-            textBox1.WordWrap = false;
-            // 
             // panelAddGuest
             // 
             panelAddGuest.BackColor = Color.FromArgb(76, 149, 108);
@@ -469,7 +484,7 @@
             gradButtonAddGuest.AutoRoundedCorners = true;
             gradButtonAddGuest.BackColor = Color.Transparent;
             gradButtonAddGuest.BorderRadius = 29;
-            gradButtonAddGuest.CustomizableEdges = customizableEdges1;
+            gradButtonAddGuest.CustomizableEdges = customizableEdges3;
             gradButtonAddGuest.DisabledState.BorderColor = Color.DarkGray;
             gradButtonAddGuest.DisabledState.CustomBorderColor = Color.DarkGray;
             gradButtonAddGuest.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -481,7 +496,7 @@
             gradButtonAddGuest.ForeColor = Color.White;
             gradButtonAddGuest.Location = new Point(724, 488);
             gradButtonAddGuest.Name = "gradButtonAddGuest";
-            gradButtonAddGuest.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            gradButtonAddGuest.ShadowDecoration.CustomizableEdges = customizableEdges4;
             gradButtonAddGuest.Size = new Size(201, 61);
             gradButtonAddGuest.TabIndex = 28;
             gradButtonAddGuest.Text = "Add Guest";
@@ -518,7 +533,7 @@
             // 
             textBoxContactNo.AutoRoundedCorners = true;
             textBoxContactNo.BorderRadius = 15;
-            textBoxContactNo.CustomizableEdges = customizableEdges3;
+            textBoxContactNo.CustomizableEdges = customizableEdges5;
             textBoxContactNo.DefaultText = "";
             textBoxContactNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxContactNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -533,7 +548,7 @@
             textBoxContactNo.PasswordChar = '\0';
             textBoxContactNo.PlaceholderText = "";
             textBoxContactNo.SelectedText = "";
-            textBoxContactNo.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            textBoxContactNo.ShadowDecoration.CustomizableEdges = customizableEdges6;
             textBoxContactNo.Size = new Size(240, 33);
             textBoxContactNo.TabIndex = 14;
             // 
@@ -560,7 +575,7 @@
             // 
             textBoxNationality.AutoRoundedCorners = true;
             textBoxNationality.BorderRadius = 15;
-            textBoxNationality.CustomizableEdges = customizableEdges5;
+            textBoxNationality.CustomizableEdges = customizableEdges7;
             textBoxNationality.DefaultText = "";
             textBoxNationality.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxNationality.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -575,7 +590,7 @@
             textBoxNationality.PasswordChar = '\0';
             textBoxNationality.PlaceholderText = "";
             textBoxNationality.SelectedText = "";
-            textBoxNationality.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            textBoxNationality.ShadowDecoration.CustomizableEdges = customizableEdges8;
             textBoxNationality.Size = new Size(245, 33);
             textBoxNationality.TabIndex = 14;
             // 
@@ -603,7 +618,7 @@
             comboBoxGender.AutoRoundedCorners = true;
             comboBoxGender.BackColor = Color.Transparent;
             comboBoxGender.BorderRadius = 17;
-            comboBoxGender.CustomizableEdges = customizableEdges7;
+            comboBoxGender.CustomizableEdges = customizableEdges9;
             comboBoxGender.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxGender.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxGender.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -613,7 +628,7 @@
             comboBoxGender.ItemHeight = 30;
             comboBoxGender.Location = new Point(7, 31);
             comboBoxGender.Name = "comboBoxGender";
-            comboBoxGender.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            comboBoxGender.ShadowDecoration.CustomizableEdges = customizableEdges10;
             comboBoxGender.Size = new Size(210, 36);
             comboBoxGender.TabIndex = 12;
             // 
@@ -640,7 +655,7 @@
             // 
             textBoxEmail.AutoRoundedCorners = true;
             textBoxEmail.BorderRadius = 15;
-            textBoxEmail.CustomizableEdges = customizableEdges9;
+            textBoxEmail.CustomizableEdges = customizableEdges11;
             textBoxEmail.DefaultText = "";
             textBoxEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxEmail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -655,7 +670,7 @@
             textBoxEmail.PasswordChar = '\0';
             textBoxEmail.PlaceholderText = "taylorswift@email.com";
             textBoxEmail.SelectedText = "";
-            textBoxEmail.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            textBoxEmail.ShadowDecoration.CustomizableEdges = customizableEdges12;
             textBoxEmail.Size = new Size(279, 33);
             textBoxEmail.TabIndex = 13;
             // 
@@ -685,7 +700,7 @@
             // 
             textBoxAddress.AutoRoundedCorners = true;
             textBoxAddress.BorderRadius = 15;
-            textBoxAddress.CustomizableEdges = customizableEdges11;
+            textBoxAddress.CustomizableEdges = customizableEdges13;
             textBoxAddress.DefaultText = "";
             textBoxAddress.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxAddress.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -700,7 +715,7 @@
             textBoxAddress.PasswordChar = '\0';
             textBoxAddress.PlaceholderText = "Zip Code";
             textBoxAddress.SelectedText = "";
-            textBoxAddress.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            textBoxAddress.ShadowDecoration.CustomizableEdges = customizableEdges14;
             textBoxAddress.Size = new Size(156, 33);
             textBoxAddress.TabIndex = 15;
             // 
@@ -708,7 +723,7 @@
             // 
             textBoxState.AutoRoundedCorners = true;
             textBoxState.BorderRadius = 15;
-            textBoxState.CustomizableEdges = customizableEdges13;
+            textBoxState.CustomizableEdges = customizableEdges15;
             textBoxState.DefaultText = "";
             textBoxState.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxState.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -723,7 +738,7 @@
             textBoxState.PasswordChar = '\0';
             textBoxState.PlaceholderText = "State";
             textBoxState.SelectedText = "";
-            textBoxState.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            textBoxState.ShadowDecoration.CustomizableEdges = customizableEdges16;
             textBoxState.Size = new Size(276, 33);
             textBoxState.TabIndex = 14;
             // 
@@ -731,7 +746,7 @@
             // 
             textBoxCity.AutoRoundedCorners = true;
             textBoxCity.BorderRadius = 15;
-            textBoxCity.CustomizableEdges = customizableEdges15;
+            textBoxCity.CustomizableEdges = customizableEdges17;
             textBoxCity.DefaultText = "";
             textBoxCity.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxCity.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -746,7 +761,7 @@
             textBoxCity.PasswordChar = '\0';
             textBoxCity.PlaceholderText = "City";
             textBoxCity.SelectedText = "";
-            textBoxCity.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            textBoxCity.ShadowDecoration.CustomizableEdges = customizableEdges18;
             textBoxCity.Size = new Size(276, 33);
             textBoxCity.TabIndex = 13;
             // 
@@ -800,7 +815,7 @@
             // 
             textBoxMiddleInitial.AutoRoundedCorners = true;
             textBoxMiddleInitial.BorderRadius = 15;
-            textBoxMiddleInitial.CustomizableEdges = customizableEdges17;
+            textBoxMiddleInitial.CustomizableEdges = customizableEdges19;
             textBoxMiddleInitial.DefaultText = "";
             textBoxMiddleInitial.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxMiddleInitial.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -815,7 +830,7 @@
             textBoxMiddleInitial.PasswordChar = '\0';
             textBoxMiddleInitial.PlaceholderText = "e.g. \"J.\"";
             textBoxMiddleInitial.SelectedText = "";
-            textBoxMiddleInitial.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            textBoxMiddleInitial.ShadowDecoration.CustomizableEdges = customizableEdges20;
             textBoxMiddleInitial.Size = new Size(143, 33);
             textBoxMiddleInitial.TabIndex = 14;
             // 
@@ -852,7 +867,7 @@
             // 
             textBoxFirstName.AutoRoundedCorners = true;
             textBoxFirstName.BorderRadius = 15;
-            textBoxFirstName.CustomizableEdges = customizableEdges19;
+            textBoxFirstName.CustomizableEdges = customizableEdges21;
             textBoxFirstName.DefaultText = "";
             textBoxFirstName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxFirstName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -867,7 +882,7 @@
             textBoxFirstName.PasswordChar = '\0';
             textBoxFirstName.PlaceholderText = "";
             textBoxFirstName.SelectedText = "";
-            textBoxFirstName.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            textBoxFirstName.ShadowDecoration.CustomizableEdges = customizableEdges22;
             textBoxFirstName.Size = new Size(240, 33);
             textBoxFirstName.TabIndex = 13;
             // 
@@ -884,7 +899,7 @@
             // 
             textBoxLastName.AutoRoundedCorners = true;
             textBoxLastName.BorderRadius = 15;
-            textBoxLastName.CustomizableEdges = customizableEdges21;
+            textBoxLastName.CustomizableEdges = customizableEdges23;
             textBoxLastName.DefaultText = "";
             textBoxLastName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxLastName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -899,7 +914,7 @@
             textBoxLastName.PasswordChar = '\0';
             textBoxLastName.PlaceholderText = "";
             textBoxLastName.SelectedText = "";
-            textBoxLastName.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            textBoxLastName.ShadowDecoration.CustomizableEdges = customizableEdges24;
             textBoxLastName.Size = new Size(240, 33);
             textBoxLastName.TabIndex = 12;
             // 
@@ -973,6 +988,30 @@
             labelListofGuest.Text = "List of Guests";
             labelListofGuest.Click += labelListofGuest_Click;
             // 
+            // textBoxSearch
+            // 
+            textBoxSearch.AutoRoundedCorners = true;
+            textBoxSearch.BackColor = Color.Transparent;
+            textBoxSearch.BorderRadius = 17;
+            textBoxSearch.CustomizableEdges = customizableEdges1;
+            textBoxSearch.DefaultText = "";
+            textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            textBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Location = new Point(4, 7);
+            textBoxSearch.Margin = new Padding(4);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.PasswordChar = '\0';
+            textBoxSearch.PlaceholderText = "Search";
+            textBoxSearch.SelectedText = "";
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            textBoxSearch.Size = new Size(524, 36);
+            textBoxSearch.TabIndex = 20;
+            // 
             // UC_Guest1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -987,10 +1026,9 @@
             panelListOfGuests2.ResumeLayout(false);
             panelListOfGuests2.PerformLayout();
             panelListofGuest.ResumeLayout(false);
-            panelFilters.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewGuest).EndInit();
+            panelFilters.ResumeLayout(false);
             panel16.ResumeLayout(false);
-            panel16.PerformLayout();
             panelAddGuest.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
@@ -1049,26 +1087,15 @@
         private Panel panelContainer;
         private Panel panelListofGuest;
         private Panel panelFilters;
-        private DataGridView dataGridViewGuest;
         private Panel panel16;
         private Button buttonMore;
         private Button buttonSearch;
-        private TextBox textBox1;
         private ComboBox comboBoxCity;
         private ComboBox comboBoxNationality;
         private ComboBox comboBoxState;
         private Button buttonExitEditGuest;
         private Button buttonEditGuest;
         private Button buttonSaveEditGuest;
-        private DataGridViewTextBoxColumn ColumnGuestID;
-        private DataGridViewTextBoxColumn ColumnLastName;
-        private DataGridViewTextBoxColumn ColumnFirstName;
-        private DataGridViewTextBoxColumn ColumnMI;
-        private DataGridViewTextBoxColumn ColumnGender;
-        private DataGridViewTextBoxColumn ColumnBirthDate;
-        private DataGridViewTextBoxColumn ColumnAge;
-        private DataGridViewTextBoxColumn ColumnNationality;
-        private DataGridViewTextBoxColumn ColumnAddress;
         private Guna.UI2.WinForms.Guna2TextBox textBoxLastName;
         private Guna.UI2.WinForms.Guna2TextBox textBoxMiddleInitial;
         private Guna.UI2.WinForms.Guna2TextBox textBoxFirstName;
@@ -1086,5 +1113,16 @@
         private Label label6;
         private ComboBox comboBoxFilterGender;
         private Guna.UI2.WinForms.Guna2GradientButton gradButtonAddGuest;
+        private Guna.UI2.WinForms.Guna2DataGridView dataGridViewGuest;
+        private DataGridViewTextBoxColumn ColumnGuestID;
+        private DataGridViewTextBoxColumn ColumnLastName;
+        private DataGridViewTextBoxColumn ColumnFirstName;
+        private DataGridViewTextBoxColumn ColumnMI;
+        private DataGridViewComboBoxColumn ColumnGender;
+        private DataGridViewTextBoxColumn ColumnBirthDate;
+        private DataGridViewTextBoxColumn ColumnAge;
+        private DataGridViewTextBoxColumn ColumnNationality;
+        private DataGridViewTextBoxColumn ColumnAddress;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
     }
 }

@@ -35,6 +35,7 @@
             labelRConfirmation = new Label();
             pictureBox1 = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -118,5 +119,6 @@
         private Label labelRConfirmation;
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
     }
 }

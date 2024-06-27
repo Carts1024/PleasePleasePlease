@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Room2));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelBaseRooms1 = new Panel();
             earpanelAddRoom = new Panel();
             label4 = new Label();
@@ -53,8 +55,8 @@
             panelSearch = new Panel();
             buttonMore = new Button();
             buttonSearchIcon = new Button();
-            textBoxAddressSearch = new TextBox();
             labelRM = new Label();
+            TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             panelBaseRooms1.SuspendLayout();
             earpanelAddRoom.SuspendLayout();
             panel4.SuspendLayout();
@@ -269,9 +271,9 @@
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(TextBoxSearch);
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Controls.Add(textBoxAddressSearch);
             panelSearch.Location = new Point(145, 27);
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(624, 53);
@@ -299,18 +301,6 @@
             buttonSearchIcon.TabIndex = 3;
             buttonSearchIcon.UseVisualStyleBackColor = true;
             // 
-            // textBoxAddressSearch
-            // 
-            textBoxAddressSearch.Enabled = false;
-            textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(9, 12);
-            textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.Size = new Size(508, 27);
-            textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.Text = "Search";
-            textBoxAddressSearch.WordWrap = false;
-            // 
             // labelRM
             // 
             labelRM.AutoSize = true;
@@ -322,12 +312,36 @@
             labelRM.TabIndex = 11;
             labelRM.Text = "Room Management";
             // 
-            // UC_Rooms2
+            // TextBoxSearch
+            // 
+            TextBoxSearch.Animated = true;
+            TextBoxSearch.AutoRoundedCorners = true;
+            TextBoxSearch.BorderRadius = 12;
+            TextBoxSearch.CustomizableEdges = customizableEdges1;
+            TextBoxSearch.DefaultText = "Search";
+            TextBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            TextBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            TextBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TextBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Location = new Point(1, 12);
+            TextBoxSearch.Margin = new Padding(4);
+            TextBoxSearch.Name = "TextBoxSearch";
+            TextBoxSearch.PasswordChar = '\0';
+            TextBoxSearch.PlaceholderText = "";
+            TextBoxSearch.SelectedText = "";
+            TextBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            TextBoxSearch.Size = new Size(508, 27);
+            TextBoxSearch.TabIndex = 23;
+            // 
+            // UC_Room2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelBaseRooms1);
-            Name = "UC_Rooms2";
+            Name = "UC_Room2";
             Size = new Size(1076, 749);
             panelBaseRooms1.ResumeLayout(false);
             panelBaseRooms1.PerformLayout();
@@ -339,7 +353,6 @@
             panelFilters.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -369,7 +382,7 @@
         private Panel panelSearch;
         private Button buttonMore;
         private Button buttonSearchIcon;
-        private TextBox textBoxAddressSearch;
         private Label labelRM;
+        private Guna.UI2.WinForms.Guna2TextBox TextBoxSearch;
     }
 }

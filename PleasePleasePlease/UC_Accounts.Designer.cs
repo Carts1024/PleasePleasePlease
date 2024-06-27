@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Accounts));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -40,12 +42,12 @@
             panelFilters = new Panel();
             comboBoxFilterAccountType = new ComboBox();
             panelSearch = new Panel();
+            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             buttonSaveEditAccounts = new Button();
             buttonExitEditAccounts = new Button();
             buttonEditAccounts = new Button();
             buttonMore = new Button();
             buttonSearchIcon = new Button();
-            textBoxAddressSearch = new TextBox();
             guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             ColumnUserID = new DataGridViewTextBoxColumn();
             ColumnUsername = new DataGridViewTextBoxColumn();
@@ -129,16 +131,40 @@
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(guna2TextBox1);
             panelSearch.Controls.Add(buttonSaveEditAccounts);
             panelSearch.Controls.Add(buttonExitEditAccounts);
             panelSearch.Controls.Add(buttonEditAccounts);
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Controls.Add(textBoxAddressSearch);
             panelSearch.Location = new Point(191, 19);
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(704, 53);
             panelSearch.TabIndex = 20;
+            // 
+            // guna2TextBox1
+            // 
+            guna2TextBox1.Animated = true;
+            guna2TextBox1.AutoRoundedCorners = true;
+            guna2TextBox1.BorderRadius = 12;
+            guna2TextBox1.CustomizableEdges = customizableEdges3;
+            guna2TextBox1.DefaultText = "Search";
+            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Location = new Point(1, 12);
+            guna2TextBox1.Margin = new Padding(4);
+            guna2TextBox1.Name = "guna2TextBox1";
+            guna2TextBox1.PasswordChar = '\0';
+            guna2TextBox1.PlaceholderText = "";
+            guna2TextBox1.SelectedText = "";
+            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2TextBox1.Size = new Size(508, 27);
+            guna2TextBox1.TabIndex = 22;
             // 
             // buttonSaveEditAccounts
             // 
@@ -202,22 +228,11 @@
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
             // 
-            // textBoxAddressSearch
-            // 
-            textBoxAddressSearch.Enabled = false;
-            textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(1, 12);
-            textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.PlaceholderText = "Search";
-            textBoxAddressSearch.Size = new Size(508, 27);
-            textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.WordWrap = false;
-            // 
             // guna2DataGridView1
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
             guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            guna2DataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -329,7 +344,6 @@
             panel4.ResumeLayout(false);
             panelFilters.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -366,7 +380,6 @@
         private Panel panelSearch;
         private Button buttonMore;
         private Button buttonSearchIcon;
-        private TextBox textBoxAddressSearch;
         private Panel panelFilters;
         private ComboBox comboBoxFilterAccountType;
         private Button buttonSaveEditAccounts;
@@ -377,5 +390,6 @@
         private DataGridViewTextBoxColumn ColumnPassword;
         private DataGridViewComboBoxColumn ColumnAccountType;
         private Guna.UI2.WinForms.Guna2GradientButton GradButtonAddAccount;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
     }
 }

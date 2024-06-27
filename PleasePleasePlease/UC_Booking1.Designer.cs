@@ -39,6 +39,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
             ButtonImportRecords = new Guna.UI2.WinForms.Guna2GradientButton();
             panelListofBooking = new Panel();
@@ -50,19 +52,17 @@
             ColumnCheckOutDate = new DataGridViewTextBoxColumn();
             ColumnCheckOutTime = new DataGridViewTextBoxColumn();
             panelSearch = new Panel();
+            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             buttonSaveEditBookings = new Button();
             buttonExitEditBookings = new Button();
             buttonEditBookings = new Button();
             buttonSearchIcon = new Button();
-            textBoxAddressSearch = new TextBox();
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
             label2 = new Label();
-            buttonImportBooking = new Button();
             panel11 = new Panel();
             GradButtonAddBooking = new Guna.UI2.WinForms.Guna2GradientButton();
-            buttonAddBooking = new Button();
             panelCheckOutTime = new Panel();
             textBoxCheckOutTime = new Guna.UI2.WinForms.Guna2TextBox();
             labelCheckOutTime = new Label();
@@ -110,7 +110,6 @@
             panel9.Controls.Add(panelListofBooking);
             panel9.Controls.Add(panel1);
             panel9.Controls.Add(panel2);
-            panel9.Controls.Add(buttonImportBooking);
             panel9.Controls.Add(panel11);
             panel9.Controls.Add(label7);
             panel9.Controls.Add(panelAddaGuest);
@@ -137,7 +136,7 @@
             ButtonImportRecords.FillColor2 = Color.SteelBlue;
             ButtonImportRecords.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ButtonImportRecords.ForeColor = Color.White;
-            ButtonImportRecords.Location = new Point(825, 47);
+            ButtonImportRecords.Location = new Point(824, 42);
             ButtonImportRecords.Name = "ButtonImportRecords";
             ButtonImportRecords.ShadowDecoration.CustomizableEdges = customizableEdges2;
             ButtonImportRecords.Size = new Size(201, 61);
@@ -219,15 +218,39 @@
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(guna2TextBox1);
             panelSearch.Controls.Add(buttonSaveEditBookings);
             panelSearch.Controls.Add(buttonExitEditBookings);
             panelSearch.Controls.Add(buttonEditBookings);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Controls.Add(textBoxAddressSearch);
             panelSearch.Location = new Point(191, 19);
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(701, 53);
             panelSearch.TabIndex = 16;
+            // 
+            // guna2TextBox1
+            // 
+            guna2TextBox1.Animated = true;
+            guna2TextBox1.AutoRoundedCorners = true;
+            guna2TextBox1.BorderRadius = 12;
+            guna2TextBox1.CustomizableEdges = customizableEdges3;
+            guna2TextBox1.DefaultText = "";
+            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Location = new Point(1, 12);
+            guna2TextBox1.Margin = new Padding(4);
+            guna2TextBox1.Name = "guna2TextBox1";
+            guna2TextBox1.PasswordChar = '\0';
+            guna2TextBox1.PlaceholderText = "Search";
+            guna2TextBox1.SelectedText = "";
+            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2TextBox1.Size = new Size(508, 27);
+            guna2TextBox1.TabIndex = 28;
             // 
             // buttonSaveEditBookings
             // 
@@ -279,18 +302,6 @@
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
             // 
-            // textBoxAddressSearch
-            // 
-            textBoxAddressSearch.Enabled = false;
-            textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(1, 12);
-            textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.PlaceholderText = "Search";
-            textBoxAddressSearch.Size = new Size(508, 27);
-            textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.WordWrap = false;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.MediumSeaGreen;
@@ -333,27 +344,11 @@
             label2.TabIndex = 9;
             label2.Text = "List of Bookings";
             // 
-            // buttonImportBooking
-            // 
-            buttonImportBooking.BackColor = Color.FromArgb(27, 67, 50);
-            buttonImportBooking.Enabled = false;
-            buttonImportBooking.FlatAppearance.BorderColor = Color.FromArgb(27, 67, 50);
-            buttonImportBooking.FlatStyle = FlatStyle.Flat;
-            buttonImportBooking.Font = new Font("SF Pro Display", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonImportBooking.ForeColor = Color.White;
-            buttonImportBooking.Location = new Point(915, 78);
-            buttonImportBooking.Name = "buttonImportBooking";
-            buttonImportBooking.Size = new Size(84, 25);
-            buttonImportBooking.TabIndex = 23;
-            buttonImportBooking.Text = "Import Records";
-            buttonImportBooking.UseVisualStyleBackColor = false;
-            // 
             // panel11
             // 
             panel11.BackColor = Color.FromArgb(76, 149, 108);
             panel11.BackgroundImageLayout = ImageLayout.Zoom;
             panel11.Controls.Add(GradButtonAddBooking);
-            panel11.Controls.Add(buttonAddBooking);
             panel11.Controls.Add(panelCheckOutTime);
             panel11.Controls.Add(panelCheckInTime);
             panel11.Controls.Add(panelRoomNo);
@@ -370,7 +365,7 @@
             GradButtonAddBooking.Animated = true;
             GradButtonAddBooking.AutoRoundedCorners = true;
             GradButtonAddBooking.BorderRadius = 29;
-            GradButtonAddBooking.CustomizableEdges = customizableEdges3;
+            GradButtonAddBooking.CustomizableEdges = customizableEdges5;
             GradButtonAddBooking.DisabledState.BorderColor = Color.DarkGray;
             GradButtonAddBooking.DisabledState.CustomBorderColor = Color.DarkGray;
             GradButtonAddBooking.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -382,28 +377,11 @@
             GradButtonAddBooking.ForeColor = Color.White;
             GradButtonAddBooking.Location = new Point(747, 492);
             GradButtonAddBooking.Name = "GradButtonAddBooking";
-            GradButtonAddBooking.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            GradButtonAddBooking.ShadowDecoration.CustomizableEdges = customizableEdges6;
             GradButtonAddBooking.Size = new Size(186, 61);
             GradButtonAddBooking.TabIndex = 11;
             GradButtonAddBooking.Text = "Add Booking";
             GradButtonAddBooking.Click += guna2GradientButton1_Click;
-            // 
-            // buttonAddBooking
-            // 
-            buttonAddBooking.BackColor = Color.FromArgb(27, 67, 50);
-            buttonAddBooking.Enabled = false;
-            buttonAddBooking.FlatAppearance.BorderColor = Color.FromArgb(27, 67, 50);
-            buttonAddBooking.FlatStyle = FlatStyle.Flat;
-            buttonAddBooking.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonAddBooking.ForeColor = Color.White;
-            buttonAddBooking.Location = new Point(747, 504);
-            buttonAddBooking.Name = "buttonAddBooking";
-            buttonAddBooking.Size = new Size(186, 49);
-            buttonAddBooking.TabIndex = 10;
-            buttonAddBooking.Text = "Add Booking";
-            buttonAddBooking.UseVisualStyleBackColor = false;
-            buttonAddBooking.Visible = false;
-            buttonAddBooking.Click += buttonAddBooking_Click;
             // 
             // panelCheckOutTime
             // 
@@ -418,7 +396,7 @@
             // 
             textBoxCheckOutTime.AutoRoundedCorners = true;
             textBoxCheckOutTime.BorderRadius = 16;
-            textBoxCheckOutTime.CustomizableEdges = customizableEdges5;
+            textBoxCheckOutTime.CustomizableEdges = customizableEdges7;
             textBoxCheckOutTime.DefaultText = "";
             textBoxCheckOutTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxCheckOutTime.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -433,7 +411,7 @@
             textBoxCheckOutTime.PasswordChar = '\0';
             textBoxCheckOutTime.PlaceholderText = "";
             textBoxCheckOutTime.SelectedText = "";
-            textBoxCheckOutTime.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            textBoxCheckOutTime.ShadowDecoration.CustomizableEdges = customizableEdges8;
             textBoxCheckOutTime.Size = new Size(217, 34);
             textBoxCheckOutTime.TabIndex = 14;
             // 
@@ -460,7 +438,7 @@
             // 
             textBoxCheckInTime.AutoRoundedCorners = true;
             textBoxCheckInTime.BorderRadius = 16;
-            textBoxCheckInTime.CustomizableEdges = customizableEdges7;
+            textBoxCheckInTime.CustomizableEdges = customizableEdges9;
             textBoxCheckInTime.DefaultText = "";
             textBoxCheckInTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxCheckInTime.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -475,7 +453,7 @@
             textBoxCheckInTime.PasswordChar = '\0';
             textBoxCheckInTime.PlaceholderText = "";
             textBoxCheckInTime.SelectedText = "";
-            textBoxCheckInTime.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            textBoxCheckInTime.ShadowDecoration.CustomizableEdges = customizableEdges10;
             textBoxCheckInTime.Size = new Size(217, 34);
             textBoxCheckInTime.TabIndex = 13;
             // 
@@ -502,7 +480,7 @@
             // 
             textBoxRoomNo.AutoRoundedCorners = true;
             textBoxRoomNo.BorderRadius = 16;
-            textBoxRoomNo.CustomizableEdges = customizableEdges9;
+            textBoxRoomNo.CustomizableEdges = customizableEdges11;
             textBoxRoomNo.DefaultText = "";
             textBoxRoomNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxRoomNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -517,7 +495,7 @@
             textBoxRoomNo.PasswordChar = '\0';
             textBoxRoomNo.PlaceholderText = "";
             textBoxRoomNo.SelectedText = "";
-            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges12;
             textBoxRoomNo.Size = new Size(217, 34);
             textBoxRoomNo.TabIndex = 12;
             // 
@@ -678,7 +656,6 @@
             panelListofBooking.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooking).EndInit();
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -707,7 +684,6 @@
 
         private Panel panel9;
         private Panel panel11;
-        private Button buttonAddBooking;
         private Panel panelCheckOutTime;
         private Label labelCheckOutTime;
         private Panel panelCheckInTime;
@@ -736,10 +712,8 @@
         private DataGridViewTextBoxColumn ColumnCheckOutTime;
         private Panel panelSearch;
         private Button buttonSearchIcon;
-        private TextBox textBoxAddressSearch;
         private DateTimePicker dateTimePickerCheckout;
         private DateTimePicker dateTimePickerCheckIn;
-        private Button buttonImportBooking;
         private Button buttonSaveEditBookings;
         private Button buttonExitEditBookings;
         private Button buttonEditBookings;
@@ -752,5 +726,6 @@
         private Guna.UI2.WinForms.Guna2TextBox textBoxRoomNo;
         private Guna.UI2.WinForms.Guna2TextBox textBoxCheckOutTime;
         private Guna.UI2.WinForms.Guna2GradientButton ButtonImportRecords;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
     }
 }

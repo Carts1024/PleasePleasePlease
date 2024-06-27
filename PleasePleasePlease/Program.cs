@@ -1,6 +1,5 @@
 using System;
 using System.Windows.Forms;
-using Mirai_Paradise_Hotel;
 
 namespace Mirai_Paradise_Hotel
 {
@@ -11,7 +10,12 @@ namespace Mirai_Paradise_Hotel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Welcome()) ; // Ensure your main form is correctly specified here
+
+            // Create a User object
+            User currentUser = new User();
+
+            // Pass the User object to the LoginPage constructor
+            Application.Run(new Welcome(currentUser));
         }
     }
 }

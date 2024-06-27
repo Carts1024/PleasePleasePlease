@@ -28,22 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Dashboard));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             label30 = new Label();
             label25 = new Label();
             panel18 = new Panel();
-            dataGridView1 = new DataGridView();
-            ColumnGuestID = new DataGridViewTextBoxColumn();
-            ColumnRoomNo = new DataGridViewTextBoxColumn();
-            ColumnCheckInDate = new DataGridViewTextBoxColumn();
-            ColumnCheckInTime = new DataGridViewTextBoxColumn();
-            ColumnCheckOutDate = new DataGridViewTextBoxColumn();
-            ColumnCheckOutTime = new DataGridViewTextBoxColumn();
+            datagridbooking = new Guna.UI2.WinForms.Guna2DataGridView();
+            bookingIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            checkInDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            checkInTimeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            checkOutDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            checkOutTimeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            guestIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            roomNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            bookingBindingSource = new BindingSource(components);
             panelSearch = new Panel();
+            TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             dateTimePickerBookingHistory = new DateTimePicker();
             buttonSearchIcon = new Button();
-            textBoxAddressSearch = new TextBox();
             panel17 = new Panel();
             label29 = new Label();
             label23 = new Label();
@@ -96,9 +104,11 @@
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)datagridbooking).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bookingBindingSource).BeginInit();
             panelSearch.SuspendLayout();
             panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -121,6 +131,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoScroll = true;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.Controls.Add(label30);
             panel1.Controls.Add(label25);
@@ -141,7 +152,7 @@
             panel1.MaximumSize = new Size(1920, 1080);
             panel1.MinimumSize = new Size(1076, 749);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1104, 1080);
+            panel1.Size = new Size(1920, 1080);
             panel1.TabIndex = 19;
             // 
             // label30
@@ -150,7 +161,7 @@
             label30.AutoSize = true;
             label30.BackColor = Color.Transparent;
             label30.Font = new Font("SF Pro Display", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label30.Location = new Point(820, 32);
+            label30.Location = new Point(875, 32);
             label30.Name = "label30";
             label30.Size = new Size(234, 35);
             label30.TabIndex = 22;
@@ -172,82 +183,155 @@
             panel18.AutoScroll = true;
             panel18.BackColor = Color.FromArgb(45, 106, 79);
             panel18.BackgroundImageLayout = ImageLayout.Zoom;
-            panel18.Controls.Add(dataGridView1);
+            panel18.Controls.Add(datagridbooking);
             panel18.Controls.Add(panelSearch);
             panel18.Location = new Point(27, 567);
             panel18.Name = "panel18";
             panel18.Size = new Size(1075, 473);
             panel18.TabIndex = 20;
             // 
-            // dataGridView1
+            // datagridbooking
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestID, ColumnRoomNo, ColumnCheckInDate, ColumnCheckInTime, ColumnCheckOutDate, ColumnCheckOutTime });
-            dataGridView1.Location = new Point(65, 72);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(940, 366);
-            dataGridView1.TabIndex = 17;
+            datagridbooking.AllowUserToAddRows = false;
+            datagridbooking.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            datagridbooking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            datagridbooking.AutoGenerateColumns = false;
+            datagridbooking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            datagridbooking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            datagridbooking.ColumnHeadersHeight = 19;
+            datagridbooking.Columns.AddRange(new DataGridViewColumn[] { bookingIDDataGridViewTextBoxColumn, checkInDateDataGridViewTextBoxColumn, checkInTimeDataGridViewTextBoxColumn, checkOutDateDataGridViewTextBoxColumn, checkOutTimeDataGridViewTextBoxColumn, guestIDDataGridViewTextBoxColumn, roomNumberDataGridViewTextBoxColumn });
+            datagridbooking.DataSource = bookingBindingSource;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            datagridbooking.DefaultCellStyle = dataGridViewCellStyle3;
+            datagridbooking.GridColor = Color.FromArgb(231, 229, 255);
+            datagridbooking.Location = new Point(65, 72);
+            datagridbooking.Name = "datagridbooking";
+            datagridbooking.ReadOnly = true;
+            datagridbooking.RowHeadersVisible = false;
+            datagridbooking.Size = new Size(940, 366);
+            datagridbooking.TabIndex = 23;
+            datagridbooking.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            datagridbooking.ThemeStyle.AlternatingRowsStyle.Font = null;
+            datagridbooking.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            datagridbooking.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            datagridbooking.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            datagridbooking.ThemeStyle.BackColor = Color.White;
+            datagridbooking.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            datagridbooking.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            datagridbooking.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Single;
+            datagridbooking.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            datagridbooking.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            datagridbooking.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            datagridbooking.ThemeStyle.HeaderStyle.Height = 19;
+            datagridbooking.ThemeStyle.ReadOnly = true;
+            datagridbooking.ThemeStyle.RowsStyle.BackColor = Color.White;
+            datagridbooking.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            datagridbooking.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            datagridbooking.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            datagridbooking.ThemeStyle.RowsStyle.Height = 25;
+            datagridbooking.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            datagridbooking.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // ColumnGuestID
+            // bookingIDDataGridViewTextBoxColumn
             // 
-            ColumnGuestID.HeaderText = "Guest Name";
-            ColumnGuestID.MinimumWidth = 6;
-            ColumnGuestID.Name = "ColumnGuestID";
-            ColumnGuestID.ReadOnly = true;
-            ColumnGuestID.Resizable = DataGridViewTriState.True;
-            ColumnGuestID.Width = 130;
+            bookingIDDataGridViewTextBoxColumn.DataPropertyName = "BookingID";
+            bookingIDDataGridViewTextBoxColumn.HeaderText = "BookingID";
+            bookingIDDataGridViewTextBoxColumn.Name = "bookingIDDataGridViewTextBoxColumn";
+            bookingIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // ColumnRoomNo
+            // checkInDateDataGridViewTextBoxColumn
             // 
-            ColumnRoomNo.HeaderText = "Room No.";
-            ColumnRoomNo.MinimumWidth = 6;
-            ColumnRoomNo.Name = "ColumnRoomNo";
-            ColumnRoomNo.ReadOnly = true;
-            ColumnRoomNo.Resizable = DataGridViewTriState.True;
-            ColumnRoomNo.Width = 130;
+            checkInDateDataGridViewTextBoxColumn.DataPropertyName = "CheckInDate";
+            checkInDateDataGridViewTextBoxColumn.HeaderText = "Check In Date";
+            checkInDateDataGridViewTextBoxColumn.Name = "checkInDateDataGridViewTextBoxColumn";
+            checkInDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // ColumnCheckInDate
+            // checkInTimeDataGridViewTextBoxColumn
             // 
-            ColumnCheckInDate.HeaderText = "Check-In Date";
-            ColumnCheckInDate.MinimumWidth = 6;
-            ColumnCheckInDate.Name = "ColumnCheckInDate";
-            ColumnCheckInDate.ReadOnly = true;
-            ColumnCheckInDate.Width = 130;
+            checkInTimeDataGridViewTextBoxColumn.DataPropertyName = "CheckInTime";
+            checkInTimeDataGridViewTextBoxColumn.HeaderText = "Check In Time";
+            checkInTimeDataGridViewTextBoxColumn.Name = "checkInTimeDataGridViewTextBoxColumn";
+            checkInTimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // ColumnCheckInTime
+            // checkOutDateDataGridViewTextBoxColumn
             // 
-            ColumnCheckInTime.HeaderText = "Check-In Time";
-            ColumnCheckInTime.MinimumWidth = 6;
-            ColumnCheckInTime.Name = "ColumnCheckInTime";
-            ColumnCheckInTime.ReadOnly = true;
-            ColumnCheckInTime.Width = 130;
+            checkOutDateDataGridViewTextBoxColumn.DataPropertyName = "CheckOutDate";
+            checkOutDateDataGridViewTextBoxColumn.HeaderText = "Check Out Date";
+            checkOutDateDataGridViewTextBoxColumn.Name = "checkOutDateDataGridViewTextBoxColumn";
+            checkOutDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // ColumnCheckOutDate
+            // checkOutTimeDataGridViewTextBoxColumn
             // 
-            ColumnCheckOutDate.HeaderText = "Check-Out Date";
-            ColumnCheckOutDate.MinimumWidth = 6;
-            ColumnCheckOutDate.Name = "ColumnCheckOutDate";
-            ColumnCheckOutDate.Width = 130;
+            checkOutTimeDataGridViewTextBoxColumn.DataPropertyName = "CheckOutTime";
+            checkOutTimeDataGridViewTextBoxColumn.HeaderText = "Check Out Time";
+            checkOutTimeDataGridViewTextBoxColumn.Name = "checkOutTimeDataGridViewTextBoxColumn";
+            checkOutTimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // ColumnCheckOutTime
+            // guestIDDataGridViewTextBoxColumn
             // 
-            ColumnCheckOutTime.HeaderText = "Check-Out Time";
-            ColumnCheckOutTime.MinimumWidth = 6;
-            ColumnCheckOutTime.Name = "ColumnCheckOutTime";
-            ColumnCheckOutTime.Resizable = DataGridViewTriState.True;
-            ColumnCheckOutTime.SortMode = DataGridViewColumnSortMode.NotSortable;
-            ColumnCheckOutTime.Width = 130;
+            guestIDDataGridViewTextBoxColumn.DataPropertyName = "GuestID";
+            guestIDDataGridViewTextBoxColumn.HeaderText = "Guest ID";
+            guestIDDataGridViewTextBoxColumn.Name = "guestIDDataGridViewTextBoxColumn";
+            guestIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roomNumberDataGridViewTextBoxColumn
+            // 
+            roomNumberDataGridViewTextBoxColumn.DataPropertyName = "RoomNumber";
+            roomNumberDataGridViewTextBoxColumn.HeaderText = "Room Number";
+            roomNumberDataGridViewTextBoxColumn.Name = "roomNumberDataGridViewTextBoxColumn";
+            roomNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bookingBindingSource
+            // 
+            bookingBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.Booking);
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(TextBoxSearch);
             panelSearch.Controls.Add(dateTimePickerBookingHistory);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Controls.Add(textBoxAddressSearch);
             panelSearch.Location = new Point(65, 13);
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(835, 53);
             panelSearch.TabIndex = 16;
+            // 
+            // TextBoxSearch
+            // 
+            TextBoxSearch.Animated = true;
+            TextBoxSearch.AutoRoundedCorners = true;
+            TextBoxSearch.BorderRadius = 12;
+            TextBoxSearch.CustomizableEdges = customizableEdges1;
+            TextBoxSearch.DefaultText = "Search";
+            TextBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            TextBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            TextBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TextBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Location = new Point(1, 12);
+            TextBoxSearch.Margin = new Padding(4);
+            TextBoxSearch.Name = "TextBoxSearch";
+            TextBoxSearch.PasswordChar = '\0';
+            TextBoxSearch.PlaceholderText = "";
+            TextBoxSearch.SelectedText = "";
+            TextBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            TextBoxSearch.Size = new Size(508, 27);
+            TextBoxSearch.TabIndex = 22;
             // 
             // dateTimePickerBookingHistory
             // 
@@ -267,18 +351,6 @@
             buttonSearchIcon.TabIndex = 3;
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
-            // 
-            // textBoxAddressSearch
-            // 
-            textBoxAddressSearch.Enabled = false;
-            textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(1, 12);
-            textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.Size = new Size(508, 27);
-            textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.Text = "Search";
-            textBoxAddressSearch.WordWrap = false;
             // 
             // panel17
             // 
@@ -558,7 +630,7 @@
             panel4.Controls.Add(label15);
             panel4.Location = new Point(814, 104);
             panel4.Name = "panel4";
-            panel4.Size = new Size(0, 145);
+            panel4.Size = new Size(816, 145);
             panel4.TabIndex = 12;
             // 
             // panel13
@@ -577,7 +649,7 @@
             panel12.Controls.Add(labelViewDetailsPendingPayments);
             panel12.Location = new Point(0, 109);
             panel12.Name = "panel12";
-            panel12.Size = new Size(0, 36);
+            panel12.Size = new Size(816, 36);
             panel12.TabIndex = 9;
             // 
             // labelViewDetailsPendingPayments
@@ -837,7 +909,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("SF Pro Display", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(1008, 65);
+            label1.Location = new Point(960, 65);
             label1.Name = "label1";
             label1.Size = new Size(36, 19);
             label1.TabIndex = 1;
@@ -849,7 +921,7 @@
             label2.BackColor = Color.Transparent;
             label2.Dock = DockStyle.Right;
             label2.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(856, 0);
+            label2.Location = new Point(1672, 0);
             label2.Name = "label2";
             label2.Padding = new Padding(0, 30, 0, 0);
             label2.Size = new Size(248, 63);
@@ -863,13 +935,13 @@
             AutoScroll = true;
             Controls.Add(panel1);
             Name = "UC_Dashboard";
-            Size = new Size(352, 751);
+            Size = new Size(1920, 1080);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)datagridbooking).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bookingBindingSource).EndInit();
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             panel17.ResumeLayout(false);
             panel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -953,22 +1025,25 @@
         private PictureBox pictureBox2;
         private Label label25;
         private Panel panel18;
-        private DataGridView dataGridView1;
         private Panel panelSearch;
         private Button buttonSearchIcon;
-        private TextBox textBoxAddressSearch;
         private Label label29;
         private Label label28;
         private Label label27;
         private Label label26;
         private Label label30;
-        private DataGridViewTextBoxColumn ColumnGuestID;
-        private DataGridViewTextBoxColumn ColumnRoomNo;
-        private DataGridViewTextBoxColumn ColumnCheckInDate;
-        private DataGridViewTextBoxColumn ColumnCheckInTime;
-        private DataGridViewTextBoxColumn ColumnCheckOutDate;
-        private DataGridViewTextBoxColumn ColumnCheckOutTime;
         private DateTimePicker dateTimePickerBookingHistory;
         private Panel panel13;
+        private Guna.UI2.WinForms.Guna2TextBox TextBoxSearch;
+        private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2DataGridView datagridbooking;
+        private BindingSource bookingBindingSource;
+        private DataGridViewTextBoxColumn bookingIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn checkInDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn checkInTimeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn checkOutDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn checkOutTimeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn guestIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn roomNumberDataGridViewTextBoxColumn;
     }
 }

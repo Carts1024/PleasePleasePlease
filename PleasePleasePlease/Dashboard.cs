@@ -20,10 +20,15 @@ namespace Mirai_Paradise_Hotel
         private Random random;
         private int tempIndex;
 
+        public List<User> DataBaseUsers { get; private set; }
+
+    //    private User currentUser; // Assume this holds the current logged-in user
+
         // Constructor
         public Dashboard()
         {
             InitializeComponent();
+     //       this.currentUser = user; // Initialize the current user
             this.Load += Dashboard_Load;
             this.FormClosed += Dashboard_FormClosed; // Handle form closed event
             random = new Random();
@@ -78,6 +83,13 @@ namespace Mirai_Paradise_Hotel
             buttonBilling.Click += buttonBilling_Click;
             buttonAnalytics.Click += buttonAnalytics_Click;
             buttonAccounts.Click += buttonSettings_Click;
+            var currentUser = UserSession.CurrentUser;
+            // Disable the settings button if the user is a manager
+            if (currentUser.isManager)
+            {
+                buttonAccounts.Visible = true;
+                buttonAnalytics.Visible = true;
+            }
 
             // Load the default page
             LoadUserControl(new UC_Dashboard());

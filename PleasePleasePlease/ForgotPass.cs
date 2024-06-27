@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace Mirai_Paradise_Hotel
 {
     public partial class ForgotPass : Form
     {
+  //      private User currentUser;
         public ForgotPass()
         {
             InitializeComponent();
+     //       this.currentUser = user;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -28,9 +31,9 @@ namespace Mirai_Paradise_Hotel
             {
                 //CONDITION KAPAG SUCCESSFULLY NAPALITAN YUNG PASSWORD
                 //BALE UPDATE NA TO SA DATABASE
-                Dashboard ds = new Dashboard();
+                LoginPage login = new LoginPage();
                 this.Hide();
-                ds.Show();
+                login.Show();
             }
         }
 

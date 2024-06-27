@@ -21,11 +21,6 @@ namespace PleasePleasePlease
             comboBoxFilterPaymentStatus.Items.AddRange(new object[] { "Pending", "Paid" });
         }
 
-        private void buttonGenerateInvoice_Click(object sender, EventArgs e)
-        {
-            // ignore this
-        }
-
         private void buttonSearchIcon_Click(object sender, EventArgs e)
         {
             // Code for Search starts here
@@ -67,6 +62,23 @@ namespace PleasePleasePlease
         private void ButtonGenerateInvo_Click(object sender, EventArgs e)
         {
             // Code for Generating Invoice starts here
+        }
+
+        // Optionally override OnPaintBackground to reduce flickering
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            // Do nothing to avoid default background painting
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            // Example: draw background image
+            if (this.BackgroundImage != null)
+            {
+                e.Graphics.DrawImage(this.BackgroundImage, 0, 0, this.Width, this.Height);
+            }
         }
     }
 }

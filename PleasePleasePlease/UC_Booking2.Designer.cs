@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Booking2));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
             panel11 = new Panel();
             panelFilters = new Panel();
@@ -43,12 +45,12 @@
             panelSearch = new Panel();
             buttonMore = new Button();
             buttonSearchIcon = new Button();
-            textBoxAddressSearch = new TextBox();
             label7 = new Label();
             panelAddaGuest = new Panel();
             labelAddBook = new Label();
             panel10 = new Panel();
             label6 = new Label();
+            TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             panel9.SuspendLayout();
             panel11.SuspendLayout();
             panelFilters.SuspendLayout();
@@ -156,9 +158,9 @@
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(TextBoxSearch);
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Controls.Add(textBoxAddressSearch);
             panelSearch.Location = new Point(176, 40);
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(624, 53);
@@ -185,18 +187,6 @@
             buttonSearchIcon.Size = new Size(28, 27);
             buttonSearchIcon.TabIndex = 3;
             buttonSearchIcon.UseVisualStyleBackColor = true;
-            // 
-            // textBoxAddressSearch
-            // 
-            textBoxAddressSearch.Enabled = false;
-            textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(1, 12);
-            textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.Size = new Size(508, 27);
-            textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.Text = "Search";
-            textBoxAddressSearch.WordWrap = false;
             // 
             // label7
             // 
@@ -248,6 +238,30 @@
             label6.TabIndex = 9;
             label6.Text = "List of Bookings";
             // 
+            // TextBoxSearch
+            // 
+            TextBoxSearch.Animated = true;
+            TextBoxSearch.AutoRoundedCorners = true;
+            TextBoxSearch.BorderRadius = 12;
+            TextBoxSearch.CustomizableEdges = customizableEdges1;
+            TextBoxSearch.DefaultText = "Search";
+            TextBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            TextBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            TextBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TextBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Location = new Point(1, 12);
+            TextBoxSearch.Margin = new Padding(4);
+            TextBoxSearch.Name = "TextBoxSearch";
+            TextBoxSearch.PasswordChar = '\0';
+            TextBoxSearch.PlaceholderText = "";
+            TextBoxSearch.SelectedText = "";
+            TextBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            TextBoxSearch.Size = new Size(508, 27);
+            TextBoxSearch.TabIndex = 22;
+            // 
             // UC_Booking2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -261,7 +275,6 @@
             panelFilters.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             panelAddaGuest.ResumeLayout(false);
             panelAddaGuest.PerformLayout();
             panel10.ResumeLayout(false);
@@ -285,11 +298,11 @@
         private Panel panelSearch;
         private Button buttonMore;
         private Button buttonSearchIcon;
-        private TextBox textBoxAddressSearch;
         private Label label7;
         private Panel panelAddaGuest;
         private Label labelAddBook;
         private Panel panel10;
         private Label label6;
+        private Guna.UI2.WinForms.Guna2TextBox TextBoxSearch;
     }
 }

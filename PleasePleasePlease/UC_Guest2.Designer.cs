@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Guest2));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelBaseGuestPage2 = new Panel();
             label1 = new Label();
             earpanelAddGuest2 = new Panel();
@@ -52,7 +54,7 @@
             panel6 = new Panel();
             button3 = new Button();
             button4 = new Button();
-            textBox2 = new TextBox();
+            TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             panelBaseGuestPage2.SuspendLayout();
             earpanelAddGuest2.SuspendLayout();
             earpanelGuestList2.SuspendLayout();
@@ -243,9 +245,9 @@
             // 
             // panel6
             // 
+            panel6.Controls.Add(TextBoxSearch);
             panel6.Controls.Add(button3);
             panel6.Controls.Add(button4);
-            panel6.Controls.Add(textBox2);
             panel6.Location = new Point(150, 43);
             panel6.Name = "panel6";
             panel6.Size = new Size(624, 53);
@@ -271,24 +273,36 @@
             button4.TabIndex = 3;
             button4.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // TextBoxSearch
             // 
-            textBox2.Enabled = false;
-            textBox2.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox2.ForeColor = SystemColors.WindowFrame;
-            textBox2.Location = new Point(9, 12);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(508, 27);
-            textBox2.TabIndex = 2;
-            textBox2.Text = "Search";
-            textBox2.WordWrap = false;
+            TextBoxSearch.Animated = true;
+            TextBoxSearch.AutoRoundedCorners = true;
+            TextBoxSearch.BorderRadius = 12;
+            TextBoxSearch.CustomizableEdges = customizableEdges1;
+            TextBoxSearch.DefaultText = "Search";
+            TextBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            TextBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            TextBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TextBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Location = new Point(1, 12);
+            TextBoxSearch.Margin = new Padding(4);
+            TextBoxSearch.Name = "TextBoxSearch";
+            TextBoxSearch.PasswordChar = '\0';
+            TextBoxSearch.PlaceholderText = "";
+            TextBoxSearch.SelectedText = "";
+            TextBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            TextBoxSearch.Size = new Size(508, 27);
+            TextBoxSearch.TabIndex = 22;
             // 
-            // UC_Guests2
+            // UC_Guest2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelBaseGuestPage2);
-            Name = "UC_Guests2";
+            Name = "UC_Guest2";
             Size = new Size(1076, 749);
             panelBaseGuestPage2.ResumeLayout(false);
             panelBaseGuestPage2.PerformLayout();
@@ -300,7 +314,6 @@
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -329,6 +342,6 @@
         private Panel panel6;
         private Button button3;
         private Button button4;
-        private TextBox textBox2;
+        private Guna.UI2.WinForms.Guna2TextBox TextBoxSearch;
     }
 }

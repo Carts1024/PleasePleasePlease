@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Room1));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -43,6 +44,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
             panelListofRoom = new Panel();
             panelFilters = new Panel();
@@ -56,12 +59,12 @@
             ColumnRoomRate = new DataGridViewTextBoxColumn();
             ColumnRoomStatus = new DataGridViewComboBoxColumn();
             panelSearch = new Panel();
+            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             buttonSaveEditRooms = new Button();
             buttonMore = new Button();
             buttonExitEditRooms = new Button();
             buttonEditRooms = new Button();
             buttonSearchIcon = new Button();
-            textBoxAddressSearch = new TextBox();
             panel3 = new Panel();
             label6 = new Label();
             panel5 = new Panel();
@@ -92,6 +95,7 @@
             labelAddRoom = new Label();
             panel10 = new Panel();
             labelListofRoom = new Label();
+            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             panel9.SuspendLayout();
             panelListofRoom.SuspendLayout();
             panelFilters.SuspendLayout();
@@ -234,16 +238,40 @@
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(guna2TextBox1);
             panelSearch.Controls.Add(buttonSaveEditRooms);
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonExitEditRooms);
             panelSearch.Controls.Add(buttonEditRooms);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Controls.Add(textBoxAddressSearch);
             panelSearch.Location = new Point(191, 19);
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(701, 53);
             panelSearch.TabIndex = 4;
+            // 
+            // guna2TextBox1
+            // 
+            guna2TextBox1.Animated = true;
+            guna2TextBox1.AutoRoundedCorners = true;
+            guna2TextBox1.BorderRadius = 12;
+            guna2TextBox1.CustomizableEdges = customizableEdges1;
+            guna2TextBox1.DefaultText = "";
+            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Location = new Point(1, 12);
+            guna2TextBox1.Margin = new Padding(4);
+            guna2TextBox1.Name = "guna2TextBox1";
+            guna2TextBox1.PasswordChar = '\0';
+            guna2TextBox1.PlaceholderText = "Search";
+            guna2TextBox1.SelectedText = "";
+            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2TextBox1.Size = new Size(508, 27);
+            guna2TextBox1.TabIndex = 27;
             // 
             // buttonSaveEditRooms
             // 
@@ -306,17 +334,6 @@
             buttonSearchIcon.TabIndex = 3;
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
-            // 
-            // textBoxAddressSearch
-            // 
-            textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(9, 12);
-            textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.PlaceholderText = "Search";
-            textBoxAddressSearch.Size = new Size(508, 27);
-            textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.WordWrap = false;
             // 
             // panel3
             // 
@@ -382,7 +399,7 @@
             GradButtonAddRoom.AutoRoundedCorners = true;
             GradButtonAddRoom.BackColor = Color.Transparent;
             GradButtonAddRoom.BorderRadius = 29;
-            GradButtonAddRoom.CustomizableEdges = customizableEdges1;
+            GradButtonAddRoom.CustomizableEdges = customizableEdges3;
             GradButtonAddRoom.DisabledState.BorderColor = Color.DarkGray;
             GradButtonAddRoom.DisabledState.CustomBorderColor = Color.DarkGray;
             GradButtonAddRoom.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -394,7 +411,7 @@
             GradButtonAddRoom.ForeColor = Color.White;
             GradButtonAddRoom.Location = new Point(714, 467);
             GradButtonAddRoom.Name = "GradButtonAddRoom";
-            GradButtonAddRoom.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            GradButtonAddRoom.ShadowDecoration.CustomizableEdges = customizableEdges4;
             GradButtonAddRoom.Size = new Size(201, 61);
             GradButtonAddRoom.TabIndex = 28;
             GradButtonAddRoom.Text = "Add Room";
@@ -413,7 +430,7 @@
             // 
             textBoxMaxCapacity.AutoRoundedCorners = true;
             textBoxMaxCapacity.BorderRadius = 15;
-            textBoxMaxCapacity.CustomizableEdges = customizableEdges3;
+            textBoxMaxCapacity.CustomizableEdges = customizableEdges5;
             textBoxMaxCapacity.DefaultText = "";
             textBoxMaxCapacity.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxMaxCapacity.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -428,7 +445,7 @@
             textBoxMaxCapacity.PasswordChar = '\0';
             textBoxMaxCapacity.PlaceholderText = "";
             textBoxMaxCapacity.SelectedText = "";
-            textBoxMaxCapacity.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            textBoxMaxCapacity.ShadowDecoration.CustomizableEdges = customizableEdges6;
             textBoxMaxCapacity.Size = new Size(204, 33);
             textBoxMaxCapacity.TabIndex = 15;
             // 
@@ -455,7 +472,7 @@
             // 
             textBoxFloorNo.AutoRoundedCorners = true;
             textBoxFloorNo.BorderRadius = 15;
-            textBoxFloorNo.CustomizableEdges = customizableEdges5;
+            textBoxFloorNo.CustomizableEdges = customizableEdges7;
             textBoxFloorNo.DefaultText = "";
             textBoxFloorNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxFloorNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -470,7 +487,7 @@
             textBoxFloorNo.PasswordChar = '\0';
             textBoxFloorNo.PlaceholderText = "";
             textBoxFloorNo.SelectedText = "";
-            textBoxFloorNo.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            textBoxFloorNo.ShadowDecoration.CustomizableEdges = customizableEdges8;
             textBoxFloorNo.Size = new Size(204, 33);
             textBoxFloorNo.TabIndex = 14;
             // 
@@ -497,7 +514,7 @@
             // 
             textBoxRoomRate.AutoRoundedCorners = true;
             textBoxRoomRate.BorderRadius = 15;
-            textBoxRoomRate.CustomizableEdges = customizableEdges7;
+            textBoxRoomRate.CustomizableEdges = customizableEdges9;
             textBoxRoomRate.DefaultText = "";
             textBoxRoomRate.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxRoomRate.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -512,7 +529,7 @@
             textBoxRoomRate.PasswordChar = '\0';
             textBoxRoomRate.PlaceholderText = "";
             textBoxRoomRate.SelectedText = "";
-            textBoxRoomRate.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            textBoxRoomRate.ShadowDecoration.CustomizableEdges = customizableEdges10;
             textBoxRoomRate.Size = new Size(204, 33);
             textBoxRoomRate.TabIndex = 14;
             // 
@@ -540,7 +557,7 @@
             comboBoxRoomStatus.AutoRoundedCorners = true;
             comboBoxRoomStatus.BackColor = Color.Transparent;
             comboBoxRoomStatus.BorderRadius = 17;
-            comboBoxRoomStatus.CustomizableEdges = customizableEdges9;
+            comboBoxRoomStatus.CustomizableEdges = customizableEdges11;
             comboBoxRoomStatus.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxRoomStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRoomStatus.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -550,7 +567,7 @@
             comboBoxRoomStatus.ItemHeight = 30;
             comboBoxRoomStatus.Location = new Point(9, 31);
             comboBoxRoomStatus.Name = "comboBoxRoomStatus";
-            comboBoxRoomStatus.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            comboBoxRoomStatus.ShadowDecoration.CustomizableEdges = customizableEdges12;
             comboBoxRoomStatus.Size = new Size(204, 36);
             comboBoxRoomStatus.TabIndex = 9;
             // 
@@ -596,7 +613,7 @@
             comboBoxRoomType.AutoRoundedCorners = true;
             comboBoxRoomType.BackColor = Color.Transparent;
             comboBoxRoomType.BorderRadius = 17;
-            comboBoxRoomType.CustomizableEdges = customizableEdges11;
+            comboBoxRoomType.CustomizableEdges = customizableEdges13;
             comboBoxRoomType.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxRoomType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRoomType.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -606,7 +623,7 @@
             comboBoxRoomType.ItemHeight = 30;
             comboBoxRoomType.Location = new Point(9, 32);
             comboBoxRoomType.Name = "comboBoxRoomType";
-            comboBoxRoomType.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            comboBoxRoomType.ShadowDecoration.CustomizableEdges = customizableEdges14;
             comboBoxRoomType.Size = new Size(204, 36);
             comboBoxRoomType.TabIndex = 8;
             // 
@@ -633,7 +650,7 @@
             // 
             textBoxRoomNo.AutoRoundedCorners = true;
             textBoxRoomNo.BorderRadius = 15;
-            textBoxRoomNo.CustomizableEdges = customizableEdges13;
+            textBoxRoomNo.CustomizableEdges = customizableEdges15;
             textBoxRoomNo.DefaultText = "";
             textBoxRoomNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxRoomNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -648,7 +665,7 @@
             textBoxRoomNo.PasswordChar = '\0';
             textBoxRoomNo.PlaceholderText = "";
             textBoxRoomNo.SelectedText = "";
-            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges16;
             textBoxRoomNo.Size = new Size(204, 33);
             textBoxRoomNo.TabIndex = 13;
             // 
@@ -727,7 +744,6 @@
             panelFilters.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewRoom).EndInit();
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
@@ -782,7 +798,6 @@
         private Panel panelSearch;
         private Button buttonMore;
         private Button buttonSearchIcon;
-        private TextBox textBoxAddressSearch;
         private Button buttonSaveEditRooms;
         private Button buttonExitEditRooms;
         private Button buttonEditRooms;
@@ -803,5 +818,7 @@
         private Guna.UI2.WinForms.Guna2ComboBox comboBoxRoomType;
         private Guna.UI2.WinForms.Guna2TextBox textBoxRoomNo;
         private Guna.UI2.WinForms.Guna2GradientButton GradButtonAddRoom;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
     }
 }

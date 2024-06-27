@@ -35,12 +35,6 @@ namespace PleasePleasePlease
             // Code for Search starts here
         }
 
-        private void buttonAddBooking_Click(object sender, EventArgs e)
-        {
-            // ignore this
-            // refer to  guna2GradientButton1_Click instead
-            // sorry forgot to rename the button
-        }
 
         private void buttonExitEditGuest_Click(object sender, EventArgs e)
         {

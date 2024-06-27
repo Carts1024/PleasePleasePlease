@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace Mirai_Paradise_Hotel
 {
     public partial class Welcome : Form
     {
-        public Welcome()
+        private User currentUser;
+        public Welcome(User user)
         {
             InitializeComponent();
+            this.currentUser = user;
             timer1.Interval = 5000;
             timer1.Tick += Timer1_Tick;
             timer1.Start();

@@ -32,9 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Billing));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel3 = new Panel();
             ButtonGenerateInvo = new Guna.UI2.WinForms.Guna2GradientButton();
-            buttonGenerateInvoice = new Button();
             labelGuestInvoice = new Label();
             panelAddaGuest = new Panel();
             labelTableGuestInvoice = new Label();
@@ -42,12 +43,12 @@
             panelFilters = new Panel();
             comboBoxFilterPaymentStatus = new ComboBox();
             panelSearch = new Panel();
+            TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             buttonSaveEditBillings = new Button();
             buttonEditBillings = new Button();
             buttonExitEditBillings = new Button();
             buttonMore = new Button();
             buttonSearchIcon = new Button();
-            textBoxAddressSearch = new TextBox();
             dataGridViewInvoice = new DataGridView();
             ColumnGuestID = new DataGridViewTextBoxColumn();
             ColumnBookingID = new DataGridViewTextBoxColumn();
@@ -71,7 +72,6 @@
             // 
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.Controls.Add(ButtonGenerateInvo);
-            panel3.Controls.Add(buttonGenerateInvoice);
             panel3.Controls.Add(labelGuestInvoice);
             panel3.Controls.Add(panelAddaGuest);
             panel3.Controls.Add(panelBaseTable);
@@ -104,22 +104,6 @@
             ButtonGenerateInvo.TabIndex = 27;
             ButtonGenerateInvo.Text = "Generate Invoice";
             ButtonGenerateInvo.Click += ButtonGenerateInvo_Click;
-            // 
-            // buttonGenerateInvoice
-            // 
-            buttonGenerateInvoice.BackColor = Color.FromArgb(27, 67, 50);
-            buttonGenerateInvoice.Enabled = false;
-            buttonGenerateInvoice.FlatAppearance.BorderColor = Color.FromArgb(27, 67, 50);
-            buttonGenerateInvoice.FlatStyle = FlatStyle.Flat;
-            buttonGenerateInvoice.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonGenerateInvoice.ForeColor = Color.White;
-            buttonGenerateInvoice.Location = new Point(870, 38);
-            buttonGenerateInvoice.Name = "buttonGenerateInvoice";
-            buttonGenerateInvoice.Size = new Size(97, 49);
-            buttonGenerateInvoice.TabIndex = 18;
-            buttonGenerateInvoice.Text = "Generate Invoice";
-            buttonGenerateInvoice.UseVisualStyleBackColor = false;
-            buttonGenerateInvoice.Click += buttonGenerateInvoice_Click;
             // 
             // labelGuestInvoice
             // 
@@ -184,16 +168,40 @@
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(TextBoxSearch);
             panelSearch.Controls.Add(buttonSaveEditBillings);
             panelSearch.Controls.Add(buttonEditBillings);
             panelSearch.Controls.Add(buttonExitEditBillings);
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Controls.Add(textBoxAddressSearch);
             panelSearch.Location = new Point(191, 19);
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(701, 53);
             panelSearch.TabIndex = 19;
+            // 
+            // TextBoxSearch
+            // 
+            TextBoxSearch.Animated = true;
+            TextBoxSearch.AutoRoundedCorners = true;
+            TextBoxSearch.BorderRadius = 12;
+            TextBoxSearch.CustomizableEdges = customizableEdges3;
+            TextBoxSearch.DefaultText = "";
+            TextBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            TextBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            TextBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            TextBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TextBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            TextBoxSearch.Location = new Point(1, 12);
+            TextBoxSearch.Margin = new Padding(4);
+            TextBoxSearch.Name = "TextBoxSearch";
+            TextBoxSearch.PasswordChar = '\0';
+            TextBoxSearch.PlaceholderText = "Search";
+            TextBoxSearch.SelectedText = "";
+            TextBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            TextBoxSearch.Size = new Size(508, 27);
+            TextBoxSearch.TabIndex = 21;
             // 
             // buttonSaveEditBillings
             // 
@@ -256,18 +264,6 @@
             buttonSearchIcon.TabIndex = 3;
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
-            // 
-            // textBoxAddressSearch
-            // 
-            textBoxAddressSearch.Enabled = false;
-            textBoxAddressSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
-            textBoxAddressSearch.Location = new Point(1, 12);
-            textBoxAddressSearch.Name = "textBoxAddressSearch";
-            textBoxAddressSearch.PlaceholderText = "Search";
-            textBoxAddressSearch.Size = new Size(508, 27);
-            textBoxAddressSearch.TabIndex = 2;
-            textBoxAddressSearch.WordWrap = false;
             // 
             // dataGridViewInvoice
             // 
@@ -355,7 +351,6 @@
             panelBaseTable.ResumeLayout(false);
             panelFilters.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInvoice).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
@@ -374,8 +369,6 @@
         private Panel panelSearch;
         private Button buttonMore;
         private Button buttonSearchIcon;
-        private TextBox textBoxAddressSearch;
-        private Button buttonGenerateInvoice;
         private DataGridView dataGridViewInvoice;
         private BindingSource userBindingSource;
         private BindingSource userBindingSource1;
@@ -389,5 +382,6 @@
         private DataGridViewTextBoxColumn ColumnDueDate;
         private DataGridViewComboBoxColumn ColumnPaymentStatus;
         private Guna.UI2.WinForms.Guna2GradientButton ButtonGenerateInvo;
+        private Guna.UI2.WinForms.Guna2TextBox TextBoxSearch;
     }
 }

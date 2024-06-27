@@ -16,6 +16,18 @@ namespace PleasePleasePlease
         public UC_Dashboard()
         {
             InitializeComponent();
+            /*ScrollBar vScrollBar1 = new VScrollBar();
+            vScrollBar1.Dock = DockStyle.Right;
+            vScrollBar1.Scroll += (sender, e) => { panelGalleryAvailRooms.HorizontalScroll.Value = vScrollBar1.Value; };
+            panelGalleryAvailRooms.Controls.Add(vScrollBar1);*/
+
+            panelGalleryAvailRooms.AutoScroll = false; // Disable auto-scrolling
+            panelGalleryAvailRooms.HorizontalScroll.Enabled = true; // Enable horizontal scrolling
+            panelGalleryAvailRooms.VerticalScroll.Visible = false; // Hide vertical scrollbar
+            panelGalleryAvailRooms.AutoScroll = true; // Re-enable auto-scrolling
+
+            // Remove any vertical scrollbar controls
+            panelGalleryAvailRooms.Controls.OfType<VScrollBar>().ToList().ForEach(scroll => panelGalleryAvailRooms.Controls.Remove(scroll));
         }
 
         private Form currentDetailsForm;

@@ -54,7 +54,7 @@ namespace Mirai_Paradise_Hotel
                     Nationality = "US",
                     BirthDate = DateTime.Now,
                     Zipcode = "3023"
-
+                    
                 });
 
             // Configure Room entity

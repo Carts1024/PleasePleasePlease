@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Guest1));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -54,8 +57,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
             panelAddGuest2 = new Panel();
             panel4 = new Panel();
@@ -63,22 +64,14 @@
             panelListOfGuests2 = new Panel();
             label6 = new Label();
             panelListofGuest = new Panel();
-            dataGridViewGuest = new Guna.UI2.WinForms.Guna2DataGridView();
-            ColumnGuestID = new DataGridViewTextBoxColumn();
-            ColumnLastName = new DataGridViewTextBoxColumn();
-            ColumnFirstName = new DataGridViewTextBoxColumn();
-            ColumnMI = new DataGridViewTextBoxColumn();
-            ColumnGender = new DataGridViewComboBoxColumn();
-            ColumnBirthDate = new DataGridViewTextBoxColumn();
-            ColumnAge = new DataGridViewTextBoxColumn();
-            ColumnNationality = new DataGridViewTextBoxColumn();
-            ColumnAddress = new DataGridViewTextBoxColumn();
+            dataGridViewGuests = new Guna.UI2.WinForms.Guna2DataGridView();
             panelFilters = new Panel();
             comboBoxState = new ComboBox();
             comboBoxCity = new ComboBox();
             comboBoxNationality = new ComboBox();
             comboBoxFilterGender = new ComboBox();
             panel16 = new Panel();
+            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             buttonSaveEditGuest = new Button();
             buttonExitEditGuest = new Button();
             buttonEditGuest = new Button();
@@ -100,7 +93,7 @@
             textBoxEmail = new Guna.UI2.WinForms.Guna2TextBox();
             label2 = new Label();
             panel2 = new Panel();
-            textBoxAddress = new Guna.UI2.WinForms.Guna2TextBox();
+            textBoxZipcode = new Guna.UI2.WinForms.Guna2TextBox();
             textBoxState = new Guna.UI2.WinForms.Guna2TextBox();
             textBoxCity = new Guna.UI2.WinForms.Guna2TextBox();
             label8 = new Label();
@@ -122,12 +115,23 @@
             labelAddGuest = new Label();
             panel10 = new Panel();
             labelListofGuest = new Label();
-            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            guestBindingSource = new BindingSource(components);
+            ColumnFirstName = new DataGridViewTextBoxColumn();
+            ColumnLastName = new DataGridViewTextBoxColumn();
+            ColumnMI = new DataGridViewTextBoxColumn();
+            ColumnBirthDate = new DataGridViewTextBoxColumn();
+            ColumnAge = new DataGridViewTextBoxColumn();
+            ColumnGender = new DataGridViewTextBoxColumn();
+            ColumnStreet = new DataGridViewTextBoxColumn();
+            ColumnCity = new DataGridViewTextBoxColumn();
+            ColumnPhoneNumber = new DataGridViewTextBoxColumn();
+            ColumnEmail = new DataGridViewTextBoxColumn();
+            ColumnNationality = new DataGridViewTextBoxColumn();
             panel9.SuspendLayout();
             panelAddGuest2.SuspendLayout();
             panelListOfGuests2.SuspendLayout();
             panelListofGuest.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewGuest).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewGuests).BeginInit();
             panelFilters.SuspendLayout();
             panel16.SuspendLayout();
             panelAddGuest.SuspendLayout();
@@ -142,6 +146,7 @@
             panel14.SuspendLayout();
             panelAddaGuest.SuspendLayout();
             panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guestBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel9
@@ -149,8 +154,8 @@
             panel9.BackColor = Color.Transparent;
             panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
             panel9.Controls.Add(panelAddGuest2);
-            panel9.Controls.Add(panelListOfGuests2);
             panel9.Controls.Add(panelListofGuest);
+            panel9.Controls.Add(panelListOfGuests2);
             panel9.Controls.Add(panelAddGuest);
             panel9.Controls.Add(label7);
             panel9.Controls.Add(panelAddaGuest);
@@ -216,19 +221,20 @@
             // 
             panelListofGuest.BackColor = Color.FromArgb(76, 149, 108);
             panelListofGuest.BackgroundImageLayout = ImageLayout.Zoom;
-            panelListofGuest.Controls.Add(dataGridViewGuest);
+            panelListofGuest.Controls.Add(dataGridViewGuests);
             panelListofGuest.Controls.Add(panelFilters);
             panelListofGuest.Controls.Add(panel16);
-            panelListofGuest.Location = new Point(55, 123);
+            panelListofGuest.Location = new Point(54, 123);
             panelListofGuest.Name = "panelListofGuest";
             panelListofGuest.Size = new Size(964, 593);
             panelListofGuest.TabIndex = 20;
             panelListofGuest.Visible = false;
             // 
-            // dataGridViewGuest
+            // dataGridViewGuests
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewGuests.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewGuests.AutoGenerateColumns = false;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -236,10 +242,11 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridViewGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewGuest.ColumnHeadersHeight = 17;
-            dataGridViewGuest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewGuest.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestID, ColumnLastName, ColumnFirstName, ColumnMI, ColumnGender, ColumnBirthDate, ColumnAge, ColumnNationality, ColumnAddress });
+            dataGridViewGuests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewGuests.ColumnHeadersHeight = 17;
+            dataGridViewGuests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewGuests.Columns.AddRange(new DataGridViewColumn[] { ColumnFirstName, ColumnLastName, ColumnMI, ColumnBirthDate, ColumnAge, ColumnGender, ColumnStreet, ColumnCity, ColumnPhoneNumber, ColumnEmail, ColumnNationality });
+            dataGridViewGuests.DataSource = guestBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -247,90 +254,34 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridViewGuest.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewGuest.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewGuest.Location = new Point(69, 134);
-            dataGridViewGuest.Name = "dataGridViewGuest";
-            dataGridViewGuest.RowHeadersVisible = false;
-            dataGridViewGuest.Size = new Size(823, 415);
-            dataGridViewGuest.TabIndex = 16;
-            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.Font = null;
-            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            dataGridViewGuest.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            dataGridViewGuest.ThemeStyle.BackColor = Color.White;
-            dataGridViewGuest.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewGuest.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewGuest.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewGuest.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            dataGridViewGuest.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dataGridViewGuest.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewGuest.ThemeStyle.HeaderStyle.Height = 17;
-            dataGridViewGuest.ThemeStyle.ReadOnly = false;
-            dataGridViewGuest.ThemeStyle.RowsStyle.BackColor = Color.White;
-            dataGridViewGuest.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewGuest.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            dataGridViewGuest.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewGuest.ThemeStyle.RowsStyle.Height = 25;
-            dataGridViewGuest.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewGuest.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            // 
-            // ColumnGuestID
-            // 
-            ColumnGuestID.HeaderText = "Guest ID";
-            ColumnGuestID.Name = "ColumnGuestID";
-            ColumnGuestID.ReadOnly = true;
-            // 
-            // ColumnLastName
-            // 
-            ColumnLastName.HeaderText = "Last Name";
-            ColumnLastName.Name = "ColumnLastName";
-            ColumnLastName.ReadOnly = true;
-            // 
-            // ColumnFirstName
-            // 
-            ColumnFirstName.HeaderText = "First Name";
-            ColumnFirstName.Name = "ColumnFirstName";
-            ColumnFirstName.ReadOnly = true;
-            // 
-            // ColumnMI
-            // 
-            ColumnMI.HeaderText = "M.I";
-            ColumnMI.Name = "ColumnMI";
-            ColumnMI.ReadOnly = true;
-            // 
-            // ColumnGender
-            // 
-            ColumnGender.HeaderText = "Gender";
-            ColumnGender.Name = "ColumnGender";
-            ColumnGender.ReadOnly = true;
-            ColumnGender.Resizable = DataGridViewTriState.True;
-            ColumnGender.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // ColumnBirthDate
-            // 
-            ColumnBirthDate.HeaderText = "Birth Date";
-            ColumnBirthDate.Name = "ColumnBirthDate";
-            ColumnBirthDate.ReadOnly = true;
-            // 
-            // ColumnAge
-            // 
-            ColumnAge.HeaderText = "Age";
-            ColumnAge.Name = "ColumnAge";
-            ColumnAge.ReadOnly = true;
-            // 
-            // ColumnNationality
-            // 
-            ColumnNationality.HeaderText = "Nationality";
-            ColumnNationality.Name = "ColumnNationality";
-            ColumnNationality.ReadOnly = true;
-            // 
-            // ColumnAddress
-            // 
-            ColumnAddress.HeaderText = "Address";
-            ColumnAddress.Name = "ColumnAddress";
-            ColumnAddress.ReadOnly = true;
+            dataGridViewGuests.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewGuests.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewGuests.Location = new Point(69, 134);
+            dataGridViewGuests.Name = "dataGridViewGuests";
+            dataGridViewGuests.RowHeadersVisible = false;
+            dataGridViewGuests.Size = new Size(823, 415);
+            dataGridViewGuests.TabIndex = 16;
+            dataGridViewGuests.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dataGridViewGuests.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dataGridViewGuests.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dataGridViewGuests.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dataGridViewGuests.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dataGridViewGuests.ThemeStyle.BackColor = Color.White;
+            dataGridViewGuests.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dataGridViewGuests.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewGuests.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewGuests.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dataGridViewGuests.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dataGridViewGuests.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewGuests.ThemeStyle.HeaderStyle.Height = 17;
+            dataGridViewGuests.ThemeStyle.ReadOnly = false;
+            dataGridViewGuests.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dataGridViewGuests.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewGuests.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dataGridViewGuests.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewGuests.ThemeStyle.RowsStyle.Height = 25;
+            dataGridViewGuests.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewGuests.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // panelFilters
             // 
@@ -396,6 +347,30 @@
             panel16.Name = "panel16";
             panel16.Size = new Size(701, 53);
             panel16.TabIndex = 13;
+            // 
+            // textBoxSearch
+            // 
+            textBoxSearch.AutoRoundedCorners = true;
+            textBoxSearch.BackColor = Color.Transparent;
+            textBoxSearch.BorderRadius = 17;
+            textBoxSearch.CustomizableEdges = customizableEdges1;
+            textBoxSearch.DefaultText = "";
+            textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            textBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Location = new Point(4, 7);
+            textBoxSearch.Margin = new Padding(4);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.PasswordChar = '\0';
+            textBoxSearch.PlaceholderText = "Search";
+            textBoxSearch.SelectedText = "";
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            textBoxSearch.Size = new Size(524, 36);
+            textBoxSearch.TabIndex = 20;
             // 
             // buttonSaveEditGuest
             // 
@@ -686,7 +661,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(textBoxAddress);
+            panel2.Controls.Add(textBoxZipcode);
             panel2.Controls.Add(textBoxState);
             panel2.Controls.Add(textBoxCity);
             panel2.Controls.Add(label8);
@@ -696,28 +671,28 @@
             panel2.Size = new Size(812, 67);
             panel2.TabIndex = 4;
             // 
-            // textBoxAddress
+            // textBoxZipcode
             // 
-            textBoxAddress.AutoRoundedCorners = true;
-            textBoxAddress.BorderRadius = 15;
-            textBoxAddress.CustomizableEdges = customizableEdges13;
-            textBoxAddress.DefaultText = "";
-            textBoxAddress.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            textBoxAddress.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            textBoxAddress.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            textBoxAddress.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            textBoxAddress.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxAddress.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxAddress.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxAddress.Location = new Point(595, 30);
-            textBoxAddress.Margin = new Padding(4);
-            textBoxAddress.Name = "textBoxAddress";
-            textBoxAddress.PasswordChar = '\0';
-            textBoxAddress.PlaceholderText = "Zip Code";
-            textBoxAddress.SelectedText = "";
-            textBoxAddress.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            textBoxAddress.Size = new Size(156, 33);
-            textBoxAddress.TabIndex = 15;
+            textBoxZipcode.AutoRoundedCorners = true;
+            textBoxZipcode.BorderRadius = 15;
+            textBoxZipcode.CustomizableEdges = customizableEdges13;
+            textBoxZipcode.DefaultText = "";
+            textBoxZipcode.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            textBoxZipcode.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            textBoxZipcode.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            textBoxZipcode.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            textBoxZipcode.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxZipcode.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxZipcode.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxZipcode.Location = new Point(595, 30);
+            textBoxZipcode.Margin = new Padding(4);
+            textBoxZipcode.Name = "textBoxZipcode";
+            textBoxZipcode.PasswordChar = '\0';
+            textBoxZipcode.PlaceholderText = "Zip Code";
+            textBoxZipcode.SelectedText = "";
+            textBoxZipcode.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            textBoxZipcode.Size = new Size(156, 33);
+            textBoxZipcode.TabIndex = 15;
             // 
             // textBoxState
             // 
@@ -988,29 +963,74 @@
             labelListofGuest.Text = "List of Guests";
             labelListofGuest.Click += labelListofGuest_Click;
             // 
-            // textBoxSearch
+            // guestBindingSource
             // 
-            textBoxSearch.AutoRoundedCorners = true;
-            textBoxSearch.BackColor = Color.Transparent;
-            textBoxSearch.BorderRadius = 17;
-            textBoxSearch.CustomizableEdges = customizableEdges1;
-            textBoxSearch.DefaultText = "";
-            textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            textBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            textBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxSearch.Location = new Point(4, 7);
-            textBoxSearch.Margin = new Padding(4);
-            textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.PasswordChar = '\0';
-            textBoxSearch.PlaceholderText = "Search";
-            textBoxSearch.SelectedText = "";
-            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            textBoxSearch.Size = new Size(524, 36);
-            textBoxSearch.TabIndex = 20;
+            guestBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.Guest);
+            // 
+            // ColumnFirstName
+            // 
+            ColumnFirstName.DataPropertyName = "FirstName";
+            ColumnFirstName.HeaderText = "FirstName";
+            ColumnFirstName.Name = "ColumnFirstName";
+            // 
+            // ColumnLastName
+            // 
+            ColumnLastName.DataPropertyName = "LastName";
+            ColumnLastName.HeaderText = "LastName";
+            ColumnLastName.Name = "ColumnLastName";
+            // 
+            // ColumnMI
+            // 
+            ColumnMI.DataPropertyName = "MiddleInitial";
+            ColumnMI.HeaderText = "M.I";
+            ColumnMI.Name = "ColumnMI";
+            // 
+            // ColumnBirthDate
+            // 
+            ColumnBirthDate.DataPropertyName = "BirthDate";
+            ColumnBirthDate.HeaderText = "BirthDate";
+            ColumnBirthDate.Name = "ColumnBirthDate";
+            // 
+            // ColumnAge
+            // 
+            ColumnAge.HeaderText = "Age";
+            ColumnAge.Name = "ColumnAge";
+            // 
+            // ColumnGender
+            // 
+            ColumnGender.DataPropertyName = "Gender";
+            ColumnGender.HeaderText = "Gender";
+            ColumnGender.Name = "ColumnGender";
+            // 
+            // ColumnStreet
+            // 
+            ColumnStreet.DataPropertyName = "StreetAddress";
+            ColumnStreet.HeaderText = "Street";
+            ColumnStreet.Name = "ColumnStreet";
+            // 
+            // ColumnCity
+            // 
+            ColumnCity.DataPropertyName = "CityAddress";
+            ColumnCity.HeaderText = "City";
+            ColumnCity.Name = "ColumnCity";
+            // 
+            // ColumnPhoneNumber
+            // 
+            ColumnPhoneNumber.DataPropertyName = "PhoneNumber";
+            ColumnPhoneNumber.HeaderText = "PhoneNumber";
+            ColumnPhoneNumber.Name = "ColumnPhoneNumber";
+            // 
+            // ColumnEmail
+            // 
+            ColumnEmail.DataPropertyName = "Email";
+            ColumnEmail.HeaderText = "Email";
+            ColumnEmail.Name = "ColumnEmail";
+            // 
+            // ColumnNationality
+            // 
+            ColumnNationality.DataPropertyName = "Nationality";
+            ColumnNationality.HeaderText = "Nationality";
+            ColumnNationality.Name = "ColumnNationality";
             // 
             // UC_Guest1
             // 
@@ -1026,7 +1046,7 @@
             panelListOfGuests2.ResumeLayout(false);
             panelListOfGuests2.PerformLayout();
             panelListofGuest.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridViewGuest).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewGuests).EndInit();
             panelFilters.ResumeLayout(false);
             panel16.ResumeLayout(false);
             panelAddGuest.ResumeLayout(false);
@@ -1052,6 +1072,7 @@
             panelAddaGuest.PerformLayout();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)guestBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -1101,7 +1122,7 @@
         private Guna.UI2.WinForms.Guna2TextBox textBoxFirstName;
         private Guna.UI2.WinForms.Guna2TextBox textBoxNationality;
         private Guna.UI2.WinForms.Guna2ComboBox comboBoxGender;
-        private Guna.UI2.WinForms.Guna2TextBox textBoxAddress;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxZipcode;
         private Guna.UI2.WinForms.Guna2TextBox textBoxState;
         private Guna.UI2.WinForms.Guna2TextBox textBoxCity;
         private Guna.UI2.WinForms.Guna2TextBox textBoxContactNo;
@@ -1113,16 +1134,19 @@
         private Label label6;
         private ComboBox comboBoxFilterGender;
         private Guna.UI2.WinForms.Guna2GradientButton gradButtonAddGuest;
-        private Guna.UI2.WinForms.Guna2DataGridView dataGridViewGuest;
-        private DataGridViewTextBoxColumn ColumnGuestID;
-        private DataGridViewTextBoxColumn ColumnLastName;
+        private Guna.UI2.WinForms.Guna2DataGridView dataGridViewGuests;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
+        private BindingSource guestBindingSource;
         private DataGridViewTextBoxColumn ColumnFirstName;
+        private DataGridViewTextBoxColumn ColumnLastName;
         private DataGridViewTextBoxColumn ColumnMI;
-        private DataGridViewComboBoxColumn ColumnGender;
         private DataGridViewTextBoxColumn ColumnBirthDate;
         private DataGridViewTextBoxColumn ColumnAge;
+        private DataGridViewTextBoxColumn ColumnGender;
+        private DataGridViewTextBoxColumn ColumnStreet;
+        private DataGridViewTextBoxColumn ColumnCity;
+        private DataGridViewTextBoxColumn ColumnPhoneNumber;
+        private DataGridViewTextBoxColumn ColumnEmail;
         private DataGridViewTextBoxColumn ColumnNationality;
-        private DataGridViewTextBoxColumn ColumnAddress;
-        private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
     }
 }

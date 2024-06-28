@@ -13,9 +13,11 @@ namespace PleasePleasePlease
 {
     public partial class UC_Dashboard : UserControl
     {
+        private Form currentDetailsForm;
         public UC_Dashboard()
         {
             InitializeComponent();
+            DisplayCurrentUser();
             /*ScrollBar vScrollBar1 = new VScrollBar();
             vScrollBar1.Dock = DockStyle.Right;
             vScrollBar1.Scroll += (sender, e) => { panelGalleryAvailRooms.HorizontalScroll.Value = vScrollBar1.Value; };
@@ -30,7 +32,24 @@ namespace PleasePleasePlease
             panelGalleryAvailRooms.Controls.OfType<VScrollBar>().ToList().ForEach(scroll => panelGalleryAvailRooms.Controls.Remove(scroll));
         }
 
-        private Form currentDetailsForm;
+
+        
+
+        private void DisplayCurrentUser()
+        {
+            if (UserSession.IsLoggedIn)
+            {
+                var currentUser = UserSession.CurrentUser;
+                // Display the current user's information, e.g., in a label
+                label5.Text = $"Welcome {currentUser.UserName}!";
+                label30.Text = DateTime.Now.ToString("MMM dd yyyy");
+                label1.Text = DateTime.Now.ToString("dddd");
+            }
+            else
+            {
+                MessageBox.Show("No user is currently logged in.");
+            }
+        }
 
         private void labelViewDeetsAvailRoom_Click(object sender, EventArgs e)
         {

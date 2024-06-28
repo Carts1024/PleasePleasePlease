@@ -1,4 +1,6 @@
-﻿namespace PleasePleasePlease
+﻿using Mirai_Paradise_Hotel;
+
+namespace PleasePleasePlease
 {
     partial class UC_Room1 : UserControl
     {
@@ -35,6 +37,8 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -49,22 +53,15 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
             panelListofRoom = new Panel();
             guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             dataGridViewRoom = new Guna.UI2.WinForms.Guna2DataGridView();
-            ColumnRoomNo = new DataGridViewTextBoxColumn();
-            ColumnRoomType = new DataGridViewComboBoxColumn();
-            ColumnFloorNo = new DataGridViewTextBoxColumn();
-            ColumnMaxCapacity = new DataGridViewTextBoxColumn();
-            ColumnRoomRate = new DataGridViewTextBoxColumn();
-            ColumnRoomStatus = new DataGridViewComboBoxColumn();
             panelFilters = new Panel();
             comboBoxFilterRoomType = new ComboBox();
             comboBoxFilterRoomStatus = new ComboBox();
             panelSearch = new Panel();
+            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             buttonSaveEditRooms = new Button();
             buttonMore = new Button();
             buttonExitEditRooms = new Button();
@@ -100,7 +97,6 @@
             labelAddRoom = new Label();
             panel10 = new Panel();
             labelListofRoom = new Label();
-            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             panel9.SuspendLayout();
             panelListofRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
@@ -202,6 +198,8 @@
             // 
             // dataGridViewRoom
             // 
+            dataGridViewRoom.AllowUserToAddRows = false;
+            dataGridViewRoom.AllowUserToDeleteRows = false;
             dataGridViewCellStyle4.BackColor = Color.White;
             dataGridViewRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -214,7 +212,6 @@
             dataGridViewRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewRoom.ColumnHeadersHeight = 17;
             dataGridViewRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewRoom.Columns.AddRange(new DataGridViewColumn[] { ColumnRoomNo, ColumnRoomType, ColumnFloorNo, ColumnMaxCapacity, ColumnRoomRate, ColumnRoomStatus });
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.White;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
@@ -226,6 +223,7 @@
             dataGridViewRoom.GridColor = Color.FromArgb(231, 229, 255);
             dataGridViewRoom.Location = new Point(69, 134);
             dataGridViewRoom.Name = "dataGridViewRoom";
+            dataGridViewRoom.ReadOnly = true;
             dataGridViewRoom.RowHeadersVisible = false;
             dataGridViewRoom.Size = new Size(823, 393);
             dataGridViewRoom.TabIndex = 13;
@@ -242,7 +240,7 @@
             dataGridViewRoom.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dataGridViewRoom.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewRoom.ThemeStyle.HeaderStyle.Height = 17;
-            dataGridViewRoom.ThemeStyle.ReadOnly = false;
+            dataGridViewRoom.ThemeStyle.ReadOnly = true;
             dataGridViewRoom.ThemeStyle.RowsStyle.BackColor = Color.White;
             dataGridViewRoom.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewRoom.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
@@ -250,44 +248,8 @@
             dataGridViewRoom.ThemeStyle.RowsStyle.Height = 25;
             dataGridViewRoom.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewRoom.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            // 
-            // ColumnRoomNo
-            // 
-            ColumnRoomNo.HeaderText = "Room No";
-            ColumnRoomNo.Name = "ColumnRoomNo";
-            ColumnRoomNo.ReadOnly = true;
-            // 
-            // ColumnRoomType
-            // 
-            ColumnRoomType.HeaderText = "Room Type";
-            ColumnRoomType.Name = "ColumnRoomType";
-            ColumnRoomType.ReadOnly = true;
-            // 
-            // ColumnFloorNo
-            // 
-            ColumnFloorNo.HeaderText = "Floor No";
-            ColumnFloorNo.Name = "ColumnFloorNo";
-            ColumnFloorNo.ReadOnly = true;
-            ColumnFloorNo.Resizable = DataGridViewTriState.True;
-            ColumnFloorNo.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnMaxCapacity
-            // 
-            ColumnMaxCapacity.HeaderText = "Max Capacity";
-            ColumnMaxCapacity.Name = "ColumnMaxCapacity";
-            ColumnMaxCapacity.ReadOnly = true;
-            // 
-            // ColumnRoomRate
-            // 
-            ColumnRoomRate.HeaderText = "Room Rate";
-            ColumnRoomRate.Name = "ColumnRoomRate";
-            ColumnRoomRate.ReadOnly = true;
-            // 
-            // ColumnRoomStatus
-            // 
-            ColumnRoomStatus.HeaderText = "Room Status";
-            ColumnRoomStatus.Name = "ColumnRoomStatus";
-            ColumnRoomStatus.ReadOnly = true;
+            dataGridViewRoom.DataError += dataGridViewRoom_DataError;
+
             // 
             // panelFilters
             // 
@@ -332,6 +294,30 @@
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(701, 53);
             panelSearch.TabIndex = 4;
+            // 
+            // textBoxSearch
+            // 
+            textBoxSearch.AutoRoundedCorners = true;
+            textBoxSearch.BackColor = Color.Transparent;
+            textBoxSearch.BorderRadius = 17;
+            textBoxSearch.CustomizableEdges = customizableEdges1;
+            textBoxSearch.DefaultText = "";
+            textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            textBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            textBoxSearch.Location = new Point(4, 8);
+            textBoxSearch.Margin = new Padding(4);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.PasswordChar = '\0';
+            textBoxSearch.PlaceholderText = "Search";
+            textBoxSearch.SelectedText = "";
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            textBoxSearch.Size = new Size(524, 36);
+            textBoxSearch.TabIndex = 27;
             // 
             // buttonSaveEditRooms
             // 
@@ -791,30 +777,6 @@
             labelListofRoom.Text = "List of Rooms";
             labelListofRoom.Click += labelListofRoom_Click;
             // 
-            // textBoxSearch
-            // 
-            textBoxSearch.AutoRoundedCorners = true;
-            textBoxSearch.BackColor = Color.Transparent;
-            textBoxSearch.BorderRadius = 17;
-            textBoxSearch.CustomizableEdges = customizableEdges1;
-            textBoxSearch.DefaultText = "";
-            textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            textBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            textBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxSearch.Location = new Point(4, 8);
-            textBoxSearch.Margin = new Padding(4);
-            textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.PasswordChar = '\0';
-            textBoxSearch.PlaceholderText = "Search";
-            textBoxSearch.SelectedText = "";
-            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            textBoxSearch.Size = new Size(524, 36);
-            textBoxSearch.TabIndex = 27;
-            // 
             // UC_Room1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -898,12 +860,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton GradButtonAddRoom;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridViewRoom;
-        private DataGridViewTextBoxColumn ColumnRoomNo;
-        private DataGridViewComboBoxColumn ColumnRoomType;
-        private DataGridViewTextBoxColumn ColumnFloorNo;
-        private DataGridViewTextBoxColumn ColumnMaxCapacity;
-        private DataGridViewTextBoxColumn ColumnRoomRate;
-        private DataGridViewComboBoxColumn ColumnRoomStatus;
         private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
     }
 }

@@ -28,27 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Details_BookingHistory));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Details_BookingHistory));
             panelBase = new Panel();
             dataGridViewBookingHistory = new Guna.UI2.WinForms.Guna2DataGridView();
-            ColumnGuestName = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             panelSearch = new Panel();
+            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             dateTimePickerBookingHistory = new DateTimePicker();
             buttonSearchIcon = new Button();
-            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            bookingBindingSource = new BindingSource(components);
             panelBase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBookingHistory).BeginInit();
             panelSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bookingBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panelBase
@@ -78,7 +75,6 @@
             dataGridViewBookingHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewBookingHistory.ColumnHeadersHeight = 17;
             dataGridViewBookingHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewBookingHistory.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestName, dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -115,40 +111,6 @@
             dataGridViewBookingHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewBookingHistory.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // ColumnGuestName
-            // 
-            ColumnGuestName.HeaderText = "Guest Name";
-            ColumnGuestName.Name = "ColumnGuestName";
-            ColumnGuestName.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Room No";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Check In Date";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "Check In Time";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.HeaderText = "Check Out Date";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.HeaderText = "Check Out Time";
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
             // panelSearch
             // 
             panelSearch.Controls.Add(textBoxSearch);
@@ -158,24 +120,6 @@
             panelSearch.Name = "panelSearch";
             panelSearch.Size = new Size(835, 53);
             panelSearch.TabIndex = 16;
-            // 
-            // dateTimePickerBookingHistory
-            // 
-            dateTimePickerBookingHistory.Location = new Point(677, 12);
-            dateTimePickerBookingHistory.Name = "dateTimePickerBookingHistory";
-            dateTimePickerBookingHistory.Size = new Size(147, 23);
-            dateTimePickerBookingHistory.TabIndex = 19;
-            // 
-            // buttonSearchIcon
-            // 
-            buttonSearchIcon.BackgroundImage = (Image)resources.GetObject("buttonSearchIcon.BackgroundImage");
-            buttonSearchIcon.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonSearchIcon.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSearchIcon.Location = new Point(539, 12);
-            buttonSearchIcon.Name = "buttonSearchIcon";
-            buttonSearchIcon.Size = new Size(28, 27);
-            buttonSearchIcon.TabIndex = 3;
-            buttonSearchIcon.UseVisualStyleBackColor = true;
             // 
             // textBoxSearch
             // 
@@ -201,6 +145,28 @@
             textBoxSearch.Size = new Size(524, 36);
             textBoxSearch.TabIndex = 21;
             // 
+            // dateTimePickerBookingHistory
+            // 
+            dateTimePickerBookingHistory.Location = new Point(677, 12);
+            dateTimePickerBookingHistory.Name = "dateTimePickerBookingHistory";
+            dateTimePickerBookingHistory.Size = new Size(147, 23);
+            dateTimePickerBookingHistory.TabIndex = 19;
+            // 
+            // buttonSearchIcon
+            // 
+            buttonSearchIcon.BackgroundImage = (Image)resources.GetObject("buttonSearchIcon.BackgroundImage");
+            buttonSearchIcon.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonSearchIcon.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonSearchIcon.Location = new Point(539, 12);
+            buttonSearchIcon.Name = "buttonSearchIcon";
+            buttonSearchIcon.Size = new Size(28, 27);
+            buttonSearchIcon.TabIndex = 3;
+            buttonSearchIcon.UseVisualStyleBackColor = true;
+            // 
+            // bookingBindingSource
+            // 
+            bookingBindingSource.DataSource = typeof(Booking);
+            // 
             // Details_BookingHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -215,6 +181,7 @@
             panelBase.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewBookingHistory).EndInit();
             panelSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)bookingBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -225,12 +192,7 @@
         private DateTimePicker dateTimePickerBookingHistory;
         private Button buttonSearchIcon;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridViewBookingHistory;
-        private DataGridViewTextBoxColumn ColumnGuestName;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
+        private BindingSource bookingBindingSource;
     }
 }

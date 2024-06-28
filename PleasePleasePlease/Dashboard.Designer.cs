@@ -53,13 +53,13 @@
             // panelBase
             // 
             panelBase.BackColor = Color.FromArgb(45, 106, 79);
+            panelBase.Controls.Add(buttonRooms);
             panelBase.Controls.Add(panelLogOut);
             panelBase.Controls.Add(panel1);
             panelBase.Controls.Add(buttonAccounts);
             panelBase.Controls.Add(buttonAnalytics);
             panelBase.Controls.Add(buttonBilling);
             panelBase.Controls.Add(buttonBooking);
-            panelBase.Controls.Add(buttonRooms);
             panelBase.Controls.Add(buttonGuests);
             panelBase.Controls.Add(buttonDashboard);
             panelBase.Dock = DockStyle.Left;
@@ -154,6 +154,7 @@
             buttonAccounts.TextAlign = ContentAlignment.MiddleLeft;
             buttonAccounts.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAccounts.UseVisualStyleBackColor = true;
+            buttonAccounts.Visible = false;
             buttonAccounts.Click += buttonSettings_Click;
             // 
             // buttonAnalytics
@@ -174,6 +175,7 @@
             buttonAnalytics.TextAlign = ContentAlignment.MiddleLeft;
             buttonAnalytics.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAnalytics.UseVisualStyleBackColor = true;
+            buttonAnalytics.Visible = false;
             buttonAnalytics.Click += buttonAnalytics_Click;
             // 
             // buttonBilling
@@ -184,7 +186,7 @@
             buttonBilling.ForeColor = Color.Transparent;
             buttonBilling.Image = (Image)resources.GetObject("buttonBilling.Image");
             buttonBilling.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonBilling.Location = new Point(1, 460);
+            buttonBilling.Location = new Point(3, 402);
             buttonBilling.Margin = new Padding(3, 2, 3, 2);
             buttonBilling.Name = "buttonBilling";
             buttonBilling.Padding = new Padding(13, 0, 0, 0);
@@ -204,7 +206,7 @@
             buttonBooking.ForeColor = Color.Transparent;
             buttonBooking.Image = (Image)resources.GetObject("buttonBooking.Image");
             buttonBooking.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonBooking.Location = new Point(1, 400);
+            buttonBooking.Location = new Point(3, 342);
             buttonBooking.Margin = new Padding(3, 2, 3, 2);
             buttonBooking.Name = "buttonBooking";
             buttonBooking.Padding = new Padding(13, 0, 0, 0);
@@ -224,7 +226,7 @@
             buttonRooms.ForeColor = Color.Transparent;
             buttonRooms.Image = (Image)resources.GetObject("buttonRooms.Image");
             buttonRooms.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonRooms.Location = new Point(0, 342);
+            buttonRooms.Location = new Point(3, 460);
             buttonRooms.Margin = new Padding(3, 2, 3, 2);
             buttonRooms.Name = "buttonRooms";
             buttonRooms.Padding = new Padding(13, 0, 0, 0);
@@ -234,6 +236,7 @@
             buttonRooms.TextAlign = ContentAlignment.MiddleLeft;
             buttonRooms.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonRooms.UseVisualStyleBackColor = true;
+            buttonRooms.Visible = false;
             buttonRooms.Click += buttonRooms_Click;
             // 
             // buttonGuests

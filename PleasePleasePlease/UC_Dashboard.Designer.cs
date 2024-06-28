@@ -37,6 +37,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             panelGalleryAvailRooms = new Guna.UI2.WinForms.Guna2Panel();
+            panel18 = new Panel();
+            label6 = new Label();
+            label7 = new Label();
+            label10 = new Label();
+            button5 = new Button();
+            pictureBox5 = new PictureBox();
             panel17 = new Panel();
             label29 = new Label();
             label23 = new Label();
@@ -91,9 +97,10 @@
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
-            label2 = new Label();
             panel1.SuspendLayout();
             panelGalleryAvailRooms.SuspendLayout();
+            panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel16.SuspendLayout();
@@ -127,7 +134,6 @@
             panel1.Controls.Add(label5);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.MaximumSize = new Size(1920, 1080);
@@ -138,8 +144,8 @@
             // 
             // panelGalleryAvailRooms
             // 
-            panelGalleryAvailRooms.AutoScroll = true;
             panelGalleryAvailRooms.BackColor = Color.Transparent;
+            panelGalleryAvailRooms.Controls.Add(panel18);
             panelGalleryAvailRooms.Controls.Add(panel17);
             panelGalleryAvailRooms.Controls.Add(panel16);
             panelGalleryAvailRooms.Controls.Add(panel15);
@@ -148,8 +154,72 @@
             panelGalleryAvailRooms.Location = new Point(27, 361);
             panelGalleryAvailRooms.Name = "panelGalleryAvailRooms";
             panelGalleryAvailRooms.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            panelGalleryAvailRooms.Size = new Size(1000, 269);
+            panelGalleryAvailRooms.Size = new Size(1263, 269);
             panelGalleryAvailRooms.TabIndex = 32;
+            // 
+            // panel18
+            // 
+            panel18.BackColor = Color.FromArgb(64, 145, 108);
+            panel18.Controls.Add(label6);
+            panel18.Controls.Add(label7);
+            panel18.Controls.Add(label10);
+            panel18.Controls.Add(button5);
+            panel18.Controls.Add(pictureBox5);
+            panel18.Location = new Point(1082, 2);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(254, 248);
+            panel18.TabIndex = 20;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(255, 255, 128);
+            label6.Location = new Point(181, 190);
+            label6.Name = "label6";
+            label6.Size = new Size(47, 16);
+            label6.TabIndex = 15;
+            label6.Text = "₱1,479";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label7.Location = new Point(29, 170);
+            label7.Name = "label7";
+            label7.Size = new Size(36, 16);
+            label7.TabIndex = 13;
+            label7.Text = "Suite";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Location = new Point(29, 157);
+            label10.Name = "label10";
+            label10.Size = new Size(82, 16);
+            label10.TabIndex = 12;
+            label10.Text = "Room No: 30";
+            // 
+            // button5
+            // 
+            button5.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button5.Location = new Point(171, 153);
+            button5.Name = "button5";
+            button5.Size = new Size(69, 33);
+            button5.TabIndex = 11;
+            button5.Text = "Book";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackgroundImage = (Image)resources.GetObject("pictureBox5.BackgroundImage");
+            pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox5.Location = new Point(30, 15);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(195, 131);
+            pictureBox5.TabIndex = 10;
+            pictureBox5.TabStop = false;
             // 
             // panel17
             // 
@@ -409,17 +479,15 @@
             // 
             // panel12
             // 
-            panel12.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel12.BackColor = Color.MediumSeaGreen;
             panel12.Controls.Add(labelViewDetailsPendingPayments);
-            panel12.Location = new Point(838, 198);
+            panel12.Location = new Point(812, 252);
             panel12.Name = "panel12";
-            panel12.Size = new Size(0, 36);
+            panel12.Size = new Size(306, 36);
             panel12.TabIndex = 9;
             // 
             // labelViewDetailsPendingPayments
             // 
-            labelViewDetailsPendingPayments.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelViewDetailsPendingPayments.AutoSize = true;
             labelViewDetailsPendingPayments.Font = new Font("SF Pro Display", 9F, FontStyle.Italic);
             labelViewDetailsPendingPayments.Location = new Point(65, 11);
@@ -428,6 +496,7 @@
             labelViewDetailsPendingPayments.Size = new Size(106, 14);
             labelViewDetailsPendingPayments.TabIndex = 0;
             labelViewDetailsPendingPayments.Text = "V I E W   D E T A I L S";
+            labelViewDetailsPendingPayments.TextAlign = ContentAlignment.MiddleCenter;
             labelViewDetailsPendingPayments.Click += labelViewDetailsPendingPayments_Click;
             // 
             // guna2GradientButton1
@@ -446,7 +515,7 @@
             guna2GradientButton1.FillColor2 = Color.SteelBlue;
             guna2GradientButton1.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2GradientButton1.ForeColor = Color.White;
-            guna2GradientButton1.Location = new Point(876, 636);
+            guna2GradientButton1.Location = new Point(967, 636);
             guna2GradientButton1.Name = "guna2GradientButton1";
             guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2GradientButton1.Size = new Size(151, 31);
@@ -484,7 +553,7 @@
             label30.AutoSize = true;
             label30.BackColor = Color.Transparent;
             label30.Font = new Font("SF Pro Display", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label30.Location = new Point(820, 32);
+            label30.Location = new Point(940, 30);
             label30.Name = "label30";
             label30.Size = new Size(234, 35);
             label30.TabIndex = 22;
@@ -503,7 +572,6 @@
             // 
             // panel4
             // 
-            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel4.BackColor = Color.FromArgb(45, 106, 79);
             panel4.Controls.Add(panel13);
@@ -511,14 +579,14 @@
             panel4.Controls.Add(label15);
             panel4.Location = new Point(814, 104);
             panel4.Name = "panel4";
-            panel4.Size = new Size(0, 145);
+            panel4.Size = new Size(304, 184);
             panel4.TabIndex = 12;
             // 
             // panel13
             // 
             panel13.BackgroundImage = (Image)resources.GetObject("panel13.BackgroundImage");
             panel13.BackgroundImageLayout = ImageLayout.Zoom;
-            panel13.Location = new Point(11, 29);
+            panel13.Location = new Point(26, 55);
             panel13.Name = "panel13";
             panel13.Size = new Size(55, 59);
             panel13.TabIndex = 9;
@@ -530,7 +598,7 @@
             label14.BackColor = Color.Transparent;
             label14.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.White;
-            label14.Location = new Point(72, 46);
+            label14.Location = new Point(104, 72);
             label14.Name = "label14";
             label14.Size = new Size(41, 42);
             label14.TabIndex = 7;
@@ -543,7 +611,7 @@
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.White;
-            label15.Location = new Point(72, 20);
+            label15.Location = new Point(98, 49);
             label15.Name = "label15";
             label15.Size = new Size(172, 23);
             label15.TabIndex = 6;
@@ -767,24 +835,11 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("SF Pro Display", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(1008, 65);
+            label1.Location = new Point(1042, 65);
             label1.Name = "label1";
             label1.Size = new Size(36, 19);
             label1.TabIndex = 1;
             label1.Text = "Day";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Dock = DockStyle.Right;
-            label2.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(828, 0);
-            label2.Name = "label2";
-            label2.Padding = new Padding(0, 30, 0, 0);
-            label2.Size = new Size(248, 63);
-            label2.TabIndex = 0;
-            label2.Text = "Month Day, Year";
             // 
             // UC_Dashboard
             // 
@@ -797,6 +852,9 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panelGalleryAvailRooms.ResumeLayout(false);
+            panel18.ResumeLayout(false);
+            panel18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel17.ResumeLayout(false);
             panel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -833,7 +891,6 @@
         private Panel panel1;
         private Panel panel5;
         private Label label1;
-        private Label label2;
         private Label label5;
         private Label label3;
         private Panel panel2;
@@ -887,5 +944,11 @@
         private Label label17;
         private Button button1;
         private PictureBox pictureBox1;
+        private Panel panel18;
+        private Label label6;
+        private Label label7;
+        private Label label10;
+        private Button button5;
+        private PictureBox pictureBox5;
     }
 }

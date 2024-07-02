@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Runtime;
 using System.Text;
@@ -21,6 +22,7 @@ namespace Mirai_Paradise_Hotel
         private int tempIndex;
 
         public List<User> DataBaseUsers { get; private set; }
+        private Guest _selectedGuest;
 
         //    private User currentUser; // Assume this holds the current logged-in user
 
@@ -46,7 +48,7 @@ namespace Mirai_Paradise_Hotel
                     currentButton.ForeColor = Color.White;
                     currentButton.Padding = new Padding(35, 0, 0, 0);
                     currentButton.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-                    currentButton.BackColor = SelectThemeColor(); // Set random background color
+                    currentButton.BackColor = SelectThemeColor();
                 }
             }
         }
@@ -74,6 +76,21 @@ namespace Mirai_Paradise_Hotel
             }
         }
 
+        public void ActivateBookingButton()
+        {
+            ActivateButton(buttonBooking);
+        }
+
+        // Public method to set the selected guest
+        public void SetSelectedGuest(Guest guest)
+        {
+            _guest = guest;
+        }
+
+        public void ClearSelectedGuest()
+        {
+            _selectedGuest = null;
+        }
         private void Dashboard_Load(object sender, EventArgs e)
         {
             buttonDashboard.Click += buttonDashboard_Click;
@@ -111,25 +128,27 @@ namespace Mirai_Paradise_Hotel
             LoadUserControl(new UC_Dashboard());
             ActivateButton(sender);
         }
-
+        private Button _bookingButton;       
+        private Guest _guest;
         private void buttonGuests_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new UC_Guest1());
+            LoadUserControl(new UC_Guest1(this, panelContainer));
             ActivateButton(sender);
         }
-
         private void buttonRooms_Click(object sender, EventArgs e)
         {
             LoadUserControl(new UC_Room1());
             ActivateButton(sender);
         }
 
+ 
         private void buttonBooking_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new UC_Booking1());
+            LoadUserControl(new UC_Booking1(_selectedGuest));
             ActivateButton(sender);
         }
-
+            
+    
         private void buttonBilling_Click(object sender, EventArgs e)
         {
             LoadUserControl(new UC_Billing());

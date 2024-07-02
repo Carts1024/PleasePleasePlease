@@ -1,5 +1,6 @@
 ﻿using CsvHelper.Configuration.Attributes;   // Using CsvHelper attributes for CSV mapping
-using System.ComponentModel.DataAnnotations; // Using DataAnnotations for data validation
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema; // Using DataAnnotations for data validation
 
 namespace Mirai_Paradise_Hotel
 {
@@ -15,13 +16,13 @@ namespace Mirai_Paradise_Hotel
         public DateTime CheckInDate { get; set; }
 
         [Name("Check In Time")]
-        public DateTime CheckInTime { get; set; }
+        public TimeSpan CheckInTime { get; set; }
 
         [Name("Check Out Date")]
         public DateTime CheckOutDate { get; set; }
 
         [Name("Check Out Time")]
-        public DateTime CheckOutTime { get; set; }
+        public TimeSpan CheckOutTime { get; set; }
 
         [Name("Guest Id")]
         public int GuestID { get; set; }
@@ -29,7 +30,9 @@ namespace Mirai_Paradise_Hotel
         [Name("Room Number")]
         public int RoomNumber { get; set; }
 
+        [ForeignKey("GuestID")]
         public virtual Guest Guest{ get; set; } = null!;
+        [ForeignKey("RoomNumber")]
         public virtual Room Room { get; set; } = null!;
     }
 }

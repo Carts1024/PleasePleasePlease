@@ -61,10 +61,9 @@
             panelAddGuest2 = new Panel();
             panel4 = new Panel();
             label3 = new Label();
-            panelListOfGuests2 = new Panel();
-            label6 = new Label();
             panelListofGuest = new Panel();
             dataGridViewGuests = new Guna.UI2.WinForms.Guna2DataGridView();
+            guestBindingSource = new BindingSource(components);
             panelFilters = new Panel();
             comboBoxState = new ComboBox();
             comboBoxCity = new ComboBox();
@@ -77,6 +76,8 @@
             buttonEditGuest = new Button();
             buttonMore = new Button();
             buttonSearch = new Button();
+            panelListOfGuests2 = new Panel();
+            label6 = new Label();
             panelAddGuest = new Panel();
             gradButtonAddGuest = new Guna.UI2.WinForms.Guna2GradientButton();
             buttonAddGuest = new Button();
@@ -115,7 +116,6 @@
             labelAddGuest = new Label();
             panel10 = new Panel();
             labelListofGuest = new Label();
-            guestBindingSource = new BindingSource(components);
             ColumnFirstName = new DataGridViewTextBoxColumn();
             ColumnLastName = new DataGridViewTextBoxColumn();
             ColumnMI = new DataGridViewTextBoxColumn();
@@ -129,11 +129,12 @@
             ColumnNationality = new DataGridViewTextBoxColumn();
             panel9.SuspendLayout();
             panelAddGuest2.SuspendLayout();
-            panelListOfGuests2.SuspendLayout();
             panelListofGuest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewGuests).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)guestBindingSource).BeginInit();
             panelFilters.SuspendLayout();
             panel16.SuspendLayout();
+            panelListOfGuests2.SuspendLayout();
             panelAddGuest.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
@@ -146,7 +147,6 @@
             panel14.SuspendLayout();
             panelAddaGuest.SuspendLayout();
             panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guestBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel9
@@ -162,8 +162,9 @@
             panel9.Controls.Add(panel10);
             panel9.Dock = DockStyle.Fill;
             panel9.Location = new Point(0, 0);
+            panel9.Margin = new Padding(3, 4, 3, 4);
             panel9.Name = "panel9";
-            panel9.Size = new Size(1076, 749);
+            panel9.Size = new Size(1230, 999);
             panel9.TabIndex = 23;
             // 
             // panelAddGuest2
@@ -171,51 +172,32 @@
             panelAddGuest2.BackColor = Color.MediumSeaGreen;
             panelAddGuest2.Controls.Add(panel4);
             panelAddGuest2.Controls.Add(label3);
-            panelAddGuest2.Location = new Point(54, 92);
+            panelAddGuest2.Location = new Point(62, 123);
+            panelAddGuest2.Margin = new Padding(3, 4, 3, 4);
             panelAddGuest2.Name = "panelAddGuest2";
-            panelAddGuest2.Size = new Size(153, 32);
+            panelAddGuest2.Size = new Size(175, 43);
             panelAddGuest2.TabIndex = 24;
             panelAddGuest2.Visible = false;
             panelAddGuest2.Paint += panelAddGuest2_Paint;
             // 
             // panel4
             // 
-            panel4.Location = new Point(0, 31);
+            panel4.Location = new Point(0, 41);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(958, 593);
+            panel4.Size = new Size(1095, 791);
             panel4.TabIndex = 24;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(18, 5);
+            label3.Location = new Point(21, 7);
             label3.Name = "label3";
-            label3.Size = new Size(116, 23);
+            label3.Size = new Size(140, 29);
             label3.TabIndex = 8;
             label3.Text = "Add a Guest";
             label3.Click += label3_Click;
-            // 
-            // panelListOfGuests2
-            // 
-            panelListOfGuests2.BackColor = Color.FromArgb(76, 149, 108);
-            panelListOfGuests2.Controls.Add(label6);
-            panelListOfGuests2.Location = new Point(204, 92);
-            panelListOfGuests2.Name = "panelListOfGuests2";
-            panelListOfGuests2.Size = new Size(170, 32);
-            panelListOfGuests2.TabIndex = 25;
-            panelListOfGuests2.Visible = false;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label6.Location = new Point(18, 5);
-            label6.Name = "label6";
-            label6.Size = new Size(131, 23);
-            label6.TabIndex = 9;
-            label6.Text = "List of Guests";
             // 
             // panelListofGuest
             // 
@@ -224,9 +206,10 @@
             panelListofGuest.Controls.Add(dataGridViewGuests);
             panelListofGuest.Controls.Add(panelFilters);
             panelListofGuest.Controls.Add(panel16);
-            panelListofGuest.Location = new Point(54, 123);
+            panelListofGuest.Location = new Point(62, 164);
+            panelListofGuest.Margin = new Padding(3, 4, 3, 4);
             panelListofGuest.Name = "panelListofGuest";
-            panelListofGuest.Size = new Size(964, 593);
+            panelListofGuest.Size = new Size(1102, 791);
             panelListofGuest.TabIndex = 20;
             panelListofGuest.Visible = false;
             // 
@@ -256,10 +239,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewGuests.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewGuests.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewGuests.Location = new Point(69, 134);
+            dataGridViewGuests.Location = new Point(79, 179);
+            dataGridViewGuests.Margin = new Padding(3, 4, 3, 4);
             dataGridViewGuests.Name = "dataGridViewGuests";
             dataGridViewGuests.RowHeadersVisible = false;
-            dataGridViewGuests.Size = new Size(823, 415);
+            dataGridViewGuests.RowHeadersWidth = 51;
+            dataGridViewGuests.RowTemplate.Height = 25;
+            dataGridViewGuests.Size = new Size(941, 553);
             dataGridViewGuests.TabIndex = 16;
             dataGridViewGuests.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dataGridViewGuests.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -282,6 +268,11 @@
             dataGridViewGuests.ThemeStyle.RowsStyle.Height = 25;
             dataGridViewGuests.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewGuests.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewGuests.CellContentDoubleClick += dataGridViewGuests_CellContentDoubleClick;
+            // 
+            // guestBindingSource
+            // 
+            guestBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.Guest);
             // 
             // panelFilters
             // 
@@ -289,9 +280,10 @@
             panelFilters.Controls.Add(comboBoxCity);
             panelFilters.Controls.Add(comboBoxNationality);
             panelFilters.Controls.Add(comboBoxFilterGender);
-            panelFilters.Location = new Point(187, 74);
+            panelFilters.Location = new Point(214, 99);
+            panelFilters.Margin = new Padding(3, 4, 3, 4);
             panelFilters.Name = "panelFilters";
-            panelFilters.Size = new Size(495, 50);
+            panelFilters.Size = new Size(566, 67);
             panelFilters.TabIndex = 15;
             panelFilters.Visible = false;
             // 
@@ -299,9 +291,10 @@
             // 
             comboBoxState.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxState.FormattingEnabled = true;
-            comboBoxState.Location = new Point(367, 11);
+            comboBoxState.Location = new Point(419, 15);
+            comboBoxState.Margin = new Padding(3, 4, 3, 4);
             comboBoxState.Name = "comboBoxState";
-            comboBoxState.Size = new Size(112, 27);
+            comboBoxState.Size = new Size(127, 32);
             comboBoxState.TabIndex = 12;
             comboBoxState.Text = "State";
             // 
@@ -309,9 +302,10 @@
             // 
             comboBoxCity.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxCity.FormattingEnabled = true;
-            comboBoxCity.Location = new Point(249, 11);
+            comboBoxCity.Location = new Point(285, 15);
+            comboBoxCity.Margin = new Padding(3, 4, 3, 4);
             comboBoxCity.Name = "comboBoxCity";
-            comboBoxCity.Size = new Size(112, 27);
+            comboBoxCity.Size = new Size(127, 32);
             comboBoxCity.TabIndex = 11;
             comboBoxCity.Text = "City";
             // 
@@ -319,9 +313,10 @@
             // 
             comboBoxNationality.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxNationality.FormattingEnabled = true;
-            comboBoxNationality.Location = new Point(131, 11);
+            comboBoxNationality.Location = new Point(150, 15);
+            comboBoxNationality.Margin = new Padding(3, 4, 3, 4);
             comboBoxNationality.Name = "comboBoxNationality";
-            comboBoxNationality.Size = new Size(112, 27);
+            comboBoxNationality.Size = new Size(127, 32);
             comboBoxNationality.TabIndex = 10;
             comboBoxNationality.Text = "Nationality";
             // 
@@ -329,9 +324,10 @@
             // 
             comboBoxFilterGender.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxFilterGender.FormattingEnabled = true;
-            comboBoxFilterGender.Location = new Point(13, 11);
+            comboBoxFilterGender.Location = new Point(15, 15);
+            comboBoxFilterGender.Margin = new Padding(3, 4, 3, 4);
             comboBoxFilterGender.Name = "comboBoxFilterGender";
-            comboBoxFilterGender.Size = new Size(112, 27);
+            comboBoxFilterGender.Size = new Size(127, 32);
             comboBoxFilterGender.TabIndex = 9;
             comboBoxFilterGender.Text = "Gender";
             // 
@@ -343,16 +339,17 @@
             panel16.Controls.Add(buttonEditGuest);
             panel16.Controls.Add(buttonMore);
             panel16.Controls.Add(buttonSearch);
-            panel16.Location = new Point(191, 19);
+            panel16.Location = new Point(218, 25);
+            panel16.Margin = new Padding(3, 4, 3, 4);
             panel16.Name = "panel16";
-            panel16.Size = new Size(701, 53);
+            panel16.Size = new Size(801, 71);
             panel16.TabIndex = 13;
             // 
             // textBoxSearch
             // 
             textBoxSearch.AutoRoundedCorners = true;
             textBoxSearch.BackColor = Color.Transparent;
-            textBoxSearch.BorderRadius = 17;
+            textBoxSearch.BorderRadius = 23;
             textBoxSearch.CustomizableEdges = customizableEdges1;
             textBoxSearch.DefaultText = "";
             textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -362,14 +359,14 @@
             textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxSearch.Location = new Point(4, 7);
-            textBoxSearch.Margin = new Padding(4);
+            textBoxSearch.Location = new Point(5, 9);
+            textBoxSearch.Margin = new Padding(5);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PasswordChar = '\0';
             textBoxSearch.PlaceholderText = "Search";
             textBoxSearch.SelectedText = "";
             textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            textBoxSearch.Size = new Size(524, 36);
+            textBoxSearch.Size = new Size(599, 48);
             textBoxSearch.TabIndex = 20;
             // 
             // buttonSaveEditGuest
@@ -377,9 +374,10 @@
             buttonSaveEditGuest.BackgroundImage = (Image)resources.GetObject("buttonSaveEditGuest.BackgroundImage");
             buttonSaveEditGuest.BackgroundImageLayout = ImageLayout.Zoom;
             buttonSaveEditGuest.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSaveEditGuest.Location = new Point(670, 13);
+            buttonSaveEditGuest.Location = new Point(766, 17);
+            buttonSaveEditGuest.Margin = new Padding(3, 4, 3, 4);
             buttonSaveEditGuest.Name = "buttonSaveEditGuest";
-            buttonSaveEditGuest.Size = new Size(28, 27);
+            buttonSaveEditGuest.Size = new Size(32, 36);
             buttonSaveEditGuest.TabIndex = 7;
             buttonSaveEditGuest.UseVisualStyleBackColor = true;
             buttonSaveEditGuest.Visible = false;
@@ -390,9 +388,10 @@
             buttonExitEditGuest.BackgroundImage = (Image)resources.GetObject("buttonExitEditGuest.BackgroundImage");
             buttonExitEditGuest.BackgroundImageLayout = ImageLayout.Zoom;
             buttonExitEditGuest.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonExitEditGuest.Location = new Point(636, 12);
+            buttonExitEditGuest.Location = new Point(727, 16);
+            buttonExitEditGuest.Margin = new Padding(3, 4, 3, 4);
             buttonExitEditGuest.Name = "buttonExitEditGuest";
-            buttonExitEditGuest.Size = new Size(28, 27);
+            buttonExitEditGuest.Size = new Size(32, 36);
             buttonExitEditGuest.TabIndex = 6;
             buttonExitEditGuest.UseVisualStyleBackColor = true;
             buttonExitEditGuest.Visible = false;
@@ -403,9 +402,10 @@
             buttonEditGuest.BackgroundImage = (Image)resources.GetObject("buttonEditGuest.BackgroundImage");
             buttonEditGuest.BackgroundImageLayout = ImageLayout.Zoom;
             buttonEditGuest.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonEditGuest.Location = new Point(670, 12);
+            buttonEditGuest.Location = new Point(766, 16);
+            buttonEditGuest.Margin = new Padding(3, 4, 3, 4);
             buttonEditGuest.Name = "buttonEditGuest";
-            buttonEditGuest.Size = new Size(28, 27);
+            buttonEditGuest.Size = new Size(32, 36);
             buttonEditGuest.TabIndex = 5;
             buttonEditGuest.UseVisualStyleBackColor = true;
             buttonEditGuest.Click += buttonEditGuest_Click;
@@ -415,9 +415,10 @@
             buttonMore.BackgroundImage = (Image)resources.GetObject("buttonMore.BackgroundImage");
             buttonMore.BackgroundImageLayout = ImageLayout.Zoom;
             buttonMore.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonMore.Location = new Point(569, 12);
+            buttonMore.Location = new Point(650, 16);
+            buttonMore.Margin = new Padding(3, 4, 3, 4);
             buttonMore.Name = "buttonMore";
-            buttonMore.Size = new Size(28, 27);
+            buttonMore.Size = new Size(32, 36);
             buttonMore.TabIndex = 4;
             buttonMore.UseVisualStyleBackColor = true;
             buttonMore.Click += buttonMore_Click;
@@ -427,12 +428,35 @@
             buttonSearch.BackgroundImage = (Image)resources.GetObject("buttonSearch.BackgroundImage");
             buttonSearch.BackgroundImageLayout = ImageLayout.Zoom;
             buttonSearch.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSearch.Location = new Point(535, 12);
+            buttonSearch.Location = new Point(611, 16);
+            buttonSearch.Margin = new Padding(3, 4, 3, 4);
             buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(28, 27);
+            buttonSearch.Size = new Size(32, 36);
             buttonSearch.TabIndex = 3;
             buttonSearch.UseVisualStyleBackColor = true;
             buttonSearch.Click += buttonSearch_Click;
+            // 
+            // panelListOfGuests2
+            // 
+            panelListOfGuests2.BackColor = Color.FromArgb(76, 149, 108);
+            panelListOfGuests2.Controls.Add(label6);
+            panelListOfGuests2.Location = new Point(233, 123);
+            panelListOfGuests2.Margin = new Padding(3, 4, 3, 4);
+            panelListOfGuests2.Name = "panelListOfGuests2";
+            panelListOfGuests2.Size = new Size(194, 43);
+            panelListOfGuests2.TabIndex = 25;
+            panelListOfGuests2.Visible = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label6.Location = new Point(21, 7);
+            label6.Name = "label6";
+            label6.Size = new Size(154, 29);
+            label6.TabIndex = 9;
+            label6.Text = "List of Guests";
             // 
             // panelAddGuest
             // 
@@ -448,9 +472,10 @@
             panelAddGuest.Controls.Add(panel12);
             panelAddGuest.Controls.Add(panel13);
             panelAddGuest.Controls.Add(panel14);
-            panelAddGuest.Location = new Point(54, 123);
+            panelAddGuest.Location = new Point(62, 164);
+            panelAddGuest.Margin = new Padding(3, 4, 3, 4);
             panelAddGuest.Name = "panelAddGuest";
-            panelAddGuest.Size = new Size(958, 593);
+            panelAddGuest.Size = new Size(1095, 791);
             panelAddGuest.TabIndex = 23;
             // 
             // gradButtonAddGuest
@@ -458,7 +483,7 @@
             gradButtonAddGuest.Animated = true;
             gradButtonAddGuest.AutoRoundedCorners = true;
             gradButtonAddGuest.BackColor = Color.Transparent;
-            gradButtonAddGuest.BorderRadius = 29;
+            gradButtonAddGuest.BorderRadius = 39;
             gradButtonAddGuest.CustomizableEdges = customizableEdges3;
             gradButtonAddGuest.DisabledState.BorderColor = Color.DarkGray;
             gradButtonAddGuest.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -469,10 +494,11 @@
             gradButtonAddGuest.FillColor2 = Color.SteelBlue;
             gradButtonAddGuest.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gradButtonAddGuest.ForeColor = Color.White;
-            gradButtonAddGuest.Location = new Point(724, 488);
+            gradButtonAddGuest.Location = new Point(827, 651);
+            gradButtonAddGuest.Margin = new Padding(3, 4, 3, 4);
             gradButtonAddGuest.Name = "gradButtonAddGuest";
             gradButtonAddGuest.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            gradButtonAddGuest.Size = new Size(201, 61);
+            gradButtonAddGuest.Size = new Size(230, 81);
             gradButtonAddGuest.TabIndex = 28;
             gradButtonAddGuest.Text = "Add Guest";
             gradButtonAddGuest.Click += gradButtonAddGuest_Click;
@@ -486,9 +512,10 @@
             buttonAddGuest.FlatStyle = FlatStyle.Flat;
             buttonAddGuest.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAddGuest.ForeColor = Color.White;
-            buttonAddGuest.Location = new Point(724, 488);
+            buttonAddGuest.Location = new Point(827, 651);
+            buttonAddGuest.Margin = new Padding(3, 4, 3, 4);
             buttonAddGuest.Name = "buttonAddGuest";
-            buttonAddGuest.Size = new Size(186, 49);
+            buttonAddGuest.Size = new Size(213, 65);
             buttonAddGuest.TabIndex = 11;
             buttonAddGuest.Text = "Add Guest";
             buttonAddGuest.UseVisualStyleBackColor = false;
@@ -499,15 +526,16 @@
             // 
             panel6.Controls.Add(textBoxContactNo);
             panel6.Controls.Add(label4);
-            panel6.Location = new Point(401, 382);
+            panel6.Location = new Point(458, 509);
+            panel6.Margin = new Padding(3, 4, 3, 4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(317, 76);
+            panel6.Size = new Size(362, 101);
             panel6.TabIndex = 5;
             // 
             // textBoxContactNo
             // 
             textBoxContactNo.AutoRoundedCorners = true;
-            textBoxContactNo.BorderRadius = 15;
+            textBoxContactNo.BorderRadius = 21;
             textBoxContactNo.CustomizableEdges = customizableEdges5;
             textBoxContactNo.DefaultText = "";
             textBoxContactNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -517,23 +545,23 @@
             textBoxContactNo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxContactNo.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxContactNo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxContactNo.Location = new Point(9, 31);
-            textBoxContactNo.Margin = new Padding(4);
+            textBoxContactNo.Location = new Point(10, 41);
+            textBoxContactNo.Margin = new Padding(5);
             textBoxContactNo.Name = "textBoxContactNo";
             textBoxContactNo.PasswordChar = '\0';
             textBoxContactNo.PlaceholderText = "";
             textBoxContactNo.SelectedText = "";
             textBoxContactNo.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            textBoxContactNo.Size = new Size(240, 33);
+            textBoxContactNo.Size = new Size(274, 44);
             textBoxContactNo.TabIndex = 14;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(9, 6);
+            label4.Location = new Point(10, 8);
             label4.Name = "label4";
-            label4.Size = new Size(154, 23);
+            label4.Size = new Size(186, 29);
             label4.TabIndex = 0;
             label4.Text = "Contact Number";
             // 
@@ -541,15 +569,16 @@
             // 
             panel7.Controls.Add(textBoxNationality);
             panel7.Controls.Add(label5);
-            panel7.Location = new Point(630, 191);
+            panel7.Location = new Point(720, 255);
+            panel7.Margin = new Padding(3, 4, 3, 4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(288, 85);
+            panel7.Size = new Size(329, 113);
             panel7.TabIndex = 6;
             // 
             // textBoxNationality
             // 
             textBoxNationality.AutoRoundedCorners = true;
-            textBoxNationality.BorderRadius = 15;
+            textBoxNationality.BorderRadius = 21;
             textBoxNationality.CustomizableEdges = customizableEdges7;
             textBoxNationality.DefaultText = "";
             textBoxNationality.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -559,23 +588,23 @@
             textBoxNationality.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxNationality.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxNationality.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxNationality.Location = new Point(9, 30);
-            textBoxNationality.Margin = new Padding(4);
+            textBoxNationality.Location = new Point(10, 40);
+            textBoxNationality.Margin = new Padding(5);
             textBoxNationality.Name = "textBoxNationality";
             textBoxNationality.PasswordChar = '\0';
             textBoxNationality.PlaceholderText = "";
             textBoxNationality.SelectedText = "";
             textBoxNationality.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            textBoxNationality.Size = new Size(245, 33);
+            textBoxNationality.Size = new Size(280, 44);
             textBoxNationality.TabIndex = 14;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(9, 6);
+            label5.Location = new Point(10, 8);
             label5.Name = "label5";
-            label5.Size = new Size(105, 23);
+            label5.Size = new Size(123, 29);
             label5.TabIndex = 0;
             label5.Text = "Nationality";
             // 
@@ -583,9 +612,10 @@
             // 
             panel8.Controls.Add(comboBoxGender);
             panel8.Controls.Add(label1);
-            panel8.Location = new Point(370, 191);
+            panel8.Location = new Point(423, 255);
+            panel8.Margin = new Padding(3, 4, 3, 4);
             panel8.Name = "panel8";
-            panel8.Size = new Size(234, 85);
+            panel8.Size = new Size(267, 113);
             panel8.TabIndex = 5;
             // 
             // comboBoxGender
@@ -601,19 +631,20 @@
             comboBoxGender.Font = new Font("Segoe UI", 10F);
             comboBoxGender.ForeColor = Color.FromArgb(68, 88, 112);
             comboBoxGender.ItemHeight = 30;
-            comboBoxGender.Location = new Point(7, 31);
+            comboBoxGender.Location = new Point(8, 41);
+            comboBoxGender.Margin = new Padding(3, 4, 3, 4);
             comboBoxGender.Name = "comboBoxGender";
             comboBoxGender.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            comboBoxGender.Size = new Size(210, 36);
+            comboBoxGender.Size = new Size(239, 36);
             comboBoxGender.TabIndex = 12;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(9, 6);
+            label1.Location = new Point(10, 8);
             label1.Name = "label1";
-            label1.Size = new Size(75, 23);
+            label1.Size = new Size(91, 29);
             label1.TabIndex = 0;
             label1.Text = "Gender";
             // 
@@ -621,15 +652,16 @@
             // 
             panel1.Controls.Add(textBoxEmail);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(42, 382);
+            panel1.Location = new Point(48, 509);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(317, 76);
+            panel1.Size = new Size(362, 101);
             panel1.TabIndex = 4;
             // 
             // textBoxEmail
             // 
             textBoxEmail.AutoRoundedCorners = true;
-            textBoxEmail.BorderRadius = 15;
+            textBoxEmail.BorderRadius = 21;
             textBoxEmail.CustomizableEdges = customizableEdges11;
             textBoxEmail.DefaultText = "";
             textBoxEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -639,23 +671,23 @@
             textBoxEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxEmail.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxEmail.Location = new Point(9, 31);
-            textBoxEmail.Margin = new Padding(4);
+            textBoxEmail.Location = new Point(10, 41);
+            textBoxEmail.Margin = new Padding(5);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.PasswordChar = '\0';
             textBoxEmail.PlaceholderText = "taylorswift@email.com";
             textBoxEmail.SelectedText = "";
             textBoxEmail.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            textBoxEmail.Size = new Size(279, 33);
+            textBoxEmail.Size = new Size(319, 44);
             textBoxEmail.TabIndex = 13;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(9, 6);
+            label2.Location = new Point(10, 8);
             label2.Name = "label2";
-            label2.Size = new Size(57, 23);
+            label2.Size = new Size(69, 29);
             label2.TabIndex = 0;
             label2.Text = "Email";
             // 
@@ -666,15 +698,16 @@
             panel2.Controls.Add(textBoxCity);
             panel2.Controls.Add(label8);
             panel2.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel2.Location = new Point(44, 289);
+            panel2.Location = new Point(50, 385);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(812, 67);
+            panel2.Size = new Size(928, 89);
             panel2.TabIndex = 4;
             // 
             // textBoxZipcode
             // 
             textBoxZipcode.AutoRoundedCorners = true;
-            textBoxZipcode.BorderRadius = 15;
+            textBoxZipcode.BorderRadius = 21;
             textBoxZipcode.CustomizableEdges = customizableEdges13;
             textBoxZipcode.DefaultText = "";
             textBoxZipcode.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -684,20 +717,20 @@
             textBoxZipcode.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxZipcode.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxZipcode.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxZipcode.Location = new Point(595, 30);
-            textBoxZipcode.Margin = new Padding(4);
+            textBoxZipcode.Location = new Point(680, 40);
+            textBoxZipcode.Margin = new Padding(5);
             textBoxZipcode.Name = "textBoxZipcode";
             textBoxZipcode.PasswordChar = '\0';
             textBoxZipcode.PlaceholderText = "Zip Code";
             textBoxZipcode.SelectedText = "";
             textBoxZipcode.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            textBoxZipcode.Size = new Size(156, 33);
+            textBoxZipcode.Size = new Size(178, 44);
             textBoxZipcode.TabIndex = 15;
             // 
             // textBoxState
             // 
             textBoxState.AutoRoundedCorners = true;
-            textBoxState.BorderRadius = 15;
+            textBoxState.BorderRadius = 21;
             textBoxState.CustomizableEdges = customizableEdges15;
             textBoxState.DefaultText = "";
             textBoxState.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -707,20 +740,20 @@
             textBoxState.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxState.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxState.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxState.Location = new Point(303, 30);
-            textBoxState.Margin = new Padding(4);
+            textBoxState.Location = new Point(346, 40);
+            textBoxState.Margin = new Padding(5);
             textBoxState.Name = "textBoxState";
             textBoxState.PasswordChar = '\0';
             textBoxState.PlaceholderText = "State";
             textBoxState.SelectedText = "";
             textBoxState.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            textBoxState.Size = new Size(276, 33);
+            textBoxState.Size = new Size(315, 44);
             textBoxState.TabIndex = 14;
             // 
             // textBoxCity
             // 
             textBoxCity.AutoRoundedCorners = true;
-            textBoxCity.BorderRadius = 15;
+            textBoxCity.BorderRadius = 21;
             textBoxCity.CustomizableEdges = customizableEdges17;
             textBoxCity.DefaultText = "";
             textBoxCity.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -730,23 +763,23 @@
             textBoxCity.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxCity.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxCity.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxCity.Location = new Point(9, 30);
-            textBoxCity.Margin = new Padding(4);
+            textBoxCity.Location = new Point(10, 40);
+            textBoxCity.Margin = new Padding(5);
             textBoxCity.Name = "textBoxCity";
             textBoxCity.PasswordChar = '\0';
             textBoxCity.PlaceholderText = "City";
             textBoxCity.SelectedText = "";
             textBoxCity.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            textBoxCity.Size = new Size(276, 33);
+            textBoxCity.Size = new Size(315, 44);
             textBoxCity.TabIndex = 13;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(9, 1);
+            label8.Location = new Point(10, 1);
             label8.Name = "label8";
-            label8.Size = new Size(83, 23);
+            label8.Size = new Size(98, 29);
             label8.TabIndex = 0;
             label8.Text = "Address";
             // 
@@ -754,26 +787,28 @@
             // 
             panel11.Controls.Add(dateTimePickerBirthdate);
             panel11.Controls.Add(label9);
-            panel11.Location = new Point(44, 191);
+            panel11.Location = new Point(50, 255);
+            panel11.Margin = new Padding(3, 4, 3, 4);
             panel11.Name = "panel11";
-            panel11.Size = new Size(288, 67);
+            panel11.Size = new Size(329, 89);
             panel11.TabIndex = 4;
             // 
             // dateTimePickerBirthdate
             // 
             dateTimePickerBirthdate.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerBirthdate.Location = new Point(8, 36);
+            dateTimePickerBirthdate.Location = new Point(9, 48);
+            dateTimePickerBirthdate.Margin = new Padding(3, 4, 3, 4);
             dateTimePickerBirthdate.Name = "dateTimePickerBirthdate";
-            dateTimePickerBirthdate.Size = new Size(277, 27);
+            dateTimePickerBirthdate.Size = new Size(316, 31);
             dateTimePickerBirthdate.TabIndex = 6;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(9, 6);
+            label9.Location = new Point(10, 8);
             label9.Name = "label9";
-            label9.Size = new Size(91, 23);
+            label9.Size = new Size(109, 29);
             label9.TabIndex = 0;
             label9.Text = "Birthdate";
             // 
@@ -781,15 +816,16 @@
             // 
             panel12.Controls.Add(textBoxMiddleInitial);
             panel12.Controls.Add(label10);
-            panel12.Location = new Point(630, 79);
+            panel12.Location = new Point(720, 105);
+            panel12.Margin = new Padding(3, 4, 3, 4);
             panel12.Name = "panel12";
-            panel12.Size = new Size(226, 75);
+            panel12.Size = new Size(258, 100);
             panel12.TabIndex = 5;
             // 
             // textBoxMiddleInitial
             // 
             textBoxMiddleInitial.AutoRoundedCorners = true;
-            textBoxMiddleInitial.BorderRadius = 15;
+            textBoxMiddleInitial.BorderRadius = 21;
             textBoxMiddleInitial.CustomizableEdges = customizableEdges19;
             textBoxMiddleInitial.DefaultText = "";
             textBoxMiddleInitial.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -799,23 +835,23 @@
             textBoxMiddleInitial.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxMiddleInitial.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxMiddleInitial.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxMiddleInitial.Location = new Point(9, 33);
-            textBoxMiddleInitial.Margin = new Padding(4);
+            textBoxMiddleInitial.Location = new Point(10, 44);
+            textBoxMiddleInitial.Margin = new Padding(5);
             textBoxMiddleInitial.Name = "textBoxMiddleInitial";
             textBoxMiddleInitial.PasswordChar = '\0';
             textBoxMiddleInitial.PlaceholderText = "e.g. \"J.\"";
             textBoxMiddleInitial.SelectedText = "";
             textBoxMiddleInitial.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            textBoxMiddleInitial.Size = new Size(143, 33);
+            textBoxMiddleInitial.Size = new Size(163, 44);
             textBoxMiddleInitial.TabIndex = 14;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(9, 6);
+            label10.Location = new Point(10, 8);
             label10.Name = "label10";
-            label10.Size = new Size(121, 23);
+            label10.Size = new Size(143, 29);
             label10.TabIndex = 0;
             label10.Text = "Middle Initial";
             // 
@@ -823,25 +859,26 @@
             // 
             panel13.Controls.Add(label11);
             panel13.Controls.Add(textBoxFirstName);
-            panel13.Location = new Point(338, 79);
+            panel13.Location = new Point(386, 105);
+            panel13.Margin = new Padding(3, 4, 3, 4);
             panel13.Name = "panel13";
-            panel13.Size = new Size(266, 75);
+            panel13.Size = new Size(304, 100);
             panel13.TabIndex = 4;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(9, 6);
+            label11.Location = new Point(10, 8);
             label11.Name = "label11";
-            label11.Size = new Size(104, 23);
+            label11.Size = new Size(125, 29);
             label11.TabIndex = 0;
             label11.Text = "First Name";
             // 
             // textBoxFirstName
             // 
             textBoxFirstName.AutoRoundedCorners = true;
-            textBoxFirstName.BorderRadius = 15;
+            textBoxFirstName.BorderRadius = 21;
             textBoxFirstName.CustomizableEdges = customizableEdges21;
             textBoxFirstName.DefaultText = "";
             textBoxFirstName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -851,29 +888,30 @@
             textBoxFirstName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxFirstName.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxFirstName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxFirstName.Location = new Point(9, 33);
-            textBoxFirstName.Margin = new Padding(4);
+            textBoxFirstName.Location = new Point(10, 44);
+            textBoxFirstName.Margin = new Padding(5);
             textBoxFirstName.Name = "textBoxFirstName";
             textBoxFirstName.PasswordChar = '\0';
             textBoxFirstName.PlaceholderText = "";
             textBoxFirstName.SelectedText = "";
             textBoxFirstName.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            textBoxFirstName.Size = new Size(240, 33);
+            textBoxFirstName.Size = new Size(274, 44);
             textBoxFirstName.TabIndex = 13;
             // 
             // panel14
             // 
             panel14.Controls.Add(textBoxLastName);
             panel14.Controls.Add(label12);
-            panel14.Location = new Point(44, 79);
+            panel14.Location = new Point(50, 105);
+            panel14.Margin = new Padding(3, 4, 3, 4);
             panel14.Name = "panel14";
-            panel14.Size = new Size(285, 75);
+            panel14.Size = new Size(326, 100);
             panel14.TabIndex = 3;
             // 
             // textBoxLastName
             // 
             textBoxLastName.AutoRoundedCorners = true;
-            textBoxLastName.BorderRadius = 15;
+            textBoxLastName.BorderRadius = 21;
             textBoxLastName.CustomizableEdges = customizableEdges23;
             textBoxLastName.DefaultText = "";
             textBoxLastName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -883,23 +921,23 @@
             textBoxLastName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxLastName.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxLastName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxLastName.Location = new Point(6, 33);
-            textBoxLastName.Margin = new Padding(4);
+            textBoxLastName.Location = new Point(7, 44);
+            textBoxLastName.Margin = new Padding(5);
             textBoxLastName.Name = "textBoxLastName";
             textBoxLastName.PasswordChar = '\0';
             textBoxLastName.PlaceholderText = "";
             textBoxLastName.SelectedText = "";
             textBoxLastName.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            textBoxLastName.Size = new Size(240, 33);
+            textBoxLastName.Size = new Size(274, 44);
             textBoxLastName.TabIndex = 12;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(9, 6);
+            label12.Location = new Point(10, 8);
             label12.Name = "label12";
-            label12.Size = new Size(102, 23);
+            label12.Size = new Size(124, 29);
             label12.TabIndex = 0;
             label12.Text = "Last Name";
             // 
@@ -908,9 +946,9 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(52, 33);
+            label7.Location = new Point(59, 44);
             label7.Name = "label7";
-            label7.Size = new Size(328, 42);
+            label7.Size = new Size(398, 53);
             label7.TabIndex = 20;
             label7.Text = "Guest Management";
             // 
@@ -919,25 +957,27 @@
             panelAddaGuest.BackColor = Color.FromArgb(76, 149, 108);
             panelAddaGuest.Controls.Add(panelContainer);
             panelAddaGuest.Controls.Add(labelAddGuest);
-            panelAddaGuest.Location = new Point(54, 92);
+            panelAddaGuest.Location = new Point(62, 123);
+            panelAddaGuest.Margin = new Padding(3, 4, 3, 4);
             panelAddaGuest.Name = "panelAddaGuest";
-            panelAddaGuest.Size = new Size(153, 32);
+            panelAddaGuest.Size = new Size(175, 43);
             panelAddaGuest.TabIndex = 21;
             // 
             // panelContainer
             // 
-            panelContainer.Location = new Point(0, 31);
+            panelContainer.Location = new Point(0, 41);
+            panelContainer.Margin = new Padding(3, 4, 3, 4);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(958, 593);
+            panelContainer.Size = new Size(1095, 791);
             panelContainer.TabIndex = 24;
             // 
             // labelAddGuest
             // 
             labelAddGuest.AutoSize = true;
             labelAddGuest.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelAddGuest.Location = new Point(18, 5);
+            labelAddGuest.Location = new Point(21, 7);
             labelAddGuest.Name = "labelAddGuest";
-            labelAddGuest.Size = new Size(116, 23);
+            labelAddGuest.Size = new Size(140, 29);
             labelAddGuest.TabIndex = 8;
             labelAddGuest.Text = "Add a Guest";
             labelAddGuest.Click += labelAddGuest_Click;
@@ -946,9 +986,10 @@
             // 
             panel10.BackColor = Color.MediumSeaGreen;
             panel10.Controls.Add(labelListofGuest);
-            panel10.Location = new Point(204, 92);
+            panel10.Location = new Point(233, 123);
+            panel10.Margin = new Padding(3, 4, 3, 4);
             panel10.Name = "panel10";
-            panel10.Size = new Size(170, 32);
+            panel10.Size = new Size(194, 43);
             panel10.TabIndex = 22;
             // 
             // labelListofGuest
@@ -956,99 +997,108 @@
             labelListofGuest.AutoSize = true;
             labelListofGuest.BackColor = Color.Transparent;
             labelListofGuest.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelListofGuest.Location = new Point(18, 5);
+            labelListofGuest.Location = new Point(21, 7);
             labelListofGuest.Name = "labelListofGuest";
-            labelListofGuest.Size = new Size(131, 23);
+            labelListofGuest.Size = new Size(154, 29);
             labelListofGuest.TabIndex = 9;
             labelListofGuest.Text = "List of Guests";
             labelListofGuest.Click += labelListofGuest_Click;
-            // 
-            // guestBindingSource
-            // 
-            guestBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.Guest);
             // 
             // ColumnFirstName
             // 
             ColumnFirstName.DataPropertyName = "FirstName";
             ColumnFirstName.HeaderText = "FirstName";
+            ColumnFirstName.MinimumWidth = 6;
             ColumnFirstName.Name = "ColumnFirstName";
             // 
             // ColumnLastName
             // 
             ColumnLastName.DataPropertyName = "LastName";
             ColumnLastName.HeaderText = "LastName";
+            ColumnLastName.MinimumWidth = 6;
             ColumnLastName.Name = "ColumnLastName";
             // 
             // ColumnMI
             // 
             ColumnMI.DataPropertyName = "MiddleInitial";
             ColumnMI.HeaderText = "M.I";
+            ColumnMI.MinimumWidth = 6;
             ColumnMI.Name = "ColumnMI";
             // 
             // ColumnBirthDate
             // 
             ColumnBirthDate.DataPropertyName = "BirthDate";
             ColumnBirthDate.HeaderText = "BirthDate";
+            ColumnBirthDate.MinimumWidth = 6;
             ColumnBirthDate.Name = "ColumnBirthDate";
             // 
             // ColumnAge
             // 
             ColumnAge.HeaderText = "Age";
+            ColumnAge.MinimumWidth = 6;
             ColumnAge.Name = "ColumnAge";
             // 
             // ColumnGender
             // 
             ColumnGender.DataPropertyName = "Gender";
             ColumnGender.HeaderText = "Gender";
+            ColumnGender.MinimumWidth = 6;
             ColumnGender.Name = "ColumnGender";
             // 
             // ColumnStreet
             // 
             ColumnStreet.DataPropertyName = "StreetAddress";
             ColumnStreet.HeaderText = "Street";
+            ColumnStreet.MinimumWidth = 6;
             ColumnStreet.Name = "ColumnStreet";
             // 
             // ColumnCity
             // 
             ColumnCity.DataPropertyName = "CityAddress";
             ColumnCity.HeaderText = "City";
+            ColumnCity.MinimumWidth = 6;
             ColumnCity.Name = "ColumnCity";
             // 
             // ColumnPhoneNumber
             // 
             ColumnPhoneNumber.DataPropertyName = "PhoneNumber";
             ColumnPhoneNumber.HeaderText = "PhoneNumber";
+            ColumnPhoneNumber.MinimumWidth = 6;
             ColumnPhoneNumber.Name = "ColumnPhoneNumber";
             // 
             // ColumnEmail
             // 
             ColumnEmail.DataPropertyName = "Email";
             ColumnEmail.HeaderText = "Email";
+            ColumnEmail.MinimumWidth = 6;
             ColumnEmail.Name = "ColumnEmail";
             // 
             // ColumnNationality
             // 
             ColumnNationality.DataPropertyName = "Nationality";
             ColumnNationality.HeaderText = "Nationality";
+            ColumnNationality.MinimumWidth = 6;
             ColumnNationality.Name = "ColumnNationality";
             // 
             // UC_Guest1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel9);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UC_Guest1";
-            Size = new Size(1076, 749);
+            Size = new Size(1230, 999);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panelAddGuest2.ResumeLayout(false);
             panelAddGuest2.PerformLayout();
-            panelListOfGuests2.ResumeLayout(false);
-            panelListOfGuests2.PerformLayout();
             panelListofGuest.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewGuests).EndInit();
+            ((System.ComponentModel.ISupportInitialize)guestBindingSource).EndInit();
             panelFilters.ResumeLayout(false);
             panel16.ResumeLayout(false);
+            panelListOfGuests2.ResumeLayout(false);
+            panelListOfGuests2.PerformLayout();
             panelAddGuest.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
@@ -1072,7 +1122,6 @@
             panelAddaGuest.PerformLayout();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)guestBindingSource).EndInit();
             ResumeLayout(false);
         }
 

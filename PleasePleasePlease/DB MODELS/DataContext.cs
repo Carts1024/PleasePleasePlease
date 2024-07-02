@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-//using Microsoft.EntityFrameworkCore.Proxies; // Add this namespace for lazy loading proxies
 using System;
 
 namespace Mirai_Paradise_Hotel
@@ -9,12 +8,14 @@ namespace Mirai_Paradise_Hotel
         public DbSet<User> Users { get; set; }
         public DbSet<Guest> Guests { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<StandardRoom> StandardRooms { get; set; }
+        public DbSet<DeluxeRoom> DeluxeRooms { get; set; }
+        public DbSet<Suite> Suites { get; set; }
         public DbSet<Booking> Bookings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=UserData.db");
-       //     optionsBuilder.UseLazyLoadingProxies(); // Enable lazy loading proxies
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,8 +29,9 @@ namespace Mirai_Paradise_Hotel
                 .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<User>().HasData(
-                new User { UserID = Guid.NewGuid(), UserName = "Admin", isManager = true, Password = "123" },
-                new User { UserID = Guid.NewGuid(), UserName = "Recep", isManager = false, Password = "321" });
+                new User { UserID = Guid.NewGuid(), UserName = "Admin", AccountType = "Administator", Password = "123" },
+                new User { UserID = Guid.NewGuid(), UserName = "Manag", AccountType = "Manager", Password = "321" },
+                new User { UserID = Guid.NewGuid(), UserName = "Recep", AccountType = "Receptionist", Password = "4321" });
 
             // Configure Guest entity
             modelBuilder.Entity<Guest>()
@@ -54,7 +56,6 @@ namespace Mirai_Paradise_Hotel
                     Nationality = "US",
                     BirthDate = DateTime.Now,
                     Zipcode = "3023"
-                    
                 });
 
             // Configure Room entity
@@ -65,20 +66,27 @@ namespace Mirai_Paradise_Hotel
                 .Property(r => r.RoomNumber)
                 .ValueGeneratedOnAdd();
 
-        /*    modelBuilder.Entity<Room>()
-                .HasOne(b => b.RoomStatus)
-                .WithMany() // Make sure to establish the relationship correctly
-                .HasForeignKey(b => b.RoomStatusID)
-                .OnDelete(DeleteBehavior.Cascade); */
+            modelBuilder.Entity<Room>()
+                .Property(r => r.Index);
 
-            modelBuilder.Entity<Room>().HasData(
-                new Room
+            modelBuilder.Entity<Room>()
+                .HasDiscriminator<string>("Discriminator")
+                .HasValue<Room>("Room")
+                .HasValue<StandardRoom>("StandardRoom")
+                .HasValue<DeluxeRoom>("DeluxeRoom")
+                .HasValue<Suite>("Suite");
+
+            // Seed data for derived types
+            modelBuilder.Entity<StandardRoom>().HasData(
+                new StandardRoom
                 {
                     RoomNumber = 1,
+                    Index = 1, // Add initial value for index
                     RoomType = "Standard",
-                    RoomStatusID = "1",
+                    RoomStatus = "Available",
                     RoomPrice = 100.00m,
                     FloorNumber = 2,
+                    BedType = "Double/Twin",
                     Capacity = 2
                 });
 
@@ -92,7 +100,7 @@ namespace Mirai_Paradise_Hotel
 
             modelBuilder.Entity<Booking>()
                 .HasOne(b => b.Guest)
-                .WithMany(g => g.Bookings) // Make sure to establish the relationship correctly
+                .WithMany(g => g.Bookings)
                 .HasForeignKey(b => b.GuestID)
                 .OnDelete(DeleteBehavior.Cascade);
 
@@ -110,16 +118,9 @@ namespace Mirai_Paradise_Hotel
                     CheckInTime = DateTime.Now,
                     CheckOutDate = DateTime.Now,
                     CheckOutTime = DateTime.Now,
-                    GuestID = 1,    // Ensure this GuestID exists in the Guest table
-                    RoomNumber = 1  // Ensure this RoomNumber exists in the Room table
+                    GuestID = 1,
+                    RoomNumber = 1
                 });
-
-            modelBuilder.Entity<RoomStatus>().HasData(
-                new RoomStatus { RoomStatusID = "1", RoomStatusName = "Available" },
-                new RoomStatus { RoomStatusID = "2", RoomStatusName = "Occupied" },
-                new RoomStatus { RoomStatusID = "3", RoomStatusName = "UnderMaintenance" }
-
-                );
         }
     }
 }

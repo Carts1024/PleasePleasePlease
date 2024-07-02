@@ -17,8 +17,8 @@ namespace Mirai_Paradise_Hotel
         [Name("Phone Number")]
         public int PhoneNumber { get; set; }
 
-        [Name("isManager?")]
-        public bool isManager { get; set; }
+        [Name("Account Type")]
+        public string AccountType { get; set; }
 
         [Name("Password")]
         public string Password { get; set; }

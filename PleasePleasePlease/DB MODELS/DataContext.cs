@@ -18,28 +18,28 @@ namespace Mirai_Paradise_Hotel
             optionsBuilder.UseSqlite("Data Source=UserData.db");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // Configure User entity
-            modelBuilder.Entity<User>()
-                .HasKey(u => u.UserID);
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			// Configure User entity
+			modelBuilder.Entity<User>()
+				.HasKey(u => u.UserID);
 
-            modelBuilder.Entity<User>()
-                .Property(u => u.UserID)
-                .ValueGeneratedOnAdd();
+			modelBuilder.Entity<User>()
+				.Property(u => u.UserID)
+				.ValueGeneratedOnAdd();
 
             modelBuilder.Entity<User>().HasData(
                 new User { UserID = Guid.NewGuid(), UserName = "Admin", AccountType = "Administator", Password = "123" },
                 new User { UserID = Guid.NewGuid(), UserName = "Manag", AccountType = "Manager", Password = "321" },
                 new User { UserID = Guid.NewGuid(), UserName = "Recep", AccountType = "Receptionist", Password = "4321" });
 
-            // Configure Guest entity
-            modelBuilder.Entity<Guest>()
-                .HasKey(g => g.GuestID);
+			// Configure Guest entity
+			modelBuilder.Entity<Guest>()
+				.HasKey(g => g.GuestID);
 
-            modelBuilder.Entity<Guest>()
-                .Property(g => g.GuestID)
-                .ValueGeneratedOnAdd();
+			modelBuilder.Entity<Guest>()
+				.Property(g => g.GuestID)
+				.ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Guest>().HasData(
                 new Guest
@@ -58,13 +58,13 @@ namespace Mirai_Paradise_Hotel
                     Zipcode = "3023"
                 });
 
-            // Configure Room entity
-            modelBuilder.Entity<Room>()
-                .HasKey(r => r.RoomNumber);
+			// Configure Room entity
+			modelBuilder.Entity<Room>()
+				.HasKey(r => r.RoomNumber);
 
-            modelBuilder.Entity<Room>()
-                .Property(r => r.RoomNumber)
-                .ValueGeneratedOnAdd();
+			modelBuilder.Entity<Room>()
+				.Property(r => r.RoomNumber)
+				.ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Room>()
                 .Property(r => r.Index);
@@ -90,13 +90,13 @@ namespace Mirai_Paradise_Hotel
                     Capacity = 2
                 });
 
-            // Configure Booking entity
-            modelBuilder.Entity<Booking>()
-                .HasKey(b => b.BookingID);
+			// Configure Booking entity
+			modelBuilder.Entity<Booking>()
+				.HasKey(b => b.BookingID);
 
-            modelBuilder.Entity<Booking>()
-                .Property(b => b.BookingID)
-                .ValueGeneratedOnAdd();
+			modelBuilder.Entity<Booking>()
+				.Property(b => b.BookingID)
+				.ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Booking>()
                 .HasOne(b => b.Guest)
@@ -104,22 +104,22 @@ namespace Mirai_Paradise_Hotel
                 .HasForeignKey(b => b.GuestID)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Booking>()
-                .HasOne(b => b.Room)
-                .WithMany()
-                .HasForeignKey(b => b.RoomNumber)
-                .OnDelete(DeleteBehavior.Cascade);
+			modelBuilder.Entity<Booking>()
+				.HasOne(b => b.Room)
+				.WithMany(r => r.Bookingss)
+				.HasForeignKey(b => b.RoomNumber)
+				.OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Booking>().HasData(
-                new Booking
-                {
+			modelBuilder.Entity<Booking>().HasData(
+				new Booking
+				{
                     BookingID = Guid.NewGuid(),
-                    CheckInDate = DateTime.Now,
-                    CheckInTime = DateTime.Now,
-                    CheckOutDate = DateTime.Now,
-                    CheckOutTime = DateTime.Now,
-                    GuestID = 1,
-                    RoomNumber = 1
+                    CheckInDate = DateTime.Now,           // Current date and time
+                    CheckInTime = DateTime.Now.TimeOfDay, // Current time of the day as TimeSpan
+                    CheckOutDate = DateTime.Now,          // Current date and time
+                    CheckOutTime = DateTime.Now.TimeOfDay,// Current time of the day as TimeSpan
+                    GuestID = 1,    // Ensure this GuestID exists in the Guest table
+                    RoomNumber = 1  // Ensure this RoomNumber exists in the Room table
                 });
         }
     }

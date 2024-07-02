@@ -1,4 +1,5 @@
 ﻿using Mirai_Paradise_Hotel;
+using Practice;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +9,51 @@ namespace PleasePleasePlease
 {
     public partial class UC_Guest1 : UserControl
     {
+        private Panel parentPanel;
+        private Panel panelBase;
+        private Random random;
+        private Dashboard _dashboard;
         public List<Guest> DataBaseGuests { get; private set; }
 
-        public UC_Guest1()
+        public UC_Guest1(Dashboard dashboard, Panel parentPanel)
         {
             InitializeComponent();
+            this._dashboard = dashboard;
+            this.parentPanel = parentPanel;
             LoadData();
             comboBoxGender.Items.AddRange(new object[] { "Male", "Female", "Prefer not to say" });
             comboBoxFilterGender.Items.AddRange(new object[] { "Male", "Female", "Prefer not to say" });
-            // Add the CellFormatting event handler
+            dataGridViewGuests.ReadOnly = true;
+            dataGridViewGuests.AllowUserToAddRows = false;
+            dataGridViewGuests.AllowUserToDeleteRows = false;
+
             dataGridViewGuests.CellFormatting += dataGridViewGuests_CellFormatting;
+            dataGridViewGuests.CellDoubleClick += dataGridViewGuests_CellContentDoubleClick;
+        }
+
+        private void LoadUserControl(UserControl userControl)
+        {
+            parentPanel.Controls.Clear();
+            userControl.Dock = DockStyle.Fill;
+            parentPanel.Controls.Add(userControl);
+            userControl.BringToFront();
+        }
+
+        private void dataGridViewGuests_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedGuest = dataGridViewGuests.Rows[e.RowIndex].DataBoundItem as Guest;
+                _dashboard.SetSelectedGuest(selectedGuest);
+                _dashboard.ActivateBookingButton();
+                LoadUserControl(new UC_Booking1(selectedGuest));
+            }
+        }
+
+        private void buttonAddBooking_Click(object sender, EventArgs e)
+        {
+            _dashboard.ClearSelectedGuest();
+            LoadUserControl(new UC_Booking1(null));
         }
 
         private void labelListofGuest_Click(object sender, EventArgs e)
@@ -120,12 +156,10 @@ namespace PleasePleasePlease
         {
             using (DataContext context = new DataContext())
             {
-                // Retrieve users from the database and display in the DataGridView
                 DataBaseGuests = context.Guests.OrderBy(u => u.Index).ToList();
                 dataGridViewGuests.DataSource = null;
                 dataGridViewGuests.DataSource = DataBaseGuests;
 
-                // Compute and set the age for each guest
                 foreach (DataGridViewRow row in dataGridViewGuests.Rows)
                 {
                     if (row.Cells["ColumnBirthDate"].Value != null)
@@ -227,6 +261,7 @@ namespace PleasePleasePlease
                 }
             }
         }
+
 
     }
 }

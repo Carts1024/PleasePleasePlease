@@ -30,11 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Booking1));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -42,7 +42,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
-            ButtonImportRecords = new Guna.UI2.WinForms.Guna2GradientButton();
             panelListofBooking = new Panel();
             dataGridViewBooking = new Guna.UI2.WinForms.Guna2DataGridView();
             panelSearch = new Panel();
@@ -51,11 +50,10 @@
             buttonExitEditBookings = new Button();
             buttonEditBookings = new Button();
             buttonSearchIcon = new Button();
-            panel1 = new Panel();
-            label1 = new Label();
-            panel2 = new Panel();
-            label2 = new Label();
-            buttonImportBooking = new Button();
+            panel10 = new Panel();
+            labelAddBook = new Label();
+            panelAddaGuest = new Panel();
+            labelListofBooking = new Label();
             panel11 = new Panel();
             name_lbl = new Label();
             GuestName_lbl = new Label();
@@ -79,19 +77,21 @@
             panelGuestID = new Panel();
             textBoxGuestID = new TextBox();
             labelGuestID = new Label();
+            ButtonImportRecords = new Guna.UI2.WinForms.Guna2GradientButton();
+            panel1 = new Panel();
+            label2 = new Label();
+            panel2 = new Panel();
+            label1 = new Label();
+            buttonImportBooking = new Button();
             label7 = new Label();
-            panelAddaGuest = new Panel();
-            labelAddBook = new Label();
-            panel10 = new Panel();
-            labelListofBooking = new Label();
             bookingBindingSource = new BindingSource(components);
             guestBindingSource = new BindingSource(components);
             panel9.SuspendLayout();
             panelListofBooking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooking).BeginInit();
             panelSearch.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            panel10.SuspendLayout();
+            panelAddaGuest.SuspendLayout();
             panel11.SuspendLayout();
             panelCheckOutTime.SuspendLayout();
             panelCheckInTime.SuspendLayout();
@@ -99,8 +99,8 @@
             panelCheckOutDate.SuspendLayout();
             panelCheckInDate.SuspendLayout();
             panelGuestID.SuspendLayout();
-            panelAddaGuest.SuspendLayout();
-            panel10.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bookingBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guestBindingSource).BeginInit();
             SuspendLayout();
@@ -108,46 +108,21 @@
             // panel9
             // 
             panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
-            panel9.Controls.Add(ButtonImportRecords);
             panel9.Controls.Add(panelListofBooking);
+            panel9.Controls.Add(panel10);
+            panel9.Controls.Add(panelAddaGuest);
+            panel9.Controls.Add(panel11);
+            panel9.Controls.Add(ButtonImportRecords);
             panel9.Controls.Add(panel1);
             panel9.Controls.Add(panel2);
             panel9.Controls.Add(buttonImportBooking);
-            panel9.Controls.Add(panel11);
             panel9.Controls.Add(label7);
-            panel9.Controls.Add(panelAddaGuest);
-            panel9.Controls.Add(panel10);
             panel9.Dock = DockStyle.Fill;
             panel9.Location = new Point(0, 0);
             panel9.Margin = new Padding(3, 4, 3, 4);
             panel9.Name = "panel9";
             panel9.Size = new Size(1230, 999);
             panel9.TabIndex = 22;
-            // 
-            // ButtonImportRecords
-            // 
-            ButtonImportRecords.Animated = true;
-            ButtonImportRecords.AutoRoundedCorners = true;
-            ButtonImportRecords.BackColor = Color.Transparent;
-            ButtonImportRecords.BorderRadius = 39;
-            ButtonImportRecords.CustomizableEdges = customizableEdges1;
-            ButtonImportRecords.DisabledState.BorderColor = Color.DarkGray;
-            ButtonImportRecords.DisabledState.CustomBorderColor = Color.DarkGray;
-            ButtonImportRecords.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            ButtonImportRecords.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
-            ButtonImportRecords.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            ButtonImportRecords.FillColor = Color.FromArgb(32, 191, 85);
-            ButtonImportRecords.FillColor2 = Color.SteelBlue;
-            ButtonImportRecords.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ButtonImportRecords.ForeColor = Color.White;
-            ButtonImportRecords.Location = new Point(943, 63);
-            ButtonImportRecords.Margin = new Padding(3, 4, 3, 4);
-            ButtonImportRecords.Name = "ButtonImportRecords";
-            ButtonImportRecords.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            ButtonImportRecords.Size = new Size(230, 81);
-            ButtonImportRecords.TabIndex = 26;
-            ButtonImportRecords.Text = "Import Records";
-            ButtonImportRecords.Click += ButtonImportRecords_Click;
             // 
             // panelListofBooking
             // 
@@ -214,6 +189,7 @@
             dataGridViewBooking.ThemeStyle.RowsStyle.Height = 25;
             dataGridViewBooking.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewBooking.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewBooking.CellContentDoubleClick += dataGridViewBooking_CellContentDoubleClick;
             // 
             // panelSearch
             // 
@@ -233,7 +209,7 @@
             textBoxSearch.AutoRoundedCorners = true;
             textBoxSearch.BackColor = Color.Transparent;
             textBoxSearch.BorderRadius = 23;
-            textBoxSearch.CustomizableEdges = customizableEdges3;
+            textBoxSearch.CustomizableEdges = customizableEdges1;
             textBoxSearch.DefaultText = "";
             textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -248,7 +224,7 @@
             textBoxSearch.PasswordChar = '\0';
             textBoxSearch.PlaceholderText = "Search";
             textBoxSearch.SelectedText = "";
-            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
             textBoxSearch.Size = new Size(599, 48);
             textBoxSearch.TabIndex = 20;
             // 
@@ -303,65 +279,48 @@
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
             // 
-            // panel1
+            // panel10
             // 
-            panel1.BackColor = Color.MediumSeaGreen;
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(62, 123);
-            panel1.Margin = new Padding(3, 4, 3, 4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(175, 43);
-            panel1.TabIndex = 24;
-            panel1.Visible = false;
+            panel10.BackColor = Color.MediumSeaGreen;
+            panel10.Controls.Add(labelAddBook);
+            panel10.Location = new Point(279, 122);
+            panel10.Margin = new Padding(3, 4, 3, 4);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(194, 43);
+            panel10.TabIndex = 22;
             // 
-            // label1
+            // labelAddBook
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(10, 7);
-            label1.Name = "label1";
-            label1.Size = new Size(163, 29);
-            label1.TabIndex = 8;
-            label1.Text = "Add a Booking";
-            label1.Click += label1_Click;
+            labelAddBook.AutoSize = true;
+            labelAddBook.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            labelAddBook.Location = new Point(17, 5);
+            labelAddBook.Name = "labelAddBook";
+            labelAddBook.Size = new Size(163, 29);
+            labelAddBook.TabIndex = 8;
+            labelAddBook.Text = "Add a Booking";
+            labelAddBook.Click += labelAddBook_Click;
             // 
-            // panel2
+            // panelAddaGuest
             // 
-            panel2.BackColor = Color.FromArgb(76, 149, 108);
-            panel2.Controls.Add(label2);
-            panel2.Location = new Point(234, 123);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(194, 43);
-            panel2.TabIndex = 25;
-            panel2.Visible = false;
+            panelAddaGuest.BackColor = Color.FromArgb(76, 149, 108);
+            panelAddaGuest.Controls.Add(labelListofBooking);
+            panelAddaGuest.Location = new Point(63, 122);
+            panelAddaGuest.Margin = new Padding(3, 4, 3, 4);
+            panelAddaGuest.Name = "panelAddaGuest";
+            panelAddaGuest.Size = new Size(213, 43);
+            panelAddaGuest.TabIndex = 21;
             // 
-            // label2
+            // labelListofBooking
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(13, 7);
-            label2.Name = "label2";
-            label2.Size = new Size(177, 29);
-            label2.TabIndex = 9;
-            label2.Text = "List of Bookings";
-            // 
-            // buttonImportBooking
-            // 
-            buttonImportBooking.BackColor = Color.FromArgb(27, 67, 50);
-            buttonImportBooking.Enabled = false;
-            buttonImportBooking.FlatAppearance.BorderColor = Color.FromArgb(27, 67, 50);
-            buttonImportBooking.FlatStyle = FlatStyle.Flat;
-            buttonImportBooking.Font = new Font("SF Pro Display", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonImportBooking.ForeColor = Color.White;
-            buttonImportBooking.Location = new Point(1046, 104);
-            buttonImportBooking.Margin = new Padding(3, 4, 3, 4);
-            buttonImportBooking.Name = "buttonImportBooking";
-            buttonImportBooking.Size = new Size(96, 33);
-            buttonImportBooking.TabIndex = 23;
-            buttonImportBooking.Text = "Import Records";
-            buttonImportBooking.UseVisualStyleBackColor = false;
+            labelListofBooking.AutoSize = true;
+            labelListofBooking.BackColor = Color.Transparent;
+            labelListofBooking.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            labelListofBooking.Location = new Point(15, 6);
+            labelListofBooking.Name = "labelListofBooking";
+            labelListofBooking.Size = new Size(177, 29);
+            labelListofBooking.TabIndex = 9;
+            labelListofBooking.Text = "List of Bookings";
+            labelListofBooking.Click += labelListofBooking_Click;
             // 
             // panel11
             // 
@@ -377,7 +336,7 @@
             panel11.Controls.Add(panelCheckOutDate);
             panel11.Controls.Add(panelCheckInDate);
             panel11.Controls.Add(panelGuestID);
-            panel11.Location = new Point(62, 164);
+            panel11.Location = new Point(63, 164);
             panel11.Margin = new Padding(3, 4, 3, 4);
             panel11.Name = "panel11";
             panel11.Size = new Size(1110, 791);
@@ -408,7 +367,7 @@
             GradButtonAddBooking.Animated = true;
             GradButtonAddBooking.AutoRoundedCorners = true;
             GradButtonAddBooking.BorderRadius = 39;
-            GradButtonAddBooking.CustomizableEdges = customizableEdges5;
+            GradButtonAddBooking.CustomizableEdges = customizableEdges3;
             GradButtonAddBooking.DisabledState.BorderColor = Color.DarkGray;
             GradButtonAddBooking.DisabledState.CustomBorderColor = Color.DarkGray;
             GradButtonAddBooking.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -421,7 +380,7 @@
             GradButtonAddBooking.Location = new Point(854, 656);
             GradButtonAddBooking.Margin = new Padding(3, 4, 3, 4);
             GradButtonAddBooking.Name = "GradButtonAddBooking";
-            GradButtonAddBooking.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            GradButtonAddBooking.ShadowDecoration.CustomizableEdges = customizableEdges4;
             GradButtonAddBooking.Size = new Size(213, 81);
             GradButtonAddBooking.TabIndex = 11;
             GradButtonAddBooking.Text = "Add Booking";
@@ -521,7 +480,7 @@
             // 
             textBoxRoomNo.AutoRoundedCorners = true;
             textBoxRoomNo.BorderRadius = 21;
-            textBoxRoomNo.CustomizableEdges = customizableEdges7;
+            textBoxRoomNo.CustomizableEdges = customizableEdges5;
             textBoxRoomNo.DefaultText = "";
             textBoxRoomNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxRoomNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -536,7 +495,7 @@
             textBoxRoomNo.PasswordChar = '\0';
             textBoxRoomNo.PlaceholderText = "";
             textBoxRoomNo.SelectedText = "";
-            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges6;
             textBoxRoomNo.Size = new Size(248, 45);
             textBoxRoomNo.TabIndex = 12;
             // 
@@ -640,6 +599,91 @@
             labelGuestID.TabIndex = 0;
             labelGuestID.Text = "Guest ID";
             // 
+            // ButtonImportRecords
+            // 
+            ButtonImportRecords.Animated = true;
+            ButtonImportRecords.AutoRoundedCorners = true;
+            ButtonImportRecords.BackColor = Color.Transparent;
+            ButtonImportRecords.BorderRadius = 39;
+            ButtonImportRecords.CustomizableEdges = customizableEdges7;
+            ButtonImportRecords.DisabledState.BorderColor = Color.DarkGray;
+            ButtonImportRecords.DisabledState.CustomBorderColor = Color.DarkGray;
+            ButtonImportRecords.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            ButtonImportRecords.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            ButtonImportRecords.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            ButtonImportRecords.FillColor = Color.FromArgb(32, 191, 85);
+            ButtonImportRecords.FillColor2 = Color.SteelBlue;
+            ButtonImportRecords.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonImportRecords.ForeColor = Color.White;
+            ButtonImportRecords.Location = new Point(943, 63);
+            ButtonImportRecords.Margin = new Padding(3, 4, 3, 4);
+            ButtonImportRecords.Name = "ButtonImportRecords";
+            ButtonImportRecords.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            ButtonImportRecords.Size = new Size(230, 81);
+            ButtonImportRecords.TabIndex = 26;
+            ButtonImportRecords.Text = "Import Records";
+            ButtonImportRecords.Click += ButtonImportRecords_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.MediumSeaGreen;
+            panel1.Controls.Add(label2);
+            panel1.Location = new Point(63, 123);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(215, 43);
+            panel1.TabIndex = 24;
+            panel1.Visible = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.Location = new Point(29, 5);
+            label2.Name = "label2";
+            label2.Size = new Size(177, 29);
+            label2.TabIndex = 9;
+            label2.Text = "List of Bookings";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(76, 149, 108);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(278, 123);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(194, 43);
+            panel2.TabIndex = 25;
+            panel2.Visible = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(18, 5);
+            label1.Name = "label1";
+            label1.Size = new Size(163, 29);
+            label1.TabIndex = 8;
+            label1.Text = "Add a Booking";
+            label1.Click += label1_Click;
+            // 
+            // buttonImportBooking
+            // 
+            buttonImportBooking.BackColor = Color.FromArgb(27, 67, 50);
+            buttonImportBooking.Enabled = false;
+            buttonImportBooking.FlatAppearance.BorderColor = Color.FromArgb(27, 67, 50);
+            buttonImportBooking.FlatStyle = FlatStyle.Flat;
+            buttonImportBooking.Font = new Font("SF Pro Display", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonImportBooking.ForeColor = Color.White;
+            buttonImportBooking.Location = new Point(1046, 104);
+            buttonImportBooking.Margin = new Padding(3, 4, 3, 4);
+            buttonImportBooking.Name = "buttonImportBooking";
+            buttonImportBooking.Size = new Size(96, 33);
+            buttonImportBooking.TabIndex = 23;
+            buttonImportBooking.Text = "Import Records";
+            buttonImportBooking.UseVisualStyleBackColor = false;
+            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -650,49 +694,6 @@
             label7.Size = new Size(440, 53);
             label7.TabIndex = 20;
             label7.Text = "Booking Management";
-            // 
-            // panelAddaGuest
-            // 
-            panelAddaGuest.BackColor = Color.FromArgb(76, 149, 108);
-            panelAddaGuest.Controls.Add(labelAddBook);
-            panelAddaGuest.Location = new Point(62, 123);
-            panelAddaGuest.Margin = new Padding(3, 4, 3, 4);
-            panelAddaGuest.Name = "panelAddaGuest";
-            panelAddaGuest.Size = new Size(175, 43);
-            panelAddaGuest.TabIndex = 21;
-            // 
-            // labelAddBook
-            // 
-            labelAddBook.AutoSize = true;
-            labelAddBook.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelAddBook.Location = new Point(10, 7);
-            labelAddBook.Name = "labelAddBook";
-            labelAddBook.Size = new Size(163, 29);
-            labelAddBook.TabIndex = 8;
-            labelAddBook.Text = "Add a Booking";
-            labelAddBook.Click += labelAddBook_Click;
-            // 
-            // panel10
-            // 
-            panel10.BackColor = Color.MediumSeaGreen;
-            panel10.Controls.Add(labelListofBooking);
-            panel10.Location = new Point(234, 123);
-            panel10.Margin = new Padding(3, 4, 3, 4);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(194, 43);
-            panel10.TabIndex = 22;
-            // 
-            // labelListofBooking
-            // 
-            labelListofBooking.AutoSize = true;
-            labelListofBooking.BackColor = Color.Transparent;
-            labelListofBooking.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelListofBooking.Location = new Point(13, 7);
-            labelListofBooking.Name = "labelListofBooking";
-            labelListofBooking.Size = new Size(177, 29);
-            labelListofBooking.TabIndex = 9;
-            labelListofBooking.Text = "List of Bookings";
-            labelListofBooking.Click += labelListofBooking_Click;
             // 
             // bookingBindingSource
             // 
@@ -715,10 +716,10 @@
             panelListofBooking.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooking).EndInit();
             panelSearch.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            panelAddaGuest.ResumeLayout(false);
+            panelAddaGuest.PerformLayout();
             panel11.ResumeLayout(false);
             panel11.PerformLayout();
             panelCheckOutTime.ResumeLayout(false);
@@ -733,10 +734,10 @@
             panelCheckInDate.PerformLayout();
             panelGuestID.ResumeLayout(false);
             panelGuestID.PerformLayout();
-            panelAddaGuest.ResumeLayout(false);
-            panelAddaGuest.PerformLayout();
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)bookingBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)guestBindingSource).EndInit();
             ResumeLayout(false);

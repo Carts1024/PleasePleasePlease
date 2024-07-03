@@ -36,17 +36,22 @@ namespace PleasePleasePlease
             LoadData();
 
         }
-
         private void labelListofBooking_Click(object sender, EventArgs e)
         {
             panelListofBooking.Visible = true;
             panel1.Visible = true;
             panel2.Visible = true;
         }
-
         private void labelAddBook_Click(object sender, EventArgs e)
         {
             panelListofBooking.Visible = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            panelListofBooking.Visible = true;
+            panel1.Visible = true;
+            panel2.Visible = true;
         }
 
         private void buttonSearchIcon_Click(object sender, EventArgs e)
@@ -95,12 +100,6 @@ namespace PleasePleasePlease
                    ColumnCheckOutTime.ReadOnly = false;
                }*/
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            panelListofBooking.Visible = false;
-            panel1.Visible = false;
-            panel2.Visible = false;
-        }
 
         // Load data into the data grid view
         private void LoadData()
@@ -226,12 +225,18 @@ namespace PleasePleasePlease
 
         }
 
+        private void dataGridViewBooking_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
         private void ButtonImportRecords_Click(object sender, EventArgs e)
         {
             Dialogue_BookingImported bookingImported = new Dialogue_BookingImported();
             bookingImported.Show();
         }
+
 
     }
 }

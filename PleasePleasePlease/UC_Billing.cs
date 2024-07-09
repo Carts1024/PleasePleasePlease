@@ -36,33 +36,9 @@ namespace PleasePleasePlease
             panelFilters.Visible = true;
         }
 
-        private void buttonEditBillings_Click(object sender, EventArgs e)
+        private void panelAddaGuest_Paint(object sender, PaintEventArgs e)
         {
-            buttonSaveEditBillings.Visible = true;
-            buttonExitEditBillings.Visible = true;
 
-        }
-
-        private void buttonExitEditBookings_Click(object sender, EventArgs e)
-        {
-            buttonSaveEditBillings.Visible = false;
-            buttonExitEditBillings.Visible = false;
-
-        }
-
-        private void buttonSaveEditBillings_Click(object sender, EventArgs e)
-        {
-            // Alter Information in Database and Save code starts here
-
-            buttonSaveEditBillings.Visible = false;
-            buttonExitEditBillings.Visible = false;
-            Dialogue_BillingUpdated billUpdated = new Dialogue_BillingUpdated();
-            billUpdated.Show();
-        }
-
-        private void ButtonGenerateInvo_Click(object sender, EventArgs e)
-        {
-            // Code for Generating Invoice starts here
         }
     }
 }

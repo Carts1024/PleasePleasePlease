@@ -139,6 +139,7 @@
             panelAddaGuest.Name = "panelAddaGuest";
             panelAddaGuest.Size = new Size(153, 32);
             panelAddaGuest.TabIndex = 17;
+            panelAddaGuest.Paint += panelAddaGuest_Paint;
             // 
             // labelTableGuestInvoice
             // 
@@ -280,66 +281,86 @@
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
             // 
-            // userBindingSource1
+            // textBoxAddressSearch
             // 
-            userBindingSource1.DataSource = typeof(Mirai_Paradise_Hotel.User);
+            textBoxAddressSearch.Enabled = false;
+            textBoxAddressSearch.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBoxAddressSearch.ForeColor = SystemColors.WindowFrame;
+            textBoxAddressSearch.Location = new Point(1, 16);
+            textBoxAddressSearch.Margin = new Padding(3, 4, 3, 4);
+            textBoxAddressSearch.Name = "textBoxAddressSearch";
+            textBoxAddressSearch.Size = new Size(580, 30);
+            textBoxAddressSearch.TabIndex = 2;
+            textBoxAddressSearch.Text = "Search";
+            textBoxAddressSearch.WordWrap = false;
             // 
-            // userBindingSource
+            // dataGridViewInvoice
             // 
-            userBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.User);
+            dataGridViewInvoice.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewInvoice.Columns.AddRange(new DataGridViewColumn[] { ColumnGuestID, ColumnBookingID, ColumnInvoiceNumber, ColumnIssueDate, ColumnDueDate, ColumnPaymentStatus, ColumnPaymentMethod });
+            dataGridViewInvoice.Location = new Point(79, 179);
+            dataGridViewInvoice.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewInvoice.Name = "dataGridViewInvoice";
+            dataGridViewInvoice.RowHeadersWidth = 51;
+            dataGridViewInvoice.Size = new Size(941, 347);
+            dataGridViewInvoice.TabIndex = 18;
             // 
-            // dataGridViewRoom
+            // ColumnGuestID
             // 
-            dataGridViewRoom.AllowUserToAddRows = false;
-            dataGridViewRoom.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridViewRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewRoom.ColumnHeadersHeight = 17;
-            dataGridViewRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridViewRoom.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewRoom.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewRoom.Location = new Point(69, 134);
-            dataGridViewRoom.Name = "dataGridViewRoom";
-            dataGridViewRoom.ReadOnly = true;
-            dataGridViewRoom.RowHeadersVisible = false;
-            dataGridViewRoom.Size = new Size(823, 415);
-            dataGridViewRoom.TabIndex = 21;
-            dataGridViewRoom.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            dataGridViewRoom.ThemeStyle.AlternatingRowsStyle.Font = null;
-            dataGridViewRoom.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            dataGridViewRoom.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            dataGridViewRoom.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            dataGridViewRoom.ThemeStyle.BackColor = Color.White;
-            dataGridViewRoom.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewRoom.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewRoom.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewRoom.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            dataGridViewRoom.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dataGridViewRoom.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewRoom.ThemeStyle.HeaderStyle.Height = 17;
-            dataGridViewRoom.ThemeStyle.ReadOnly = true;
-            dataGridViewRoom.ThemeStyle.RowsStyle.BackColor = Color.White;
-            dataGridViewRoom.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewRoom.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            dataGridViewRoom.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewRoom.ThemeStyle.RowsStyle.Height = 25;
-            dataGridViewRoom.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewRoom.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            ColumnGuestID.HeaderText = "Guest ID";
+            ColumnGuestID.MinimumWidth = 6;
+            ColumnGuestID.Name = "ColumnGuestID";
+            ColumnGuestID.Resizable = DataGridViewTriState.True;
+            ColumnGuestID.Width = 120;
+            // 
+            // ColumnBookingID
+            // 
+            ColumnBookingID.HeaderText = "Booking ID";
+            ColumnBookingID.MinimumWidth = 6;
+            ColumnBookingID.Name = "ColumnBookingID";
+            ColumnBookingID.Width = 120;
+            // 
+            // ColumnInvoiceNumber
+            // 
+            ColumnInvoiceNumber.HeaderText = "Invoice Number";
+            ColumnInvoiceNumber.MinimumWidth = 6;
+            ColumnInvoiceNumber.Name = "ColumnInvoiceNumber";
+            ColumnInvoiceNumber.Width = 120;
+            // 
+            // ColumnIssueDate
+            // 
+            ColumnIssueDate.HeaderText = "Issue Date";
+            ColumnIssueDate.MinimumWidth = 6;
+            ColumnIssueDate.Name = "ColumnIssueDate";
+            ColumnIssueDate.Resizable = DataGridViewTriState.True;
+            ColumnIssueDate.Width = 120;
+            // 
+            // ColumnDueDate
+            // 
+            ColumnDueDate.HeaderText = "Due Date";
+            ColumnDueDate.MinimumWidth = 6;
+            ColumnDueDate.Name = "ColumnDueDate";
+            ColumnDueDate.Resizable = DataGridViewTriState.True;
+            ColumnDueDate.SortMode = DataGridViewColumnSortMode.NotSortable;
+            ColumnDueDate.Width = 120;
+            // 
+            // ColumnPaymentStatus
+            // 
+            ColumnPaymentStatus.HeaderText = "Payment Status";
+            ColumnPaymentStatus.MinimumWidth = 6;
+            ColumnPaymentStatus.Name = "ColumnPaymentStatus";
+            ColumnPaymentStatus.Resizable = DataGridViewTriState.True;
+            ColumnPaymentStatus.SortMode = DataGridViewColumnSortMode.Automatic;
+            ColumnPaymentStatus.Width = 120;
+            // 
+            // ColumnPaymentMethod
+            // 
+            ColumnPaymentMethod.HeaderText = "Payment Method";
+            ColumnPaymentMethod.MinimumWidth = 6;
+            ColumnPaymentMethod.Name = "ColumnPaymentMethod";
+            ColumnPaymentMethod.Resizable = DataGridViewTriState.True;
+            ColumnPaymentMethod.SortMode = DataGridViewColumnSortMode.Automatic;
+            ColumnPaymentMethod.Width = 130;
             // 
             // UC_Billing
             // 

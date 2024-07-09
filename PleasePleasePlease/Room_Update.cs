@@ -103,6 +103,8 @@ namespace Mirai_Paradise_Hotel
                             }
 
                             context.SaveChanges();
+                            var DialogueUpdate = new Dialogue_GuestUpdated();
+                            DialogueUpdate.ShowDialog();
                             this.Close();
                         }
                     }

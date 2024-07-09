@@ -1,28 +1,43 @@
-﻿using Guna.UI2.WinForms;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.TypeConversion;
+using Guna.UI2.WinForms;
+using Microsoft.EntityFrameworkCore;
 using Mirai_Paradise_Hotel;
 using Mirai_Paradise_Hotel.DB_MODELS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace PleasePleasePlease
 {
     public partial class UC_Booking1 : UserControl
     {
-        // Stores an instance of a guest within the class 
         private Guest _guest;
         public List<Booking> DataBaseBooking { get; set; }
+
         public UC_Booking1(Guest guest)
         {
             InitializeComponent();
             _guest = guest;
+            InitializeGuestInfo();
+            LoadData();
+            CheckGuestInfo();
+        }
+
+        private void CheckGuestInfo()
+        {
+            if (_guest != null)
+            {
+                labelAddBook_Click(this, EventArgs.Empty);
+            }
+        }
+
+        private void InitializeGuestInfo()
+        {
             if (_guest != null)
             {
                 name_lbl.Visible = true;
@@ -33,100 +48,30 @@ namespace PleasePleasePlease
                 name_lbl.Visible = false;
                 GuestName_lbl.Visible = false;
             }
-            LoadData();
-
-        }
-        private void labelListofBooking_Click(object sender, EventArgs e)
-        {
-            panelListofBooking.Visible = true;
-            panel1.Visible = true;
-            panel2.Visible = true;
-        }
-        private void labelAddBook_Click(object sender, EventArgs e)
-        {
-            panelListofBooking.Visible = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            panelListofBooking.Visible = true;
-            panel1.Visible = true;
-            panel2.Visible = true;
-        }
-
-        private void buttonSearchIcon_Click(object sender, EventArgs e)
-        {
-            // Code for Search starts here
-        }
-
-        private void buttonAddBooking_Click(object sender, EventArgs e)
-        {
-            // ignore this
-            // refer to  guna2GradientButton1_Click instead
-            // sorry forgot to rename the button
-        }
-
-        /*        private void buttonExitEditGuest_Click(object sender, EventArgs e)
-                {
-                    buttonSaveEditBookings.Visible = false;
-                    buttonExitEditBookings.Visible = false;
-                    ColumnCheckInDate.ReadOnly = true;
-                    ColumnCheckInTime.ReadOnly = true;
-                    ColumnCheckOutDate.ReadOnly = true;
-                    ColumnCheckOutTime.ReadOnly = true;
-                }*/
-
-        /*       private void buttonSaveEditBookings_Click(object sender, EventArgs e)
-               {
-                   // Alter Information in Database and Save code starts here
-
-                   buttonSaveEditBookings.Visible = false;
-                   buttonExitEditBookings.Visible = false;
-                   ColumnCheckInDate.ReadOnly = true;
-                   ColumnCheckInTime.ReadOnly = true;
-                   ColumnCheckOutDate.ReadOnly = true;
-                   ColumnCheckOutTime.ReadOnly = true;
-                   Dialogue_BookingUpdated bookingUpdated = new Dialogue_BookingUpdated();
-                   bookingUpdated.Show();
-               }*/
-
-        /*       private void buttonEditBookings_Click(object sender, EventArgs e)
-               {
-                   buttonSaveEditBookings.Visible = true;
-                   buttonExitEditBookings.Visible = true;
-                   ColumnCheckInDate.ReadOnly = false;
-                   ColumnCheckInTime.ReadOnly = false;
-                   ColumnCheckOutDate.ReadOnly = false;
-                   ColumnCheckOutTime.ReadOnly = false;
-               }*/
-
-
-        // Load data into the data grid view
         private void LoadData()
         {
-            using (DataContext context = new DataContext())
+            using (var context = new DataContext())
             {
-                var query = from booking in context.Bookings
-                            join guest in context.Guests on booking.GuestID equals guest.GuestID
-                            orderby booking.Index
-                            select new
-                            {
-                                Index = booking.Index,
-                                GuestName = guest.FirstName + " " + guest.LastName,
-                                RoomNumber = booking.RoomNumber,
-                                CheckInDate = booking.CheckInDate.Date,
-                                CheckInTime = booking.CheckInTime,
-                                CheckOutDate = booking.CheckOutDate.Date,
-                                CheckOutTime = booking.CheckOutTime
-                            };
+                var bookings = context.Bookings.Include(b => b.Guest).ToList();
 
-                // Clear existing columns before setting new data source
+                var bookingData = bookings.Select(b => new
+                {
+                    b.Index,
+                    GuestName = b.Guest.FirstName + " " + b.Guest.LastName,
+                    b.BookingID,
+                    b.RoomNumber,
+                    b.CheckInDate,
+                    b.CheckInTime,
+                    b.CheckOutDate,
+                    b.CheckOutTime
+                }).ToList();
+
                 dataGridViewBooking.Columns.Clear();
+                dataGridViewBooking.DataSource = bookingData;
 
-                // Set the data source to the LINQ query result
-                dataGridViewBooking.DataSource = query.ToList();
-
-                // Optionally, you can set column headers programmatically
+                dataGridViewBooking.Columns["BookingID"].Visible = false;
                 dataGridViewBooking.Columns["Index"].HeaderText = "Index";
                 dataGridViewBooking.Columns["GuestName"].HeaderText = "Guest Name";
                 dataGridViewBooking.Columns["RoomNumber"].HeaderText = "Room Number";
@@ -137,17 +82,35 @@ namespace PleasePleasePlease
             }
         }
 
-        private void OnBookingAddedDialogClosed(object sender, FormClosedEventArgs e)
+        private void GridRead()
         {
-            // Show panel2 when the dialog is closed
-            panel1.Visible = true;
-            panel2.Visible = true;
-            panelListofBooking.Visible = true;
             LoadData();
         }
 
+        private void ShowBookingPanels()
+        {
+            panel1.Visible = true;
+            panel2.Visible = true;
+            panelListofBooking.Visible = true;
+            panelAddaGuest.Visible = true;
+            panel10.Visible = true;
+        }
 
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        private void HideBookingPanels()
+        {
+            panel1.Visible = true;
+            panel2.Visible = true;
+            panelListofBooking.Visible = false;
+            panelAddaGuest.Visible = false;
+        }
+
+        private void OnBookingAddedDialogClosed(object sender, FormClosedEventArgs e)
+        {
+            ShowBookingPanels();
+            LoadData();
+        }
+
+        private void AddBooking()
         {
             if (_guest == null)
             {
@@ -155,60 +118,41 @@ namespace PleasePleasePlease
                 return;
             }
 
-            // Check if room number is provided
             if (string.IsNullOrEmpty(textBoxRoomNo.Text))
             {
                 MessageBox.Show("Please enter a room number.");
                 return;
             }
 
-            // Disable the button to prevent multiple submissions
             GradButtonAddBooking.Enabled = false;
 
             using (DataContext context = new DataContext())
             {
-                var roomNumberText = textBoxRoomNo.Text;
-                var checkInDate = dateTimePickerCheckIn.Value.Date;
-                var checkInTime = dateTimePicker1CheckInTime.Value.TimeOfDay;
-                var checkOutDate = dateTimePickerCheckout.Value;
-                var checkOutTime = dateTimePicker1CheckOutTime.Value.TimeOfDay;
-
-                if (int.TryParse(roomNumberText, out int roomNumber))
+                if (int.TryParse(textBoxRoomNo.Text, out int roomNumber))
                 {
-                    // Find the maximum index in the Bookings table and increment by 1
-                    int nextIndex = context.Bookings.Any() ? context.Bookings.Max(b => b.Index) + 1 : 1;
-
                     var room = context.Rooms.Find(roomNumber);
 
                     if (room != null)
                     {
-                        var newBooking = new Booking()
+                        int nextIndex = context.Bookings.Any() ? context.Bookings.Max(b => b.Index) + 1 : 1;
+
+                        var newBooking = new Booking
                         {
                             Index = nextIndex,
                             RoomNumber = roomNumber,
                             GuestID = _guest.GuestID,
-                            CheckInDate = checkInDate,
-                            CheckInTime = checkInTime,
-                            CheckOutDate = checkOutDate,
-                            CheckOutTime = checkOutTime,
+                            CheckInDate = dateTimePickerCheckIn.Value.Date,
+                            CheckInTime = dateTimePicker1CheckInTime.Value.TimeOfDay,
+                            CheckOutDate = dateTimePickerCheckout.Value.Date,
+                            CheckOutTime = dateTimePicker1CheckOutTime.Value.TimeOfDay,
                         };
 
                         context.Bookings.Add(newBooking);
                         context.SaveChanges();
 
-                        // Reset UI elements
-                        GuestName_lbl.ResetText();
-                        textBoxRoomNo.Clear();
-                        dateTimePickerCheckIn.ResetText();
-                        dateTimePicker1CheckInTime.ResetText();
-                        dateTimePickerCheckout.ResetText();
-                        dateTimePicker1CheckOutTime.ResetText();
-
-                        Dialogue_BookingAdded bookAdded = new Dialogue_BookingAdded();
-                        bookAdded.FormClosed += OnBookingAddedDialogClosed;
-                        bookAdded.Show();
+                        ResetBookingForm();
+                        ShowBookingAddedDialog();
                         LoadData();
-
                     }
                     else
                     {
@@ -220,23 +164,222 @@ namespace PleasePleasePlease
                     MessageBox.Show("Please fill in all required fields with valid data.");
                 }
             }
+
             GradButtonAddBooking.Enabled = true;
+        }
+
+        private void ResetBookingForm()
+        {
+            GuestName_lbl.ResetText();
+            textBoxRoomNo.Clear();
+            dateTimePickerCheckIn.ResetText();
+            dateTimePicker1CheckInTime.ResetText();
+            dateTimePickerCheckout.ResetText();
+            dateTimePicker1CheckOutTime.ResetText();
+        }
+
+        private void ShowBookingAddedDialog()
+        {
+            var bookingAddedDialog = new Dialogue_BookingAdded();
+            bookingAddedDialog.FormClosed += OnBookingAddedDialogClosed;
+            bookingAddedDialog.Show();
+        }
+
+        // Custom DateTime converter
+        private class CustomDateTimeConverter : DateTimeConverter
+        {
+            private readonly string[] formats = { "dd/MM/yyyy", "MM/dd/yyyy", "yyyy-MM-dd" };
+
+            public override object ConvertFromString(string text, IReaderRow row, MemberMapData memberMapData)
+            {
+                foreach (var format in formats)
+                {
+                    if (DateTime.TryParseExact(text, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out var date))
+                    {
+                        return date;
+                    }
+                }
+                return base.ConvertFromString(text, row, memberMapData);
+            }
+        }
+
+        private void ImportRecords()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = dialog.FileName; // Get the selected file path
+
+                var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    PrepareHeaderForMatch = args => args.Header.ToLower(),
+                    HeaderValidated = null, // Disable header validation
+                };
+
+                using (var reader = new StreamReader(filePath))
+                using (var csv = new CsvReader(reader, csvConfig))
+                {
+                    csv.Context.TypeConverterCache.AddConverter<DateTime>(new CustomDateTimeConverter());
+                    csv.Context.RegisterClassMap<BookingMap>();
+
+                    var records = csv.GetRecords<Booking>().ToList();  // Get the records from the CSV file
+
+                    using (DataContext context = new DataContext())
+                    {
+                        // Validate foreign key references
+                        var validGuestIds = context.Guests.Select(g => g.GuestID).ToHashSet();
+                        var invalidRecords = records.Where(r => !validGuestIds.Contains(r.GuestID)).ToList();
+
+                        if (invalidRecords.Any())
+                        {
+                            var invalidIds = string.Join(", ", invalidRecords.Select(r => r.GuestID));
+                            MessageBox.Show($"Error: The following Guest IDs do not exist in the database: {invalidIds}");
+                            return;
+                        }
+
+                        foreach (var record in records)
+                        {
+                            var existingBooking = context.Bookings.FirstOrDefault(b => b.BookingID == record.BookingID);
+                            if (existingBooking != null)
+                            {
+                                // Update existing record
+                                existingBooking.Index = record.Index;
+                                existingBooking.RoomNumber = record.RoomNumber;
+                                existingBooking.GuestID = record.GuestID;
+                                existingBooking.CheckInDate = record.CheckInDate;
+                                existingBooking.CheckInTime = record.CheckInTime;
+                                existingBooking.CheckOutDate = record.CheckOutDate;
+                                existingBooking.CheckOutTime = record.CheckOutTime;
+                            }
+                            else
+                            {
+                                // Add new record
+                                context.Bookings.Add(record);
+                            }
+                        }
+
+                        context.SaveChanges();
+                    }
+
+                    // Update the DataGridView to reflect the newly imported records
+                    LoadData();
+                }
+            }
+        }
 
 
+        private void ExportRecords()
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveDialog.FileName; // Get the selected file path
+
+                using (var writer = new StreamWriter(filePath))
+                using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    try
+                    {
+                        using (var context = new DataContext())
+                        {
+                            var bookings = context.Bookings.Select(b => new BookingExportDto
+                            {
+                                Index = b.Index,
+                                BookingID = b.BookingID,
+                                CheckInDate = b.CheckInDate,
+                                CheckInTime = b.CheckInTime,
+                                CheckOutDate = b.CheckOutDate,
+                                CheckOutTime = b.CheckOutTime,
+                                GuestID = b.GuestID,
+                                RoomNumber = b.RoomNumber
+                            }).ToList();
+
+                            csvWriter.WriteRecords(bookings);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error writing CSV file: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+
+        // Event handlers
+        private void labelListofBooking_Click(object sender, EventArgs e) => ShowBookingPanels();
+        public void labelAddBook_Click(object sender, EventArgs e)
+        {
+            HideBookingPanels();
+            panel10.Visible = false;
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+            ShowBookingPanels();
+        }
+        private void buttonAddBooking_Click(object sender, EventArgs e)
+        {
+            AddBooking();
+            labelListofBooking_Click(sender, e);
+        }
+        private void guna2GradientButton1_Click(object sender, EventArgs e) => AddBooking();
+
+        private void buttonSearchIcon_Click(object sender, EventArgs e)
+        {
+            // Code for Search starts here
+        }
+
+        private void ButtonImportRecords_Click(object sender, EventArgs e)
+        {
+            ImportRecords();
+            //   var bookingImported = new Dialogue_BookingImported();
+            // bookingImported.Show();
         }
 
         private void dataGridViewBooking_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                // Get the booking ID from the DataGridView
+                var bookingId = (int)dataGridViewBooking.Rows[e.RowIndex].Cells["BookingID"].Value;
 
+                // Fetch the booking from the database
+                using (var context = new DataContext())
+                {
+                    var selectedBooking = context.Bookings.Include(b => b.Guest).FirstOrDefault(b => b.BookingID == bookingId);
+                    if (selectedBooking != null)
+                    {
+                        var bookingUpdateForm = new Booking_Update(selectedBooking); // Pass the Booking entity
+                        bookingUpdateForm.FormClosed += (s, args) => LoadData();
+                        bookingUpdateForm.Show();
+                    }
+                }
+            }
         }
 
-
-        private void ButtonImportRecords_Click(object sender, EventArgs e)
+        private void ImportButton_Click(object sender, EventArgs e)
         {
-            Dialogue_BookingImported bookingImported = new Dialogue_BookingImported();
-            bookingImported.Show();
+            ExportButton.Visible = true;
+            ImportButton.Visible = false;
+            ButtonImportBookings.Visible = true;
+            ButtonExportBookings.Visible = false;
         }
 
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            ExportButton.Visible = false;
+            ImportButton.Visible = true;
+            ButtonImportBookings.Visible = false;
+            ButtonExportBookings.Visible = true;
+        }
 
+        private void ButtonExportBookings_Click(object sender, EventArgs e)
+        {
+            ExportRecords();
+        }
     }
 }

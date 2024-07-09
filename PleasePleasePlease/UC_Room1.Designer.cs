@@ -32,16 +32,16 @@ namespace PleasePleasePlease
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Room1));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -56,7 +56,13 @@ namespace PleasePleasePlease
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel9 = new Panel();
+            ButtonExportRooms = new Guna.UI2.WinForms.Guna2GradientButton();
+            ButtonImportRooms = new Guna.UI2.WinForms.Guna2GradientButton();
             panelListofRoom = new Panel();
             dataGridViewRoom = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -64,8 +70,9 @@ namespace PleasePleasePlease
             comboBoxFilterRoomType = new ComboBox();
             comboBoxFilterRoomStatus = new ComboBox();
             panelSearch = new Panel();
+            ExportButton = new Button();
+            ImportButton = new Button();
             textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            buttonSaveEditRooms = new Button();
             buttonMore = new Button();
             buttonExitEditRooms = new Button();
             buttonEditRooms = new Button();
@@ -132,6 +139,8 @@ namespace PleasePleasePlease
             // panel9
             // 
             panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
+            panel9.Controls.Add(ButtonExportRooms);
+            panel9.Controls.Add(ButtonImportRooms);
             panel9.Controls.Add(panelListofRoom);
             panel9.Controls.Add(panel3);
             panel9.Controls.Add(panelAddaGuest);
@@ -144,6 +153,55 @@ namespace PleasePleasePlease
             panel9.Name = "panel9";
             panel9.Size = new Size(1076, 749);
             panel9.TabIndex = 23;
+            // 
+            // ButtonExportRooms
+            // 
+            ButtonExportRooms.Animated = true;
+            ButtonExportRooms.AutoRoundedCorners = true;
+            ButtonExportRooms.BackColor = Color.Transparent;
+            ButtonExportRooms.BorderRadius = 29;
+            ButtonExportRooms.CustomizableEdges = customizableEdges1;
+            ButtonExportRooms.DisabledState.BorderColor = Color.DarkGray;
+            ButtonExportRooms.DisabledState.CustomBorderColor = Color.DarkGray;
+            ButtonExportRooms.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            ButtonExportRooms.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            ButtonExportRooms.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            ButtonExportRooms.FillColor = Color.FromArgb(32, 191, 85);
+            ButtonExportRooms.FillColor2 = Color.SteelBlue;
+            ButtonExportRooms.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonExportRooms.ForeColor = Color.White;
+            ButtonExportRooms.Location = new Point(825, 47);
+            ButtonExportRooms.Name = "ButtonExportRooms";
+            ButtonExportRooms.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            ButtonExportRooms.Size = new Size(201, 61);
+            ButtonExportRooms.TabIndex = 29;
+            ButtonExportRooms.Text = "Export Rooms";
+            ButtonExportRooms.Visible = false;
+            ButtonExportRooms.Click += ButtonExportRooms_Click;
+            // 
+            // ButtonImportRooms
+            // 
+            ButtonImportRooms.Animated = true;
+            ButtonImportRooms.AutoRoundedCorners = true;
+            ButtonImportRooms.BackColor = Color.Transparent;
+            ButtonImportRooms.BorderRadius = 29;
+            ButtonImportRooms.CustomizableEdges = customizableEdges3;
+            ButtonImportRooms.DisabledState.BorderColor = Color.DarkGray;
+            ButtonImportRooms.DisabledState.CustomBorderColor = Color.DarkGray;
+            ButtonImportRooms.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            ButtonImportRooms.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            ButtonImportRooms.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            ButtonImportRooms.FillColor = Color.FromArgb(32, 191, 85);
+            ButtonImportRooms.FillColor2 = Color.SteelBlue;
+            ButtonImportRooms.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonImportRooms.ForeColor = Color.White;
+            ButtonImportRooms.Location = new Point(825, 47);
+            ButtonImportRooms.Name = "ButtonImportRooms";
+            ButtonImportRooms.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            ButtonImportRooms.Size = new Size(201, 61);
+            ButtonImportRooms.TabIndex = 28;
+            ButtonImportRooms.Text = "Import Rooms";
+            ButtonImportRooms.Click += ButtonImportRooms_Click;
             // 
             // panelListofRoom
             // 
@@ -296,8 +354,9 @@ namespace PleasePleasePlease
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(ExportButton);
+            panelSearch.Controls.Add(ImportButton);
             panelSearch.Controls.Add(textBoxSearch);
-            panelSearch.Controls.Add(buttonSaveEditRooms);
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonExitEditRooms);
             panelSearch.Controls.Add(buttonEditRooms);
@@ -307,12 +366,37 @@ namespace PleasePleasePlease
             panelSearch.Size = new Size(701, 53);
             panelSearch.TabIndex = 4;
             // 
+            // ExportButton
+            // 
+            ExportButton.BackgroundImage = (Image)resources.GetObject("ExportButton.BackgroundImage");
+            ExportButton.BackgroundImageLayout = ImageLayout.Zoom;
+            ExportButton.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ExportButton.Location = new Point(613, 12);
+            ExportButton.Name = "ExportButton";
+            ExportButton.Size = new Size(28, 27);
+            ExportButton.TabIndex = 30;
+            ExportButton.UseVisualStyleBackColor = true;
+            ExportButton.Click += ExportButton_Click;
+            // 
+            // ImportButton
+            // 
+            ImportButton.BackgroundImage = (Image)resources.GetObject("ImportButton.BackgroundImage");
+            ImportButton.BackgroundImageLayout = ImageLayout.Zoom;
+            ImportButton.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ImportButton.Location = new Point(613, 12);
+            ImportButton.Name = "ImportButton";
+            ImportButton.Size = new Size(28, 27);
+            ImportButton.TabIndex = 29;
+            ImportButton.UseVisualStyleBackColor = true;
+            ImportButton.Visible = false;
+            ImportButton.Click += ImportButton_Click;
+            // 
             // textBoxSearch
             // 
             textBoxSearch.AutoRoundedCorners = true;
             textBoxSearch.BackColor = Color.Transparent;
             textBoxSearch.BorderRadius = 17;
-            textBoxSearch.CustomizableEdges = customizableEdges1;
+            textBoxSearch.CustomizableEdges = customizableEdges5;
             textBoxSearch.DefaultText = "";
             textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -327,22 +411,9 @@ namespace PleasePleasePlease
             textBoxSearch.PasswordChar = '\0';
             textBoxSearch.PlaceholderText = "Search";
             textBoxSearch.SelectedText = "";
-            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges6;
             textBoxSearch.Size = new Size(524, 36);
             textBoxSearch.TabIndex = 27;
-            // 
-            // buttonSaveEditRooms
-            // 
-            buttonSaveEditRooms.BackgroundImage = (Image)resources.GetObject("buttonSaveEditRooms.BackgroundImage");
-            buttonSaveEditRooms.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonSaveEditRooms.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSaveEditRooms.Location = new Point(668, 14);
-            buttonSaveEditRooms.Name = "buttonSaveEditRooms";
-            buttonSaveEditRooms.Size = new Size(28, 27);
-            buttonSaveEditRooms.TabIndex = 26;
-            buttonSaveEditRooms.UseVisualStyleBackColor = true;
-            buttonSaveEditRooms.Visible = false;
-            buttonSaveEditRooms.Click += buttonSaveEditRooms_Click;
             // 
             // buttonMore
             // 
@@ -361,7 +432,7 @@ namespace PleasePleasePlease
             buttonExitEditRooms.BackgroundImage = (Image)resources.GetObject("buttonExitEditRooms.BackgroundImage");
             buttonExitEditRooms.BackgroundImageLayout = ImageLayout.Zoom;
             buttonExitEditRooms.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonExitEditRooms.Location = new Point(634, 14);
+            buttonExitEditRooms.Location = new Point(668, 14);
             buttonExitEditRooms.Name = "buttonExitEditRooms";
             buttonExitEditRooms.Size = new Size(28, 27);
             buttonExitEditRooms.TabIndex = 25;
@@ -505,7 +576,7 @@ namespace PleasePleasePlease
             comboBoxRoomBedType.AutoRoundedCorners = true;
             comboBoxRoomBedType.BackColor = Color.Transparent;
             comboBoxRoomBedType.BorderRadius = 17;
-            comboBoxRoomBedType.CustomizableEdges = customizableEdges3;
+            comboBoxRoomBedType.CustomizableEdges = customizableEdges7;
             comboBoxRoomBedType.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxRoomBedType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRoomBedType.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -515,7 +586,7 @@ namespace PleasePleasePlease
             comboBoxRoomBedType.ItemHeight = 30;
             comboBoxRoomBedType.Location = new Point(9, 31);
             comboBoxRoomBedType.Name = "comboBoxRoomBedType";
-            comboBoxRoomBedType.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            comboBoxRoomBedType.ShadowDecoration.CustomizableEdges = customizableEdges8;
             comboBoxRoomBedType.Size = new Size(204, 36);
             comboBoxRoomBedType.TabIndex = 9;
             // 
@@ -535,7 +606,7 @@ namespace PleasePleasePlease
             GradButtonAddRoom.AutoRoundedCorners = true;
             GradButtonAddRoom.BackColor = Color.Transparent;
             GradButtonAddRoom.BorderRadius = 29;
-            GradButtonAddRoom.CustomizableEdges = customizableEdges5;
+            GradButtonAddRoom.CustomizableEdges = customizableEdges9;
             GradButtonAddRoom.DisabledState.BorderColor = Color.DarkGray;
             GradButtonAddRoom.DisabledState.CustomBorderColor = Color.DarkGray;
             GradButtonAddRoom.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -547,7 +618,7 @@ namespace PleasePleasePlease
             GradButtonAddRoom.ForeColor = Color.White;
             GradButtonAddRoom.Location = new Point(714, 467);
             GradButtonAddRoom.Name = "GradButtonAddRoom";
-            GradButtonAddRoom.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            GradButtonAddRoom.ShadowDecoration.CustomizableEdges = customizableEdges10;
             GradButtonAddRoom.Size = new Size(201, 61);
             GradButtonAddRoom.TabIndex = 28;
             GradButtonAddRoom.Text = "Add Room";
@@ -566,7 +637,7 @@ namespace PleasePleasePlease
             // 
             textBoxMaxCapacity.AutoRoundedCorners = true;
             textBoxMaxCapacity.BorderRadius = 15;
-            textBoxMaxCapacity.CustomizableEdges = customizableEdges7;
+            textBoxMaxCapacity.CustomizableEdges = customizableEdges11;
             textBoxMaxCapacity.DefaultText = "";
             textBoxMaxCapacity.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxMaxCapacity.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -581,7 +652,7 @@ namespace PleasePleasePlease
             textBoxMaxCapacity.PasswordChar = '\0';
             textBoxMaxCapacity.PlaceholderText = "";
             textBoxMaxCapacity.SelectedText = "";
-            textBoxMaxCapacity.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            textBoxMaxCapacity.ShadowDecoration.CustomizableEdges = customizableEdges12;
             textBoxMaxCapacity.Size = new Size(204, 33);
             textBoxMaxCapacity.TabIndex = 15;
             // 
@@ -608,7 +679,7 @@ namespace PleasePleasePlease
             // 
             textBoxFloorNo.AutoRoundedCorners = true;
             textBoxFloorNo.BorderRadius = 15;
-            textBoxFloorNo.CustomizableEdges = customizableEdges9;
+            textBoxFloorNo.CustomizableEdges = customizableEdges13;
             textBoxFloorNo.DefaultText = "";
             textBoxFloorNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxFloorNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -623,7 +694,7 @@ namespace PleasePleasePlease
             textBoxFloorNo.PasswordChar = '\0';
             textBoxFloorNo.PlaceholderText = "";
             textBoxFloorNo.SelectedText = "";
-            textBoxFloorNo.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            textBoxFloorNo.ShadowDecoration.CustomizableEdges = customizableEdges14;
             textBoxFloorNo.Size = new Size(204, 33);
             textBoxFloorNo.TabIndex = 14;
             // 
@@ -650,7 +721,7 @@ namespace PleasePleasePlease
             // 
             textBoxRoomRate.AutoRoundedCorners = true;
             textBoxRoomRate.BorderRadius = 15;
-            textBoxRoomRate.CustomizableEdges = customizableEdges11;
+            textBoxRoomRate.CustomizableEdges = customizableEdges15;
             textBoxRoomRate.DefaultText = "";
             textBoxRoomRate.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxRoomRate.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -665,7 +736,7 @@ namespace PleasePleasePlease
             textBoxRoomRate.PasswordChar = '\0';
             textBoxRoomRate.PlaceholderText = "";
             textBoxRoomRate.SelectedText = "";
-            textBoxRoomRate.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            textBoxRoomRate.ShadowDecoration.CustomizableEdges = customizableEdges16;
             textBoxRoomRate.Size = new Size(204, 33);
             textBoxRoomRate.TabIndex = 14;
             // 
@@ -693,7 +764,7 @@ namespace PleasePleasePlease
             comboBoxRoomStatus.AutoRoundedCorners = true;
             comboBoxRoomStatus.BackColor = Color.Transparent;
             comboBoxRoomStatus.BorderRadius = 17;
-            comboBoxRoomStatus.CustomizableEdges = customizableEdges13;
+            comboBoxRoomStatus.CustomizableEdges = customizableEdges17;
             comboBoxRoomStatus.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxRoomStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRoomStatus.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -703,7 +774,7 @@ namespace PleasePleasePlease
             comboBoxRoomStatus.ItemHeight = 30;
             comboBoxRoomStatus.Location = new Point(9, 31);
             comboBoxRoomStatus.Name = "comboBoxRoomStatus";
-            comboBoxRoomStatus.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            comboBoxRoomStatus.ShadowDecoration.CustomizableEdges = customizableEdges18;
             comboBoxRoomStatus.Size = new Size(204, 36);
             comboBoxRoomStatus.TabIndex = 9;
             // 
@@ -749,7 +820,7 @@ namespace PleasePleasePlease
             comboBoxRoomType.AutoRoundedCorners = true;
             comboBoxRoomType.BackColor = Color.Transparent;
             comboBoxRoomType.BorderRadius = 17;
-            comboBoxRoomType.CustomizableEdges = customizableEdges15;
+            comboBoxRoomType.CustomizableEdges = customizableEdges19;
             comboBoxRoomType.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxRoomType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRoomType.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -759,7 +830,7 @@ namespace PleasePleasePlease
             comboBoxRoomType.ItemHeight = 30;
             comboBoxRoomType.Location = new Point(9, 32);
             comboBoxRoomType.Name = "comboBoxRoomType";
-            comboBoxRoomType.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            comboBoxRoomType.ShadowDecoration.CustomizableEdges = customizableEdges20;
             comboBoxRoomType.Size = new Size(204, 36);
             comboBoxRoomType.TabIndex = 8;
             comboBoxRoomType.SelectedIndexChanged += comboBoxRoomType_SelectedIndexChanged;
@@ -787,7 +858,7 @@ namespace PleasePleasePlease
             // 
             textBoxRoomNo.AutoRoundedCorners = true;
             textBoxRoomNo.BorderRadius = 15;
-            textBoxRoomNo.CustomizableEdges = customizableEdges17;
+            textBoxRoomNo.CustomizableEdges = customizableEdges21;
             textBoxRoomNo.DefaultText = "";
             textBoxRoomNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxRoomNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -802,7 +873,7 @@ namespace PleasePleasePlease
             textBoxRoomNo.PasswordChar = '\0';
             textBoxRoomNo.PlaceholderText = "";
             textBoxRoomNo.SelectedText = "";
-            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges22;
             textBoxRoomNo.Size = new Size(204, 33);
             textBoxRoomNo.TabIndex = 13;
             // 
@@ -911,8 +982,6 @@ namespace PleasePleasePlease
         private Panel panelSearch;
         private Button buttonMore;
         private Button buttonSearchIcon;
-        private Button buttonSaveEditRooms;
-        private Button buttonExitEditRooms;
         private Button buttonEditRooms;
         private Panel panel3;
         private Label label6;
@@ -934,5 +1003,10 @@ namespace PleasePleasePlease
         private BindingSource roomBindingSource;
         private BindingSource standardRoomBindingSource;
         private BindingSource deluxeRoomBindingSource;
+        private Guna.UI2.WinForms.Guna2GradientButton ButtonImportRooms;
+        private Button buttonExitEditRooms;
+        private Button ExportButton;
+        private Button ImportButton;
+        private Guna.UI2.WinForms.Guna2GradientButton ButtonExportRooms;
     }
 }

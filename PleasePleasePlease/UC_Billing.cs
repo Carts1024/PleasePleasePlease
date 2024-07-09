@@ -40,16 +40,14 @@ namespace PleasePleasePlease
         {
             buttonSaveEditBillings.Visible = true;
             buttonExitEditBillings.Visible = true;
-            ColumnDueDate.ReadOnly = false;
-            ColumnPaymentStatus.ReadOnly = false;
+
         }
 
         private void buttonExitEditBookings_Click(object sender, EventArgs e)
         {
             buttonSaveEditBillings.Visible = false;
             buttonExitEditBillings.Visible = false;
-            ColumnDueDate.ReadOnly = true;
-            ColumnPaymentStatus.ReadOnly = true;
+
         }
 
         private void buttonSaveEditBillings_Click(object sender, EventArgs e)
@@ -58,8 +56,6 @@ namespace PleasePleasePlease
 
             buttonSaveEditBillings.Visible = false;
             buttonExitEditBillings.Visible = false;
-            ColumnDueDate.ReadOnly = true;
-            ColumnPaymentStatus.ReadOnly = true;
             Dialogue_BillingUpdated billUpdated = new Dialogue_BillingUpdated();
             billUpdated.Show();
         }

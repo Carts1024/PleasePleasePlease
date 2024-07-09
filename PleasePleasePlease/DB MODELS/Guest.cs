@@ -34,8 +34,8 @@ namespace Mirai_Paradise_Hotel
         [Name("City Address")]
         public string CityAddress { get; set; }
 
-        [Name("Zipcode")]
-        public string Zipcode { get; set; }
+        [Name("State Address")]
+        public string StateAddress { get; set; }
 
         [Name("Phone Number")]
         public string PhoneNumber { get; set; }
@@ -46,7 +46,7 @@ namespace Mirai_Paradise_Hotel
         [Name("Nationality")]
         public string Nationality { get; set; }
 
-        public virtual ObservableCollectionListSource<Booking> Bookings { get; } = new();
+        public virtual ICollection<Booking> Bookings { get; set; }
 
     }
 }

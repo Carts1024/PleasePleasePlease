@@ -7,11 +7,11 @@ namespace Mirai_Paradise_Hotel
 {
     public class Room
     {
-        [Name("Index")]                        // CSVHelper attribute: maps "Index" column to this property
+        [Name("Index")]                        
         public int Index { get; set; }
 
-        [Key, Name("Room Number")]                 // DataAnnotations attribute: specifies this property as the key
-        public int RoomNumber { get; set; }     // Property for storing User ID}
+        [Key, Name("Room Number")]                 
+        public int RoomNumber { get; set; }     
 
         [Name("Room Status")]
         public string RoomStatus { get; set; }
@@ -25,13 +25,14 @@ namespace Mirai_Paradise_Hotel
         [Name("Floor Number")]
         public int FloorNumber { get; set; }
 
-        public virtual ObservableCollectionListSource<Booking> Bookingss { get; } = new();
+        public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
     }
 
     public class StandardRoom : Room
     {
         [Name("Bed Type")]
         public string BedType { get; set; }
+
         [Name("Capacity")]
         public int Capacity { get; set; }
     }

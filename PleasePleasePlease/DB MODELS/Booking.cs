@@ -1,16 +1,17 @@
-﻿using CsvHelper.Configuration.Attributes;   // Using CsvHelper attributes for CSV mapping
+﻿using CsvHelper.Configuration.Attributes;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema; // Using DataAnnotations for data validation
+using System;
+using CsvHelper.Configuration;
 
 namespace Mirai_Paradise_Hotel
 {
     public class Booking
     {
-        [Name("Index")]                        // CSVHelper attribute: maps "Index" column to this property
-        public int Index { get; set; }         // Property for storing Index
+        [Name("Index")]
+        public int Index { get; set; }
 
-        [Key, Name("Booking Id")]                 // DataAnnotations attribute: specifies this property as the key
-        public Guid BookingID { get; set; }     // Property for storing User ID
+        [Key, Name("Booking Id")]
+        public int BookingID { get; set; }
 
         [Name("Check In Date")]
         public DateTime CheckInDate { get; set; }
@@ -30,9 +31,23 @@ namespace Mirai_Paradise_Hotel
         [Name("Room Number")]
         public int RoomNumber { get; set; }
 
-        [ForeignKey("GuestID")]
-        public virtual Guest Guest{ get; set; } = null!;
-        [ForeignKey("RoomNumber")]
+        public virtual Guest Guest { get; set; } = null!;
         public virtual Room Room { get; set; } = null!;
     }
+
+    public class BookingMap : ClassMap<Booking>
+    {
+        public BookingMap()
+        {
+            Map(m => m.Index).Name("Index");
+            Map(m => m.BookingID).Name("Booking Id");
+            Map(m => m.CheckInDate).Name("Check In Date");
+            Map(m => m.CheckInTime).Name("Check In Time");
+            Map(m => m.CheckOutDate).Name("Check Out Date");
+            Map(m => m.CheckOutTime).Name("Check Out Time");
+            Map(m => m.GuestID).Name("Guest Id");
+            Map(m => m.RoomNumber).Name("Room Number");
+        }
+    }
+
 }

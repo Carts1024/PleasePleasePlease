@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +14,67 @@ namespace Mirai_Paradise_Hotel
 {
     public partial class Booking_Update : Form
     {
-        public Booking_Update()
+        private Booking _booking;
+
+        public Booking_Update(Booking booking)
         {
             InitializeComponent();
+            _booking = booking;
+            PopulateBookingDetails();
         }
-
-        private void Booking_Update_Load(object sender, EventArgs e)
+        private void GradButtonAddRoom_Click(object sender, EventArgs e)
         {
-
+            UpdateRoom();
         }
+        private void PopulateBookingDetails()
+        {
+            if (_booking != null)
+            {
+                textBoxRoomNo.Text = _booking.RoomNumber.ToString();
+                GuestNameTxtBox.Text = $"{_booking.Guest.FirstName} {_booking.Guest.LastName}";
+                GuestNameTxtBox.ReadOnly = true ;
+                dateTimePickerCheckout.Value = _booking.CheckOutDate;
+                dateTimePicker1CheckOutTime.Value = DateTime.Today.Add(_booking.CheckOutTime);
+            }
+        }
+        private void UpdateRoom()
+        {
+            try
+            {
+                using (var context = new DataContext())
+                {
+                    var bookingToUpdate = context.Bookings.Include(b => b.Guest).FirstOrDefault(b => b.BookingID == _booking.BookingID);
+                    if (bookingToUpdate != null)
+                    {
+                        bookingToUpdate.RoomNumber = int.Parse(textBoxRoomNo.Text);
+                        bookingToUpdate.CheckOutDate = dateTimePickerCheckout.Value.Date;
+                        bookingToUpdate.CheckOutTime = dateTimePicker1CheckOutTime.Value.TimeOfDay;
 
-
+                        context.SaveChanges();
+                        var BookingUpdated = new Dialogue_BookingUpdated();
+                        BookingUpdated.ShowDialog();
+                        // Update the local _booking object
+                        _booking.RoomNumber = bookingToUpdate.RoomNumber;
+                        _booking.CheckInDate = bookingToUpdate.CheckInDate;
+                        _booking.CheckInTime = bookingToUpdate.CheckInTime;
+                        _booking.CheckOutDate = bookingToUpdate.CheckOutDate;
+                        _booking.CheckOutTime = bookingToUpdate.CheckOutTime;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Booking not found.");
+                    }
+                }
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is SqliteException sqliteEx && sqliteEx.SqliteErrorCode == 19)
+            {
+                MessageBox.Show("Failed to update booking. The room number or guest information may be invalid. Please ensure all information is correct.", "Foreign Key Constraint Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

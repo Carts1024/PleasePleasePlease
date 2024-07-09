@@ -102,7 +102,7 @@ namespace Mirai_Paradise_Hotel
             buttonAccounts.Click += buttonSettings_Click;
             var currentUser = UserSession.CurrentUser;
             // Disable the settings button if the user is a manager
-            if (currentUser.AccountType == "Administator")
+            if (currentUser.AccountType == "Administrator")
             {
                 buttonAccounts.Visible = true;
                 buttonAnalytics.Visible = true;

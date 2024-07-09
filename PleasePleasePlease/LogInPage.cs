@@ -17,7 +17,7 @@ namespace Mirai_Paradise_Hotel
             // Initialize the database context
             DatabaseFacade facade = new DatabaseFacade(new DataContext());
             // Uncomment to ensure the database is deleted and recreated on every load
-            facade.EnsureDeleted();
+            //facade.EnsureDeleted();
             facade.EnsureCreated();
         }
 

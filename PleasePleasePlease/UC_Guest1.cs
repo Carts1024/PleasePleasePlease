@@ -1,7 +1,12 @@
-﻿using Mirai_Paradise_Hotel;
-using Practice;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.TypeConversion;
+using Microsoft.EntityFrameworkCore;
+using Mirai_Paradise_Hotel;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,6 +19,8 @@ namespace PleasePleasePlease
         private Random random;
         private Dashboard _dashboard;
         public List<Guest> DataBaseGuests { get; private set; }
+        private bool EditPressed = false; // Flag to check if edit mode is enabled
+        private GuestUpdateForm _guestUpdateForm;
 
         public UC_Guest1(Dashboard dashboard, Panel parentPanel)
         {
@@ -28,7 +35,7 @@ namespace PleasePleasePlease
             dataGridViewGuests.AllowUserToDeleteRows = false;
 
             dataGridViewGuests.CellFormatting += dataGridViewGuests_CellFormatting;
-            dataGridViewGuests.CellDoubleClick += dataGridViewGuests_CellContentDoubleClick;
+            dataGridViewGuests.CellDoubleClick += dataGridViewGuests_CellDoubleClick;
         }
 
         private void LoadUserControl(UserControl userControl)
@@ -39,14 +46,50 @@ namespace PleasePleasePlease
             userControl.BringToFront();
         }
 
-        private void dataGridViewGuests_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewGuests_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                var selectedGuest = dataGridViewGuests.Rows[e.RowIndex].DataBoundItem as Guest;
-                _dashboard.SetSelectedGuest(selectedGuest);
-                _dashboard.ActivateBookingButton();
-                LoadUserControl(new UC_Booking1(selectedGuest));
+                if (EditPressed)
+                {
+                    if (_guestUpdateForm == null || _guestUpdateForm.IsDisposed) // Check if the form is already open
+                    {
+                        // Fetch the selected guest from the DataGridView
+                        var selectedGuest = dataGridViewGuests.Rows[e.RowIndex].DataBoundItem as Guest;
+
+                        if (selectedGuest != null)
+                        {
+                            // Open a form to update the guest details
+                            _guestUpdateForm = new GuestUpdateForm(selectedGuest); // Ensure GuestUpdateForm is a form for updating guest details
+                            _guestUpdateForm.FormClosed += (s, args) =>
+                            {
+                                _guestUpdateForm = null; // Reset the form instance when closed
+                                LoadData();
+
+                            };
+                            _guestUpdateForm.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to retrieve guest information. Please try again.");
+                        }
+                    }
+                }
+                else
+                {
+                    var selectedGuest = dataGridViewGuests.Rows[e.RowIndex].DataBoundItem as Guest;
+
+                    if (selectedGuest != null)
+                    {
+                        _dashboard.SetSelectedGuest(selectedGuest);
+                        _dashboard.ActivateBookingButton();
+                        LoadUserControl(new UC_Booking1(selectedGuest));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to retrieve guest information. Please try again.");
+                    }
+                }
             }
         }
 
@@ -58,15 +101,18 @@ namespace PleasePleasePlease
 
         private void labelListofGuest_Click(object sender, EventArgs e)
         {
-            panelListofGuest.Visible = true;
-            panelListOfGuests2.Visible = true;
             panelAddGuest2.Visible = true;
+            panelAddaGuest.Visible = false;
+            panelADD.Visible = false;
+            panelListofGuest.Visible = false;
+            PanelAddGuestFILL.Visible = true;
         }
 
         private void labelAddGuest_Click(object sender, EventArgs e)
         {
+            panelListofGuest.Visible = true;
+            panelADD.Visible = true;
             panelAddGuest2.Visible = false;
-            panelListOfGuests2.Visible = false;
         }
 
         private void buttonAddGuest_Click(object sender, EventArgs e)
@@ -87,24 +133,31 @@ namespace PleasePleasePlease
 
         private void buttonEditGuest_Click(object sender, EventArgs e)
         {
-            buttonSaveEditGuest.Visible = true;
+            EditPressed = true; // Set the flag to true when edit button is clicked
+            Console.WriteLine($"Edit mode enabled: {EditPressed}"); // Debugging statement
             buttonExitEditGuest.Visible = true;
-            ColumnLastName.ReadOnly = false;
-            ColumnFirstName.ReadOnly = false;
-            ColumnMI.ReadOnly = false;
-            ColumnGender.ReadOnly = false;
-            ColumnBirthDate.ReadOnly = false;
-            ColumnCity.ReadOnly = false;
-            ColumnStreet.ReadOnly = false;
-            ColumnNationality.ReadOnly = false;
-            ColumnEmail.ReadOnly = false;
-            ColumnPhoneNumber.ReadOnly = false;
-            ColumnAge.ReadOnly = false;
+        }
+
+        private void ImportButton_Click(object sender, EventArgs e)
+        {
+            ExportButton.Visible = true;
+            ImportButton.Visible = false;
+            ButtonImportRecords.Visible = true;
+            ButtonExportRecords.Visible = false;
+        }
+
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            ExportButton.Visible = false;
+            ImportButton.Visible = true;
+            ButtonImportRecords.Visible = false;
+            ButtonExportRecords.Visible = true;
         }
 
         private void buttonExitEditGuest_Click(object sender, EventArgs e)
         {
-            buttonSaveEditGuest.Visible = false;
+            EditPressed = false; // Reset the flag when exiting edit mode
+            Console.WriteLine($"Edit mode disabled: {EditPressed}"); // Debugging statement
             buttonExitEditGuest.Visible = false;
             ColumnLastName.ReadOnly = true;
             ColumnFirstName.ReadOnly = true;
@@ -123,7 +176,6 @@ namespace PleasePleasePlease
         {
             // Alter Information in Database and Save code starts here
 
-            buttonSaveEditGuest.Visible = false;
             buttonExitEditGuest.Visible = false;
             ColumnLastName.ReadOnly = true;
             ColumnFirstName.ReadOnly = true;
@@ -147,9 +199,11 @@ namespace PleasePleasePlease
 
         private void label3_Click(object sender, EventArgs e)
         {
-            panelListofGuest.Visible = false;
+            PanelAddGuestFILL.Visible = false;
+            panelAddaGuest.Visible = true;
+            panelListofGuest.Visible = true;
             panelAddGuest2.Visible = false;
-            panelListOfGuests2.Visible = false;
+            panelADD.Visible = false;
         }
 
         private void LoadData()
@@ -159,6 +213,7 @@ namespace PleasePleasePlease
                 DataBaseGuests = context.Guests.OrderBy(u => u.Index).ToList();
                 dataGridViewGuests.DataSource = null;
                 dataGridViewGuests.DataSource = DataBaseGuests;
+                ColumnBirthDate.Visible = false;
 
                 foreach (DataGridViewRow row in dataGridViewGuests.Rows)
                 {
@@ -211,18 +266,20 @@ namespace PleasePleasePlease
                 var Nationality = textBoxNationality.Text;
                 var CityAddress = textBoxCity.Text;
                 var StateAddress = textBoxState.Text;
-                var Zipcode = textBoxZipcode.Text;
+                var StreetAddress = textBoxStreet.Text;
                 var Email = textBoxEmail.Text;
                 var Contact = textBoxContactNo.Text;
 
                 if (!string.IsNullOrEmpty(LastName) && !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(MiddleInitial)
                      && !string.IsNullOrEmpty(Gender) && !string.IsNullOrEmpty(Nationality)
-                     && !string.IsNullOrEmpty(CityAddress) && !string.IsNullOrEmpty(StateAddress) && !string.IsNullOrEmpty(Zipcode)
+                     && !string.IsNullOrEmpty(CityAddress) && !string.IsNullOrEmpty(StateAddress) && !string.IsNullOrEmpty(StreetAddress)
                      && !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Contact))
                 {
                     // Create a new Guest object and add it to the database
+                    int nextIndex = context.Guests.Any() ? context.Guests.Max(b => b.Index) + 1 : 1;
                     var newGuest = new Guest()
                     {
+                        Index = nextIndex,
                         LastName = LastName,
                         FirstName = FirstName,
                         MiddleInitial = MiddleInitial,
@@ -231,7 +288,7 @@ namespace PleasePleasePlease
                         Nationality = Nationality,
                         CityAddress = CityAddress,
                         StreetAddress = StateAddress,
-                        Zipcode = Zipcode,
+                        StateAddress = StreetAddress,
                         Email = Email,
                         PhoneNumber = Contact,
                     };
@@ -247,22 +304,119 @@ namespace PleasePleasePlease
                     textBoxNationality.Clear();
                     textBoxCity.Clear();
                     textBoxState.Clear();
-                    textBoxZipcode.Clear();
+                    textBoxStreet.Clear();
                     textBoxEmail.Clear();
                     textBoxContactNo.Clear();
 
+                    // Reload Data
+                    LoadData();
+                    panelAddaGuest.Visible = false;
                     Dialogue_GuestAdded guestAdded = new Dialogue_GuestAdded();
                     guestAdded.Show();
-                    LoadData();
                 }
-                else
+            }
+        }
+
+        private void ButtonImportRecords_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = dialog.FileName;
+                using (var reader = new StreamReader(filePath))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
-                    MessageBox.Show("Please fill in all required fields.");
+                    var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        PrepareHeaderForMatch = args => args.Header.ToLower(),
+                    };
+                    csv.Context.TypeConverterCache.AddConverter<DateTime>(new CustomDateTimeConverter());
+
+                    var records = csv.GetRecords<Guest>().ToList();
+
+                    using (DataContext context = new DataContext())
+                    {
+                        foreach (var record in records)
+                        {
+                            // Check if a guest with the same GuestID or unique fields already exists
+                            var existingGuest = context.Guests
+                                .FirstOrDefault(g => g.GuestID == record.GuestID ||
+                                                     (g.FirstName == record.FirstName &&
+                                                      g.LastName == record.LastName &&
+                                                      g.BirthDate == record.BirthDate &&
+                                                      g.Email == record.Email));
+
+                            if (existingGuest != null)
+                            {
+                                // Update existing guest
+                                existingGuest.LastName = record.LastName;
+                                existingGuest.FirstName = record.FirstName;
+                                existingGuest.MiddleInitial = record.MiddleInitial;
+                                existingGuest.BirthDate = record.BirthDate;
+                                existingGuest.Gender = record.Gender;
+                                existingGuest.Nationality = record.Nationality;
+                                existingGuest.CityAddress = record.CityAddress;
+                                existingGuest.StateAddress = record.StateAddress;
+                                existingGuest.StreetAddress = record.StreetAddress;
+                                existingGuest.Email = record.Email;
+                                existingGuest.PhoneNumber = record.PhoneNumber;
+                            }
+                            else
+                            {
+                                // Add new guest
+                                context.Guests.Add(record);
+                            }
+                        }
+                        context.SaveChanges();
+                    }
+
+                    LoadData();
                 }
             }
         }
 
 
+        private class CustomDateTimeConverter : DateTimeConverter
+        {
+            private readonly string[] formats = { "dd/MM/yyyy", "MM/dd/yyyy", "yyyy-MM-dd" };
+
+            public override object ConvertFromString(string text, IReaderRow row, MemberMapData memberMapData)
+            {
+                foreach (var format in formats)
+                {
+                    if (DateTime.TryParseExact(text, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out var date))
+                    {
+                        return date;
+                    }
+                }
+                return base.ConvertFromString(text, row, memberMapData);
+            }
+        }
+
+        private void ButtonExportRecords_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveDialog.FileName; // Get the selected file path
+
+                using (var writer = new StreamWriter(filePath))
+                using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    try
+                    {
+                        csvWriter.WriteRecords(DataBaseGuests);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error writing CSV file: " + ex.Message);
+                    }
+                }
+            }
+        }
     }
 }
-

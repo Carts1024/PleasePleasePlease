@@ -102,28 +102,18 @@
             label12 = new Label();
             panelListofGuest = new Panel();
             dataGridViewGuests = new Guna.UI2.WinForms.Guna2DataGridView();
-            ColumnFirstName = new DataGridViewTextBoxColumn();
-            ColumnLastName = new DataGridViewTextBoxColumn();
-            ColumnMI = new DataGridViewTextBoxColumn();
-            ColumnAge = new DataGridViewTextBoxColumn();
-            ColumnBirthDate = new DataGridViewTextBoxColumn();
-            ColumnGender = new DataGridViewTextBoxColumn();
-            ColumnStreet = new DataGridViewTextBoxColumn();
-            ColumnCity = new DataGridViewTextBoxColumn();
-            StateAddress = new DataGridViewTextBoxColumn();
-            ColumnPhoneNumber = new DataGridViewTextBoxColumn();
-            ColumnEmail = new DataGridViewTextBoxColumn();
-            ColumnNationality = new DataGridViewTextBoxColumn();
             panelFilters = new Panel();
             comboBoxState = new ComboBox();
             comboBoxCity = new ComboBox();
             comboBoxNationality = new ComboBox();
             comboBoxFilterGender = new ComboBox();
             panel16 = new Panel();
+            buttonExitEditDelete = new Button();
+            buttonDelete = new Button();
             ExportButton = new Button();
             ImportButton = new Button();
-            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             buttonExitEditGuest = new Button();
+            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             buttonEditGuest = new Button();
             buttonMore = new Button();
             buttonSearch = new Button();
@@ -138,6 +128,18 @@
             label13 = new Label();
             panel9 = new Panel();
             ButtonExportRecords = new Guna.UI2.WinForms.Guna2GradientButton();
+            ColumnFirstName = new DataGridViewTextBoxColumn();
+            ColumnLastName = new DataGridViewTextBoxColumn();
+            ColumnMI = new DataGridViewTextBoxColumn();
+            ColumnAge = new DataGridViewTextBoxColumn();
+            ColumnBirthDate = new DataGridViewTextBoxColumn();
+            ColumnGender = new DataGridViewTextBoxColumn();
+            ColumnStreet = new DataGridViewTextBoxColumn();
+            ColumnCity = new DataGridViewTextBoxColumn();
+            StateAddress = new DataGridViewTextBoxColumn();
+            ColumnPhoneNumber = new DataGridViewTextBoxColumn();
+            ColumnEmail = new DataGridViewTextBoxColumn();
+            ColumnNationality = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)guestBindingSource).BeginInit();
             PanelAddGuestLight.SuspendLayout();
             panelAddaGuest.SuspendLayout();
@@ -762,87 +764,6 @@
             dataGridViewGuests.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewGuests.CellContentDoubleClick += dataGridViewGuests_CellDoubleClick;
             // 
-            // ColumnFirstName
-            // 
-            ColumnFirstName.DataPropertyName = "FirstName";
-            ColumnFirstName.HeaderText = "FirstName";
-            ColumnFirstName.MinimumWidth = 6;
-            ColumnFirstName.Name = "ColumnFirstName";
-            // 
-            // ColumnLastName
-            // 
-            ColumnLastName.DataPropertyName = "LastName";
-            ColumnLastName.HeaderText = "LastName";
-            ColumnLastName.MinimumWidth = 6;
-            ColumnLastName.Name = "ColumnLastName";
-            // 
-            // ColumnMI
-            // 
-            ColumnMI.DataPropertyName = "MiddleInitial";
-            ColumnMI.HeaderText = "M.I";
-            ColumnMI.MinimumWidth = 6;
-            ColumnMI.Name = "ColumnMI";
-            // 
-            // ColumnAge
-            // 
-            ColumnAge.HeaderText = "Age";
-            ColumnAge.MinimumWidth = 6;
-            ColumnAge.Name = "ColumnAge";
-            // 
-            // ColumnBirthDate
-            // 
-            ColumnBirthDate.DataPropertyName = "BirthDate";
-            ColumnBirthDate.HeaderText = "BirthDate";
-            ColumnBirthDate.Name = "ColumnBirthDate";
-            // 
-            // ColumnGender
-            // 
-            ColumnGender.DataPropertyName = "Gender";
-            ColumnGender.HeaderText = "Gender";
-            ColumnGender.MinimumWidth = 6;
-            ColumnGender.Name = "ColumnGender";
-            // 
-            // ColumnStreet
-            // 
-            ColumnStreet.DataPropertyName = "StreetAddress";
-            ColumnStreet.HeaderText = "Street";
-            ColumnStreet.MinimumWidth = 6;
-            ColumnStreet.Name = "ColumnStreet";
-            // 
-            // ColumnCity
-            // 
-            ColumnCity.DataPropertyName = "CityAddress";
-            ColumnCity.HeaderText = "City";
-            ColumnCity.MinimumWidth = 6;
-            ColumnCity.Name = "ColumnCity";
-            // 
-            // StateAddress
-            // 
-            StateAddress.DataPropertyName = "StateAddress";
-            StateAddress.HeaderText = "State";
-            StateAddress.Name = "StateAddress";
-            // 
-            // ColumnPhoneNumber
-            // 
-            ColumnPhoneNumber.DataPropertyName = "PhoneNumber";
-            ColumnPhoneNumber.HeaderText = "PhoneNumber";
-            ColumnPhoneNumber.MinimumWidth = 6;
-            ColumnPhoneNumber.Name = "ColumnPhoneNumber";
-            // 
-            // ColumnEmail
-            // 
-            ColumnEmail.DataPropertyName = "Email";
-            ColumnEmail.HeaderText = "Email";
-            ColumnEmail.MinimumWidth = 6;
-            ColumnEmail.Name = "ColumnEmail";
-            // 
-            // ColumnNationality
-            // 
-            ColumnNationality.DataPropertyName = "Nationality";
-            ColumnNationality.HeaderText = "Nationality";
-            ColumnNationality.MinimumWidth = 6;
-            ColumnNationality.Name = "ColumnNationality";
-            // 
             // panelFilters
             // 
             panelFilters.Controls.Add(comboBoxState);
@@ -897,10 +818,12 @@
             // 
             // panel16
             // 
+            panel16.Controls.Add(buttonExitEditDelete);
+            panel16.Controls.Add(buttonDelete);
             panel16.Controls.Add(ExportButton);
             panel16.Controls.Add(ImportButton);
-            panel16.Controls.Add(textBoxSearch);
             panel16.Controls.Add(buttonExitEditGuest);
+            panel16.Controls.Add(textBoxSearch);
             panel16.Controls.Add(buttonEditGuest);
             panel16.Controls.Add(buttonMore);
             panel16.Controls.Add(buttonSearch);
@@ -909,12 +832,37 @@
             panel16.Size = new Size(701, 53);
             panel16.TabIndex = 13;
             // 
+            // buttonExitEditDelete
+            // 
+            buttonExitEditDelete.BackgroundImage = (Image)resources.GetObject("buttonExitEditDelete.BackgroundImage");
+            buttonExitEditDelete.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonExitEditDelete.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonExitEditDelete.Location = new Point(602, 11);
+            buttonExitEditDelete.Name = "buttonExitEditDelete";
+            buttonExitEditDelete.Size = new Size(28, 27);
+            buttonExitEditDelete.TabIndex = 24;
+            buttonExitEditDelete.UseVisualStyleBackColor = true;
+            buttonExitEditDelete.Visible = false;
+            buttonExitEditDelete.Click += buttonExitEditDelete_Click;
+            // 
+            // buttonDelete
+            // 
+            buttonDelete.BackgroundImage = (Image)resources.GetObject("buttonDelete.BackgroundImage");
+            buttonDelete.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonDelete.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonDelete.Location = new Point(602, 11);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(28, 27);
+            buttonDelete.TabIndex = 23;
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
+            // 
             // ExportButton
             // 
             ExportButton.BackgroundImage = (Image)resources.GetObject("ExportButton.BackgroundImage");
             ExportButton.BackgroundImageLayout = ImageLayout.Zoom;
             ExportButton.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ExportButton.Location = new Point(626, 12);
+            ExportButton.Location = new Point(636, 12);
             ExportButton.Name = "ExportButton";
             ExportButton.Size = new Size(28, 27);
             ExportButton.TabIndex = 22;
@@ -933,6 +881,19 @@
             ImportButton.UseVisualStyleBackColor = true;
             ImportButton.Visible = false;
             ImportButton.Click += ImportButton_Click;
+            // 
+            // buttonExitEditGuest
+            // 
+            buttonExitEditGuest.BackgroundImage = (Image)resources.GetObject("buttonExitEditGuest.BackgroundImage");
+            buttonExitEditGuest.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonExitEditGuest.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonExitEditGuest.Location = new Point(670, 12);
+            buttonExitEditGuest.Name = "buttonExitEditGuest";
+            buttonExitEditGuest.Size = new Size(28, 27);
+            buttonExitEditGuest.TabIndex = 6;
+            buttonExitEditGuest.UseVisualStyleBackColor = true;
+            buttonExitEditGuest.Visible = false;
+            buttonExitEditGuest.Click += buttonExitEditGuest_Click;
             // 
             // textBoxSearch
             // 
@@ -957,19 +918,6 @@
             textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges24;
             textBoxSearch.Size = new Size(524, 36);
             textBoxSearch.TabIndex = 20;
-            // 
-            // buttonExitEditGuest
-            // 
-            buttonExitEditGuest.BackgroundImage = (Image)resources.GetObject("buttonExitEditGuest.BackgroundImage");
-            buttonExitEditGuest.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonExitEditGuest.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonExitEditGuest.Location = new Point(670, 12);
-            buttonExitEditGuest.Name = "buttonExitEditGuest";
-            buttonExitEditGuest.Size = new Size(28, 27);
-            buttonExitEditGuest.TabIndex = 6;
-            buttonExitEditGuest.UseVisualStyleBackColor = true;
-            buttonExitEditGuest.Visible = false;
-            buttonExitEditGuest.Click += buttonExitEditGuest_Click;
             // 
             // buttonEditGuest
             // 
@@ -1155,6 +1103,87 @@
             ButtonExportRecords.Visible = false;
             ButtonExportRecords.Click += ButtonExportRecords_Click;
             // 
+            // ColumnFirstName
+            // 
+            ColumnFirstName.DataPropertyName = "FirstName";
+            ColumnFirstName.HeaderText = "FirstName";
+            ColumnFirstName.MinimumWidth = 6;
+            ColumnFirstName.Name = "ColumnFirstName";
+            // 
+            // ColumnLastName
+            // 
+            ColumnLastName.DataPropertyName = "LastName";
+            ColumnLastName.HeaderText = "LastName";
+            ColumnLastName.MinimumWidth = 6;
+            ColumnLastName.Name = "ColumnLastName";
+            // 
+            // ColumnMI
+            // 
+            ColumnMI.DataPropertyName = "MiddleInitial";
+            ColumnMI.HeaderText = "M.I";
+            ColumnMI.MinimumWidth = 6;
+            ColumnMI.Name = "ColumnMI";
+            // 
+            // ColumnAge
+            // 
+            ColumnAge.HeaderText = "Age";
+            ColumnAge.MinimumWidth = 6;
+            ColumnAge.Name = "ColumnAge";
+            // 
+            // ColumnBirthDate
+            // 
+            ColumnBirthDate.DataPropertyName = "BirthDate";
+            ColumnBirthDate.HeaderText = "BirthDate";
+            ColumnBirthDate.Name = "ColumnBirthDate";
+            // 
+            // ColumnGender
+            // 
+            ColumnGender.DataPropertyName = "Gender";
+            ColumnGender.HeaderText = "Gender";
+            ColumnGender.MinimumWidth = 6;
+            ColumnGender.Name = "ColumnGender";
+            // 
+            // ColumnStreet
+            // 
+            ColumnStreet.DataPropertyName = "StreetAddress";
+            ColumnStreet.HeaderText = "Street";
+            ColumnStreet.MinimumWidth = 6;
+            ColumnStreet.Name = "ColumnStreet";
+            // 
+            // ColumnCity
+            // 
+            ColumnCity.DataPropertyName = "CityAddress";
+            ColumnCity.HeaderText = "City";
+            ColumnCity.MinimumWidth = 6;
+            ColumnCity.Name = "ColumnCity";
+            // 
+            // StateAddress
+            // 
+            StateAddress.DataPropertyName = "StateAddress";
+            StateAddress.HeaderText = "State";
+            StateAddress.Name = "StateAddress";
+            // 
+            // ColumnPhoneNumber
+            // 
+            ColumnPhoneNumber.DataPropertyName = "PhoneNumber";
+            ColumnPhoneNumber.HeaderText = "PhoneNumber";
+            ColumnPhoneNumber.MinimumWidth = 6;
+            ColumnPhoneNumber.Name = "ColumnPhoneNumber";
+            // 
+            // ColumnEmail
+            // 
+            ColumnEmail.DataPropertyName = "Email";
+            ColumnEmail.HeaderText = "Email";
+            ColumnEmail.MinimumWidth = 6;
+            ColumnEmail.Name = "ColumnEmail";
+            // 
+            // ColumnNationality
+            // 
+            ColumnNationality.DataPropertyName = "Nationality";
+            ColumnNationality.HeaderText = "Nationality";
+            ColumnNationality.MinimumWidth = 6;
+            ColumnNationality.Name = "ColumnNationality";
+            // 
             // UC_Guest1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1264,6 +1293,11 @@
         private Panel panel5;
         private Label label13;
         private Panel panel9;
+        private Button ImportButton;
+        private Button ExportButton;
+        private Guna.UI2.WinForms.Guna2GradientButton ButtonExportRecords;
+        private Button buttonDelete;
+        private Button buttonExitEditDelete;
         private DataGridViewTextBoxColumn ColumnFirstName;
         private DataGridViewTextBoxColumn ColumnLastName;
         private DataGridViewTextBoxColumn ColumnMI;
@@ -1276,8 +1310,5 @@
         private DataGridViewTextBoxColumn ColumnPhoneNumber;
         private DataGridViewTextBoxColumn ColumnEmail;
         private DataGridViewTextBoxColumn ColumnNationality;
-        private Button ImportButton;
-        private Button ExportButton;
-        private Guna.UI2.WinForms.Guna2GradientButton ButtonExportRecords;
     }
 }

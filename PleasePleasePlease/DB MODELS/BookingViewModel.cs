@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvHelper.Configuration.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace Mirai_Paradise_Hotel.DB_MODELS
         public int RoomNumber { get; set; }
         public DateTime CheckOutDate { get; set; }
         public TimeSpan CheckOutTime { get; set; }
+        public string BookingStatus { get; set; }
+        public bool IsDeleted { get; set; } // Soft delete property
     }
 
 }

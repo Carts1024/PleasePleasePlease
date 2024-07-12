@@ -20,6 +20,7 @@ namespace PleasePleasePlease
         private Dashboard _dashboard;
         public List<Guest> DataBaseGuests { get; private set; }
         private bool EditPressed = false; // Flag to check if edit mode is enabled
+        private bool DeletePressed = false; // Flag to check if delete mode is enabled
         private GuestUpdateForm _guestUpdateForm;
 
         public UC_Guest1(Dashboard dashboard, Panel parentPanel)
@@ -65,7 +66,6 @@ namespace PleasePleasePlease
                             {
                                 _guestUpdateForm = null; // Reset the form instance when closed
                                 LoadData();
-
                             };
                             _guestUpdateForm.Show();
                         }
@@ -73,6 +73,59 @@ namespace PleasePleasePlease
                         {
                             MessageBox.Show("Failed to retrieve guest information. Please try again.");
                         }
+                    }
+                }
+                else if (DeletePressed)
+                {
+                    var selectedGuest = dataGridViewGuests.Rows[e.RowIndex].DataBoundItem as Guest;
+                    if (selectedGuest != null)
+                    {
+                        using (DataContext context = new DataContext())
+                        {
+                            var guest = context.Guests.Include(g => g.Bookings).FirstOrDefault(g => g.GuestID == selectedGuest.GuestID);
+
+                            if (guest != null)
+                            {
+                                // Check if the guest has any bookings with status "Check-In"
+                                var hasCurrentBooking = guest.Bookings.Any(b => b.BookingStatus == "Checked-In");
+                                if (hasCurrentBooking)
+                                {
+                                    MessageBox.Show("Cannot delete the guest because they have a current booking with status 'Checked-In'.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+
+                                // Confirm deletion
+                                var confirmResult = MessageBox.Show($"Are you sure you want to delete the guest {selectedGuest.FirstName} {selectedGuest.LastName}?",
+                                    "Confirm Delete", MessageBoxButtons.YesNo);
+                                if (confirmResult == DialogResult.Yes)
+                                {
+                                    try
+                                    {
+                                        guest.IsDeleted = true;  // Soft delete
+                                        context.SaveChanges();
+
+                                        // Reload data
+                                        LoadData();
+                                    }
+                                    catch (Microsoft.Data.Sqlite.SqliteException ex) when (ex.SqliteErrorCode == 19) // SQLite Error 19: 'FOREIGN KEY constraint failed'
+                                    {
+                                        MessageBox.Show("Cannot delete the guest because there are related bookings.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to retrieve guest information. Please try again.");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to retrieve guest information. Please try again.");
                     }
                 }
                 else
@@ -83,7 +136,7 @@ namespace PleasePleasePlease
                     {
                         _dashboard.SetSelectedGuest(selectedGuest);
                         _dashboard.ActivateBookingButton();
-                        LoadUserControl(new UC_Booking1(selectedGuest));
+                        LoadUserControl(new UC_Booking1(selectedGuest, _dashboard, parentPanel));
                     }
                     else
                     {
@@ -93,10 +146,13 @@ namespace PleasePleasePlease
             }
         }
 
+
+
+
         private void buttonAddBooking_Click(object sender, EventArgs e)
         {
             _dashboard.ClearSelectedGuest();
-            LoadUserControl(new UC_Booking1(null));
+            LoadUserControl(new UC_Booking1(null, _dashboard, parentPanel));
         }
 
         private void labelListofGuest_Click(object sender, EventArgs e)
@@ -124,6 +180,29 @@ namespace PleasePleasePlease
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             // Code for Search starts here
+            string searchTerm = textBoxSearch.Text.ToLower();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                var filteredGuests = DataBaseGuests.Where(g =>
+                    g.FirstName.ToLower().Contains(searchTerm) ||
+                    g.LastName.ToLower().Contains(searchTerm) ||
+                    g.MiddleInitial.ToLower().Contains(searchTerm) ||
+                    g.Gender.ToLower().Contains(searchTerm) ||
+                    g.StreetAddress.ToLower().Contains(searchTerm) ||
+                    g.CityAddress.ToLower().Contains(searchTerm) ||
+                    g.StateAddress.ToLower().Contains(searchTerm) ||
+                    g.PhoneNumber.ToLower().Contains(searchTerm) ||
+                    g.Email.ToLower().Contains(searchTerm) ||
+                    g.Nationality.ToLower().Contains(searchTerm)
+                ).ToList();
+
+                dataGridViewGuests.DataSource = filteredGuests;
+            }
+            else
+            {
+                LoadData(); // If the search term is empty, reload all data
+            }
         }
 
         private void buttonMore_Click(object sender, EventArgs e)
@@ -213,19 +292,14 @@ namespace PleasePleasePlease
                 DataBaseGuests = context.Guests.OrderBy(u => u.Index).ToList();
                 dataGridViewGuests.DataSource = null;
                 dataGridViewGuests.DataSource = DataBaseGuests;
-                ColumnBirthDate.Visible = false;
 
-                foreach (DataGridViewRow row in dataGridViewGuests.Rows)
-                {
-                    if (row.Cells["ColumnBirthDate"].Value != null)
-                    {
-                        DateTime birthDate = Convert.ToDateTime(row.Cells["ColumnBirthDate"].Value);
-                        int age = CalculateAge(birthDate);
-                        row.Cells["ColumnAge"].Value = age;
-                    }
-                }
+                // Load guests, excluding soft-deleted ones
+                var guests = context.Guests.Where(g => !g.IsDeleted).ToList();
+                dataGridViewGuests.DataSource = guests;
             }
         }
+
+
 
         private int CalculateAge(DateTime birthDate)
         {
@@ -362,6 +436,7 @@ namespace PleasePleasePlease
                                 existingGuest.StreetAddress = record.StreetAddress;
                                 existingGuest.Email = record.Email;
                                 existingGuest.PhoneNumber = record.PhoneNumber;
+                                existingGuest.IsDeleted = record.IsDeleted;
                             }
                             else
                             {
@@ -376,7 +451,6 @@ namespace PleasePleasePlease
                 }
             }
         }
-
 
         private class CustomDateTimeConverter : DateTimeConverter
         {
@@ -417,6 +491,20 @@ namespace PleasePleasePlease
                     }
                 }
             }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            DeletePressed = true; // Set the flag to true when delete button is clicked
+            Console.WriteLine($"Delete mode enabled: {DeletePressed}"); // Debugging statement
+            buttonExitEditDelete.Visible = true;
+        }
+
+        private void buttonExitEditDelete_Click(object sender, EventArgs e)
+        {
+            DeletePressed = false; // Reset the flag when exiting delete mode
+            Console.WriteLine($"Delete mode disabled: {DeletePressed}"); // Debugging statement
+            buttonExitEditDelete.Visible = false;
         }
     }
 }

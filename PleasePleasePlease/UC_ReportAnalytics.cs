@@ -1,21 +1,19 @@
-﻿using Mirai_Paradise_Hotel;
+﻿using Guna.Charts.WinForms;
+using Mirai_Paradise_Hotel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PleasePleasePlease
 {
     public partial class UC_ReportAnalytics : UserControl
     {
+        private GunaChart gunaChart;
+
         public UC_ReportAnalytics()
         {
             InitializeComponent();
+            loadata();
+            
         }
 
         private void ButtonGuestDemo_Click(object sender, EventArgs e)
@@ -27,6 +25,12 @@ namespace PleasePleasePlease
         private void label47_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void loadata()
+        {
+            gunaChart1.Datasets.Clear();
+            BasicExamples.SplineArea.Example(gunaChart1);
         }
     }
 }

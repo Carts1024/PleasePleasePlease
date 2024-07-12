@@ -7,11 +7,11 @@ namespace Mirai_Paradise_Hotel
 {
     public class Guest
     {
-        [Name("Index")]                        // CSVHelper attribute: maps "Index" column to this property
-        public int Index { get; set; }         // Property for storing Index
+        [Name("Index")]
+        public int Index { get; set; }
 
-        [Key, Name("Guest Id")]                 // DataAnnotations attribute: specifies this property as the key
-        public int GuestID { get; set; }     // Property for storing User ID
+        [Key, Name("Guest Id")]
+        public int GuestID { get; set; }
 
         [Name("First Name")]
         public string FirstName { get; set; }
@@ -46,7 +46,10 @@ namespace Mirai_Paradise_Hotel
         [Name("Nationality")]
         public string Nationality { get; set; }
 
+        [Name("Is Deleted")]
+        public bool IsDeleted { get; set; } // Soft delete property
         public virtual ICollection<Booking> Bookings { get; set; }
 
+        
     }
 }

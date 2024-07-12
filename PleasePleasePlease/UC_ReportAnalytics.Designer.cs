@@ -31,11 +31,36 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_ReportAnalytics));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.Charts.WinForms.ChartFont chartFont1 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont2 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont3 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont4 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid1 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick1 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont5 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid2 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick2 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont6 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid3 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel1 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont7 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
             panel3 = new Panel();
             ButtonGuestDemo = new Guna.UI2.WinForms.Guna2GradientButton();
+            panel32 = new Panel();
+            label61 = new Label();
+            panel33 = new Panel();
+            label100 = new Label();
+            label101 = new Label();
+            label102 = new Label();
             panel29 = new Panel();
+            ComboBoxRevenue = new Guna.UI2.WinForms.Guna2ComboBox();
             label83 = new Label();
             panel34 = new Panel();
+            gunaChart1 = new Guna.Charts.WinForms.GunaChart();
             label94 = new Label();
             panel7 = new Panel();
             label18 = new Label();
@@ -66,18 +91,13 @@
             Bookings = new Label();
             label3 = new Label();
             labelGuestInvoice = new Label();
-            gunaPieDataset1 = new Guna.Charts.WinForms.GunaPieDataset();
-            label102 = new Label();
-            label101 = new Label();
-            label100 = new Label();
-            panel33 = new Panel();
-            label61 = new Label();
-            panel32 = new Panel();
+            gunaSplineAreaDataset1 = new Guna.Charts.WinForms.GunaSplineAreaDataset();
             panel3.SuspendLayout();
+            panel32.SuspendLayout();
             panel29.SuspendLayout();
+            panel34.SuspendLayout();
             panel7.SuspendLayout();
             panelDailyDetails.SuspendLayout();
-            panel32.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -120,9 +140,76 @@
             ButtonGuestDemo.Text = "View Guest Demographics";
             ButtonGuestDemo.Click += ButtonGuestDemo_Click;
             // 
+            // panel32
+            // 
+            panel32.BackColor = Color.FromArgb(45, 106, 79);
+            panel32.Controls.Add(label61);
+            panel32.Controls.Add(panel33);
+            panel32.Controls.Add(label100);
+            panel32.Controls.Add(label101);
+            panel32.Controls.Add(label102);
+            panel32.Location = new Point(627, 297);
+            panel32.Name = "panel32";
+            panel32.Size = new Size(410, 374);
+            panel32.TabIndex = 27;
+            // 
+            // label61
+            // 
+            label61.AutoSize = true;
+            label61.Location = new Point(163, 35);
+            label61.Name = "label61";
+            label61.Size = new Size(120, 15);
+            label61.TabIndex = 21;
+            label61.Text = "[DOUGHNUT CHART]";
+            // 
+            // panel33
+            // 
+            panel33.BackColor = Color.FromArgb(82, 183, 136);
+            panel33.Location = new Point(27, 65);
+            panel33.Name = "panel33";
+            panel33.Size = new Size(358, 283);
+            panel33.TabIndex = 17;
+            // 
+            // label100
+            // 
+            label100.AutoSize = true;
+            label100.BackColor = Color.Transparent;
+            label100.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label100.ForeColor = Color.Black;
+            label100.Location = new Point(304, 8);
+            label100.Name = "label100";
+            label100.Size = new Size(84, 42);
+            label100.TabIndex = 20;
+            label100.Text = "71%";
+            // 
+            // label101
+            // 
+            label101.AutoSize = true;
+            label101.BackColor = Color.Transparent;
+            label101.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label101.ForeColor = Color.White;
+            label101.Location = new Point(17, 34);
+            label101.Name = "label101";
+            label101.Size = new Size(93, 16);
+            label101.TabIndex = 18;
+            label101.Text = "Current Month";
+            // 
+            // label102
+            // 
+            label102.AutoSize = true;
+            label102.BackColor = Color.Transparent;
+            label102.Font = new Font("SF Pro Display", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label102.ForeColor = Color.White;
+            label102.Location = new Point(17, 13);
+            label102.Name = "label102";
+            label102.Size = new Size(130, 19);
+            label102.TabIndex = 15;
+            label102.Text = "Occupancy Rate";
+            // 
             // panel29
             // 
             panel29.BackColor = Color.FromArgb(45, 106, 79);
+            panel29.Controls.Add(ComboBoxRevenue);
             panel29.Controls.Add(label83);
             panel29.Controls.Add(panel34);
             panel29.Controls.Add(label94);
@@ -131,10 +218,31 @@
             panel29.Size = new Size(553, 374);
             panel29.TabIndex = 23;
             // 
+            // ComboBoxRevenue
+            // 
+            ComboBoxRevenue.AutoRoundedCorners = true;
+            ComboBoxRevenue.BackColor = Color.Transparent;
+            ComboBoxRevenue.BorderColor = Color.Black;
+            ComboBoxRevenue.BorderRadius = 17;
+            ComboBoxRevenue.CustomizableEdges = customizableEdges3;
+            ComboBoxRevenue.DrawMode = DrawMode.OwnerDrawFixed;
+            ComboBoxRevenue.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxRevenue.FillColor = Color.FromArgb(82, 183, 136);
+            ComboBoxRevenue.FocusedColor = Color.FromArgb(94, 148, 255);
+            ComboBoxRevenue.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ComboBoxRevenue.Font = new Font("Segoe UI", 10F);
+            ComboBoxRevenue.ForeColor = Color.FromArgb(68, 88, 112);
+            ComboBoxRevenue.ItemHeight = 30;
+            ComboBoxRevenue.Location = new Point(417, 8);
+            ComboBoxRevenue.Name = "ComboBoxRevenue";
+            ComboBoxRevenue.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            ComboBoxRevenue.Size = new Size(95, 36);
+            ComboBoxRevenue.TabIndex = 21;
+            // 
             // label83
             // 
             label83.AutoSize = true;
-            label83.Location = new Point(196, 17);
+            label83.Location = new Point(95, 16);
             label83.Name = "label83";
             label83.Size = new Size(124, 15);
             label83.TabIndex = 20;
@@ -143,10 +251,46 @@
             // panel34
             // 
             panel34.BackColor = Color.FromArgb(82, 183, 136);
+            panel34.Controls.Add(gunaChart1);
             panel34.Location = new Point(27, 47);
             panel34.Name = "panel34";
             panel34.Size = new Size(501, 301);
             panel34.TabIndex = 16;
+            // 
+            // gunaChart1
+            // 
+            gunaChart1.BackColor = Color.FromArgb(82, 183, 136);
+            chartFont1.FontName = "Arial";
+            gunaChart1.Legend.LabelFont = chartFont1;
+            gunaChart1.Location = new Point(0, 0);
+            gunaChart1.Name = "gunaChart1";
+            gunaChart1.Size = new Size(501, 301);
+            gunaChart1.TabIndex = 0;
+            chartFont2.FontName = "Arial";
+            chartFont2.Size = 12;
+            chartFont2.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            gunaChart1.Title.Font = chartFont2;
+            chartFont3.FontName = "Arial";
+            gunaChart1.Tooltips.BodyFont = chartFont3;
+            chartFont4.FontName = "Arial";
+            chartFont4.Size = 9;
+            chartFont4.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            gunaChart1.Tooltips.TitleFont = chartFont4;
+            gunaChart1.XAxes.GridLines = grid1;
+            chartFont5.FontName = "Arial";
+            tick1.Font = chartFont5;
+            gunaChart1.XAxes.Ticks = tick1;
+            gunaChart1.YAxes.GridLines = grid2;
+            chartFont6.FontName = "Arial";
+            tick2.Font = chartFont6;
+            gunaChart1.YAxes.Ticks = tick2;
+            gunaChart1.ZAxes.GridLines = grid3;
+            chartFont7.FontName = "Arial";
+            pointLabel1.Font = chartFont7;
+            gunaChart1.ZAxes.PointLabels = pointLabel1;
+            chartFont8.FontName = "Arial";
+            tick3.Font = chartFont8;
+            gunaChart1.ZAxes.Ticks = tick3;
             // 
             // label94
             // 
@@ -156,9 +300,9 @@
             label94.ForeColor = Color.White;
             label94.Location = new Point(17, 13);
             label94.Name = "label94";
-            label94.Size = new Size(174, 19);
+            label94.Size = new Size(72, 19);
             label94.TabIndex = 15;
-            label94.Text = "Monthly Total Revenue";
+            label94.Text = "Revenue";
             // 
             // panel7
             // 
@@ -502,78 +646,11 @@
             labelGuestInvoice.TabIndex = 16;
             labelGuestInvoice.Text = "Reports Analytics";
             // 
-            // gunaPieDataset1
+            // gunaSplineAreaDataset1
             // 
-            gunaPieDataset1.BorderWidth = 10;
-            gunaPieDataset1.Label = "Pie1";
-            gunaPieDataset1.LegendBoxBorderColor = Color.FromArgb(255, 224, 192);
-            gunaPieDataset1.LegendBoxFillColor = Color.Red;
-            // 
-            // label102
-            // 
-            label102.AutoSize = true;
-            label102.BackColor = Color.Transparent;
-            label102.Font = new Font("SF Pro Display", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label102.ForeColor = Color.White;
-            label102.Location = new Point(17, 13);
-            label102.Name = "label102";
-            label102.Size = new Size(130, 19);
-            label102.TabIndex = 15;
-            label102.Text = "Occupancy Rate";
-            // 
-            // label101
-            // 
-            label101.AutoSize = true;
-            label101.BackColor = Color.Transparent;
-            label101.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label101.ForeColor = Color.White;
-            label101.Location = new Point(17, 34);
-            label101.Name = "label101";
-            label101.Size = new Size(93, 16);
-            label101.TabIndex = 18;
-            label101.Text = "Current Month";
-            // 
-            // label100
-            // 
-            label100.AutoSize = true;
-            label100.BackColor = Color.Transparent;
-            label100.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label100.ForeColor = Color.Black;
-            label100.Location = new Point(304, 8);
-            label100.Name = "label100";
-            label100.Size = new Size(84, 42);
-            label100.TabIndex = 20;
-            label100.Text = "71%";
-            // 
-            // panel33
-            // 
-            panel33.BackColor = Color.FromArgb(82, 183, 136);
-            panel33.Location = new Point(27, 65);
-            panel33.Name = "panel33";
-            panel33.Size = new Size(358, 283);
-            panel33.TabIndex = 17;
-            // 
-            // label61
-            // 
-            label61.AutoSize = true;
-            label61.Location = new Point(163, 35);
-            label61.Name = "label61";
-            label61.Size = new Size(120, 15);
-            label61.TabIndex = 21;
-            label61.Text = "[DOUGHNUT CHART]";
-            // 
-            // panel32
-            // 
-            panel32.BackColor = Color.FromArgb(45, 106, 79);
-            panel32.Controls.Add(label61);
-            panel32.Controls.Add(panel33);
-            panel32.Controls.Add(label100);
-            panel32.Controls.Add(label101);
-            panel32.Controls.Add(label102);
-            panel32.Location = new Point(627, 297);
-            panel32.Name = "panel32";
-            panel32.Size = new Size(410, 374);
-            panel32.TabIndex = 27;
+            gunaSplineAreaDataset1.BorderColor = Color.Empty;
+            gunaSplineAreaDataset1.FillColor = Color.Empty;
+            gunaSplineAreaDataset1.Label = "SplineArea1";
             // 
             // UC_ReportAnalytics
             // 
@@ -585,14 +662,15 @@
             Size = new Size(1128, 966);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel32.ResumeLayout(false);
+            panel32.PerformLayout();
             panel29.ResumeLayout(false);
             panel29.PerformLayout();
+            panel34.ResumeLayout(false);
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             panelDailyDetails.ResumeLayout(false);
             panelDailyDetails.PerformLayout();
-            panel32.ResumeLayout(false);
-            panel32.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -628,7 +706,6 @@
         private Panel panel8;
         private Label label5;
         private Label label7;
-        private Guna.Charts.WinForms.GunaPieDataset gunaPieDataset1;
         private Panel panel29;
         private Label label83;
         private Panel panel34;
@@ -640,5 +717,8 @@
         private Label label100;
         private Label label101;
         private Label label102;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboBoxRevenue;
+        private Guna.Charts.WinForms.GunaChart gunaChart1;
+        private Guna.Charts.WinForms.GunaSplineAreaDataset gunaSplineAreaDataset1;
     }
 }

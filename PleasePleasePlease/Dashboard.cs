@@ -23,6 +23,7 @@ namespace Mirai_Paradise_Hotel
 
         public List<User> DataBaseUsers { get; private set; }
         private Guest _selectedGuest;
+        private Booking _selectedBooking;
 
         //    private User currentUser; // Assume this holds the current logged-in user
 
@@ -81,15 +82,29 @@ namespace Mirai_Paradise_Hotel
             ActivateButton(buttonBooking);
         }
 
+        public void ActivateBillingButton()
+        {
+            ActivateButton(buttonBilling);
+        }
+
         // Public method to set the selected guest
         public void SetSelectedGuest(Guest guest)
         {
             _guest = guest;
         }
 
+        public void SetSelectedBooking(Booking booking)
+        {
+            _selectedBooking = booking;
+        }
         public void ClearSelectedGuest()
         {
             _selectedGuest = null;
+        }
+
+        public void ClearSelectedBooking()
+        {
+            _selectedBooking = null;
         }
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -135,6 +150,7 @@ namespace Mirai_Paradise_Hotel
         }
         private Button _bookingButton;       
         private Guest _guest;
+        private Booking _booking;
         private void buttonGuests_Click(object sender, EventArgs e)
         {
             LoadUserControl(new UC_Guest1(this, panelContainer));
@@ -149,14 +165,14 @@ namespace Mirai_Paradise_Hotel
  
         private void buttonBooking_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new UC_Booking1(_selectedGuest));
+            LoadUserControl(new UC_Booking1(_selectedGuest, this, panelContainer));
             ActivateButton(sender);
         }
             
     
         private void buttonBilling_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new UC_Billing());
+            LoadUserControl(new UC_Billing(_selectedBooking, _selectedGuest));
             ActivateButton(sender);
         }
 

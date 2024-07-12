@@ -12,6 +12,7 @@ namespace Mirai_Paradise_Hotel
         public DbSet<DeluxeRoom> DeluxeRooms { get; set; }
         public DbSet<Suite> Suites { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<InvoiceModel> Invoices { get; set; } // Added Invoice DbSet
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -41,6 +42,10 @@ namespace Mirai_Paradise_Hotel
             modelBuilder.Entity<Guest>()
                 .Property(g => g.GuestID)
                 .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Guest>()
+                .HasQueryFilter(g => !g.IsDeleted); // Global query filter for soft delete
+
 
             /*  modelBuilder.Entity<Guest>().HasData(
                   new Guest
@@ -102,6 +107,15 @@ namespace Mirai_Paradise_Hotel
                 .HasForeignKey(b => b.RoomNumber)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Booking>()
+                .HasQueryFilter(b => !b.IsDeleted); // Global query filter for soft delete
+
+
+            modelBuilder.Entity<OrderItem>()
+       .HasKey(oi => oi.OrderItemId);
+            //    modelBuilder.Entity<Address>().Ignore();
+
+
             /*      modelBuilder.Entity<Booking>().HasData(
                        new Booking
                        {
@@ -113,6 +127,10 @@ namespace Mirai_Paradise_Hotel
                            GuestID = 1,
                            RoomNumber = 1
                        });*/
+            modelBuilder.Entity<InvoiceModel>()
+                .HasKey(b => b.InvoiceNumber);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

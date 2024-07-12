@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel4 = new Panel();
             panel1 = new Panel();
             GuestNameTxtBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -49,16 +51,21 @@
             panel11 = new Panel();
             textBoxRoomNo = new Guna.UI2.WinForms.Guna2TextBox();
             RoomNum = new Label();
+            panel3 = new Panel();
+            comboBoxBookingStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            label3 = new Label();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
             panelCheckOutTime.SuspendLayout();
             panelCheckOutDate.SuspendLayout();
             panel11.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(76, 149, 108);
+            panel4.Controls.Add(panel3);
             panel4.Controls.Add(panel1);
             panel4.Controls.Add(panelCheckOutTime);
             panel4.Controls.Add(panelCheckOutDate);
@@ -83,7 +90,7 @@
             // 
             GuestNameTxtBox.AutoRoundedCorners = true;
             GuestNameTxtBox.BorderRadius = 15;
-            GuestNameTxtBox.CustomizableEdges = customizableEdges1;
+            GuestNameTxtBox.CustomizableEdges = customizableEdges3;
             GuestNameTxtBox.DefaultText = "";
             GuestNameTxtBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             GuestNameTxtBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -98,7 +105,7 @@
             GuestNameTxtBox.PasswordChar = '\0';
             GuestNameTxtBox.PlaceholderText = "";
             GuestNameTxtBox.SelectedText = "";
-            GuestNameTxtBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            GuestNameTxtBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
             GuestNameTxtBox.Size = new Size(204, 33);
             GuestNameTxtBox.TabIndex = 13;
             // 
@@ -185,7 +192,7 @@
             GradButtonAddRoom.AutoRoundedCorners = true;
             GradButtonAddRoom.BackColor = Color.Transparent;
             GradButtonAddRoom.BorderRadius = 29;
-            GradButtonAddRoom.CustomizableEdges = customizableEdges3;
+            GradButtonAddRoom.CustomizableEdges = customizableEdges5;
             GradButtonAddRoom.DisabledState.BorderColor = Color.DarkGray;
             GradButtonAddRoom.DisabledState.CustomBorderColor = Color.DarkGray;
             GradButtonAddRoom.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -197,7 +204,7 @@
             GradButtonAddRoom.ForeColor = Color.White;
             GradButtonAddRoom.Location = new Point(691, 447);
             GradButtonAddRoom.Name = "GradButtonAddRoom";
-            GradButtonAddRoom.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            GradButtonAddRoom.ShadowDecoration.CustomizableEdges = customizableEdges6;
             GradButtonAddRoom.Size = new Size(201, 61);
             GradButtonAddRoom.TabIndex = 28;
             GradButtonAddRoom.Text = "Update Booking";
@@ -216,7 +223,7 @@
             // 
             textBoxRoomNo.AutoRoundedCorners = true;
             textBoxRoomNo.BorderRadius = 15;
-            textBoxRoomNo.CustomizableEdges = customizableEdges5;
+            textBoxRoomNo.CustomizableEdges = customizableEdges7;
             textBoxRoomNo.DefaultText = "";
             textBoxRoomNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxRoomNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -231,7 +238,7 @@
             textBoxRoomNo.PasswordChar = '\0';
             textBoxRoomNo.PlaceholderText = "";
             textBoxRoomNo.SelectedText = "";
-            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            textBoxRoomNo.ShadowDecoration.CustomizableEdges = customizableEdges8;
             textBoxRoomNo.Size = new Size(204, 33);
             textBoxRoomNo.TabIndex = 13;
             // 
@@ -244,6 +251,44 @@
             RoomNum.Size = new Size(94, 23);
             RoomNum.TabIndex = 0;
             RoomNum.Text = "Room No.";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(comboBoxBookingStatus);
+            panel3.Controls.Add(label3);
+            panel3.Location = new Point(318, 356);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(247, 75);
+            panel3.TabIndex = 32;
+            // 
+            // comboBoxBookingStatus
+            // 
+            comboBoxBookingStatus.AutoRoundedCorners = true;
+            comboBoxBookingStatus.BackColor = Color.Transparent;
+            comboBoxBookingStatus.BorderRadius = 17;
+            comboBoxBookingStatus.CustomizableEdges = customizableEdges1;
+            comboBoxBookingStatus.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBoxBookingStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxBookingStatus.FocusedColor = Color.FromArgb(94, 148, 255);
+            comboBoxBookingStatus.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            comboBoxBookingStatus.Font = new Font("Segoe UI", 10F);
+            comboBoxBookingStatus.ForeColor = Color.FromArgb(68, 88, 112);
+            comboBoxBookingStatus.ItemHeight = 30;
+            comboBoxBookingStatus.Location = new Point(9, 32);
+            comboBoxBookingStatus.Name = "comboBoxBookingStatus";
+            comboBoxBookingStatus.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            comboBoxBookingStatus.Size = new Size(204, 36);
+            comboBoxBookingStatus.TabIndex = 8;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(9, 6);
+            label3.Name = "label3";
+            label3.Size = new Size(142, 23);
+            label3.TabIndex = 0;
+            label3.Text = "Booking Status";
             // 
             // Booking_Update
             // 
@@ -266,6 +311,8 @@
             panelCheckOutDate.PerformLayout();
             panel11.ResumeLayout(false);
             panel11.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -286,5 +333,8 @@
         private Panel panel1;
         private Guna.UI2.WinForms.Guna2TextBox GuestNameTxtBox;
         private Label Guest_Name;
+        private Panel panel3;
+        private Guna.UI2.WinForms.Guna2ComboBox comboBoxBookingStatus;
+        private Label label3;
     }
 }

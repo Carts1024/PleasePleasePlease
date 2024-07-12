@@ -18,6 +18,6 @@ namespace Mirai_Paradise_Hotel
         [Name("Revenue")]
         public decimal Revenue { get; set; }
 
-        public virtual Invoice Invoice { get; set; } = null!;
+        public virtual InvoiceModel Invoice { get; set; } = null!;
     }
 }

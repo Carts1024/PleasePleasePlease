@@ -20,6 +20,12 @@ public class BookingExportDto
     [Name("Check Out Time")]
     public TimeSpan CheckOutTime { get; set; }
 
+    [Name("Booking Status")]
+    public string BookingStatus { get; set; }
+
+    [Name("Is Deleted")]
+    public bool IsDeleted { get; set; } // Soft delete property
+
     [Name("Guest Id")]
     public int GuestID { get; set; }
 

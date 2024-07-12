@@ -71,12 +71,14 @@ namespace PleasePleasePlease
         {
             using (var context = new DataContext())
             {
-                var bookings = context.Bookings.Include(b => b.Guest).ToList();
+                var bookings = context.Bookings
+                    .Include(b => b.Guest)
+                    .ToList();
 
                 var bookingData = bookings.Select(b => new
                 {
                     b.Index,
-                    GuestName = b.Guest.FirstName + " " + b.Guest.LastName,
+                    GuestName = b.Guest != null ? (b.Guest.IsDeleted ? "[Deleted Guest]" : b.Guest.FirstName + " " + b.Guest.LastName) : "No Guest",
                     b.BookingID,
                     b.RoomNumber,
                     b.CheckInDate,
@@ -90,7 +92,7 @@ namespace PleasePleasePlease
                 dataGridViewBooking.DataSource = bookingData;
 
                 dataGridViewBooking.Columns["BookingID"].Visible = false;
-                dataGridViewBooking.Columns["Index"].HeaderText = "Index";
+                dataGridViewBooking.Columns["Index"].Visible = false;
                 dataGridViewBooking.Columns["GuestName"].HeaderText = "Guest Name";
                 dataGridViewBooking.Columns["RoomNumber"].HeaderText = "Room Number";
                 dataGridViewBooking.Columns["CheckInDate"].HeaderText = "Check In Date";
@@ -100,6 +102,8 @@ namespace PleasePleasePlease
                 dataGridViewBooking.Columns["BookingStatus"].HeaderText = "Booking Status";
             }
         }
+
+
 
         private void GridRead()
         {
@@ -275,7 +279,6 @@ namespace PleasePleasePlease
                                     // Update existing record
                                     existingBooking.Index = record.Index;
                                     existingBooking.RoomNumber = record.RoomNumber;
-                                    existingBooking.GuestID = record.GuestID;
                                     existingBooking.CheckInDate = record.CheckInDate;
                                     existingBooking.CheckInTime = record.CheckInTime;
                                     existingBooking.CheckOutDate = record.CheckOutDate;

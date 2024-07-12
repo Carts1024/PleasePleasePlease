@@ -1,9 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.TypeConversion;
+using Microsoft.EntityFrameworkCore;
 using Mirai_Paradise_Hotel;
+using Mirai_Paradise_Hotel.DB_MODELS;
 using QuestPDF.Fluent;
 using QuestPDF.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -32,6 +38,7 @@ namespace PleasePleasePlease
             _booking = booking;
             _guest = guest;
             InitializeGuestInfo();
+            CheckGuestInfo();
             LoadData();
             comboBoxFilterPaymentStatus.Items.AddRange(new object[] { "Pending", "Paid" });
 
@@ -40,6 +47,13 @@ namespace PleasePleasePlease
             _checkoutService = new CheckoutService(_context);
         }
 
+        private void CheckGuestInfo()
+        {
+            if (_guest != null)
+            {
+                labelCheckOutUnclicked_Click(this, EventArgs.Empty);
+            }
+        }
         private void InitializeGuestInfo()
         {
             if (_guest != null)
@@ -58,9 +72,34 @@ namespace PleasePleasePlease
         {
             using (DataContext context = new DataContext())
             {
-                DataBaseInvoice = context.Invoices.OrderBy(u => u.Index).ToList();
+                var invoiceData = context.Invoices
+                    .Join(context.Guests,
+                          invoice => invoice.GuestID,
+                          guest => guest.GuestID,
+                          (invoice, guest) => new InvoiceViewModel
+                          {
+                              GuestName = guest.FirstName + " " + guest.LastName,
+                              InvoiceNumber = invoice.InvoiceNumber,
+                              IssueDate = invoice.IssueDate,
+                              DueDate = invoice.DueDate,
+                              PaymentStatus = invoice.PaymentStatus,
+                              PaymentMethod = invoice.PaymentMethod,
+                              TotalAmount = invoice.TotalAmount
+                          })
+                    .OrderBy(i => i.IssueDate)
+                    .ToList();
+
                 dataGridViewRoom.DataSource = null;
-                dataGridViewRoom.DataSource = DataBaseInvoice;
+                dataGridViewRoom.DataSource = invoiceData;
+
+                // Configure DataGridView columns if necessary
+                dataGridViewRoom.Columns["GuestName"].HeaderText = "Guest Name";
+                dataGridViewRoom.Columns["InvoiceNumber"].HeaderText = "Invoice Number";
+                dataGridViewRoom.Columns["IssueDate"].HeaderText = "Issue Date";
+                dataGridViewRoom.Columns["DueDate"].HeaderText = "Due Date";
+                dataGridViewRoom.Columns["PaymentStatus"].HeaderText = "Payment Status";
+                dataGridViewRoom.Columns["PaymentMethod"].HeaderText = "Payment Method";
+                dataGridViewRoom.Columns["TotalAmount"].HeaderText = "Total Amount";
             }
         }
 
@@ -81,29 +120,17 @@ namespace PleasePleasePlease
 
         private void buttonEditBillings_Click(object sender, EventArgs e)
         {
-            buttonSaveEditBillings.Visible = true;
-            buttonExitEditBillings.Visible = true;
+            // Add edit functionality here
         }
 
         private void buttonExitEditBookings_Click(object sender, EventArgs e)
         {
-            buttonSaveEditBillings.Visible = false;
-            buttonExitEditBillings.Visible = false;
-        }
-
-        private void buttonSaveEditBillings_Click(object sender, EventArgs e)
-        {
-            // Alter Information in Database and Save code starts here
-            buttonSaveEditBillings.Visible = false;
-            buttonExitEditBillings.Visible = false;
-            Dialogue_BillingUpdated billUpdated = new Dialogue_BillingUpdated();
-            billUpdated.Show();
+            // Add exit functionality here
         }
 
         private void ButtonGenerateInvo_Click(object sender, EventArgs e)
         {
-            var billingService = new BillingService(_context);
-            var invoice = billingService.GenerateInvoice(_booking.BookingID, "ButtonGenerateInvo_Click");
+            GenerateQuotation();
             LoadData();
         }
 
@@ -112,7 +139,9 @@ namespace PleasePleasePlease
             earpanelCheckOutClicked.Visible = true;
             panelBaseCheckOut.Visible = true;
             earpanelInvoiceUnclicked.Visible = true;
-            ButtonGenerateQuotation.Visible = false;
+            ButtonGenerateQuotation.Visible = true;
+            ButtonExportInvoice.Visible = false;
+            ButtonImportInvoice.Visible = false;
         }
 
         private void labelInvoiceUnclicked_Click(object sender, EventArgs e)
@@ -120,7 +149,9 @@ namespace PleasePleasePlease
             earpanelCheckOutClicked.Visible = false;
             panelBaseCheckOut.Visible = false;
             earpanelInvoiceUnclicked.Visible = false;
-            ButtonGenerateQuotation.Visible = true;
+            ButtonGenerateQuotation.Visible = false;
+            ButtonExportInvoice.Visible = true;
+            ButtonImportInvoice.Visible = true;
         }
 
         private void GradButtonCheckOut_Click(object sender, EventArgs e)
@@ -136,12 +167,13 @@ namespace PleasePleasePlease
             {
                 var billingService = new BillingService(_context);
                 var invoice = billingService.GenerateInvoice(_booking.BookingID, "GenerateQuotation");
-                billingService.SaveInvoice(invoice, $"Invoice_{_booking.BookingID}.pdf");
-                MessageBox.Show("Invoice generated successfully.");
+                billingService.SaveQuotation(invoice, $"Invoice_{_booking.BookingID}.pdf");
+                MessageBox.Show("Quotation generated successfully.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error generating invoice: {ex.Message}");
+                
             }
         }
 
@@ -157,5 +189,197 @@ namespace PleasePleasePlease
                 MessageBox.Show($"Error during checkout: {ex.Message}");
             }
         }
+
+        private void ImportButton_Click(object sender, EventArgs e)
+        {
+            ExportButton.Visible = true;
+            ImportButton.Visible = false;
+            ButtonImportInvoice.Visible = true;
+            ButtonExportInvoice.Visible = false;
+        }
+
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            ExportButton.Visible = false;
+            ImportButton.Visible = true;
+            ButtonImportInvoice.Visible = false;
+            ButtonExportInvoice.Visible = true;
+        }
+
+        private void ButtonImportInvoice_Click(object sender, EventArgs e)
+        {
+            Import();
+        }
+
+        private void Import()
+        {
+            ImportRecords();
+        }
+
+        private void ImportRecords()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = dialog.FileName; // Get the selected file path
+
+                var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    PrepareHeaderForMatch = args => args.Header.ToLower(),
+                    HeaderValidated = null, // Disable header validation
+                };
+
+                using (var reader = new StreamReader(filePath))
+                using (var csv = new CsvReader(reader, csvConfig))
+                {
+                    csv.Context.TypeConverterCache.AddConverter<DateTime>(new CustomDateTimeConverter());
+                    csv.Context.RegisterClassMap<InvoiceMap>();
+
+                    var records = csv.GetRecords<InvoiceModel>().ToList();  // Get the records from the CSV file
+
+                    using (DataContext context = new DataContext())
+                    {
+                        // Validate foreign key references
+                        var validGuestIds = context.Guests.Select(g => g.GuestID).ToHashSet();
+                        var invalidRecords = records.Where(r => !validGuestIds.Contains(r.GuestID)).ToList();
+
+                        if (invalidRecords.Any())
+                        {
+                            var invalidIds = string.Join(", ", invalidRecords.Select(r => r.GuestID));
+                            MessageBox.Show($"Error: The following Guest IDs do not exist in the database: {invalidIds}");
+                            return;
+                        }
+
+                        List<InvoiceModel> validRecords = new List<InvoiceModel>();
+                        List<string> errors = new List<string>();
+
+                        foreach (var record in records)
+                        {
+                            try
+                            {
+                                // Ensure Comments is not null
+                                if (record.Comments == null)
+                                {
+                                    record.Comments = string.Empty;
+                                }
+
+                                // Check the booking status
+                                var booking = context.Bookings.FirstOrDefault(b => b.BookingID == record.BookingID);
+                                if (booking != null && booking.BookingStatus == "Check-Out")
+                                {
+                                    record.PaymentStatus = "Paid";
+                                }
+
+                                var existingInvoice = context.Invoices.FirstOrDefault(b => b.InvoiceNumber == record.InvoiceNumber);
+                                if (existingInvoice != null)
+                                {
+                                    // Update existing record
+                                    existingInvoice.Index = record.Index;
+                                    existingInvoice.InvoiceNumber = record.InvoiceNumber;
+                                    existingInvoice.IssueDate = record.IssueDate;
+                                    existingInvoice.DueDate = record.DueDate;
+                                    existingInvoice.PaymentStatus = record.PaymentStatus;
+                                    existingInvoice.PaymentMethod = record.PaymentMethod;
+                                    existingInvoice.TotalAmount = record.TotalAmount;
+                                    existingInvoice.Comments = record.Comments;
+                                }
+                                else
+                                {
+                                    // Add new record
+                                    context.Invoices.Add(record);
+                                }
+                                validRecords.Add(record);
+                            }
+                            catch (Exception ex)
+                            {
+                                errors.Add($"Error importing Booking ID {record.InvoiceNumber}: {ex.Message}");
+                            }
+                        }
+
+                        if (errors.Any())
+                        {
+                            var errorMessage = string.Join(Environment.NewLine, errors);
+                            MessageBox.Show($"The following errors occurred during import:\n{errorMessage}");
+                        }
+
+                        if (validRecords.Any())
+                        {
+                            context.SaveChanges();
+                        }
+                    }
+
+                    // Update the DataGridView to reflect the newly imported records
+                    LoadData();
+                }
+            }
+        }
+
+
+
+        private class CustomDateTimeConverter : DateTimeConverter
+        {
+            private readonly string[] formats = { "dd/MM/yyyy", "MM/dd/yyyy", "yyyy-MM-dd" };
+
+            public override object ConvertFromString(string text, IReaderRow row, MemberMapData memberMapData)
+            {
+                foreach (var format in formats)
+                {
+                    if (DateTime.TryParseExact(text, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out var date))
+                    {
+                        return date;
+                    }
+                }
+                return base.ConvertFromString(text, row, memberMapData);
+            }
+        }
+
+        private void ExportRecords()
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveDialog.FileName; // Get the selected file path
+
+                using (var writer = new StreamWriter(filePath))
+                using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    try
+                    {
+                        using (var context = new DataContext())
+                        {
+                            var invoices = context.Invoices.Select(i => new InvoiceExport
+                            {
+                                Index = i.Index,
+                                InvoiceNumber = i.InvoiceNumber,
+                                IssueDate = i.IssueDate,
+                                DueDate = i.DueDate,
+                                PaymentStatus = i.PaymentStatus,
+                                PaymentMethod = i.PaymentMethod,
+                                TotalAmount = i.TotalAmount,
+                                Comments = i.Comments,
+                                GuestID = i.GuestID,
+                                BookingID = i.BookingID
+                            }).ToList();
+
+                            csvWriter.WriteRecords(invoices);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error writing CSV file: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void ButtonExportInvoice_Click(object sender, EventArgs e)
+        {
+            ExportRecords();
+        }
+
     }
 }

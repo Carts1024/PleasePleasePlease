@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 
 namespace Mirai_Paradise_Hotel
 {
@@ -43,26 +44,9 @@ namespace Mirai_Paradise_Hotel
                 .Property(g => g.GuestID)
                 .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Guest>()
-                .HasQueryFilter(g => !g.IsDeleted); // Global query filter for soft delete
-
-
-            /*  modelBuilder.Entity<Guest>().HasData(
-                  new Guest
-                  {
-                      GuestID = 1,
-                      FirstName = "John",
-                      LastName = "Doe",
-                      MiddleInitial = "M",
-                      Gender = "Male",
-                      StreetAddress = "123 Main St",
-                      CityAddress = "Anytown",
-                      PhoneNumber = "2014",
-                      Email = "carl@gmail.com",
-                      Nationality = "US",
-                      BirthDate = DateTime.Now,
-                      StateAddress = "Ohio"
-                  }); */
+            // Remove the global query filter
+            // modelBuilder.Entity<Guest>()
+            //     .HasQueryFilter(g => !g.IsDeleted); // Global query filter for soft delete
 
             // Configure Room entity
             modelBuilder.Entity<Room>()
@@ -84,9 +68,6 @@ namespace Mirai_Paradise_Hotel
             // Configure Suite entity
             modelBuilder.Entity<Suite>().ToTable("Suites");
 
-            // Seed data for derived types
-
-
             // Configure Booking entity
             modelBuilder.Entity<Booking>()
                 .HasKey(b => b.BookingID);
@@ -99,38 +80,28 @@ namespace Mirai_Paradise_Hotel
                 .HasOne(b => b.Guest)
                 .WithMany(g => g.Bookings)
                 .HasForeignKey(b => b.GuestID)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict); // Change from Cascade to Restrict
 
             modelBuilder.Entity<Booking>()
                 .HasOne(b => b.Room)
                 .WithMany(r => r.Bookings)
                 .HasForeignKey(b => b.RoomNumber)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Booking>()
-                .HasQueryFilter(b => !b.IsDeleted); // Global query filter for soft delete
-
+                .OnDelete(DeleteBehavior.Restrict); // Change from Cascade to Restrict
 
             modelBuilder.Entity<OrderItem>()
-       .HasKey(oi => oi.OrderItemId);
-            //    modelBuilder.Entity<Address>().Ignore();
+                .HasKey(oi => oi.OrderItemId);
 
-
-            /*      modelBuilder.Entity<Booking>().HasData(
-                       new Booking
-                       {
-                           BookingID = 1,
-                           CheckInDate = DateTime.Now,
-                           CheckInTime = DateTime.Now.TimeOfDay,
-                           CheckOutDate = DateTime.Now,
-                           CheckOutTime = DateTime.Now.TimeOfDay,
-                           GuestID = 1,
-                           RoomNumber = 1
-                       });*/
+            // Configure Invoice entity
             modelBuilder.Entity<InvoiceModel>()
                 .HasKey(b => b.InvoiceNumber);
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        // Method to include soft-deleted guests when necessary
+        public IQueryable<Guest> IncludeSoftDeletedGuests()
+        {
+            return Guests.IgnoreQueryFilters();
         }
     }
 }

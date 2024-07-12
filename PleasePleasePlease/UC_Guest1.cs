@@ -99,7 +99,12 @@ namespace PleasePleasePlease
                                     "Confirm Delete", MessageBoxButtons.YesNo);
                                 if (confirmResult == DialogResult.Yes)
                                 {
-                                    try
+                                    guest.IsDeleted = true;  // Soft delete
+                                    context.SaveChanges();
+
+                                    // Reload data
+                                    LoadData();
+                                   /* try
                                     {
                                         guest.IsDeleted = true;  // Soft delete
                                         context.SaveChanges();
@@ -114,7 +119,7 @@ namespace PleasePleasePlease
                                     catch (Exception ex)
                                     {
                                         MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }
+                                    }*/
                                 }
                             }
                             else

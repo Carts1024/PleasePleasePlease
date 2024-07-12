@@ -34,18 +34,22 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel3 = new Panel();
             panelBaseCheckOut = new Panel();
             name_lbl = new Label();
@@ -67,6 +71,8 @@
             panelCheckInDate = new Panel();
             dateTimePickerCheckIn = new DateTimePicker();
             labelCheckInDate = new Label();
+            ButtonImportInvoice = new Guna.UI2.WinForms.Guna2GradientButton();
+            ButtonExportInvoice = new Guna.UI2.WinForms.Guna2GradientButton();
             earpanelCheckOutClicked = new Panel();
             panel5 = new Panel();
             guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -90,23 +96,17 @@
             labelInvoiceClicked = new Label();
             panelBaseTable = new Panel();
             dataGridViewRoom = new Guna.UI2.WinForms.Guna2DataGridView();
-            invoiceModelBindingSource = new BindingSource(components);
             panelFilters = new Panel();
             comboBoxFilterPaymentStatus = new ComboBox();
             panelSearch = new Panel();
+            ExportButton = new Button();
+            ImportButton = new Button();
             textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            buttonSaveEditBillings = new Button();
-            buttonEditBillings = new Button();
-            buttonExitEditBillings = new Button();
             buttonMore = new Button();
             buttonSearchIcon = new Button();
+            invoiceModelBindingSource = new BindingSource(components);
             userBindingSource = new BindingSource(components);
             userBindingSource1 = new BindingSource(components);
-            InvoiceNumber = new DataGridViewTextBoxColumn();
-            IssueDate = new DataGridViewTextBoxColumn();
-            PaymentStatus = new DataGridViewTextBoxColumn();
-            PaymentMethod = new DataGridViewTextBoxColumn();
-            TotalAmount = new DataGridViewTextBoxColumn();
             panel3.SuspendLayout();
             panelBaseCheckOut.SuspendLayout();
             panelCheckOutTime.SuspendLayout();
@@ -124,9 +124,9 @@
             panelInvoiceClicked.SuspendLayout();
             panelBaseTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRoom).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)invoiceModelBindingSource).BeginInit();
             panelFilters.SuspendLayout();
             panelSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)invoiceModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource1).BeginInit();
             SuspendLayout();
@@ -135,6 +135,8 @@
             // 
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.Controls.Add(panelBaseCheckOut);
+            panel3.Controls.Add(ButtonImportInvoice);
+            panel3.Controls.Add(ButtonExportInvoice);
             panel3.Controls.Add(earpanelCheckOutClicked);
             panel3.Controls.Add(earpanelInvoiceUnclicked);
             panel3.Controls.Add(earpanelCheckOutUnlicked);
@@ -381,6 +383,55 @@
             labelCheckInDate.TabIndex = 0;
             labelCheckInDate.Text = "Check-In Date";
             // 
+            // ButtonImportInvoice
+            // 
+            ButtonImportInvoice.Animated = true;
+            ButtonImportInvoice.AutoRoundedCorners = true;
+            ButtonImportInvoice.BackColor = Color.Transparent;
+            ButtonImportInvoice.BorderRadius = 29;
+            ButtonImportInvoice.CustomizableEdges = customizableEdges5;
+            ButtonImportInvoice.DisabledState.BorderColor = Color.DarkGray;
+            ButtonImportInvoice.DisabledState.CustomBorderColor = Color.DarkGray;
+            ButtonImportInvoice.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            ButtonImportInvoice.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            ButtonImportInvoice.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            ButtonImportInvoice.FillColor = Color.FromArgb(32, 191, 85);
+            ButtonImportInvoice.FillColor2 = Color.SteelBlue;
+            ButtonImportInvoice.Font = new Font("SF Pro Display", 13F, FontStyle.Bold);
+            ButtonImportInvoice.ForeColor = Color.White;
+            ButtonImportInvoice.Location = new Point(825, 47);
+            ButtonImportInvoice.Name = "ButtonImportInvoice";
+            ButtonImportInvoice.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            ButtonImportInvoice.Size = new Size(201, 61);
+            ButtonImportInvoice.TabIndex = 31;
+            ButtonImportInvoice.Text = "Import Invoice";
+            ButtonImportInvoice.Click += ButtonImportInvoice_Click;
+            // 
+            // ButtonExportInvoice
+            // 
+            ButtonExportInvoice.Animated = true;
+            ButtonExportInvoice.AutoRoundedCorners = true;
+            ButtonExportInvoice.BackColor = Color.Transparent;
+            ButtonExportInvoice.BorderRadius = 29;
+            ButtonExportInvoice.CustomizableEdges = customizableEdges7;
+            ButtonExportInvoice.DisabledState.BorderColor = Color.DarkGray;
+            ButtonExportInvoice.DisabledState.CustomBorderColor = Color.DarkGray;
+            ButtonExportInvoice.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            ButtonExportInvoice.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            ButtonExportInvoice.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            ButtonExportInvoice.FillColor = Color.FromArgb(32, 191, 85);
+            ButtonExportInvoice.FillColor2 = Color.SteelBlue;
+            ButtonExportInvoice.Font = new Font("SF Pro Display", 13F, FontStyle.Bold);
+            ButtonExportInvoice.ForeColor = Color.White;
+            ButtonExportInvoice.Location = new Point(825, 47);
+            ButtonExportInvoice.Name = "ButtonExportInvoice";
+            ButtonExportInvoice.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            ButtonExportInvoice.Size = new Size(201, 61);
+            ButtonExportInvoice.TabIndex = 30;
+            ButtonExportInvoice.Text = "Export Invoice";
+            ButtonExportInvoice.Visible = false;
+            ButtonExportInvoice.Click += ButtonExportInvoice_Click;
+            // 
             // earpanelCheckOutClicked
             // 
             earpanelCheckOutClicked.BackColor = Color.FromArgb(76, 149, 108);
@@ -495,7 +546,7 @@
             guna2TextBox2.AutoRoundedCorners = true;
             guna2TextBox2.BackColor = Color.Transparent;
             guna2TextBox2.BorderRadius = 17;
-            guna2TextBox2.CustomizableEdges = customizableEdges5;
+            guna2TextBox2.CustomizableEdges = customizableEdges9;
             guna2TextBox2.DefaultText = "";
             guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -510,7 +561,7 @@
             guna2TextBox2.PasswordChar = '\0';
             guna2TextBox2.PlaceholderText = "Search";
             guna2TextBox2.SelectedText = "";
-            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2TextBox2.Size = new Size(524, 36);
             guna2TextBox2.TabIndex = 20;
             // 
@@ -629,7 +680,7 @@
             ButtonGenerateQuotation.AutoRoundedCorners = true;
             ButtonGenerateQuotation.BackColor = Color.Transparent;
             ButtonGenerateQuotation.BorderRadius = 29;
-            ButtonGenerateQuotation.CustomizableEdges = customizableEdges7;
+            ButtonGenerateQuotation.CustomizableEdges = customizableEdges11;
             ButtonGenerateQuotation.DisabledState.BorderColor = Color.DarkGray;
             ButtonGenerateQuotation.DisabledState.CustomBorderColor = Color.DarkGray;
             ButtonGenerateQuotation.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -639,12 +690,13 @@
             ButtonGenerateQuotation.FillColor2 = Color.SteelBlue;
             ButtonGenerateQuotation.Font = new Font("SF Pro Display", 13F, FontStyle.Bold);
             ButtonGenerateQuotation.ForeColor = Color.White;
-            ButtonGenerateQuotation.Location = new Point(766, 26);
+            ButtonGenerateQuotation.Location = new Point(825, 47);
             ButtonGenerateQuotation.Name = "ButtonGenerateQuotation";
-            ButtonGenerateQuotation.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            ButtonGenerateQuotation.ShadowDecoration.CustomizableEdges = customizableEdges12;
             ButtonGenerateQuotation.Size = new Size(201, 61);
             ButtonGenerateQuotation.TabIndex = 27;
             ButtonGenerateQuotation.Text = "Generate Quotation";
+            ButtonGenerateQuotation.Visible = false;
             ButtonGenerateQuotation.Click += ButtonGenerateInvo_Click;
             // 
             // labelBilling
@@ -695,7 +747,6 @@
             dataGridViewRoom.AllowUserToDeleteRows = false;
             dataGridViewCellStyle4.BackColor = Color.White;
             dataGridViewRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewRoom.AutoGenerateColumns = false;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
@@ -706,8 +757,6 @@
             dataGridViewRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewRoom.ColumnHeadersHeight = 17;
             dataGridViewRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewRoom.Columns.AddRange(new DataGridViewColumn[] { InvoiceNumber, IssueDate, PaymentStatus, PaymentMethod, TotalAmount });
-            dataGridViewRoom.DataSource = invoiceModelBindingSource;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.White;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
@@ -745,10 +794,6 @@
             dataGridViewRoom.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewRoom.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // invoiceModelBindingSource
-            // 
-            invoiceModelBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.InvoiceModel);
-            // 
             // panelFilters
             // 
             panelFilters.Controls.Add(comboBoxFilterPaymentStatus);
@@ -770,10 +815,9 @@
             // 
             // panelSearch
             // 
+            panelSearch.Controls.Add(ExportButton);
+            panelSearch.Controls.Add(ImportButton);
             panelSearch.Controls.Add(textBoxSearch);
-            panelSearch.Controls.Add(buttonSaveEditBillings);
-            panelSearch.Controls.Add(buttonEditBillings);
-            panelSearch.Controls.Add(buttonExitEditBillings);
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonSearchIcon);
             panelSearch.Location = new Point(191, 19);
@@ -781,12 +825,37 @@
             panelSearch.Size = new Size(701, 53);
             panelSearch.TabIndex = 19;
             // 
+            // ExportButton
+            // 
+            ExportButton.BackgroundImage = (Image)resources.GetObject("ExportButton.BackgroundImage");
+            ExportButton.BackgroundImageLayout = ImageLayout.Zoom;
+            ExportButton.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ExportButton.Location = new Point(669, 12);
+            ExportButton.Name = "ExportButton";
+            ExportButton.Size = new Size(28, 27);
+            ExportButton.TabIndex = 26;
+            ExportButton.UseVisualStyleBackColor = true;
+            ExportButton.Click += ExportButton_Click;
+            // 
+            // ImportButton
+            // 
+            ImportButton.BackgroundImage = (Image)resources.GetObject("ImportButton.BackgroundImage");
+            ImportButton.BackgroundImageLayout = ImageLayout.Zoom;
+            ImportButton.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ImportButton.Location = new Point(669, 12);
+            ImportButton.Name = "ImportButton";
+            ImportButton.Size = new Size(28, 27);
+            ImportButton.TabIndex = 25;
+            ImportButton.UseVisualStyleBackColor = true;
+            ImportButton.Visible = false;
+            ImportButton.Click += ImportButton_Click;
+            // 
             // textBoxSearch
             // 
             textBoxSearch.AutoRoundedCorners = true;
             textBoxSearch.BackColor = Color.Transparent;
             textBoxSearch.BorderRadius = 17;
-            textBoxSearch.CustomizableEdges = customizableEdges9;
+            textBoxSearch.CustomizableEdges = customizableEdges13;
             textBoxSearch.DefaultText = "";
             textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -801,47 +870,9 @@
             textBoxSearch.PasswordChar = '\0';
             textBoxSearch.PlaceholderText = "Search";
             textBoxSearch.SelectedText = "";
-            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges14;
             textBoxSearch.Size = new Size(524, 36);
             textBoxSearch.TabIndex = 20;
-            // 
-            // buttonSaveEditBillings
-            // 
-            buttonSaveEditBillings.BackgroundImage = (Image)resources.GetObject("buttonSaveEditBillings.BackgroundImage");
-            buttonSaveEditBillings.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonSaveEditBillings.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSaveEditBillings.Location = new Point(673, 12);
-            buttonSaveEditBillings.Name = "buttonSaveEditBillings";
-            buttonSaveEditBillings.Size = new Size(28, 27);
-            buttonSaveEditBillings.TabIndex = 14;
-            buttonSaveEditBillings.UseVisualStyleBackColor = true;
-            buttonSaveEditBillings.Visible = false;
-            buttonSaveEditBillings.Click += buttonSaveEditBillings_Click;
-            // 
-            // buttonEditBillings
-            // 
-            buttonEditBillings.BackgroundImage = (Image)resources.GetObject("buttonEditBillings.BackgroundImage");
-            buttonEditBillings.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonEditBillings.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonEditBillings.Location = new Point(673, 12);
-            buttonEditBillings.Name = "buttonEditBillings";
-            buttonEditBillings.Size = new Size(28, 27);
-            buttonEditBillings.TabIndex = 13;
-            buttonEditBillings.UseVisualStyleBackColor = true;
-            buttonEditBillings.Click += buttonEditBillings_Click;
-            // 
-            // buttonExitEditBillings
-            // 
-            buttonExitEditBillings.BackgroundImage = (Image)resources.GetObject("buttonExitEditBillings.BackgroundImage");
-            buttonExitEditBillings.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonExitEditBillings.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonExitEditBillings.Location = new Point(639, 12);
-            buttonExitEditBillings.Name = "buttonExitEditBillings";
-            buttonExitEditBillings.Size = new Size(28, 27);
-            buttonExitEditBillings.TabIndex = 11;
-            buttonExitEditBillings.UseVisualStyleBackColor = true;
-            buttonExitEditBillings.Visible = false;
-            buttonExitEditBillings.Click += buttonExitEditBookings_Click;
             // 
             // buttonMore
             // 
@@ -867,6 +898,10 @@
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
             // 
+            // invoiceModelBindingSource
+            // 
+            invoiceModelBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.InvoiceModel);
+            // 
             // userBindingSource
             // 
             userBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.User);
@@ -874,41 +909,6 @@
             // userBindingSource1
             // 
             userBindingSource1.DataSource = typeof(Mirai_Paradise_Hotel.User);
-            // 
-            // InvoiceNumber
-            // 
-            InvoiceNumber.DataPropertyName = "InvoiceNumber";
-            InvoiceNumber.HeaderText = "InvoiceNumber";
-            InvoiceNumber.Name = "InvoiceNumber";
-            InvoiceNumber.ReadOnly = true;
-            // 
-            // IssueDate
-            // 
-            IssueDate.DataPropertyName = "IssueDate";
-            IssueDate.HeaderText = "IssueDate";
-            IssueDate.Name = "IssueDate";
-            IssueDate.ReadOnly = true;
-            // 
-            // PaymentStatus
-            // 
-            PaymentStatus.DataPropertyName = "PaymentStatus";
-            PaymentStatus.HeaderText = "PaymentStatus";
-            PaymentStatus.Name = "PaymentStatus";
-            PaymentStatus.ReadOnly = true;
-            // 
-            // PaymentMethod
-            // 
-            PaymentMethod.DataPropertyName = "PaymentMethod";
-            PaymentMethod.HeaderText = "PaymentMethod";
-            PaymentMethod.Name = "PaymentMethod";
-            PaymentMethod.ReadOnly = true;
-            // 
-            // TotalAmount
-            // 
-            TotalAmount.DataPropertyName = "TotalAmount";
-            TotalAmount.HeaderText = "TotalAmount";
-            TotalAmount.Name = "TotalAmount";
-            TotalAmount.ReadOnly = true;
             // 
             // UC_Billing
             // 
@@ -945,9 +945,9 @@
             panelInvoiceClicked.PerformLayout();
             panelBaseTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewRoom).EndInit();
-            ((System.ComponentModel.ISupportInitialize)invoiceModelBindingSource).EndInit();
             panelFilters.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)invoiceModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource1).EndInit();
             ResumeLayout(false);
@@ -966,9 +966,6 @@
         private Button buttonMore;
         private Button buttonSearchIcon;
         private BindingSource userBindingSource;
-        private Button buttonExitEditBillings;
-        private Button buttonEditBillings;
-        private Button buttonSaveEditBillings;
         private Guna.UI2.WinForms.Guna2GradientButton ButtonGenerateQuotation;
         private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridViewRoom;
@@ -1011,10 +1008,9 @@
         private Label labelInvoiceUnclicked;
         private BindingSource invoiceModelBindingSource;
         private BindingSource userBindingSource1;
-        private DataGridViewTextBoxColumn InvoiceNumber;
-        private DataGridViewTextBoxColumn IssueDate;
-        private DataGridViewTextBoxColumn PaymentStatus;
-        private DataGridViewTextBoxColumn PaymentMethod;
-        private DataGridViewTextBoxColumn TotalAmount;
+        private Button ExportButton;
+        private Button ImportButton;
+        private Guna.UI2.WinForms.Guna2GradientButton ButtonImportInvoice;
+        private Guna.UI2.WinForms.Guna2GradientButton ButtonExportInvoice;
     }
 }

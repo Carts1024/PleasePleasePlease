@@ -51,14 +51,12 @@
             panel3 = new Panel();
             ButtonGuestDemo = new Guna.UI2.WinForms.Guna2GradientButton();
             panel32 = new Panel();
-            label61 = new Label();
             panel33 = new Panel();
             label100 = new Label();
             label101 = new Label();
             label102 = new Label();
             panel29 = new Panel();
             ComboBoxRevenue = new Guna.UI2.WinForms.Guna2ComboBox();
-            label83 = new Label();
             panel34 = new Panel();
             gunaChart1 = new Guna.Charts.WinForms.GunaChart();
             label94 = new Label();
@@ -143,7 +141,6 @@
             // panel32
             // 
             panel32.BackColor = Color.FromArgb(45, 106, 79);
-            panel32.Controls.Add(label61);
             panel32.Controls.Add(panel33);
             panel32.Controls.Add(label100);
             panel32.Controls.Add(label101);
@@ -152,15 +149,6 @@
             panel32.Name = "panel32";
             panel32.Size = new Size(410, 374);
             panel32.TabIndex = 27;
-            // 
-            // label61
-            // 
-            label61.AutoSize = true;
-            label61.Location = new Point(163, 35);
-            label61.Name = "label61";
-            label61.Size = new Size(120, 15);
-            label61.TabIndex = 21;
-            label61.Text = "[DOUGHNUT CHART]";
             // 
             // panel33
             // 
@@ -210,7 +198,6 @@
             // 
             panel29.BackColor = Color.FromArgb(45, 106, 79);
             panel29.Controls.Add(ComboBoxRevenue);
-            panel29.Controls.Add(label83);
             panel29.Controls.Add(panel34);
             panel29.Controls.Add(label94);
             panel29.Location = new Point(51, 297);
@@ -238,15 +225,6 @@
             ComboBoxRevenue.ShadowDecoration.CustomizableEdges = customizableEdges4;
             ComboBoxRevenue.Size = new Size(95, 36);
             ComboBoxRevenue.TabIndex = 21;
-            // 
-            // label83
-            // 
-            label83.AutoSize = true;
-            label83.Location = new Point(95, 16);
-            label83.Name = "label83";
-            label83.Size = new Size(124, 15);
-            label83.TabIndex = 20;
-            label83.Text = "[SPLINE AREA CHART]";
             // 
             // panel34
             // 
@@ -707,12 +685,10 @@
         private Label label5;
         private Label label7;
         private Panel panel29;
-        private Label label83;
         private Panel panel34;
         private Label label94;
         private Guna.UI2.WinForms.Guna2GradientButton ButtonGuestDemo;
         private Panel panel32;
-        private Label label61;
         private Panel panel33;
         private Label label100;
         private Label label101;

@@ -34,8 +34,8 @@ namespace Mirai_Paradise_Hotel
         [Name("Room Number")]
         public int RoomNumber { get; set; }
 
-        [Name("Is Deleted")]
-        public bool IsDeleted { get; set; } // Soft delete property
+     //   [Name("Is Deleted")]
+   //     public bool IsDeleted { get; set; } // Soft delete property
 
         public virtual Guest Guest { get; set; } = null!;
         public virtual Room Room { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Mirai_Paradise_Hotel
             Map(m => m.BookingStatus).Name("Booking Status");
             Map(m => m.GuestID).Name("Guest Id");
             Map(m => m.RoomNumber).Name("Room Number");
-            Map(m => m.IsDeleted).Name("Is Deleted");
+    //        Map(m => m.IsDeleted).Name("Is Deleted");
         }
     }
 }

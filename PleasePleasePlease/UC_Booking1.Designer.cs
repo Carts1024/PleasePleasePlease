@@ -285,7 +285,7 @@
             ExportButton.BackgroundImage = (Image)resources.GetObject("ExportButton.BackgroundImage");
             ExportButton.BackgroundImageLayout = ImageLayout.Zoom;
             ExportButton.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ExportButton.Location = new Point(676, 12);
+            ExportButton.Location = new Point(685, 12);
             ExportButton.Name = "ExportButton";
             ExportButton.Size = new Size(28, 27);
             ExportButton.TabIndex = 24;
@@ -297,7 +297,7 @@
             ImportButton.BackgroundImage = (Image)resources.GetObject("ImportButton.BackgroundImage");
             ImportButton.BackgroundImageLayout = ImageLayout.Zoom;
             ImportButton.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ImportButton.Location = new Point(675, 12);
+            ImportButton.Location = new Point(685, 12);
             ImportButton.Name = "ImportButton";
             ImportButton.Size = new Size(28, 27);
             ImportButton.TabIndex = 23;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Accounts));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -48,18 +49,20 @@
             buttonEditAccounts = new Button();
             buttonMore = new Button();
             buttonSearchIcon = new Button();
-            guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            ColumnUserID = new DataGridViewTextBoxColumn();
-            ColumnUsername = new DataGridViewTextBoxColumn();
-            ColumnPassword = new DataGridViewTextBoxColumn();
-            ColumnAccountType = new DataGridViewComboBoxColumn();
+            gridAccount = new Guna.UI2.WinForms.Guna2DataGridView();
             buttonAddAcc = new Button();
             label9 = new Label();
+            userBindingSource1 = new BindingSource(components);
+            userBindingSource = new BindingSource(components);
+            Username = new DataGridViewTextBoxColumn();
+            AccountType = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panelFilters.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridAccount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -69,8 +72,9 @@
             panel1.Controls.Add(label9);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1076, 749);
+            panel1.Size = new Size(1230, 999);
             panel1.TabIndex = 25;
             // 
             // panel4
@@ -79,11 +83,12 @@
             panel4.Controls.Add(GradButtonAddAccount);
             panel4.Controls.Add(panelFilters);
             panel4.Controls.Add(panelSearch);
-            panel4.Controls.Add(guna2DataGridView1);
+            panel4.Controls.Add(gridAccount);
             panel4.Controls.Add(buttonAddAcc);
-            panel4.Location = new Point(59, 96);
+            panel4.Location = new Point(67, 128);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(948, 620);
+            panel4.Size = new Size(1083, 827);
             panel4.TabIndex = 18;
             // 
             // GradButtonAddAccount
@@ -91,7 +96,7 @@
             GradButtonAddAccount.Animated = true;
             GradButtonAddAccount.AutoRoundedCorners = true;
             GradButtonAddAccount.BackColor = Color.Transparent;
-            GradButtonAddAccount.BorderRadius = 29;
+            GradButtonAddAccount.BorderRadius = 39;
             GradButtonAddAccount.CustomizableEdges = customizableEdges1;
             GradButtonAddAccount.DisabledState.BorderColor = Color.DarkGray;
             GradButtonAddAccount.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -102,10 +107,11 @@
             GradButtonAddAccount.FillColor2 = Color.SteelBlue;
             GradButtonAddAccount.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             GradButtonAddAccount.ForeColor = Color.White;
-            GradButtonAddAccount.Location = new Point(705, 536);
+            GradButtonAddAccount.Location = new Point(806, 715);
+            GradButtonAddAccount.Margin = new Padding(3, 4, 3, 4);
             GradButtonAddAccount.Name = "GradButtonAddAccount";
             GradButtonAddAccount.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            GradButtonAddAccount.Size = new Size(201, 61);
+            GradButtonAddAccount.Size = new Size(230, 81);
             GradButtonAddAccount.TabIndex = 28;
             GradButtonAddAccount.Text = "Add Account";
             GradButtonAddAccount.Click += GradButtonAddAccount_Click;
@@ -113,9 +119,10 @@
             // panelFilters
             // 
             panelFilters.Controls.Add(comboBoxFilterAccountType);
-            panelFilters.Location = new Point(191, 78);
+            panelFilters.Location = new Point(218, 104);
+            panelFilters.Margin = new Padding(3, 4, 3, 4);
             panelFilters.Name = "panelFilters";
-            panelFilters.Size = new Size(701, 50);
+            panelFilters.Size = new Size(801, 67);
             panelFilters.TabIndex = 21;
             panelFilters.Visible = false;
             // 
@@ -123,9 +130,10 @@
             // 
             comboBoxFilterAccountType.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxFilterAccountType.FormattingEnabled = true;
-            comboBoxFilterAccountType.Location = new Point(13, 10);
+            comboBoxFilterAccountType.Location = new Point(15, 13);
+            comboBoxFilterAccountType.Margin = new Padding(3, 4, 3, 4);
             comboBoxFilterAccountType.Name = "comboBoxFilterAccountType";
-            comboBoxFilterAccountType.Size = new Size(132, 27);
+            comboBoxFilterAccountType.Size = new Size(150, 32);
             comboBoxFilterAccountType.TabIndex = 9;
             comboBoxFilterAccountType.Text = "Account Type";
             // 
@@ -137,16 +145,17 @@
             panelSearch.Controls.Add(buttonEditAccounts);
             panelSearch.Controls.Add(buttonMore);
             panelSearch.Controls.Add(buttonSearchIcon);
-            panelSearch.Location = new Point(191, 19);
+            panelSearch.Location = new Point(218, 25);
+            panelSearch.Margin = new Padding(3, 4, 3, 4);
             panelSearch.Name = "panelSearch";
-            panelSearch.Size = new Size(704, 53);
+            panelSearch.Size = new Size(805, 71);
             panelSearch.TabIndex = 20;
             // 
             // textBoxSearch
             // 
             textBoxSearch.AutoRoundedCorners = true;
             textBoxSearch.BackColor = Color.Transparent;
-            textBoxSearch.BorderRadius = 17;
+            textBoxSearch.BorderRadius = 23;
             textBoxSearch.CustomizableEdges = customizableEdges3;
             textBoxSearch.DefaultText = "";
             textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -156,14 +165,14 @@
             textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxSearch.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxSearch.Location = new Point(4, 9);
-            textBoxSearch.Margin = new Padding(4, 4, 4, 4);
+            textBoxSearch.Location = new Point(5, 12);
+            textBoxSearch.Margin = new Padding(5);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PasswordChar = '\0';
             textBoxSearch.PlaceholderText = "Search";
             textBoxSearch.SelectedText = "";
             textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            textBoxSearch.Size = new Size(524, 36);
+            textBoxSearch.Size = new Size(599, 48);
             textBoxSearch.TabIndex = 19;
             // 
             // buttonSaveEditAccounts
@@ -171,9 +180,10 @@
             buttonSaveEditAccounts.BackgroundImage = (Image)resources.GetObject("buttonSaveEditAccounts.BackgroundImage");
             buttonSaveEditAccounts.BackgroundImageLayout = ImageLayout.Zoom;
             buttonSaveEditAccounts.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSaveEditAccounts.Location = new Point(673, 12);
+            buttonSaveEditAccounts.Location = new Point(769, 16);
+            buttonSaveEditAccounts.Margin = new Padding(3, 4, 3, 4);
             buttonSaveEditAccounts.Name = "buttonSaveEditAccounts";
-            buttonSaveEditAccounts.Size = new Size(28, 27);
+            buttonSaveEditAccounts.Size = new Size(32, 36);
             buttonSaveEditAccounts.TabIndex = 13;
             buttonSaveEditAccounts.UseVisualStyleBackColor = true;
             buttonSaveEditAccounts.Visible = false;
@@ -184,9 +194,10 @@
             buttonExitEditAccounts.BackgroundImage = (Image)resources.GetObject("buttonExitEditAccounts.BackgroundImage");
             buttonExitEditAccounts.BackgroundImageLayout = ImageLayout.Zoom;
             buttonExitEditAccounts.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonExitEditAccounts.Location = new Point(639, 12);
+            buttonExitEditAccounts.Location = new Point(730, 16);
+            buttonExitEditAccounts.Margin = new Padding(3, 4, 3, 4);
             buttonExitEditAccounts.Name = "buttonExitEditAccounts";
-            buttonExitEditAccounts.Size = new Size(28, 27);
+            buttonExitEditAccounts.Size = new Size(32, 36);
             buttonExitEditAccounts.TabIndex = 12;
             buttonExitEditAccounts.UseVisualStyleBackColor = true;
             buttonExitEditAccounts.Visible = false;
@@ -197,9 +208,10 @@
             buttonEditAccounts.BackgroundImage = (Image)resources.GetObject("buttonEditAccounts.BackgroundImage");
             buttonEditAccounts.BackgroundImageLayout = ImageLayout.Zoom;
             buttonEditAccounts.Font = new Font("SF Pro Display", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonEditAccounts.Location = new Point(673, 12);
+            buttonEditAccounts.Location = new Point(769, 16);
+            buttonEditAccounts.Margin = new Padding(3, 4, 3, 4);
             buttonEditAccounts.Name = "buttonEditAccounts";
-            buttonEditAccounts.Size = new Size(28, 27);
+            buttonEditAccounts.Size = new Size(32, 36);
             buttonEditAccounts.TabIndex = 11;
             buttonEditAccounts.UseVisualStyleBackColor = true;
             buttonEditAccounts.Click += buttonEditAccounts_Click;
@@ -209,9 +221,10 @@
             buttonMore.BackgroundImage = (Image)resources.GetObject("buttonMore.BackgroundImage");
             buttonMore.BackgroundImageLayout = ImageLayout.Zoom;
             buttonMore.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonMore.Location = new Point(569, 12);
+            buttonMore.Location = new Point(650, 16);
+            buttonMore.Margin = new Padding(3, 4, 3, 4);
             buttonMore.Name = "buttonMore";
-            buttonMore.Size = new Size(28, 27);
+            buttonMore.Size = new Size(32, 36);
             buttonMore.TabIndex = 4;
             buttonMore.UseVisualStyleBackColor = true;
             buttonMore.Click += buttonMore_Click;
@@ -221,17 +234,18 @@
             buttonSearchIcon.BackgroundImage = (Image)resources.GetObject("buttonSearchIcon.BackgroundImage");
             buttonSearchIcon.BackgroundImageLayout = ImageLayout.Zoom;
             buttonSearchIcon.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonSearchIcon.Location = new Point(535, 12);
+            buttonSearchIcon.Location = new Point(611, 16);
+            buttonSearchIcon.Margin = new Padding(3, 4, 3, 4);
             buttonSearchIcon.Name = "buttonSearchIcon";
-            buttonSearchIcon.Size = new Size(28, 27);
+            buttonSearchIcon.Size = new Size(32, 36);
             buttonSearchIcon.TabIndex = 3;
             buttonSearchIcon.UseVisualStyleBackColor = true;
             buttonSearchIcon.Click += buttonSearchIcon_Click;
             // 
-            // guna2DataGridView1
+            // gridAccount
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            gridAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -239,10 +253,10 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            guna2DataGridView1.ColumnHeadersHeight = 17;
-            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumnUserID, ColumnUsername, ColumnPassword, ColumnAccountType });
+            gridAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            gridAccount.ColumnHeadersHeight = 17;
+            gridAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            gridAccount.Columns.AddRange(new DataGridViewColumn[] { Username, AccountType });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -250,60 +264,37 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(69, 134);
-            guna2DataGridView1.Name = "guna2DataGridView1";
-            guna2DataGridView1.RowHeadersVisible = false;
-            guna2DataGridView1.Size = new Size(823, 386);
-            guna2DataGridView1.TabIndex = 3;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 17;
-            guna2DataGridView1.ThemeStyle.ReadOnly = false;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            guna2DataGridView1.ThemeStyle.RowsStyle.Height = 25;
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            // 
-            // ColumnUserID
-            // 
-            ColumnUserID.HeaderText = "User ID";
-            ColumnUserID.Name = "ColumnUserID";
-            ColumnUserID.ReadOnly = true;
-            // 
-            // ColumnUsername
-            // 
-            ColumnUsername.HeaderText = "Username";
-            ColumnUsername.Name = "ColumnUsername";
-            ColumnUsername.ReadOnly = true;
-            // 
-            // ColumnPassword
-            // 
-            ColumnPassword.HeaderText = "Password";
-            ColumnPassword.Name = "ColumnPassword";
-            ColumnPassword.ReadOnly = true;
-            // 
-            // ColumnAccountType
-            // 
-            ColumnAccountType.HeaderText = "Account Type";
-            ColumnAccountType.Name = "ColumnAccountType";
-            ColumnAccountType.ReadOnly = true;
-            ColumnAccountType.Resizable = DataGridViewTriState.True;
-            ColumnAccountType.SortMode = DataGridViewColumnSortMode.Automatic;
+            gridAccount.DefaultCellStyle = dataGridViewCellStyle3;
+            gridAccount.GridColor = Color.FromArgb(231, 229, 255);
+            gridAccount.Location = new Point(79, 179);
+            gridAccount.Margin = new Padding(3, 4, 3, 4);
+            gridAccount.Name = "gridAccount";
+            gridAccount.RowHeadersVisible = false;
+            gridAccount.RowHeadersWidth = 51;
+            gridAccount.RowTemplate.Height = 25;
+            gridAccount.Size = new Size(941, 515);
+            gridAccount.TabIndex = 3;
+            gridAccount.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            gridAccount.ThemeStyle.AlternatingRowsStyle.Font = null;
+            gridAccount.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            gridAccount.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            gridAccount.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            gridAccount.ThemeStyle.BackColor = Color.White;
+            gridAccount.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            gridAccount.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            gridAccount.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            gridAccount.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            gridAccount.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            gridAccount.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            gridAccount.ThemeStyle.HeaderStyle.Height = 17;
+            gridAccount.ThemeStyle.ReadOnly = false;
+            gridAccount.ThemeStyle.RowsStyle.BackColor = Color.White;
+            gridAccount.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            gridAccount.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            gridAccount.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            gridAccount.ThemeStyle.RowsStyle.Height = 25;
+            gridAccount.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            gridAccount.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // buttonAddAcc
             // 
@@ -311,9 +302,10 @@
             buttonAddAcc.Enabled = false;
             buttonAddAcc.FlatStyle = FlatStyle.System;
             buttonAddAcc.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonAddAcc.Location = new Point(761, 536);
+            buttonAddAcc.Location = new Point(870, 715);
+            buttonAddAcc.Margin = new Padding(3, 4, 3, 4);
             buttonAddAcc.Name = "buttonAddAcc";
-            buttonAddAcc.Size = new Size(134, 41);
+            buttonAddAcc.Size = new Size(153, 55);
             buttonAddAcc.TabIndex = 2;
             buttonAddAcc.Text = "Add Account";
             buttonAddAcc.UseVisualStyleBackColor = false;
@@ -325,25 +317,48 @@
             label9.AutoSize = true;
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(49, 44);
+            label9.Location = new Point(56, 59);
             label9.Name = "label9";
-            label9.Size = new Size(169, 42);
+            label9.Size = new Size(204, 53);
             label9.TabIndex = 11;
             label9.Text = "Accounts";
             // 
+            // userBindingSource1
+            // 
+            userBindingSource1.DataSource = typeof(Mirai_Paradise_Hotel.User);
+            // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(Mirai_Paradise_Hotel.User);
+            // 
+            // Username
+            // 
+            Username.HeaderText = "Username";
+            Username.MinimumWidth = 6;
+            Username.Name = "Username";
+            // 
+            // AccountType
+            // 
+            AccountType.HeaderText = "Account Type";
+            AccountType.MinimumWidth = 6;
+            AccountType.Name = "AccountType";
+            // 
             // UC_Accounts
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UC_Accounts";
-            Size = new Size(1076, 749);
+            Size = new Size(1230, 999);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel4.ResumeLayout(false);
             panelFilters.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridAccount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -375,7 +390,7 @@
         private Panel panel12;
         private Label label8;
         private Label label9;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2DataGridView gridAccount;
         private Panel panelSearch;
         private Button buttonMore;
         private Button buttonSearchIcon;
@@ -384,11 +399,12 @@
         private Button buttonSaveEditAccounts;
         private Button buttonExitEditAccounts;
         private Button buttonEditAccounts;
-        private DataGridViewTextBoxColumn ColumnUserID;
-        private DataGridViewTextBoxColumn ColumnUsername;
-        private DataGridViewTextBoxColumn ColumnPassword;
-        private DataGridViewComboBoxColumn ColumnAccountType;
         private Guna.UI2.WinForms.Guna2GradientButton GradButtonAddAccount;
         private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
+        private BindingSource userBindingSource;
+        private DataGridViewTextBoxColumn ColumnAccountType;
+        private BindingSource userBindingSource1;
+        private DataGridViewTextBoxColumn Username;
+        private DataGridViewTextBoxColumn AccountType;
     }
 }

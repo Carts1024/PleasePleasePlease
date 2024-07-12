@@ -1,4 +1,5 @@
-﻿using Mirai_Paradise_Hotel;
+﻿using Microsoft.EntityFrameworkCore;
+using Mirai_Paradise_Hotel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,37 @@ namespace PleasePleasePlease
 {
     public partial class UC_Accounts : UserControl
     {
+        public List<User> DatabaseUser {  get; set; }
         public UC_Accounts()
         {
             InitializeComponent();
             comboBoxFilterAccountType.Items.AddRange(new object[] { "Administrator", "Manager", "Receptionist" });
         }
+
+        public void LoadData()
+        {
+            // Clear the existing nodes
+           
+            // Load the updated data from the database
+            using (var context = new DataContext())
+            {
+                var users = context.Users.Include(u => u.UserID).ToList();
+
+                // Populate the TreeView with the updated data
+                var userData = users.Select(u => new
+                {
+                    u.UserName,
+                    u.AccountType
+                }).ToList();
+                gridAccount.Columns.Clear();
+                gridAccount.DataSource = userData;
+
+                gridAccount.Columns["UserName"].HeaderText = "Username";
+                gridAccount.Columns["AccountType"].HeaderText = "Account Type";
+
+            }
+        }
+
 
         private void buttonAddAcc_Click(object sender, EventArgs e)
         {
@@ -29,8 +56,6 @@ namespace PleasePleasePlease
         {
             buttonSaveEditAccounts.Visible = true;
             buttonExitEditAccounts.Visible = true;
-            ColumnUsername.ReadOnly = false;
-            ColumnPassword.ReadOnly = false;
             ColumnAccountType.ReadOnly = false;
         }
 
@@ -38,8 +63,6 @@ namespace PleasePleasePlease
         {
             buttonSaveEditAccounts.Visible = false;
             buttonExitEditAccounts.Visible = false;
-            ColumnUsername.ReadOnly = true;
-            ColumnPassword.ReadOnly = true;
             ColumnAccountType.ReadOnly = true;
         }
 
@@ -49,8 +72,6 @@ namespace PleasePleasePlease
 
             buttonSaveEditAccounts.Visible = false;
             buttonExitEditAccounts.Visible = false;
-            ColumnUsername.ReadOnly = true;
-            ColumnPassword.ReadOnly = true;
             ColumnAccountType.ReadOnly = true;
             Dialogue_AccountUpdated accUpdated = new Dialogue_AccountUpdated();
             accUpdated.Show();
@@ -68,8 +89,13 @@ namespace PleasePleasePlease
 
         private void GradButtonAddAccount_Click(object sender, EventArgs e)
         {
-            CreateAccount createAcc = new CreateAccount();
+            CreateAccount createAcc = new CreateAccount(this);
+            createAcc.FormClosed += (s, args) =>
+            {
+                LoadData();
+            };
             createAcc.Show();
+
         }
     }
 }

@@ -37,7 +37,7 @@ namespace Mirai_Paradise_Hotel
             {
                 "ButtonGenerateInvo_Click" => "Pending",
                 "GradButtonCheckOut_Click" => "Paid",
-                _ => "Unknown"
+                _ => "Pending"
             };
 
             // Log the booking and guest details
@@ -116,20 +116,12 @@ namespace Mirai_Paradise_Hotel
         {
             var document = new InvoiceDocument(invoice, invoice.Guest);
             document.GeneratePdfAndShow();
-
-            // Optionally save the invoice to the database or file system
-            // For example:
-            // File.WriteAllBytes(filePath, document.GeneratePdf());
         }
 
         public void SaveQuotation(InvoiceModel invoice, string filePath)
         {
             var document = new QuotationDocument(invoice, invoice.Guest);
             document.GeneratePdfAndShow();
-
-            // Optionally save the invoice to the database or file system
-            // For example:
-            // File.WriteAllBytes(filePath, document.GeneratePdf());
         }
     }
 }

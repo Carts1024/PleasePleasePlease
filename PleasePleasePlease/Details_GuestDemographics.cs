@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.Charts.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace Mirai_Paradise_Hotel
 {
     public partial class Details_GuestDemographics : Form
     {
+        private GunaChart gunaChart;
+        private readonly DataContext _context;
         public Details_GuestDemographics()
         {
             InitializeComponent();

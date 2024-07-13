@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Mirai_Paradise_Hotel;
 using Mirai_Paradise_Hotel.DB_MODELS;
@@ -22,19 +23,12 @@ namespace PleasePleasePlease
         private DataContext _context;
         private CheckoutService _checkoutService;
 
-        public List<InvoiceModel> DataBaseInvoice { get; private set; }
+        protected List<InvoiceModel> DataBaseInvoice { get; private set; }
 
         public UC_Billing(Booking booking, Guest guest)
         {
             InitializeComponent();
             QuestPDF.Settings.License = LicenseType.Community;
-
-            // Guard clauses to prevent re-assignment
-            if (_booking != null || _guest != null)
-            {
-                throw new InvalidOperationException("UC_Billing already has a booking and guest assigned.");
-            }
-
             _booking = booking;
             _guest = guest;
             InitializeGuestInfo();
@@ -103,14 +97,45 @@ namespace PleasePleasePlease
             }
         }
 
-        private void buttonGenerateInvoice_Click(object sender, EventArgs e)
-        {
-            // ignore this
-        }
-
         private void buttonSearchIcon_Click(object sender, EventArgs e)
         {
-            // Code for Search starts here
+            string searchText = textBoxSearch.Text.Trim().ToLower();
+
+            using (DataContext context = new DataContext())
+            {
+                var invoiceData = context.Invoices
+                    .Join(context.Guests,
+                          invoice => invoice.GuestID,
+                          guest => guest.GuestID,
+                          (invoice, guest) => new InvoiceViewModel
+                          {
+                              GuestName = guest.FirstName + " " + guest.LastName,
+                              InvoiceNumber = invoice.InvoiceNumber,
+                              IssueDate = invoice.IssueDate,
+                              DueDate = invoice.DueDate,
+                              PaymentStatus = invoice.PaymentStatus,
+                              PaymentMethod = invoice.PaymentMethod,
+                              TotalAmount = invoice.TotalAmount
+                          })
+                    .Where(i =>
+                        i.GuestName.ToLower().Contains(searchText) ||
+                        i.PaymentStatus.ToLower().Contains(searchText) ||
+                        i.PaymentMethod.ToLower().Contains(searchText))
+                    .OrderBy(i => i.IssueDate)
+                    .ToList();
+
+                dataGridViewRoom.DataSource = null;
+                dataGridViewRoom.DataSource = invoiceData;
+
+                // Configure DataGridView columns if necessary
+                dataGridViewRoom.Columns["GuestName"].HeaderText = "Guest Name";
+                dataGridViewRoom.Columns["InvoiceNumber"].HeaderText = "Invoice Number";
+                dataGridViewRoom.Columns["IssueDate"].HeaderText = "Issue Date";
+                dataGridViewRoom.Columns["DueDate"].HeaderText = "Due Date";
+                dataGridViewRoom.Columns["PaymentStatus"].HeaderText = "Payment Status";
+                dataGridViewRoom.Columns["PaymentMethod"].HeaderText = "Payment Method";
+                dataGridViewRoom.Columns["TotalAmount"].HeaderText = "Total Amount";
+            }
         }
 
         private void buttonMore_Click(object sender, EventArgs e)
@@ -165,17 +190,36 @@ namespace PleasePleasePlease
         {
             try
             {
-                var billingService = new BillingService(_context);
-                var invoice = billingService.GenerateInvoice(_booking.BookingID, "GenerateQuotation");
-                billingService.SaveQuotation(invoice, $"Invoice_{_booking.BookingID}.pdf");
-                MessageBox.Show("Quotation generated successfully.");
+                using (DataContext context = new DataContext())
+                {
+                    // Validate foreign key references
+                    var validGuestIds = context.Guests.Select(g => g.GuestID).ToHashSet();
+                    var validBookingIds = context.Bookings.Select(b => b.BookingID).ToHashSet();
+
+                    if (!validBookingIds.Contains(_booking.BookingID))
+                    {
+                        MessageBox.Show($"Error: Booking ID {_booking.BookingID} does not exist in the database.");
+                        return;
+                    }
+
+                    if (!validGuestIds.Contains(_guest.GuestID))
+                    {
+                        MessageBox.Show($"Error: Guest ID {_guest.GuestID} does not exist in the database.");
+                        return;
+                    }
+
+                    var billingService = new BillingService(context);
+                    var invoice = billingService.GenerateInvoice(_booking.BookingID, "GenerateQuotation");
+                    billingService.SaveQuotation(invoice, $"Invoice_{_booking.BookingID}.pdf");
+                    MessageBox.Show("Quotation generated successfully.");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error generating invoice: {ex.Message}");
-                
             }
         }
+
 
         private void Checkout()
         {
@@ -243,12 +287,25 @@ namespace PleasePleasePlease
                     {
                         // Validate foreign key references
                         var validGuestIds = context.Guests.Select(g => g.GuestID).ToHashSet();
-                        var invalidRecords = records.Where(r => !validGuestIds.Contains(r.GuestID)).ToList();
+                        var validBookingIds = context.Bookings.Select(b => b.BookingID).ToHashSet();
+                        var invalidGuestRecords = records.Where(r => !validGuestIds.Contains(r.GuestID)).ToList();
+                        var invalidBookingRecords = records.Where(r => !validBookingIds.Contains(r.BookingID)).ToList();
 
-                        if (invalidRecords.Any())
+                        if (invalidGuestRecords.Any() || invalidBookingRecords.Any())
                         {
-                            var invalidIds = string.Join(", ", invalidRecords.Select(r => r.GuestID));
-                            MessageBox.Show($"Error: The following Guest IDs do not exist in the database: {invalidIds}");
+                            var invalidGuestIds = invalidGuestRecords.Select(r => r.GuestID).Distinct();
+                            var invalidBookingIds = invalidBookingRecords.Select(r => r.BookingID).Distinct();
+
+                            var errorMessage = "Error: The following IDs do not exist in the database:";
+                            if (invalidGuestIds.Any())
+                            {
+                                errorMessage += $"\nGuest IDs: {string.Join(", ", invalidGuestIds)}";
+                            }
+                            if (invalidBookingIds.Any())
+                            {
+                                errorMessage += $"\nBooking IDs: {string.Join(", ", invalidBookingIds)}";
+                            }
+                            MessageBox.Show(errorMessage);
                             return;
                         }
 
@@ -292,9 +349,13 @@ namespace PleasePleasePlease
                                 }
                                 validRecords.Add(record);
                             }
+                            catch (DbUpdateException ex) when ((ex.InnerException as SqliteException)?.SqliteErrorCode == 19)
+                            {
+                                errors.Add($"Error importing Invoice ID {record.InvoiceNumber}: Foreign key constraint failed.");
+                            }
                             catch (Exception ex)
                             {
-                                errors.Add($"Error importing Booking ID {record.InvoiceNumber}: {ex.Message}");
+                                errors.Add($"Error importing Invoice ID {record.InvoiceNumber}: {ex.Message}");
                             }
                         }
 
@@ -306,7 +367,18 @@ namespace PleasePleasePlease
 
                         if (validRecords.Any())
                         {
-                            context.SaveChanges();
+                            try
+                            {
+                                context.SaveChanges();
+                            }
+                            catch (DbUpdateException ex) when ((ex.InnerException as SqliteException)?.SqliteErrorCode == 19)
+                            {
+                                MessageBox.Show("Error saving records: Foreign key constraint failed. Please ensure all foreign keys are valid.");
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"An error occurred while saving records: {ex.Message}");
+                            }
                         }
                     }
 
@@ -315,6 +387,7 @@ namespace PleasePleasePlease
                 }
             }
         }
+
 
 
 

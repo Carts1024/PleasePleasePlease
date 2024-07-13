@@ -25,6 +25,7 @@ namespace PleasePleasePlease
             InitializeDataGridView();
             InitializeComboBoxes();
             Load += Form1_Load;
+            buttonSearchIcon.Click += buttonSearchIcon_Click;
         }
 
         private void InitializeComboBoxes()
@@ -279,7 +280,48 @@ namespace PleasePleasePlease
 
         private void buttonSearchIcon_Click(object sender, EventArgs e)
         {
-            // Code for search starts here
+            string searchText = textBoxSearch.Text.Trim().ToLower();
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                var filteredRooms = DatabaseRooms.Where(room =>
+                    room.RoomNumber.ToString().Contains(searchText) ||
+                    room.RoomStatus.ToLower().Contains(searchText) ||
+                    room.RoomType.ToLower().Contains(searchText) ||
+                    room.RoomPrice.ToString().Contains(searchText) ||
+                    room.FloorNumber.ToString().Contains(searchText) ||
+                    (room is StandardRoom && ((StandardRoom)room).BedType.ToLower().Contains(searchText)) ||
+                    (room is DeluxeRoom && ((DeluxeRoom)room).BedType.ToLower().Contains(searchText)) ||
+                    (room is Suite && ((Suite)room).BedType.ToLower().Contains(searchText)) ||
+                    (room is StandardRoom && ((StandardRoom)room).Capacity.ToString().Contains(searchText)) ||
+                    (room is DeluxeRoom && ((DeluxeRoom)room).Capacity.ToString().Contains(searchText)) ||
+                    (room is Suite && ((Suite)room).Capacity.ToString().Contains(searchText))
+                ).ToList();
+
+                var roomDisplays = filteredRooms.Select(room => new
+                {
+                    room.Index,
+                    room.RoomNumber,
+                    room.RoomStatus,
+                    room.RoomType,
+                    room.RoomPrice,
+                    room.FloorNumber,
+                    BedType = (room is StandardRoom standardRoom) ? standardRoom.BedType :
+                              (room is DeluxeRoom deluxeRoom) ? deluxeRoom.BedType :
+                              (room is Suite suite) ? suite.BedType : null,
+                    Capacity = (room is StandardRoom standardRooms) ? standardRooms.Capacity :
+                               (room is DeluxeRoom deluxeRooms) ? deluxeRooms.Capacity :
+                               (room is Suite suites) ? suites.Capacity : (int?)null
+                }).ToList();
+
+                dataGridViewRoom.DataSource = null;
+                dataGridViewRoom.DataSource = roomDisplays;
+            }
+            else
+            {
+                // If the search text is empty, reload all rooms
+                GridRead();
+            }
         }
 
         private void buttonMore_Click(object sender, EventArgs e)

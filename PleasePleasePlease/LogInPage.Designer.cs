@@ -167,7 +167,7 @@
             lblAccLogin.ForeColor = Color.White;
             lblAccLogin.Location = new Point(143, 31);
             lblAccLogin.Name = "lblAccLogin";
-            lblAccLogin.Size = new Size(249, 44);
+            lblAccLogin.Size = new Size(260, 44);
             lblAccLogin.TabIndex = 0;
             lblAccLogin.Text = "Account Login";
             // 

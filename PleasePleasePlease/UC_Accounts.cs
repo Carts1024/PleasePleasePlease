@@ -19,6 +19,7 @@ namespace PleasePleasePlease
         {
             InitializeComponent();
             comboBoxFilterAccountType.Items.AddRange(new object[] { "Administrator", "Manager", "Receptionist" });
+            LoadData();
         }
 
         public void LoadData()
@@ -28,7 +29,7 @@ namespace PleasePleasePlease
             // Load the updated data from the database
             using (var context = new DataContext())
             {
-                var users = context.Users.Include(u => u.UserID).ToList();
+                var users = context.Users.ToList();
 
                 // Populate the TreeView with the updated data
                 var userData = users.Select(u => new

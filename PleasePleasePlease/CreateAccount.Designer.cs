@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -36,12 +38,13 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             panel2 = new Panel();
+            label5 = new Label();
+            comboAccType = new Guna.UI2.WinForms.Guna2ComboBox();
             label4 = new Label();
             conPass_txt = new Guna.UI2.WinForms.Guna2TextBox();
+            label3 = new Label();
             password_txt = new Guna.UI2.WinForms.Guna2TextBox();
             label2 = new Label();
             Guest_Name = new Label();
@@ -51,9 +54,6 @@
             labelErrorPassword = new Label();
             labelErrorUsername = new Label();
             label1 = new Label();
-            comboAccType = new Guna.UI2.WinForms.Guna2ComboBox();
-            label3 = new Label();
-            label5 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -92,6 +92,36 @@
             panel2.Size = new Size(591, 588);
             panel2.TabIndex = 0;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(58, 338);
+            label5.Name = "label5";
+            label5.Size = new Size(132, 24);
+            label5.TabIndex = 37;
+            label5.Text = "Account Type:";
+            // 
+            // comboAccType
+            // 
+            comboAccType.AutoRoundedCorners = true;
+            comboAccType.BackColor = Color.Transparent;
+            comboAccType.BorderRadius = 17;
+            comboAccType.CustomizableEdges = customizableEdges1;
+            comboAccType.DrawMode = DrawMode.OwnerDrawFixed;
+            comboAccType.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboAccType.FocusedColor = Color.FromArgb(94, 148, 255);
+            comboAccType.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            comboAccType.Font = new Font("Segoe UI", 10F);
+            comboAccType.ForeColor = Color.FromArgb(68, 88, 112);
+            comboAccType.ItemHeight = 30;
+            comboAccType.Location = new Point(237, 332);
+            comboAccType.Margin = new Padding(3, 4, 3, 4);
+            comboAccType.Name = "comboAccType";
+            comboAccType.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            comboAccType.Size = new Size(233, 36);
+            comboAccType.TabIndex = 36;
+            // 
             // label4
             // 
             label4.Location = new Point(0, 0);
@@ -121,6 +151,16 @@
             conPass_txt.ShadowDecoration.CustomizableEdges = customizableEdges4;
             conPass_txt.Size = new Size(235, 31);
             conPass_txt.TabIndex = 35;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(58, 275);
+            label3.Name = "label3";
+            label3.Size = new Size(168, 24);
+            label3.TabIndex = 34;
+            label3.Text = "Confirm Password:";
             // 
             // password_txt
             // 
@@ -218,7 +258,7 @@
             labelErrorAccountExist.AutoSize = true;
             labelErrorAccountExist.Font = new Font("SF Pro Display", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelErrorAccountExist.ForeColor = Color.Red;
-            labelErrorAccountExist.Location = new Point(163, 386);
+            labelErrorAccountExist.Location = new Point(158, 455);
             labelErrorAccountExist.Name = "labelErrorAccountExist";
             labelErrorAccountExist.Size = new Size(261, 20);
             labelErrorAccountExist.TabIndex = 22;
@@ -230,7 +270,7 @@
             labelErrorPassword.AutoSize = true;
             labelErrorPassword.Font = new Font("SF Pro Display", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelErrorPassword.ForeColor = Color.Red;
-            labelErrorPassword.Location = new Point(237, 455);
+            labelErrorPassword.Location = new Point(199, 455);
             labelErrorPassword.Name = "labelErrorPassword";
             labelErrorPassword.Size = new Size(196, 20);
             labelErrorPassword.TabIndex = 21;
@@ -242,7 +282,7 @@
             labelErrorUsername.AutoSize = true;
             labelErrorUsername.Font = new Font("SF Pro Display", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelErrorUsername.ForeColor = Color.Red;
-            labelErrorUsername.Location = new Point(197, 435);
+            labelErrorUsername.Location = new Point(200, 455);
             labelErrorUsername.Name = "labelErrorUsername";
             labelErrorUsername.Size = new Size(179, 20);
             labelErrorUsername.TabIndex = 20;
@@ -256,49 +296,9 @@
             label1.ForeColor = Color.FromArgb(45, 106, 79);
             label1.Location = new Point(143, 40);
             label1.Name = "label1";
-            label1.Size = new Size(313, 44);
+            label1.Size = new Size(328, 44);
             label1.TabIndex = 0;
             label1.Text = "Create an Account";
-            // 
-            // comboAccType
-            // 
-            comboAccType.AutoRoundedCorners = true;
-            comboAccType.BackColor = Color.Transparent;
-            comboAccType.BorderRadius = 17;
-            comboAccType.CustomizableEdges = customizableEdges1;
-            comboAccType.DrawMode = DrawMode.OwnerDrawFixed;
-            comboAccType.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboAccType.FocusedColor = Color.FromArgb(94, 148, 255);
-            comboAccType.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            comboAccType.Font = new Font("Segoe UI", 10F);
-            comboAccType.ForeColor = Color.FromArgb(68, 88, 112);
-            comboAccType.ItemHeight = 30;
-            comboAccType.Location = new Point(237, 332);
-            comboAccType.Margin = new Padding(3, 4, 3, 4);
-            comboAccType.Name = "comboAccType";
-            comboAccType.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            comboAccType.Size = new Size(233, 36);
-            comboAccType.TabIndex = 36;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(58, 275);
-            label3.Name = "label3";
-            label3.Size = new Size(168, 24);
-            label3.TabIndex = 34;
-            label3.Text = "Confirm Password:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("SF Pro Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(58, 338);
-            label5.Name = "label5";
-            label5.Size = new Size(132, 24);
-            label5.TabIndex = 37;
-            label5.Text = "Account Type:";
             // 
             // CreateAccount
             // 

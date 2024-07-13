@@ -45,8 +45,8 @@ namespace Mirai_Paradise_Hotel
                 .ValueGeneratedOnAdd();
 
             // Remove the global query filter
-            // modelBuilder.Entity<Guest>()
-            //     .HasQueryFilter(g => !g.IsDeleted); // Global query filter for soft delete
+             modelBuilder.Entity<Guest>()
+                 .HasQueryFilter(g => !g.IsDeleted); // Global query filter for soft delete
 
             // Configure Room entity
             modelBuilder.Entity<Room>()

@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using Microsoft.Data.Sqlite;
 
 namespace PleasePleasePlease
 {
@@ -22,7 +23,7 @@ namespace PleasePleasePlease
         private bool EditPressed = false;
         private Booking_Update _bookingUpdate;
 
-        public List<Booking> DataBaseBooking { get; set; }
+        private List<Booking> DataBaseBooking { get; set; }
 
         public UC_Booking1(Guest guest, Dashboard dashboard, Panel parentPanel)
         {
@@ -180,15 +181,27 @@ namespace PleasePleasePlease
                         };
 
                         context.Bookings.Add(newBooking);
-                        context.SaveChanges();
 
-                        // Update room status to "Occupied" if the booking is successfully created
-                        room.RoomStatus = "Occupied";
-                        context.SaveChanges();
+                        try
+                        {
+                            context.SaveChanges();
 
-                        ResetBookingForm();
-                        ShowBookingAddedDialog();
-                        LoadData();
+                            // Update room status to "Occupied" if the booking is successfully created
+                            room.RoomStatus = "Occupied";
+                            context.SaveChanges();
+
+                            ResetBookingForm();
+                            ShowBookingAddedDialog();
+                            LoadData();
+                        }
+                        catch (DbUpdateException ex) when ((ex.InnerException as SqliteException)?.SqliteErrorCode == 19)
+                        {
+                            MessageBox.Show("Error: Foreign key constraint failed. Please ensure the guest and room exist.");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"An error occurred: {ex.Message}");
+                        }
                     }
                     else
                     {
@@ -203,6 +216,7 @@ namespace PleasePleasePlease
 
             GradButtonAddBooking.Enabled = true;
         }
+
 
         private void ResetBookingForm()
         {
@@ -248,12 +262,24 @@ namespace PleasePleasePlease
                     {
                         // Validate foreign key references
                         var validGuestIds = context.Guests.Select(g => g.GuestID).ToHashSet();
-                        var invalidRecords = records.Where(r => !validGuestIds.Contains(r.GuestID)).ToList();
+                        var validRoomNumbers = context.Rooms.Select(r => r.RoomNumber).ToHashSet();
+                        var invalidRecords = records.Where(r => !validGuestIds.Contains(r.GuestID) || !validRoomNumbers.Contains(r.RoomNumber)).ToList();
 
                         if (invalidRecords.Any())
                         {
-                            var invalidIds = string.Join(", ", invalidRecords.Select(r => r.GuestID));
-                            MessageBox.Show($"Error: The following Guest IDs do not exist in the database: {invalidIds}");
+                            var invalidGuestIds = invalidRecords.Where(r => !validGuestIds.Contains(r.GuestID)).Select(r => r.GuestID).Distinct();
+                            var invalidRoomNumbersList = invalidRecords.Where(r => !validRoomNumbers.Contains(r.RoomNumber)).Select(r => r.RoomNumber).Distinct();
+
+                            var errorMessage = "Error: The following IDs do not exist in the database:";
+                            if (invalidGuestIds.Any())
+                            {
+                                errorMessage += $"\nGuest IDs: {string.Join(", ", invalidGuestIds)}";
+                            }
+                            if (invalidRoomNumbersList.Any())
+                            {
+                                errorMessage += $"\nRoom Numbers: {string.Join(", ", invalidRoomNumbersList)}";
+                            }
+                            MessageBox.Show(errorMessage);
                             return;
                         }
 
@@ -292,6 +318,10 @@ namespace PleasePleasePlease
                                 }
                                 validRecords.Add(record);
                             }
+                            catch (DbUpdateException ex) when ((ex.InnerException as SqliteException)?.SqliteErrorCode == 19)
+                            {
+                                errors.Add($"Error importing Booking ID {record.BookingID}: Foreign key constraint failed.");
+                            }
                             catch (Exception ex)
                             {
                                 errors.Add($"Error importing Booking ID {record.BookingID}: {ex.Message}");
@@ -306,7 +336,18 @@ namespace PleasePleasePlease
 
                         if (validRecords.Any())
                         {
-                            context.SaveChanges();
+                            try
+                            {
+                                context.SaveChanges();
+                            }
+                            catch (DbUpdateException ex) when ((ex.InnerException as SqliteException)?.SqliteErrorCode == 19)
+                            {
+                                MessageBox.Show("Error saving records: Foreign key constraint failed. Please ensure all foreign keys are valid.");
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"An error occurred while saving records: {ex.Message}");
+                            }
                         }
                     }
 
@@ -315,6 +356,7 @@ namespace PleasePleasePlease
                 }
             }
         }
+
 
 
 
@@ -380,9 +422,44 @@ namespace PleasePleasePlease
 
         private void guna2GradientButton1_Click(object sender, EventArgs e) => AddBooking();
 
+        // Search functionality
         private void buttonSearchIcon_Click(object sender, EventArgs e)
         {
-            // Code for Search starts here
+            string searchText = textBoxSearch.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                LoadData(); // Reload original data if search text is empty
+                return;
+            }
+
+            using (var context = new DataContext())
+            {
+                var filteredBookings = context.Bookings
+                    .Include(b => b.Guest)
+                    .Where(b =>
+                        b.Guest != null &&
+                        (b.Guest.FirstName.ToLower().Contains(searchText) ||
+                         b.Guest.LastName.ToLower().Contains(searchText) ||
+                         b.RoomNumber.ToString().Contains(searchText) ||
+                         b.BookingStatus.ToLower().Contains(searchText)))
+                    .ToList();
+
+                var bookingData = filteredBookings.Select(b => new
+                {
+                    b.Index,
+                    GuestName = b.Guest != null ? (b.Guest.IsDeleted ? "[Deleted Guest]" : b.Guest.FirstName + " " + b.Guest.LastName) : "No Guest",
+                    b.BookingID,
+                    b.RoomNumber,
+                    b.CheckInDate,
+                    b.CheckInTime,
+                    b.CheckOutDate,
+                    b.CheckOutTime,
+                    b.BookingStatus
+                }).ToList();
+
+                dataGridViewBooking.DataSource = bookingData;
+            }
         }
 
         private void ButtonImportRecords_Click(object sender, EventArgs e)

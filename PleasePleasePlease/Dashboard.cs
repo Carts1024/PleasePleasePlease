@@ -188,11 +188,7 @@ namespace Mirai_Paradise_Hotel
             ActivateButton(sender);
         }
 
-        // for ear panels
-        private void lblListofGuest_Click(object sender, EventArgs e)
-        {
-            LoadUserControl(new UC_Guest2());
-        }
+
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {

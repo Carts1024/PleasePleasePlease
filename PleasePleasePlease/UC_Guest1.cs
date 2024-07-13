@@ -404,58 +404,70 @@ namespace PleasePleasePlease
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = dialog.FileName;
-                using (var reader = new StreamReader(filePath))
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                try
                 {
-                    var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
+                    using (var reader = new StreamReader(filePath))
+                    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                     {
-                        PrepareHeaderForMatch = args => args.Header.ToLower(),
-                    };
-                    csv.Context.TypeConverterCache.AddConverter<DateTime>(new CustomDateTimeConverter());
-
-                    var records = csv.GetRecords<Guest>().ToList();
-
-                    using (DataContext context = new DataContext())
-                    {
-                        foreach (var record in records)
+                        var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
                         {
-                            // Check if a guest with the same GuestID or unique fields already exists
-                            var existingGuest = context.Guests
-                                .FirstOrDefault(g => g.GuestID == record.GuestID ||
-                                                     (g.FirstName == record.FirstName &&
-                                                      g.LastName == record.LastName &&
-                                                      g.BirthDate == record.BirthDate &&
-                                                      g.Email == record.Email));
+                            PrepareHeaderForMatch = args => args.Header.ToLower(),
+                        };
+                        csv.Context.TypeConverterCache.AddConverter<DateTime>(new CustomDateTimeConverter());
 
-                            if (existingGuest != null)
+                        var records = csv.GetRecords<Guest>().ToList();
+
+                        using (DataContext context = new DataContext())
+                        {
+                            foreach (var record in records)
                             {
-                                // Update existing guest
-                                existingGuest.LastName = record.LastName;
-                                existingGuest.FirstName = record.FirstName;
-                                existingGuest.MiddleInitial = record.MiddleInitial;
-                                existingGuest.BirthDate = record.BirthDate;
-                                existingGuest.Gender = record.Gender;
-                                existingGuest.Nationality = record.Nationality;
-                                existingGuest.CityAddress = record.CityAddress;
-                                existingGuest.StateAddress = record.StateAddress;
-                                existingGuest.StreetAddress = record.StreetAddress;
-                                existingGuest.Email = record.Email;
-                                existingGuest.PhoneNumber = record.PhoneNumber;
-                                existingGuest.IsDeleted = record.IsDeleted;
+                                // Check if a guest with the same GuestID or unique fields already exists
+                                var existingGuest = context.Guests
+                                    .FirstOrDefault(g => g.GuestID == record.GuestID ||
+                                                         (g.FirstName == record.FirstName &&
+                                                          g.LastName == record.LastName &&
+                                                          g.BirthDate == record.BirthDate &&
+                                                          g.Email == record.Email));
+
+                                if (existingGuest != null)
+                                {
+                                    // Update existing guest
+                                    existingGuest.LastName = record.LastName;
+                                    existingGuest.FirstName = record.FirstName;
+                                    existingGuest.MiddleInitial = record.MiddleInitial;
+                                    existingGuest.BirthDate = record.BirthDate;
+                                    existingGuest.Gender = record.Gender;
+                                    existingGuest.Nationality = record.Nationality;
+                                    existingGuest.CityAddress = record.CityAddress;
+                                    existingGuest.StateAddress = record.StateAddress;
+                                    existingGuest.StreetAddress = record.StreetAddress;
+                                    existingGuest.Email = record.Email;
+                                    existingGuest.PhoneNumber = record.PhoneNumber;
+                                    existingGuest.IsDeleted = record.IsDeleted;
+                                }
+                                else
+                                {
+                                    // Add new guest
+                                    context.Guests.Add(record);
+                                }
                             }
-                            else
-                            {
-                                // Add new guest
-                                context.Guests.Add(record);
-                            }
+                            context.SaveChanges();
                         }
-                        context.SaveChanges();
-                    }
 
-                    LoadData();
+                        LoadData();
+                    }
+                }
+                catch (CsvHelper.HeaderValidationException ex)
+                {
+                    MessageBox.Show($"Header validation error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while importing records: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
         private class CustomDateTimeConverter : DateTimeConverter
         {

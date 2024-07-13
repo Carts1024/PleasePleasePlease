@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations; // Using DataAnnotations for data v
 
 namespace Mirai_Paradise_Hotel
 {
-    public class Room
+    public abstract class Room
     {
         [Name("Index")]                        
         public int Index { get; set; }

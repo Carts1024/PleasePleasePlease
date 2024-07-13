@@ -32,12 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             guna2DataGridViewDetailsAvailRooms = new Guna.UI2.WinForms.Guna2DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            ColumnRoomStatus = new DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)guna2DataGridViewDetailsAvailRooms).BeginInit();
             SuspendLayout();
             // 
@@ -55,7 +49,6 @@
             guna2DataGridViewDetailsAvailRooms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             guna2DataGridViewDetailsAvailRooms.ColumnHeadersHeight = 17;
             guna2DataGridViewDetailsAvailRooms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridViewDetailsAvailRooms.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, ColumnRoomStatus });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -67,9 +60,12 @@
             guna2DataGridViewDetailsAvailRooms.Dock = DockStyle.Fill;
             guna2DataGridViewDetailsAvailRooms.GridColor = Color.FromArgb(231, 229, 255);
             guna2DataGridViewDetailsAvailRooms.Location = new Point(0, 0);
+            guna2DataGridViewDetailsAvailRooms.Margin = new Padding(3, 4, 3, 4);
             guna2DataGridViewDetailsAvailRooms.Name = "guna2DataGridViewDetailsAvailRooms";
             guna2DataGridViewDetailsAvailRooms.RowHeadersVisible = false;
-            guna2DataGridViewDetailsAvailRooms.Size = new Size(543, 450);
+            guna2DataGridViewDetailsAvailRooms.RowHeadersWidth = 51;
+            guna2DataGridViewDetailsAvailRooms.RowTemplate.Height = 25;
+            guna2DataGridViewDetailsAvailRooms.Size = new Size(621, 600);
             guna2DataGridViewDetailsAvailRooms.TabIndex = 0;
             guna2DataGridViewDetailsAvailRooms.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridViewDetailsAvailRooms.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -93,50 +89,14 @@
             guna2DataGridViewDetailsAvailRooms.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             guna2DataGridViewDetailsAvailRooms.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // Column1
-            // 
-            Column1.HeaderText = "Room No.";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Room Type";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Floor No";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Max Capacity";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Room Rate";
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            // 
-            // ColumnRoomStatus
-            // 
-            ColumnRoomStatus.HeaderText = "Room Status";
-            ColumnRoomStatus.Name = "ColumnRoomStatus";
-            ColumnRoomStatus.Resizable = DataGridViewTriState.True;
-            ColumnRoomStatus.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
             // Details_AvailRooms
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(543, 450);
+            ClientSize = new Size(621, 600);
             Controls.Add(guna2DataGridViewDetailsAvailRooms);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Details_AvailRooms";
@@ -149,11 +109,5 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridViewDetailsAvailRooms;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewComboBoxColumn ColumnRoomStatus;
     }
 }

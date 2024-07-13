@@ -10,27 +10,49 @@ using System.Windows.Forms;
 
 namespace Mirai_Paradise_Hotel
 {
-    public partial class ForgotPass : Form
+    public  partial class ForgotPass : Form
     {
+        public List<User> DatabaseUser { get; set; }
+   
         public ForgotPass()
         {
             InitializeComponent();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
+
         {
-            if (txtNewPass.Text != txtConfirmPass.Text)
+            string username = username_txt.Text;
+            string newPass = newPass_txt.Text;
+            string confirmPass = conPass_txt.Text;
+
+            using (DataContext context = new DataContext())
             {
-                lblErrorResetPass.Visible = true;
-                txtConfirmPass.Clear();
-            }
-            else
-            {
-                //CONDITION KAPAG SUCCESSFULLY NAPALITAN YUNG PASSWORD
-                //BALE UPDATE NA TO SA DATABASE
-                Dashboard ds = new Dashboard();
-                this.Hide();
-                ds.Show();
+                var user = context.Users.FirstOrDefault(u => u.UserName == username);
+                if (user == null)
+                {
+                    lblErrorResetPass.Text = "Username not found.";
+                    lblErrorResetPass.Visible = true;
+                    return;
+                }
+
+                if (newPass != confirmPass)
+                {
+                    lblErrorResetPass.Text = "Passwords do not match.";
+                    lblErrorResetPass.Visible = true;
+                    conPass_txt.Clear();
+                }
+                else
+                {
+                    // Update the password in the database using the username
+                    user.Password = newPass;
+                    context.SaveChanges();
+
+                    // Navigate back to the LoginPage after successful password reset
+                    LoginPage login = new LoginPage();
+                    this.Hide();
+                    login.Show();
+                }
             }
         }
 

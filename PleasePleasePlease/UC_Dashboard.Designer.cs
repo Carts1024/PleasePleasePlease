@@ -33,8 +33,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             panelGalleryAvailRooms = new Guna.UI2.WinForms.Guna2Panel();
             panel18 = new Panel();
@@ -69,7 +67,6 @@
             pictureBox1 = new PictureBox();
             panel12 = new Panel();
             labelViewDetailsPendingPayments = new Label();
-            guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             ButtonBookingHistory = new Guna.UI2.WinForms.Guna2GradientButton();
             label30 = new Label();
             label16 = new Label();
@@ -124,7 +121,6 @@
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.Controls.Add(panelGalleryAvailRooms);
             panel1.Controls.Add(panel12);
-            panel1.Controls.Add(guna2GradientButton1);
             panel1.Controls.Add(ButtonBookingHistory);
             panel1.Controls.Add(label30);
             panel1.Controls.Add(label16);
@@ -136,10 +132,11 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
-            panel1.MaximumSize = new Size(1920, 1080);
-            panel1.MinimumSize = new Size(1076, 749);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.MaximumSize = new Size(2194, 1440);
+            panel1.MinimumSize = new Size(1230, 999);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1076, 749);
+            panel1.Size = new Size(1230, 999);
             panel1.TabIndex = 19;
             // 
             // panelGalleryAvailRooms
@@ -151,10 +148,11 @@
             panelGalleryAvailRooms.Controls.Add(panel15);
             panelGalleryAvailRooms.Controls.Add(panel14);
             panelGalleryAvailRooms.CustomizableEdges = customizableEdges1;
-            panelGalleryAvailRooms.Location = new Point(27, 361);
+            panelGalleryAvailRooms.Location = new Point(31, 481);
+            panelGalleryAvailRooms.Margin = new Padding(3, 4, 3, 4);
             panelGalleryAvailRooms.Name = "panelGalleryAvailRooms";
             panelGalleryAvailRooms.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            panelGalleryAvailRooms.Size = new Size(1263, 269);
+            panelGalleryAvailRooms.Size = new Size(1443, 359);
             panelGalleryAvailRooms.TabIndex = 32;
             // 
             // panel18
@@ -165,9 +163,10 @@
             panel18.Controls.Add(label10);
             panel18.Controls.Add(button5);
             panel18.Controls.Add(pictureBox5);
-            panel18.Location = new Point(1082, 2);
+            panel18.Location = new Point(1237, 3);
+            panel18.Margin = new Padding(3, 4, 3, 4);
             panel18.Name = "panel18";
-            panel18.Size = new Size(254, 248);
+            panel18.Size = new Size(290, 331);
             panel18.TabIndex = 20;
             // 
             // label6
@@ -175,9 +174,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(255, 255, 128);
-            label6.Location = new Point(181, 190);
+            label6.Location = new Point(207, 253);
             label6.Name = "label6";
-            label6.Size = new Size(47, 16);
+            label6.Size = new Size(60, 20);
             label6.TabIndex = 15;
             label6.Text = "₱1,479";
             // 
@@ -185,9 +184,9 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label7.Location = new Point(29, 170);
+            label7.Location = new Point(33, 227);
             label7.Name = "label7";
-            label7.Size = new Size(36, 16);
+            label7.Size = new Size(45, 20);
             label7.TabIndex = 13;
             label7.Text = "Suite";
             // 
@@ -195,18 +194,19 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(29, 157);
+            label10.Location = new Point(33, 209);
             label10.Name = "label10";
-            label10.Size = new Size(82, 16);
+            label10.Size = new Size(110, 20);
             label10.TabIndex = 12;
             label10.Text = "Room No: 30";
             // 
             // button5
             // 
             button5.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(171, 153);
+            button5.Location = new Point(195, 204);
+            button5.Margin = new Padding(3, 4, 3, 4);
             button5.Name = "button5";
-            button5.Size = new Size(69, 33);
+            button5.Size = new Size(79, 44);
             button5.TabIndex = 11;
             button5.Text = "Book";
             button5.UseVisualStyleBackColor = true;
@@ -215,9 +215,10 @@
             // 
             pictureBox5.BackgroundImage = (Image)resources.GetObject("pictureBox5.BackgroundImage");
             pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox5.Location = new Point(30, 15);
+            pictureBox5.Location = new Point(34, 20);
+            pictureBox5.Margin = new Padding(3, 4, 3, 4);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(195, 131);
+            pictureBox5.Size = new Size(223, 175);
             pictureBox5.TabIndex = 10;
             pictureBox5.TabStop = false;
             // 
@@ -229,9 +230,10 @@
             panel17.Controls.Add(label24);
             panel17.Controls.Add(button4);
             panel17.Controls.Add(pictureBox4);
-            panel17.Location = new Point(811, 2);
+            panel17.Location = new Point(927, 3);
+            panel17.Margin = new Padding(3, 4, 3, 4);
             panel17.Name = "panel17";
-            panel17.Size = new Size(254, 248);
+            panel17.Size = new Size(290, 331);
             panel17.TabIndex = 17;
             // 
             // label29
@@ -239,9 +241,9 @@
             label29.AutoSize = true;
             label29.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label29.ForeColor = Color.FromArgb(255, 255, 128);
-            label29.Location = new Point(181, 190);
+            label29.Location = new Point(207, 253);
             label29.Name = "label29";
-            label29.Size = new Size(47, 16);
+            label29.Size = new Size(60, 20);
             label29.TabIndex = 15;
             label29.Text = "₱1,479";
             // 
@@ -249,9 +251,9 @@
             // 
             label23.AutoSize = true;
             label23.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label23.Location = new Point(29, 170);
+            label23.Location = new Point(33, 227);
             label23.Name = "label23";
-            label23.Size = new Size(36, 16);
+            label23.Size = new Size(45, 20);
             label23.TabIndex = 13;
             label23.Text = "Suite";
             // 
@@ -259,18 +261,19 @@
             // 
             label24.AutoSize = true;
             label24.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label24.Location = new Point(29, 157);
+            label24.Location = new Point(33, 209);
             label24.Name = "label24";
-            label24.Size = new Size(82, 16);
+            label24.Size = new Size(110, 20);
             label24.TabIndex = 12;
             label24.Text = "Room No: 30";
             // 
             // button4
             // 
             button4.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(171, 153);
+            button4.Location = new Point(195, 204);
+            button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
-            button4.Size = new Size(69, 33);
+            button4.Size = new Size(79, 44);
             button4.TabIndex = 11;
             button4.Text = "Book";
             button4.UseVisualStyleBackColor = true;
@@ -279,9 +282,10 @@
             // 
             pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
             pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(30, 15);
+            pictureBox4.Location = new Point(34, 20);
+            pictureBox4.Margin = new Padding(3, 4, 3, 4);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(195, 131);
+            pictureBox4.Size = new Size(223, 175);
             pictureBox4.TabIndex = 10;
             pictureBox4.TabStop = false;
             // 
@@ -293,9 +297,10 @@
             panel16.Controls.Add(label22);
             panel16.Controls.Add(button3);
             panel16.Controls.Add(pictureBox3);
-            panel16.Location = new Point(538, 2);
+            panel16.Location = new Point(615, 3);
+            panel16.Margin = new Padding(3, 4, 3, 4);
             panel16.Name = "panel16";
-            panel16.Size = new Size(254, 248);
+            panel16.Size = new Size(290, 331);
             panel16.TabIndex = 18;
             // 
             // label28
@@ -303,9 +308,9 @@
             label28.AutoSize = true;
             label28.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label28.ForeColor = Color.FromArgb(255, 255, 128);
-            label28.Location = new Point(182, 188);
+            label28.Location = new Point(208, 251);
             label28.Name = "label28";
-            label28.Size = new Size(47, 16);
+            label28.Size = new Size(60, 20);
             label28.TabIndex = 15;
             label28.Text = "₱1,479";
             // 
@@ -313,9 +318,9 @@
             // 
             label21.AutoSize = true;
             label21.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label21.Location = new Point(29, 170);
+            label21.Location = new Point(33, 227);
             label21.Name = "label21";
-            label21.Size = new Size(46, 16);
+            label21.Size = new Size(59, 20);
             label21.TabIndex = 13;
             label21.Text = "Deluxe";
             // 
@@ -323,18 +328,19 @@
             // 
             label22.AutoSize = true;
             label22.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label22.Location = new Point(29, 157);
+            label22.Location = new Point(33, 209);
             label22.Name = "label22";
-            label22.Size = new Size(81, 16);
+            label22.Size = new Size(108, 20);
             label22.TabIndex = 12;
             label22.Text = "Room No: 27";
             // 
             // button3
             // 
             button3.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(171, 153);
+            button3.Location = new Point(195, 204);
+            button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(69, 33);
+            button3.Size = new Size(79, 44);
             button3.TabIndex = 11;
             button3.Text = "Book";
             button3.UseVisualStyleBackColor = true;
@@ -343,9 +349,10 @@
             // 
             pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(30, 15);
+            pictureBox3.Location = new Point(34, 20);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(195, 131);
+            pictureBox3.Size = new Size(223, 175);
             pictureBox3.TabIndex = 10;
             pictureBox3.TabStop = false;
             // 
@@ -357,9 +364,10 @@
             panel15.Controls.Add(label20);
             panel15.Controls.Add(button2);
             panel15.Controls.Add(pictureBox2);
-            panel15.Location = new Point(264, 2);
+            panel15.Location = new Point(302, 3);
+            panel15.Margin = new Padding(3, 4, 3, 4);
             panel15.Name = "panel15";
-            panel15.Size = new Size(254, 248);
+            panel15.Size = new Size(290, 331);
             panel15.TabIndex = 19;
             // 
             // label27
@@ -367,9 +375,9 @@
             label27.AutoSize = true;
             label27.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label27.ForeColor = Color.FromArgb(255, 255, 128);
-            label27.Location = new Point(183, 188);
+            label27.Location = new Point(209, 251);
             label27.Name = "label27";
-            label27.Size = new Size(47, 16);
+            label27.Size = new Size(60, 20);
             label27.TabIndex = 15;
             label27.Text = "₱1,479";
             // 
@@ -377,9 +385,9 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label19.Location = new Point(29, 170);
+            label19.Location = new Point(33, 227);
             label19.Name = "label19";
-            label19.Size = new Size(46, 16);
+            label19.Size = new Size(59, 20);
             label19.TabIndex = 13;
             label19.Text = "Deluxe";
             // 
@@ -387,18 +395,19 @@
             // 
             label20.AutoSize = true;
             label20.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(29, 157);
+            label20.Location = new Point(33, 209);
             label20.Name = "label20";
-            label20.Size = new Size(82, 16);
+            label20.Size = new Size(109, 20);
             label20.TabIndex = 12;
             label20.Text = "Room No: 24";
             // 
             // button2
             // 
             button2.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(171, 153);
+            button2.Location = new Point(195, 204);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(69, 33);
+            button2.Size = new Size(79, 44);
             button2.TabIndex = 11;
             button2.Text = "Book";
             button2.UseVisualStyleBackColor = true;
@@ -407,9 +416,10 @@
             // 
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(30, 15);
+            pictureBox2.Location = new Point(34, 20);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(195, 131);
+            pictureBox2.Size = new Size(223, 175);
             pictureBox2.TabIndex = 10;
             pictureBox2.TabStop = false;
             // 
@@ -421,9 +431,10 @@
             panel14.Controls.Add(label17);
             panel14.Controls.Add(button1);
             panel14.Controls.Add(pictureBox1);
-            panel14.Location = new Point(-10, 2);
+            panel14.Location = new Point(-11, 3);
+            panel14.Margin = new Padding(3, 4, 3, 4);
             panel14.Name = "panel14";
-            panel14.Size = new Size(254, 248);
+            panel14.Size = new Size(290, 331);
             panel14.TabIndex = 16;
             // 
             // label26
@@ -431,9 +442,9 @@
             label26.AutoSize = true;
             label26.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label26.ForeColor = Color.FromArgb(255, 255, 128);
-            label26.Location = new Point(181, 189);
+            label26.Location = new Point(207, 252);
             label26.Name = "label26";
-            label26.Size = new Size(47, 16);
+            label26.Size = new Size(60, 20);
             label26.TabIndex = 14;
             label26.Text = "₱1,479";
             // 
@@ -441,9 +452,9 @@
             // 
             label18.AutoSize = true;
             label18.Font = new Font("SF Pro Display", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label18.Location = new Point(29, 170);
+            label18.Location = new Point(33, 227);
             label18.Name = "label18";
-            label18.Size = new Size(58, 16);
+            label18.Size = new Size(74, 20);
             label18.TabIndex = 13;
             label18.Text = "Standard";
             // 
@@ -451,18 +462,19 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(29, 157);
+            label17.Location = new Point(33, 209);
             label17.Name = "label17";
-            label17.Size = new Size(82, 16);
+            label17.Size = new Size(109, 20);
             label17.TabIndex = 12;
             label17.Text = "Room No: 23";
             // 
             // button1
             // 
             button1.Font = new Font("SF Pro Display", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(171, 153);
+            button1.Location = new Point(195, 204);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(69, 33);
+            button1.Size = new Size(79, 44);
             button1.TabIndex = 11;
             button1.Text = "Book";
             button1.UseVisualStyleBackColor = true;
@@ -471,9 +483,10 @@
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(30, 15);
+            pictureBox1.Location = new Point(34, 20);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(195, 131);
+            pictureBox1.Size = new Size(223, 175);
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
@@ -481,55 +494,32 @@
             // 
             panel12.BackColor = Color.MediumSeaGreen;
             panel12.Controls.Add(labelViewDetailsPendingPayments);
-            panel12.Location = new Point(812, 252);
+            panel12.Location = new Point(928, 336);
+            panel12.Margin = new Padding(3, 4, 3, 4);
             panel12.Name = "panel12";
-            panel12.Size = new Size(306, 36);
+            panel12.Size = new Size(350, 48);
             panel12.TabIndex = 9;
             // 
             // labelViewDetailsPendingPayments
             // 
             labelViewDetailsPendingPayments.AutoSize = true;
             labelViewDetailsPendingPayments.Font = new Font("SF Pro Display", 9F, FontStyle.Italic);
-            labelViewDetailsPendingPayments.Location = new Point(65, 11);
+            labelViewDetailsPendingPayments.Location = new Point(74, 15);
             labelViewDetailsPendingPayments.Name = "labelViewDetailsPendingPayments";
             labelViewDetailsPendingPayments.RightToLeft = RightToLeft.No;
-            labelViewDetailsPendingPayments.Size = new Size(106, 14);
+            labelViewDetailsPendingPayments.Size = new Size(134, 18);
             labelViewDetailsPendingPayments.TabIndex = 0;
             labelViewDetailsPendingPayments.Text = "V I E W   D E T A I L S";
             labelViewDetailsPendingPayments.TextAlign = ContentAlignment.MiddleCenter;
             labelViewDetailsPendingPayments.Click += labelViewDetailsPendingPayments_Click;
-            // 
-            // guna2GradientButton1
-            // 
-            guna2GradientButton1.Animated = true;
-            guna2GradientButton1.AutoRoundedCorners = true;
-            guna2GradientButton1.BackColor = Color.Transparent;
-            guna2GradientButton1.BorderRadius = 14;
-            guna2GradientButton1.CustomizableEdges = customizableEdges3;
-            guna2GradientButton1.DisabledState.BorderColor = Color.DarkGray;
-            guna2GradientButton1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2GradientButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2GradientButton1.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
-            guna2GradientButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2GradientButton1.FillColor = Color.FromArgb(32, 191, 85);
-            guna2GradientButton1.FillColor2 = Color.SteelBlue;
-            guna2GradientButton1.Font = new Font("SF Pro Display", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2GradientButton1.ForeColor = Color.White;
-            guna2GradientButton1.Location = new Point(967, 636);
-            guna2GradientButton1.Name = "guna2GradientButton1";
-            guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2GradientButton1.Size = new Size(151, 31);
-            guna2GradientButton1.TabIndex = 30;
-            guna2GradientButton1.Text = "See More";
-            guna2GradientButton1.Click += guna2GradientButton1_Click;
             // 
             // ButtonBookingHistory
             // 
             ButtonBookingHistory.Animated = true;
             ButtonBookingHistory.AutoRoundedCorners = true;
             ButtonBookingHistory.BackColor = Color.Transparent;
-            ButtonBookingHistory.BorderRadius = 25;
-            ButtonBookingHistory.CustomizableEdges = customizableEdges5;
+            ButtonBookingHistory.BorderRadius = 33;
+            ButtonBookingHistory.CustomizableEdges = customizableEdges3;
             ButtonBookingHistory.DisabledState.BorderColor = Color.DarkGray;
             ButtonBookingHistory.DisabledState.CustomBorderColor = Color.DarkGray;
             ButtonBookingHistory.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -539,10 +529,11 @@
             ButtonBookingHistory.FillColor2 = Color.SteelBlue;
             ButtonBookingHistory.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ButtonBookingHistory.ForeColor = Color.White;
-            ButtonBookingHistory.Location = new Point(355, 647);
+            ButtonBookingHistory.Location = new Point(406, 863);
+            ButtonBookingHistory.Margin = new Padding(3, 4, 3, 4);
             ButtonBookingHistory.Name = "ButtonBookingHistory";
-            ButtonBookingHistory.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            ButtonBookingHistory.Size = new Size(278, 52);
+            ButtonBookingHistory.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            ButtonBookingHistory.Size = new Size(318, 69);
             ButtonBookingHistory.TabIndex = 29;
             ButtonBookingHistory.Text = "View Booking History";
             ButtonBookingHistory.Click += ButtonBookingHistory_Click;
@@ -553,9 +544,9 @@
             label30.AutoSize = true;
             label30.BackColor = Color.Transparent;
             label30.Font = new Font("SF Pro Display", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label30.Location = new Point(940, 30);
+            label30.Location = new Point(1074, 40);
             label30.Name = "label30";
-            label30.Size = new Size(234, 35);
+            label30.Size = new Size(297, 44);
             label30.TabIndex = 22;
             label30.Text = "Day, Month, Year";
             // 
@@ -564,9 +555,9 @@
             label16.AutoSize = true;
             label16.BackColor = Color.Transparent;
             label16.Font = new Font("SF Pro Display", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(27, 333);
+            label16.Location = new Point(31, 444);
             label16.Name = "label16";
-            label16.Size = new Size(168, 25);
+            label16.Size = new Size(216, 32);
             label16.TabIndex = 13;
             label16.Text = "Available Rooms";
             // 
@@ -577,18 +568,20 @@
             panel4.Controls.Add(panel13);
             panel4.Controls.Add(label14);
             panel4.Controls.Add(label15);
-            panel4.Location = new Point(814, 104);
+            panel4.Location = new Point(930, 139);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(304, 184);
+            panel4.Size = new Size(347, 245);
             panel4.TabIndex = 12;
             // 
             // panel13
             // 
             panel13.BackgroundImage = (Image)resources.GetObject("panel13.BackgroundImage");
             panel13.BackgroundImageLayout = ImageLayout.Zoom;
-            panel13.Location = new Point(26, 55);
+            panel13.Location = new Point(30, 73);
+            panel13.Margin = new Padding(3, 4, 3, 4);
             panel13.Name = "panel13";
-            panel13.Size = new Size(55, 59);
+            panel13.Size = new Size(63, 79);
             panel13.TabIndex = 9;
             // 
             // label14
@@ -598,9 +591,9 @@
             label14.BackColor = Color.Transparent;
             label14.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.White;
-            label14.Location = new Point(104, 72);
+            label14.Location = new Point(119, 96);
             label14.Name = "label14";
-            label14.Size = new Size(41, 42);
+            label14.Size = new Size(52, 53);
             label14.TabIndex = 7;
             label14.Text = "8";
             // 
@@ -611,9 +604,9 @@
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.White;
-            label15.Location = new Point(98, 49);
+            label15.Location = new Point(112, 65);
             label15.Name = "label15";
-            label15.Size = new Size(172, 23);
+            label15.Size = new Size(217, 29);
             label15.TabIndex = 6;
             label15.Text = "Pending Payments";
             // 
@@ -624,9 +617,10 @@
             panel9.Controls.Add(panel11);
             panel9.Controls.Add(label11);
             panel9.Controls.Add(label12);
-            panel9.Location = new Point(552, 104);
+            panel9.Location = new Point(631, 139);
+            panel9.Margin = new Padding(3, 4, 3, 4);
             panel9.Name = "panel9";
-            panel9.Size = new Size(254, 184);
+            panel9.Size = new Size(290, 245);
             panel9.TabIndex = 11;
             // 
             // panel10
@@ -634,19 +628,20 @@
             panel10.BackColor = Color.MediumSeaGreen;
             panel10.Controls.Add(labelViewDetailsOccRooms);
             panel10.Dock = DockStyle.Bottom;
-            panel10.Location = new Point(0, 148);
+            panel10.Location = new Point(0, 197);
+            panel10.Margin = new Padding(3, 4, 3, 4);
             panel10.Name = "panel10";
-            panel10.Size = new Size(254, 36);
+            panel10.Size = new Size(290, 48);
             panel10.TabIndex = 9;
             // 
             // labelViewDetailsOccRooms
             // 
             labelViewDetailsOccRooms.AutoSize = true;
             labelViewDetailsOccRooms.Font = new Font("SF Pro Display", 9F, FontStyle.Italic);
-            labelViewDetailsOccRooms.Location = new Point(65, 11);
+            labelViewDetailsOccRooms.Location = new Point(74, 15);
             labelViewDetailsOccRooms.Name = "labelViewDetailsOccRooms";
             labelViewDetailsOccRooms.RightToLeft = RightToLeft.No;
-            labelViewDetailsOccRooms.Size = new Size(106, 14);
+            labelViewDetailsOccRooms.Size = new Size(134, 18);
             labelViewDetailsOccRooms.TabIndex = 0;
             labelViewDetailsOccRooms.Text = "V I E W   D E T A I L S";
             labelViewDetailsOccRooms.Click += labelViewDetailsOccRooms_Click;
@@ -655,9 +650,10 @@
             // 
             panel11.BackgroundImage = (Image)resources.GetObject("panel11.BackgroundImage");
             panel11.BackgroundImageLayout = ImageLayout.Zoom;
-            panel11.Location = new Point(26, 55);
+            panel11.Location = new Point(30, 73);
+            panel11.Margin = new Padding(3, 4, 3, 4);
             panel11.Name = "panel11";
-            panel11.Size = new Size(55, 59);
+            panel11.Size = new Size(63, 79);
             panel11.TabIndex = 8;
             // 
             // label11
@@ -666,9 +662,9 @@
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(104, 72);
+            label11.Location = new Point(119, 96);
             label11.Name = "label11";
-            label11.Size = new Size(57, 42);
+            label11.Size = new Size(72, 53);
             label11.TabIndex = 7;
             label11.Text = "13";
             // 
@@ -678,9 +674,9 @@
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold);
             label12.ForeColor = Color.White;
-            label12.Location = new Point(87, 49);
+            label12.Location = new Point(99, 65);
             label12.Name = "label12";
-            label12.Size = new Size(157, 23);
+            label12.Size = new Size(199, 29);
             label12.TabIndex = 6;
             label12.Text = "Occupied Rooms";
             // 
@@ -691,9 +687,10 @@
             panel3.Controls.Add(panel8);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(label9);
-            panel3.Location = new Point(290, 104);
+            panel3.Location = new Point(331, 139);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(254, 184);
+            panel3.Size = new Size(290, 245);
             panel3.TabIndex = 10;
             // 
             // panel7
@@ -701,19 +698,20 @@
             panel7.BackColor = Color.MediumSeaGreen;
             panel7.Controls.Add(labelViewDetailsBookings);
             panel7.Dock = DockStyle.Bottom;
-            panel7.Location = new Point(0, 148);
+            panel7.Location = new Point(0, 197);
+            panel7.Margin = new Padding(3, 4, 3, 4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(254, 36);
+            panel7.Size = new Size(290, 48);
             panel7.TabIndex = 9;
             // 
             // labelViewDetailsBookings
             // 
             labelViewDetailsBookings.AutoSize = true;
             labelViewDetailsBookings.Font = new Font("SF Pro Display", 9F, FontStyle.Italic);
-            labelViewDetailsBookings.Location = new Point(65, 11);
+            labelViewDetailsBookings.Location = new Point(74, 15);
             labelViewDetailsBookings.Name = "labelViewDetailsBookings";
             labelViewDetailsBookings.RightToLeft = RightToLeft.No;
-            labelViewDetailsBookings.Size = new Size(106, 14);
+            labelViewDetailsBookings.Size = new Size(134, 18);
             labelViewDetailsBookings.TabIndex = 0;
             labelViewDetailsBookings.Text = "V I E W   D E T A I L S";
             labelViewDetailsBookings.Click += labelViewDetailsBookings_Click;
@@ -722,9 +720,10 @@
             // 
             panel8.BackgroundImage = (Image)resources.GetObject("panel8.BackgroundImage");
             panel8.BackgroundImageLayout = ImageLayout.Zoom;
-            panel8.Location = new Point(21, 55);
+            panel8.Location = new Point(24, 73);
+            panel8.Margin = new Padding(3, 4, 3, 4);
             panel8.Name = "panel8";
-            panel8.Size = new Size(55, 59);
+            panel8.Size = new Size(63, 79);
             panel8.TabIndex = 8;
             // 
             // label8
@@ -733,9 +732,9 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(94, 72);
+            label8.Location = new Point(107, 96);
             label8.Name = "label8";
-            label8.Size = new Size(60, 42);
+            label8.Size = new Size(77, 53);
             label8.TabIndex = 7;
             label8.Text = "22";
             // 
@@ -745,9 +744,9 @@
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(94, 49);
+            label9.Location = new Point(107, 65);
             label9.Name = "label9";
-            label9.Size = new Size(91, 23);
+            label9.Size = new Size(115, 29);
             label9.TabIndex = 6;
             label9.Text = "Bookings";
             // 
@@ -756,9 +755,9 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("SF Pro Display", 21.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label5.Location = new Point(27, 30);
+            label5.Location = new Point(31, 40);
             label5.Name = "label5";
-            label5.Size = new Size(281, 35);
+            label5.Size = new Size(359, 44);
             label5.TabIndex = 6;
             label5.Text = "Ad Astra Abyssosque!";
             // 
@@ -769,9 +768,10 @@
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(label4);
             panel5.Controls.Add(label3);
-            panel5.Location = new Point(27, 104);
+            panel5.Location = new Point(31, 139);
+            panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(254, 184);
+            panel5.Size = new Size(290, 245);
             panel5.TabIndex = 2;
             // 
             // panel2
@@ -779,19 +779,20 @@
             panel2.BackColor = Color.MediumSeaGreen;
             panel2.Controls.Add(labelViewDetailsAvailRoom);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 148);
+            panel2.Location = new Point(0, 197);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(254, 36);
+            panel2.Size = new Size(290, 48);
             panel2.TabIndex = 9;
             // 
             // labelViewDetailsAvailRoom
             // 
             labelViewDetailsAvailRoom.AutoSize = true;
             labelViewDetailsAvailRoom.Font = new Font("SF Pro Display", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelViewDetailsAvailRoom.Location = new Point(65, 11);
+            labelViewDetailsAvailRoom.Location = new Point(74, 15);
             labelViewDetailsAvailRoom.Name = "labelViewDetailsAvailRoom";
             labelViewDetailsAvailRoom.RightToLeft = RightToLeft.No;
-            labelViewDetailsAvailRoom.Size = new Size(106, 14);
+            labelViewDetailsAvailRoom.Size = new Size(134, 18);
             labelViewDetailsAvailRoom.TabIndex = 0;
             labelViewDetailsAvailRoom.Text = "V I E W   D E T A I L S";
             labelViewDetailsAvailRoom.Click += labelViewDeetsAvailRoom_Click;
@@ -800,9 +801,10 @@
             // 
             panel6.BackgroundImage = (Image)resources.GetObject("panel6.BackgroundImage");
             panel6.BackgroundImageLayout = ImageLayout.Zoom;
-            panel6.Location = new Point(16, 55);
+            panel6.Location = new Point(18, 73);
+            panel6.Margin = new Padding(3, 4, 3, 4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(55, 59);
+            panel6.Size = new Size(63, 79);
             panel6.TabIndex = 8;
             // 
             // label4
@@ -811,9 +813,9 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("SF Pro Display", 26.25F, FontStyle.Bold);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(77, 72);
+            label4.Location = new Point(88, 96);
             label4.Name = "label4";
-            label4.Size = new Size(57, 42);
+            label4.Size = new Size(72, 53);
             label4.TabIndex = 7;
             label4.Text = "15";
             // 
@@ -823,9 +825,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("SF Pro Display", 14.25F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(77, 46);
+            label3.Location = new Point(88, 61);
             label3.Name = "label3";
-            label3.Size = new Size(153, 23);
+            label3.Size = new Size(194, 29);
             label3.TabIndex = 6;
             label3.Text = "Available Rooms";
             // 
@@ -835,20 +837,21 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("SF Pro Display", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(1042, 65);
+            label1.Location = new Point(1191, 87);
             label1.Name = "label1";
-            label1.Size = new Size(36, 19);
+            label1.Size = new Size(44, 24);
             label1.TabIndex = 1;
             label1.Text = "Day";
             // 
             // UC_Dashboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UC_Dashboard";
-            Size = new Size(1076, 749);
+            Size = new Size(1230, 999);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panelGalleryAvailRooms.ResumeLayout(false);
@@ -917,7 +920,6 @@
         private Label label16;
         private Label label30;
         private Panel panel13;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2GradientButton ButtonBookingHistory;
         private Guna.UI2.WinForms.Guna2Panel panelGalleryAvailRooms;
         private Panel panel17;

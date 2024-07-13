@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PleasePleasePlease;
+﻿using PleasePleasePlease;
 using System;
 using System.Linq;
 using System.Security.Cryptography;
@@ -10,7 +9,9 @@ namespace Mirai_Paradise_Hotel
 {
     public partial class CreateAccount : Form
     {
+        public List<User> DatabaseUser { get; set; }
         private UC_Accounts _Accounts;
+
         // Constructor
         public CreateAccount(UC_Accounts accounts)
         {
@@ -18,7 +19,7 @@ namespace Mirai_Paradise_Hotel
             _Accounts = accounts;
             comboAccType.Items.AddRange(new object[] { "Administrator", "Manager", "Receptionist" });
             InitializeDataGridView(); // Initialize DataGridView
-             // Load accounts on initialization
+                                      // Load accounts on initialization
         }
 
         private void InitializeDataGridView()
@@ -32,8 +33,7 @@ namespace Mirai_Paradise_Hotel
             this.Controls.Add(dataGridViewAccounts);
         }
 
-
-        private void ResetErrorLabels()
+        public void ResetErrorLabels()
         {
             labelErrorAccountExist.Visible = false;
             labelErrorPassword.Visible = false;
@@ -48,15 +48,15 @@ namespace Mirai_Paradise_Hotel
             }
         }
 
-        private void CreateNewUser(string username, string password)
+        private void CreateNewUser(string username, string password, string accountType)
         {
-            using (var context = new DataContext())
+            using (DataContext context = new DataContext())
             {
                 var newUser = new User
                 {
                     UserName = username,
-                    Password = password, // Hashing the password before saving
-                    AccountType = comboAccType.Text
+                    Password = password,
+                    AccountType = accountType
                 };
 
                 context.Users.Add(newUser);
@@ -64,15 +64,44 @@ namespace Mirai_Paradise_Hotel
             }
         }
 
-
-
-
-
         private void buttonBack_Click(object sender, EventArgs e)
         {
             _Accounts.LoadData(); // Refresh the TreeView
-
             this.Hide();
+        }
+
+        private void createAcc_btn_Click(object sender, EventArgs e)
+        {
+            ResetErrorLabels();
+
+            string username = username_txt.Text;
+            string password = password_txt.Text;
+            string confirmPass = conPass_txt.Text;
+            string accountType = comboAccType.Text;
+
+            if (CheckUsernameExistence(username))
+            {
+                labelErrorUsername.Visible = true;
+            }
+            else if (password != confirmPass)
+            {
+                MessageBox.Show("Passwords do not match");
+                labelErrorPassword.Visible = true;
+            }
+            else
+            {
+                try
+                {
+                    CreateNewUser(username, password, accountType);
+                    MessageBox.Show("Account created successfully");
+                    _Accounts.LoadData(); // Refresh the TreeView
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while creating the account: {ex.Message}");
+                }
+            }
         }
     }
 }

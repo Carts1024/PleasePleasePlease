@@ -9,7 +9,7 @@ namespace Mirai_Paradise_Hotel
         public int Index { get; set; }         // Property for storing Index
 
         [Key, Name("User Id")]                 // DataAnnotations attribute: specifies this property as the key
-        public Guid UserID { get; set; }     // Property for storing User ID
+        public Guid UserID { get; set; } = Guid.NewGuid();    // Property for storing User ID
 
         [Name("UserName")]
         public string UserName { get; set; }

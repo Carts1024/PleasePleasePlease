@@ -5,10 +5,12 @@ using System.Linq;
 using System.Windows.Forms;
 
 namespace Mirai_Paradise_Hotel
-{
+{   
+
     public partial class LoginPage : Form
     {
         //  private User currentUser;
+
 
         protected override void OnLoad(EventArgs e)
         {
@@ -17,14 +19,13 @@ namespace Mirai_Paradise_Hotel
             // Initialize the database context
             DatabaseFacade facade = new DatabaseFacade(new DataContext());
             // Uncomment to ensure the database is deleted and recreated on every load
-            //facade.EnsureDeleted();
+            facade.EnsureDeleted();
             facade.EnsureCreated();
         }
 
         public LoginPage()
         {
             InitializeComponent();
-            //    this.currentUser = user;
             this.FormClosed += LoginPage_FormClosed;
         }
 
@@ -51,6 +52,7 @@ namespace Mirai_Paradise_Hotel
                 var user = context.Users.FirstOrDefault(u => u.UserName == Username && u.Password == Password);
                 if (user != null)
                 {
+                    ForgotPass fp = new ForgotPass();
                     lblErrorCredentials.Visible = false;
 
                     // Update the currentUser properties with the logged-in user's details
